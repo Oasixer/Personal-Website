@@ -18,41 +18,41 @@
 
   let allSections = [
   {
-    name: 'WorkExperience',
-    component: WorkExperience,
-    order: {$orders}.WORKEXPERIENCE,
-    group: 'main',
-  },
-  {
-    name: 'SideProjects',
-    component: SideProjects,
-    order: {$orders}.SIDEPROJECTS,
-    group: 'main',
-  },
-  {
     name: 'Skills',
     component: Skills,
     order: {$orders}.SKILLS,
     group: 'other',
   },
   {
+    name: 'WorkExperience',
+    component: WorkExperience,
+    order: {$orders}.WORKEXPERIENCE,
+    group: 'main',
+  },
+  /* { */
+    /* name: 'SideProjects', */
+    /* component: SideProjects, */
+    /* order: {$orders}.SIDEPROJECTS, */
+    /* group: 'main', */
+  /* }, */
+  {
     name: 'Education',
     component: Education,
     order: {$orders}.EDUCATION,
     group: 'other',
   },
-  {
-    name: 'Awards',
-    component: Awards,
-    order: {$orders}.AWARDS,
-    group: 'other',
-  },
-  {
-    name: 'Interests',
-    component: Interests,
-    order: {$orders}.INTERESTS,
-    group: 'other',
-  }
+  /* { */
+    /* name: 'Awards', */
+    /* component: Awards, */
+    /* order: {$orders}.AWARDS, */
+    /* group: 'other', */
+  /* }, */
+  /* { */
+    /* name: 'Interests', */
+    /* component: Interests, */
+    /* order: {$orders}.INTERESTS, */
+    /* group: 'other', */
+  /* } */
   ];
 
   $: singleCol = allSections.sort((a, b) => {

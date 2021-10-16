@@ -4,9 +4,8 @@
     return items;
   };
   export let mobile;
+  import { skills_content_bottom_margin } from '../utils/settings.js';
 
-  $: console.log(items);
-  
   export const setContentSettings = (itemSettings) => {
     items.forEach(function (item) {
       let s = itemSettings.find(i => i.title == item.title);
@@ -56,6 +55,49 @@
 
   let items = [
     {
+      title: 'Languages',
+      tags: [{title: TagNames.PYTHON, order: 2, force_hide: false, use_index: true},
+        {title: TagNames.JS, order: 4, force_hide: false, use_index: true},
+        {title: TagNames.KOTLIN, order: 6, force_hide: false, use_index: true},
+        {title: TagNames.JAVA, order: 8, force_hide: false, use_index: true},
+        {title: TagNames.GOLANG, order: 10, force_hide: false, use_index: true},
+        {title: TagNames.CPP, order: 12, force_hide: false, use_index: true},
+        {title: TagNames.C, order: 14, force_hide: false, use_index: true},
+        {title: TagNames.HTML, order: 15, force_hide: false, use_index: true},
+        {title: TagNames.CSS, order: 16, force_hide: false, use_index: true},
+        {title: TagNames.BASH, order: 18, force_hide: false, use_index: true},
+        {title: TagNames.ASSEMBLY, order: 20, force_hide: false, use_index: true},
+        {title: TagNames.VIMSCRIPT, order: 20, force_hide: true, use_index: true},
+        {title: TagNames.AWK, order: 22, force_hide: true, use_index: true},
+        {title: TagNames.MATLAB, order: 24, force_hide: false, use_index: true},
+      ],
+      show_controls: false,
+      show_tag_controls: false,
+      force_hide: false,
+      order: 2
+    },
+    {
+      title: 'Tools & Frameworks',
+      tags: [
+        {title: TagNames.FLASK, order: 0, force_hide: false, use_index: true},
+        {title: TagNames.NODEJS, order: 2, force_hide: false, use_index: true},
+        {title: TagNames.SPRING, order: 4, force_hide: false, use_index: true},
+        {title: TagNames.KUBERNETES, order: 5, force_hide: false, use_index: true},
+        {title: TagNames.AWS, order: 7, force_hide: false, use_index: true},
+        {title: TagNames.GCLOUD, order: 10, force_hide: false, use_index: true},
+        {title: TagNames.GRAPHQL, order: 12, force_hide: false, use_index: true},
+        {title: TagNames.POSTGRESQL, order: 14, force_hide: false, use_index: true},
+        {title: TagNames.MYSQL, order: 20, force_hide: false, use_index: true},
+        {title: TagNames.DOCKER, order: 12, force_hide: false, use_index: true},
+        {title: TagNames.ROS, order: 22, force_hide: false, use_index: true},
+        {title: TagNames.SVELTE, order: 23, force_hide: false, use_index: true},
+      ],
+      show_controls: false,
+      show_tag_controls: false,
+      force_hide: false,
+      order: 2
+    },
+{
       title: 'Backend / Database',
       tags: [{title: TagNames.FLASK, order: 0, force_hide: false, use_index: true},
         {title: TagNames.GOLANG, order: 1, force_hide: false, use_index: true},
@@ -76,7 +118,7 @@
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: false,
+      force_hide: true,
       order: 0
     },
     {
@@ -91,13 +133,10 @@
         {title: TagNames.PYQT, order: 16, force_hide: false, use_index: true},
         {title: TagNames.SELENIUM, order: 18, force_hide: false, use_index: true},
         {title: TagNames.APPENGINE, order: 19, force_hide: false, use_index: true},
-        {title: TagNames.LATEX, order: 20, force_hide: false, use_index: true},
-        {title: TagNames.FRONTEND, order: 22, force_hide: true, use_index: true},
-        {title: TagNames.UI, order: 24, force_hide: true, use_index: true}
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: false,
+      force_hide: true,
       order: 2
     },
     {
@@ -118,7 +157,7 @@
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: false,
+      force_hide: true,
       order: 4
     },
     /* { */
@@ -160,7 +199,7 @@
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: false,
+      force_hide: true,
       order: 7
     },
     {
@@ -178,7 +217,7 @@
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: false,
+      force_hide: true,
       order: 8
     },
     {
@@ -191,7 +230,7 @@
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: false,
+      force_hide: true,
       order: 10
     },
     {
@@ -414,7 +453,7 @@
         on:click={()=>{toggle_tags_controls(item)}}
         class:darktheme={embedded}
         style=
-          "{'margin-bottom: '+((n == items.length -1) ? '0' : '15px')+';'+
+        "{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+"px")+';'+
           ((!embedded)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1;">
         {item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
       </p>

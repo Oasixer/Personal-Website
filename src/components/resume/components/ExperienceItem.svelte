@@ -134,8 +134,8 @@
 
   .position{
     margin: 0;
-    color: #808080;
-    font-size: 11px;
+    color: #606060;
+    font-size: 12px;
     font-family: "roboto", "helvetica", sans-serif;
     text-transform: uppercase;
     /* font-variant: small-caps; */
@@ -143,6 +143,10 @@
 
   .position.darktheme{
     font-size: 17px;
+  }
+
+  .position:not(.darktheme){
+    transform: translateY(2px);
   }
   .position.darktheme.mobile{
     font-size: 13px;
@@ -155,6 +159,10 @@
     font-weight: 400;
     color: grey;
     font-style: italic;
+  }
+  
+  .date:not(.darktheme){
+    transform: translateY(-2px);
   }
 
   .date.darktheme{

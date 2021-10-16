@@ -15,12 +15,17 @@
     disable_categorical_tags,
     top_align_sections,
     education_awards_interests_font_size,
+    section_content_top_margin,
+    show_section_header_line,
     experience_content_font_size,
+    skills_content_bottom_margin,
     skills_headings_font_size,
     skills_content_font_size,
     section_headings_font_size,
     top_name_top_margin,
     top_name_bottom_margin,
+    top_header_bottom_margin,
+    section_bottom_margin,
     top_name_font_size,
     force_display_skills_ignore_tags,
     TagNames,
@@ -93,7 +98,11 @@
     {
       name: 'Show line at 11in (bottom of page height limit)',
       store: show_11in_line
-    }
+    },
+    {
+      name: 'Show section heading line',
+      store: show_section_header_line
+    },
   ].sort((a,b)=>a.name<b.name?-1:1);
 
   $: ints = [
@@ -116,6 +125,22 @@
     {
       name: 'Section headings font size',
       store: section_headings_font_size
+    },
+    {
+      name: 'Section content top margin',
+      store: section_content_top_margin
+    },
+    {
+      name: 'Section bottom margin',
+      store: section_bottom_margin
+    },
+    {
+      name: 'Skills content bottom margin',
+      store: skills_content_bottom_margin
+    },
+    {
+      name: 'Top header bottom margin',
+      store: top_header_bottom_margin
     },
     {
       name: 'Top name font size (in em)',

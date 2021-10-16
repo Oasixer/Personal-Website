@@ -7,7 +7,7 @@
   let portElement;
   export let mobile;
 
-  $: console.log(displayedItem);
+  /* $: console.log(displayedItem); */
 
   export let bg_color;
   export let height=undefined;

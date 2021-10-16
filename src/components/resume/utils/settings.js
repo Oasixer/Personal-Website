@@ -24,6 +24,7 @@ export let TagNames = {
   DATA_VISUALIZATION: 'Data Visualization',
   SQL: 'SQL',
   POSTGRESQL: 'PostgreSQL',
+  MYSQL: 'MySQL',
   ORACLEDB: 'OracleDB',
   SCSS: 'SASS/SCSS',
   CSS: 'CSS',
@@ -50,7 +51,7 @@ export let TagNames = {
   D3: "D3.js",
   DYNAMODB: 'Amazon DynamoDB',
   JQUERY: 'JQuery',
-  GCLOUD: 'Google Cloud',
+  GCLOUD: 'GCP',
   APPENGINE: 'AppEngine',
   CLOUD_RUN: 'Cloud Run',
   COMPUTE_ENGINE: 'Compute Engine',
@@ -76,7 +77,7 @@ export let TagNames = {
 	JWT: 'JWT',
 	JAVA: 'Java',
 	SPRING: 'Spring',
-	SPRING: 'Kafka',
+	KAFKA: 'Kafka',
 	AWK: 'Awk'
 }
 
@@ -111,7 +112,7 @@ export const show_project_dates = writable(false);
 export const limit_resume_height = writable(false);
 
 export const swap_columns = writable(false);
-export const single_column = writable(false);
+export const single_column = writable(true);
 
 export const force_use_all_employment = writable(true);
 export const show_tags_under_experience = writable(true);
@@ -131,13 +132,18 @@ export const education_awards_interests_font_size = writable("14");
 export const experience_content_font_size = writable("14");
 export const skills_headings_font_size = writable("15");
 export const skills_content_font_size = writable("15");
-export const section_headings_font_size = writable("25");
+export const skills_content_bottom_margin = writable("6");
+export const section_content_top_margin = writable("0");
+export const section_bottom_margin = writable("6");
+export const show_section_header_line = writable(false);
+export const section_headings_font_size = writable("20");
 export const top_name_font_size = writable("2.6");
 
 export const force_display_skills_ignore_tags = writable(false);
 
-export const top_name_top_margin = writable("20");
-export const top_name_bottom_margin = writable("10");
+export const top_name_top_margin = writable("10");
+export const top_name_bottom_margin = writable("4");
+export const top_header_bottom_margin = writable("5");
 
 export const disable_settings_button = writable(true); // for printing / exporting to pdf
 

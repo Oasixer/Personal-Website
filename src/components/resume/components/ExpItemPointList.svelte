@@ -32,7 +32,7 @@
   }
   
   li:not(.darktheme){
-    line-height: 1;
+    line-height: 1.15;
   }
 
 

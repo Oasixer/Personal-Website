@@ -4,7 +4,7 @@
   export let show_list_controls = false;
   export let force_hide;
   export let embedded=false;
-  import { section_headings_font_size } from '../utils/settings.js';
+  import { section_headings_font_size, section_content_top_margin, show_section_header_line, section_bottom_margin } from '../utils/settings.js';
 
   function enable_controls(){
     show_section_controls=true;
@@ -20,7 +20,6 @@
 
   div.section-main{
     margin: 0;
-    margin-bottom: 10px;
   }
   
   div.section-content{
@@ -46,13 +45,15 @@
 </style>
 
 {#if !force_hide}
-<div class='section-main'>
+  <div class='section-main' style="margin-bottom: {$section_bottom_margin}px">
   {#if !embedded}
-  <h1 style="font-size: {$section_headings_font_size}px;"
-      on:click={enable_controls}>{header}</h1>
-  <hr>
+    <h1 style="font-size: {$section_headings_font_size}px;"
+        on:click={enable_controls}>{header}</h1>
+    {#if $show_section_header_line}
+      <hr>
+    {/if}
   {/if}
-  <div class='section-content'>
+  <div class='section-content' style="margin-top: {$section_content_top_margin}px">
     <slot></slot>
   </div>
 </div>

@@ -83,6 +83,12 @@
         use_index: true
       },
       {
+        title: TagNames.SPRING,
+        order: 3,
+        force_hide: false,
+        use_index: true
+      },
+      {
         title: TagNames.ROS,
         order: 4,
         force_hide: false,
