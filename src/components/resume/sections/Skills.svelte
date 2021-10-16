@@ -191,7 +191,7 @@
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: true,
+      force_hide: false,
       order: 10
     },
     {

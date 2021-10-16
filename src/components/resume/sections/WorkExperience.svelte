@@ -45,7 +45,73 @@
     items = [...items];
   };
 
-  let items = [{
+		let items = [{
+    title: 'Trexo Robotics',
+    location: 'Toronto',
+    position: 'Backend Engineer',
+    date: 'Sep-Dec 2021',
+			points: [{
+        title: 'Improved security, performance and maintainability by replacing legacy NodeJS server with Kotlin (Spring) implementation',
+        order: 1,
+        force_hide: false
+      },
+			{
+        title: "Meshed highly performant native code (C++) with Kotlin server using the Java Native Interface",
+        order: 2,
+        force_hide: false
+      },
+      {
+        title: 'Improve data throughputs on Kotlin android app by adding websocket communication',
+        order: 4,
+        force_hide: false
+      },
+      {
+        title: 'Designed and built a Kafka message pub/sub to achieve comprehensive logging, tracking, and profiling of robot activity and faults',
+        order: 6,
+        force_hide: false
+      }],
+			tags: [{
+        title: TagNames.KOTLIN,
+        order: 0,
+        force_hide: false,
+        use_index: true
+      },
+      {
+        title: TagNames.JAVA,
+        order: 2,
+        force_hide: false,
+        use_index: true
+      },
+      {
+        title: TagNames.ROS,
+        order: 4,
+        force_hide: false,
+        use_index: true
+      },
+      {
+        title: TagNames.AWS,
+        order: 6,
+        force_hide: false,
+        use_index: true
+      },
+      {
+        title: TagNames.CPP,
+        order: 6,
+        force_hide: false,
+        use_index: true
+      },
+      {
+        title: TagNames.KAFKA,
+        order: 8,
+        force_hide: false,
+        use_index: true
+			}],
+    force_hide: false,
+    order: 2
+  },
+
+				
+				{
     title: 'Pronti Inc.',
     location: 'Waterloo',
     position: 'Backend/Infrastructure Engineer',

@@ -74,6 +74,9 @@ export let TagNames = {
 	TYPESCRIPT: 'Typescript',
 	MATLAB: 'MATLAB',
 	JWT: 'JWT',
+	JAVA: 'Java',
+	SPRING: 'Spring',
+	SPRING: 'Kafka',
 	AWK: 'Awk'
 }
 
