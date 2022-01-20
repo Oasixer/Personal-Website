@@ -7,6 +7,7 @@
     force_use_all_employment,
     swap_columns,
     single_column,
+    compact_exp_info,
     tags,
     orders,
     display_mode,
@@ -47,6 +48,10 @@
 
 
   $: bools = [
+    {
+      name: 'Oneline experience/position info',
+      store: compact_exp_info
+    },
     {
       name: 'Show project locations',
       store: show_project_locations

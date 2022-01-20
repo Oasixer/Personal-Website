@@ -56,20 +56,27 @@
         force_hide: false
       },
 			{
-        title: "Meshed highly performant native code (C++) with Kotlin server using the Java Native Interface",
+        title: "Wrote C++ ROS (Robot Operating System) code and meshed it with the Spring (Kotlin) server using the Java Native Interface",
         order: 2,
         force_hide: false
       },
       {
-        title: 'Improve data throughputs on Kotlin android app by adding websocket communication',
+        title: 'Designed ROS communication proxy and through secure websocket in Kotlin+Spring server with custom serialization interfaces',
         order: 4,
         force_hide: false
       },
+ 
       {
-        title: 'Designed and built a Kafka message pub/sub to achieve comprehensive logging, tracking, and profiling of robot activity and faults',
+        title: 'Leveraged merkle tree data structures to create an optimized sync process between local and remote servers, allowing a local instance to maintain offline access for customers',
         order: 6,
         force_hide: false
+      },
+      {
+        title: 'Wrote an integration testing framework in bash to orchestrate a robust series of tests of the bidirectional sync process between seperate server instances',
+        order: 7,
+        force_hide: false
       }],
+
 			tags: [{
         title: TagNames.KOTLIN,
         order: 0,
@@ -105,13 +112,8 @@
         order: 6,
         force_hide: false,
         use_index: true
-      },
-      {
-        title: TagNames.KAFKA,
-        order: 8,
-        force_hide: false,
-        use_index: true
-			}],
+      }
+      ],
     force_hide: false,
     order: 2
   },

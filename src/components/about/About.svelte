@@ -6,8 +6,7 @@
   export let mobile;
 
   let aboutElement;
-  let text=`I'm a 3A Mechatronics Engineering student at University of Waterloo. I love to design algorithms that solve difficult tasks, and I live for the satisfaction of closing a hundred chrome tabs when the test cases finally pass. I have no idea where I see myself in 10 years other than the fact that I want to learn as much software as possible. I also love robotics, the spark that first got me into engineering. 
-I was a competitive climber from age 10-18, and I love all kinds of rock climbing, especially outdoor bouldering.`
+  let text=`I'm a 3B Mechatronics Engineering student at University of Waterloo. I love to design algorithms that solve difficult tasks, and I live for the satisfaction of closing a hundred chrome tabs when the test cases finally pass. I was a competitive climber from age 10-18, and I love all kinds of rock climbing, especially outdoor bouldering.`
   
   import { onMount } from 'svelte';
   onMount(async => {

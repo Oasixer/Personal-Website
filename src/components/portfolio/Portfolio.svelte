@@ -16,6 +16,15 @@
   let clickingPrev=false;
 
   let items=[
+    /* { */
+      /* title: 'GibJob (side project)', */
+      /* img: 'gibjob.png', */
+      /* text: 'Visualisation dashboard for UW Rocketry to display live sensor data. Developed data transfer protocol for realtime transmission of rocket sensor data. Improved analysis capabilities by creating data visualizations with D3.js graphs encapsulated as Python Plotly Dash components', */
+      /* link: { */
+        /* text: 'View on github', */
+        /* address: 'https://github.com/waterloo-rocketry/rlcs-daq-plotting' */
+      /* } */
+    /* }, */
     {
       title: 'Live Rocket Data Visualiser',
       img: 'plotly.png',

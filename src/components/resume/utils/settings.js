@@ -140,6 +140,7 @@ export const section_headings_font_size = writable("20");
 export const top_name_font_size = writable("2.6");
 
 export const force_display_skills_ignore_tags = writable(false);
+export const compact_exp_info = writable(false);
 
 export const top_name_top_margin = writable("10");
 export const top_name_bottom_margin = writable("4");

@@ -20,6 +20,7 @@
     show_tags_under_experience,
     disable_categorical_tags,
     experience_content_font_size,
+    compact_exp_info,
     TagCategoryNames
   } from '../utils/settings.js';
 
@@ -95,6 +96,13 @@
   }
 
   .title{
+    margin: 0;
+    /* font-size: 15px; */
+    /* font-style: bold; */
+    font: 900 15px roboto, sans-serif;
+  }
+  
+  .onelineTitle{
     margin: 0;
     /* font-size: 15px; */
     /* font-style: bold; */
@@ -193,25 +201,35 @@
 
 {#if !item.force_hide}
 <div class:darktheme={embedded} class:mobile class="experience-item-main">
-  <div class="row">
-    <h1 class='title' class:mobile class:darktheme={embedded} on:click={() => {enable_section_controls = true}}>{item.title}</h1>
-    {#if (work || $show_project_locations) && (item.location != undefined)}
-      <h1 class="location" class:mobile class:darktheme={embedded}>{item.location}</h1>
-    {/if}
-  </div>
+  {#if !compact_exp_info || embedded}
+    <div class="row">
+      {#if !compact_exp_info || embedded}
+        <h1 class='title' class:mobile class:darktheme={embedded} on:click={() => {enable_section_controls = true}}>{item.title}</h1>
+      {/if}
+      {#if (work || $show_project_locations) && (item.location != undefined)}
+        <h1 class="location" class:mobile class:darktheme={embedded}>{item.location}</h1>
+      {/if}
+    </div>
+  {:else if compact_exp_info && !embedded}
+    <div class="row">
+      <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1>
+      <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1>
+    </div>
+  {/if}
 
   {#if enable_section_controls && !embedded}
     <ListControls on:close={refreshCloseSectionControls} single={true} bind:items={itemContainer}/>
   {/if}
-
-  <div class="row">
-    {#if (work || $show_project_positions) && (item.position != undefined)}
-      <h1 class="position" class:mobile class:darktheme={embedded}>{item.position}</h1>
-    {/if}
-    {#if (work || $show_project_dates) && (item.date != undefined)}
-      <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1>
-    {/if}
-  </div>
+  {#if !compact_exp_info || embedded}
+    <div class="row">
+      {#if (work || $show_project_positions) && (item.position != undefined)}
+        <h1 class="position" class:mobile class:darktheme={embedded}>{item.position}</h1>
+      {/if}
+      {#if (work || $show_project_dates) && (item.date != undefined)}
+        <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1>
+      {/if}
+    </div>
+  {/if}
 
   {#if enable_exp_item_point_list_controls && !embedded}
     <ListControls bind:items={item.points} on:close={refreshClosePointList} title='ExpItem Point List Controls'/>

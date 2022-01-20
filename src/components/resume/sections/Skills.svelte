@@ -421,7 +421,7 @@
   }
 
   p{
-    margin: 0;
+    margin: 0 0 0 10px;
     font-weight: 300;
     color: #222222;
     /*font-size: 15px;*/ /* 15px set by store instead of hardcoded */
@@ -439,6 +439,7 @@
   {#if show_list_controls && !embedded}
     <ListControls bind:items on:close={()=>{show_list_controls=false;}}/>
   {/if}
+  <div style="{embedded?'':'margin: 0 0 0 10px'}">
   {#each items.concat().sort((a, b) => a.order - b.order) as item, n}
     {#if should_display_pointlist(item, $tags)}
       <h1 class="skills-section-title" class:darktheme={embedded} class:mobile
@@ -462,4 +463,5 @@
       {/if}
     {/if}
   {/each}
+  </div>
 </Section>
