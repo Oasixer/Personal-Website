@@ -27,9 +27,11 @@ export let TagNames = {
   MYSQL: 'MySQL',
   ORACLEDB: 'OracleDB',
   SCSS: 'SASS/SCSS',
+  CSS_SLASH_SCSS: 'HTML+CSS',
+  REGEX: 'Regex',
   CSS: 'CSS',
   HTML: 'HTML',
-  JS: 'Javascript',
+  JS: 'JS',
   PYQT: 'PyQT',
   SELENIUM: 'Selenium',
   PANDAS: 'Pandas',
@@ -43,6 +45,7 @@ export let TagNames = {
   KOTLIN: 'Kotlin',
   LATEX: 'Latex',
   BASH: "Bash",
+  ZSH: "Zsh",
   GIT: "Git",
   AWS: "AWS",
   C: "C",
@@ -56,7 +59,9 @@ export let TagNames = {
   CLOUD_RUN: 'Cloud Run',
   COMPUTE_ENGINE: 'Compute Engine',
   CLOUD_SQL: 'Cloud SQL',
-  NODEJS: 'NodeJS',
+  PROTOBUF: 'Protobuf',
+  LUA: 'Lua',
+  EXPRESSJS: 'ExpressJS',
   EMBEDDED: 'Embedded',
   SEQUELIZE: 'Sequelize',
   MONGODB: 'MongoDB',
@@ -64,19 +69,27 @@ export let TagNames = {
   VIM: 'Vim',
   ARCH: 'Arch',
   UBUNTU: 'Ubuntu',
+  LINUX: 'Linux',
   DEBIAN: 'Debian',
   WSL: 'Windows Subsystem for Linux',
   GRAPHQL: 'GraphQL',
   GRAFANA: 'Grafana',
+  PROFICIENT: 'Proficient:',
+  FAMILIAR: 'Familiar:',
+  MEME: 'Meme:',
   SWAGGER: 'Swagger',
-  ASSEMBLY: 'Assembly',
-  GOLANG: 'Go',
+  ASSEMBLY: 'x86',
+  GOLANG: 'Golang',
 	KUBERNETES: 'Kubernetes',
+	TCPIP: 'TCP/IP',
 	TYPESCRIPT: 'Typescript',
 	MATLAB: 'MATLAB',
 	JWT: 'JWT',
 	JAVA: 'Java',
-	SPRING: 'Spring',
+	NGINX: 'Nginx',
+	SPRING: 'Spring Boot',
+	REDIS: 'Redis',
+	REST: 'REST',
 	KAFKA: 'Kafka',
 	AWK: 'Awk'
 }
@@ -115,7 +128,7 @@ export const swap_columns = writable(false);
 export const single_column = writable(true);
 
 export const force_use_all_employment = writable(true);
-export const show_tags_under_experience = writable(true);
+export const show_tags_under_experience = writable(false);
 export const disable_categorical_tags = writable(true);
 
 export const alternate_skills_display_mode = writable(false);
@@ -132,19 +145,19 @@ export const education_awards_interests_font_size = writable("14");
 export const experience_content_font_size = writable("14");
 export const skills_headings_font_size = writable("15");
 export const skills_content_font_size = writable("15");
-export const skills_content_bottom_margin = writable("6");
+export const skills_content_bottom_margin = writable("7");
 export const section_content_top_margin = writable("0");
-export const section_bottom_margin = writable("6");
+export const section_bottom_margin = writable("10");
 export const show_section_header_line = writable(false);
 export const section_headings_font_size = writable("20");
-export const top_name_font_size = writable("2.6");
+export const top_name_font_size = writable("3");
 
 export const force_display_skills_ignore_tags = writable(false);
 export const compact_exp_info = writable(false);
 
 export const top_name_top_margin = writable("10");
-export const top_name_bottom_margin = writable("4");
-export const top_header_bottom_margin = writable("5");
+export const top_name_bottom_margin = writable("15");
+export const top_header_bottom_margin = writable("7");
 
 export const disable_settings_button = writable(true); // for printing / exporting to pdf
 

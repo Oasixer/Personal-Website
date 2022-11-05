@@ -37,7 +37,7 @@
     {
       title: 'Backr Inc. Webapp and Analytics',
       img: 'backr.png',
-      text: 'Developed NodeJS backend, and some components for the React+Redux webapp. Led the design and development of Flask server that handles data ingestion and analytics for customers. Designed main postgres db and schema which was implemented with SQLAlchemy in Python',
+      text: 'Developed ExpressJS backend, and some components for the React+Redux webapp. Led the design and development of Flask server that handles data ingestion and analytics for customers. Designed main postgres db and schema which was implemented with SQLAlchemy in Python',
       link: {
         text: 'Go to website',
         address: 'https://backr.space/'

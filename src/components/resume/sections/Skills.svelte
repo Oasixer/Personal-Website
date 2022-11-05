@@ -13,6 +13,7 @@
         for (const property in s) {
           console.log(`${property}: ${s[property]}`);
           if (property === 'tags'){
+						return;
             s.tags.forEach(function (tag) {
               let tagSettings = s.tags.find(i => i.title == tag.title);
               if (tagSettings){
@@ -56,20 +57,29 @@
   let items = [
     {
       title: 'Languages',
-      tags: [{title: TagNames.PYTHON, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.JS, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.KOTLIN, order: 6, force_hide: false, use_index: true},
-        {title: TagNames.JAVA, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.GOLANG, order: 10, force_hide: false, use_index: true},
-        {title: TagNames.CPP, order: 12, force_hide: false, use_index: true},
-        {title: TagNames.C, order: 14, force_hide: false, use_index: true},
-        {title: TagNames.HTML, order: 15, force_hide: false, use_index: true},
-        {title: TagNames.CSS, order: 16, force_hide: false, use_index: true},
-        {title: TagNames.BASH, order: 18, force_hide: false, use_index: true},
-        {title: TagNames.ASSEMBLY, order: 20, force_hide: false, use_index: true},
-        {title: TagNames.VIMSCRIPT, order: 20, force_hide: true, use_index: true},
-        {title: TagNames.AWK, order: 22, force_hide: true, use_index: true},
-        {title: TagNames.MATLAB, order: 24, force_hide: false, use_index: true},
+      tags: [
+        [
+          {title: TagNames.PYTHON, order: 1, force_hide: false, use_index: true},
+          {title: TagNames.JS, order: 2, force_hide: false, use_index: true},
+          {title: TagNames.CPP, order: 3, force_hide: false, use_index: true},
+          {title: TagNames.GOLANG, order: 4, force_hide: false, use_index: true},
+          {title: TagNames.BASH, order: 5, force_hide: false, use_index: true},
+          {title: TagNames.HTML, order: 6, force_hide: false, use_index: true},
+          {title: TagNames.SQL, order: 7, force_hide: false, use_index: true},
+          {title: TagNames.REGEX, order: 8, force_hide: false, use_index: true},
+        ],
+        [
+          {title: TagNames.C, order: 12, force_hide: false, use_index: true},
+          {title: TagNames.KOTLIN, order: 13, force_hide: false, use_index: true},
+          {title: TagNames.JAVA, order: 14, force_hide: false, use_index: true},
+          {title: TagNames.CSS, order: 19, force_hide: false, use_index: true},
+          {title: TagNames.LUA, order: 28, force_hide: false, use_index: true},
+          {title: TagNames.ASSEMBLY, order: 20, force_hide: true, use_index: true},
+          {title: TagNames.VIMSCRIPT, order: 20, force_hide: true, use_index: true},
+          {title: TagNames.AWK, order: 22, force_hide: true, use_index: true},
+          {title: TagNames.MATLAB, order: 24, force_hide: false, use_index: true},
+          {title: TagNames.LATEX, order: 27, force_hide: false, use_index: true}
+        ]
       ],
       show_controls: false,
       show_tag_controls: false,
@@ -77,172 +87,39 @@
       order: 2
     },
     {
-      title: 'Tools & Frameworks',
+      title: 'Frameworks',
       tags: [
-        {title: TagNames.FLASK, order: 0, force_hide: false, use_index: true},
-        {title: TagNames.NODEJS, order: 2, force_hide: false, use_index: true},
+        {title: TagNames.FLASK, order: 1, force_hide: false, use_index: true},
+        {title: TagNames.EXPRESSJS, order: 2, force_hide: false, use_index: true},
         {title: TagNames.SPRING, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.KUBERNETES, order: 5, force_hide: false, use_index: true},
-        {title: TagNames.AWS, order: 7, force_hide: false, use_index: true},
-        {title: TagNames.GCLOUD, order: 10, force_hide: false, use_index: true},
-        {title: TagNames.GRAPHQL, order: 12, force_hide: false, use_index: true},
-        {title: TagNames.POSTGRESQL, order: 14, force_hide: false, use_index: true},
-        {title: TagNames.MYSQL, order: 20, force_hide: false, use_index: true},
-        {title: TagNames.DOCKER, order: 12, force_hide: false, use_index: true},
-        {title: TagNames.ROS, order: 22, force_hide: false, use_index: true},
         {title: TagNames.SVELTE, order: 23, force_hide: false, use_index: true},
+        {title: TagNames.REACT, order: 24, force_hide: false, use_index: true},
       ],
       show_controls: false,
       show_tag_controls: false,
       force_hide: false,
       order: 2
     },
-{
-      title: 'Backend / Database',
-      tags: [{title: TagNames.FLASK, order: 0, force_hide: false, use_index: true},
-        {title: TagNames.GOLANG, order: 1, force_hide: false, use_index: true},
-        {title: TagNames.NODEJS, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.KUBERNETES, order: 5, force_hide: false, use_index: true},
-        {title: TagNames.POSTGRESQL, order: 6, force_hide: false, use_index: true},
-        {title: TagNames.GRAPHQL, order: 7, force_hide: false, use_index: true},
-        {title: TagNames.SQLALCHEMY, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.SEQUELIZE, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.ORACLEDB, order: 12, force_hide: false, use_index: true},
-        {title: TagNames.MONGODB, order: 11, force_hide: false, use_index: true},
-        {title: TagNames.DOCKER, order: 14, force_hide: true, use_index: true},
-        {title: TagNames.DYNAMODB, order: 16, force_hide: false, use_index: true},
-        {title: TagNames.GCLOUD, order: 19, force_hide: false, use_index: true},
-        {title: TagNames.AWS, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.CLOUD_SQL, order: 20, force_hide: false, use_index: true},
-        {title: TagNames.COMPUTE_ENGINE, order: 21, force_hide: false, use_index: true}
-      ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: true,
-      order: 0
-    },
     {
-      title: 'Frontend Webdev / UI',
-      tags: [{title: TagNames.SVELTE, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.REACT,  order: 4, force_hide: false, use_index: true},
-        {title: TagNames.HTML, order: 6, force_hide: false, use_index: true},
-        {title: TagNames.SCSS, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.CSS, order: 10, force_hide: false, use_index: true},
-        {title: TagNames.JQUERY,  order: 12, force_hide: false, use_index: true},
-        {title: TagNames.QT, order: 14, force_hide: false, use_index: true},
-        {title: TagNames.PYQT, order: 16, force_hide: false, use_index: true},
-        {title: TagNames.SELENIUM, order: 18, force_hide: false, use_index: true},
-        {title: TagNames.APPENGINE, order: 19, force_hide: false, use_index: true},
-      ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: true,
-      order: 2
-    },
-    {
-      title: 'Languages',
-      tags: [{title: TagNames.PYTHON, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.GOLANG, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.JS, order: 6, force_hide: false, use_index: true},
-        {title: TagNames.TYPESCRIPT, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.CPP, order: 10, force_hide: false, use_index: true},
-        {title: TagNames.C, order: 12, force_hide: false, use_index: true},
-        {title: TagNames.JAVA, order: 13, force_hide: false, use_index: true},
-        {title: TagNames.ARDUINO, order: 17, force_hide: false, use_index: true},
-        {title: TagNames.BASH, order: 16, force_hide: false, use_index: true},
-        {title: TagNames.ASSEMBLY, order: 18, force_hide: false, use_index: true},
-        {title: TagNames.VIMSCRIPT, order: 20, force_hide: false, use_index: true},
-        {title: TagNames.AWK, order: 22, force_hide: false, use_index: true},
-        {title: TagNames.MATLAB, order: 24, force_hide: false, use_index: true},
-      ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: true,
-      order: 4
-    },
-    /* { */
-      /* title: 'Control Systems', */
-      /* tags: [{title: TagNames.ROS, order: 2, force_hide: false, use_index: true}, */
-        /* {title: "Rasperry Pi (Embedded)", order: 4, force_hide: false, use_index: true}, */
-        /* {title: "Autonomous Pathfinding", order: 6, force_hide: false, use_index: true}, */
-        /* {title: "Image Processing/Object Detection in OpenCV", order: 8, force_hide: false, use_index: true} */
-      /* ], */
-      /* show_controls: false, */
-      /* show_tag_controls: false, */
-      /* force_hide: true, */
-      /* order: 5 */
-    /* }, */
-    /* [> { <] */
-      /* title: 'Linux', */
-      /* tags: [ */
-        /* {title: TagNames.ARCH, order: 6, force_hide: false, use_index: true}, */
-        /* {title: TagNames.UBUNTU, order: 8, force_hide: false, use_index: true}, */
-        /* {title: TagNames.DEBIAN, order: 10, force_hide: false, use_index: true}, */
-        /* {title: TagNames.WSL, order: 12, force_hide: false, use_index: true}, */
-        /* {title: "Rasperry Pi", order: 14, force_hide: false, use_index: true} */
-      /* ], */
-      /* show_controls: false, */
-      /* show_tag_controls: false, */
-      /* force_hide: true, */
-      /* order: 6 */
-    /* }, */
-    {
-      title: 'Environment/Tools',
+      title: 'Technologies',
       tags: [
-        {title: "Linux (Arch, Debian, Ubuntu)", order: 2, force_hide: false, use_index: true},
-        {title: "vim", order: 4, force_hide: false, use_index: true},
-        {title: "regex", order: 3, force_hide: false, use_index: true},
-        {title: TagNames.DOCKER, order: 6, force_hide: false, use_index: true},
-        {title: "GNU Make", order: 7, force_hide: false, use_index: true},
-        {title: "CMake", order: 8, force_hide: false, use_index: true},
-        {title: TagNames.WSL, order: 10, force_hide: false, use_index: true}
+        {title: TagNames.LINUX, order: 1, force_hide: false, use_index: true},
+        {title: TagNames.DOCKER, order: 2, force_hide: false, use_index: true},
+        {title: TagNames.KUBERNETES, order: 4, force_hide: false, use_index: true},
+        {title: TagNames.REDIS, order: 23, force_hide: false, use_index: true},
+        {title: TagNames.PROTOBUF, order: 24, force_hide: false, use_index: true},
+        {title: TagNames.JWT, order: 25, force_hide: false, use_index: true},
+        {title: TagNames.TCPIP, order: 27, force_hide: false, use_index: true},
+        {title: TagNames.REST, order: 28, force_hide: false, use_index: true},
+        {title: TagNames.OPENCV, order: 29, force_hide: false, use_index: true},
+        {title: TagNames.NGINX, order: 27, force_hide: false, use_index: true},
+        {title: TagNames.QT, order: 27, force_hide: false, use_index: true},
+        {title: TagNames.GRAPHQL, order: 27, force_hide: false, use_index: true},
       ],
       show_controls: false,
       show_tag_controls: false,
-      force_hide: true,
-      order: 7
-    },
-    {
-      title: 'Data Analysis / Visualization',
-      tags: [{title: TagNames.SPACY, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.NLTK, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.D3, order: 6, force_hide: false, use_index: true},
-        {title: TagNames.PLOTLY, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.MATPLOTLIB, order: 10, force_hide: false, use_index: true},
-        {title: TagNames.PANDAS, order: 12, force_hide: false, use_index: true},
-        {title: TagNames.DATA_ANALYSIS, order: 14, force_hide: true, use_index: true},
-        {title: TagNames.DATA_VISUALIZATION, order: 16, force_hide: true, use_index: true},
-        {title: TagNames.NLP, order: 18, force_hide: true, use_index: true},
-        {title: TagNames.MATLAB, order: 15, force_hide: false, use_index: true}
-      ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: true,
-      order: 8
-    },
-    {
-      title: 'Electrical',
-      tags: [{title: TagNames.PCB, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.PLC, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.SOLDERING, order: 6, force_hide: false, use_index: true},
-        {title: TagNames.WIRING, order: 8, force_hide: false, use_index: true},
-        {title: TagNames.CIRCUITS, order: 10, force_hide: false, use_index: true}
-      ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: true,
-      order: 10
-    },
-    {
-      title: 'Coursework',
-      tags: [{title: 'Data Structures and Algorithms', order: 4, force_hide: false, use_index: false},
-        { title: 'Real Time Operating Systems', order: 0, force_hide: false, use_index: false},
-        { title: 'Microprocessors', order: 4, force_hide: false, use_index: false},
-        { title: 'Digital Computation', order: 3, force_hide: false, use_index: false}],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: true,
-      order: 12
+      force_hide: false,
+      order: 3
     }
   ];
 
@@ -266,6 +143,7 @@
   }
 
   function should_display_pointlist(pointList){
+		return true;
     // Returns boolean depending on whether this point list should be displayed.
     // which depends on if the tags are relevant to the loaded tags, and any other overriding settings like
     // disable_coursework_skills
@@ -456,8 +334,17 @@
         style=
         "{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+"px")+';'+
           ((!embedded)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1;">
-        {item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-      </p>
+          {#if Array.isArray(item.tags[0])}
+						<i>Proficient: </i>
+						{item.tags[0].filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i>
+						{item.tags[1].filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
+					{:else}
+						{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
+					{/if}
+        </p>
+        <!--{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
+        </p>-->
       {#if item.show_tag_controls && !embedded}
         <ListControls title='Tag Controls' bind:items={item.tags} on:close={()=>{item.show_tag_controls=false}}/>
       {/if}

@@ -6,7 +6,12 @@
   export let mobile;
 
   let aboutElement;
-  let text=`I'm a 3B Mechatronics Engineering student at University of Waterloo. I love to design algorithms that solve difficult tasks, and I live for the satisfaction of closing a hundred chrome tabs when the test cases finally pass. I was a competitive climber from age 10-18, and I love all kinds of rock climbing, especially outdoor bouldering.`
+  /* let text=`I'm a fourth year Mechatronics Engineering student at the University of Waterloo. I'm currently looking for full time opportunities, now that I've finished my 6 internships. I love to design algorithms that solve difficult tasks, and I live for the satisfaction of closing a hundred chrome tabs when the test cases finally pass. I was a competitive climber from age 10-18, and I love all kinds of rock climbing, especially outdoor bouldering.` */
+
+  /* - i like to keep up with the latest tech, languages, etc */
+  /* - I like to automate anything that can be automated (and some things that probably shouldn't be automated) so I can focus */
+  /* - 3d printing? */
+  let text=`I am Kaelan (aka Kale), a fourth year Mechatronics Engineering (Mechanical + Software + Electrical) student at the University of Waterloo, Canada. I've loved my 6 SWE internships and am currently looking for fulltime opportunities for 2023.`
   
   import { onMount } from 'svelte';
   onMount(async => {

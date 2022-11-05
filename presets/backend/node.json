@@ -45,7 +45,7 @@
             "force_hide": false
           },
           {
-            "title": "Developed fullstack webapp using NodeJS + ReactJS stack",
+            "title": "Developed fullstack webapp using ExpressJS + ReactJS stack",
             "order": 6,
             "force_hide": false
           },
@@ -99,7 +99,7 @@
             "use_index": true
           },
           {
-            "title": "NodeJS",
+            "title": "ExpressJS",
             "order": -4,
             "force_hide": false,
             "use_index": true
@@ -747,7 +747,7 @@
             "use_index": true
           },
           {
-            "title": "NodeJS",
+            "title": "ExpressJS",
             "order": -2,
             "force_hide": false,
             "use_index": true

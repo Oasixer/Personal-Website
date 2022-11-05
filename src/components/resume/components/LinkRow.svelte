@@ -1,4 +1,4 @@
-<script>
+<script>;
   import Fa from 'svelte-fa';
   import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
   import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
@@ -62,10 +62,10 @@
 
 <div id="link-row" class:darktheme={embedded}>
   {#if !embedded}
-    <a class:darktheme={embedded} href='https://kaelan.xyz'>
+    <!--<a class:darktheme={embedded} href='https://kaelan.xyz'>
     <p>www.kaelan.xyz</p>
-  </a>
-  <div class="v-line"></div>
+    </a>
+    <div class="v-line"></div>-->
   {/if}
   <a class:darktheme={embedded} href='http://github.com/oasixer'>
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faGithub}/></p>
