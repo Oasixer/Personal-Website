@@ -6,11 +6,14 @@
   import { onMount, createEventDispatcher } from 'svelte';
 
   let src_climb = './images/climb.jpg';
+  let src_tobermory = './images/tobermory_climb.jpg';
+  let src_seattle = './images/seattle.jpg';
   let src_frc = './images/frc.jpg';
   let src_windsurf = './images/windsurf.jpg';
   let src_icesurf = './images/icesurf.jpg';
   let src_kayak = './images/kayak.jpg';
   let src_new = './images/new.jpg';
+  let src_new_cropped = './images/new_cropped.jpg';
   let src_helmet = './images/helmet.jpg';
   
   let homeElement;
@@ -99,16 +102,16 @@
   {/if}
   <div class="row">
     <div class="column">
-      <img id='helmet-pic' src={src_helmet}/>
-      <img id='climb-pic' src={src_climb}/>
+      <img id='tobermory-pic' src={src_tobermory}/>
+      <img id='seattle-pic' src={src_seattle}/>
     </div>
     <div class="column">
-      <img id='new-pic' src={src_new}/>
+      <img id='new-pic' src={src_new_cropped}/>
       <img id='kayak-pic' src={src_kayak}/>
     </div>
     <div class="column">
-      <img id='frc-pic' src={src_frc}/>
-      <img id='wind-pic' src={src_windsurf}/>
+      <img id='helmet-pic' src={src_helmet}/>
+      <img id='climb-pic' src={src_climb}/>
     </div>
   </div>
 </div>

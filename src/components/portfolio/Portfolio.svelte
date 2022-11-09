@@ -16,15 +16,34 @@
   let clickingPrev=false;
 
   let items=[
-    /* { */
-      /* title: 'GibJob (side project)', */
-      /* img: 'gibjob.png', */
-      /* text: 'Visualisation dashboard for UW Rocketry to display live sensor data. Developed data transfer protocol for realtime transmission of rocket sensor data. Improved analysis capabilities by creating data visualizations with D3.js graphs encapsulated as Python Plotly Dash components', */
-      /* link: { */
-        /* text: 'View on github', */
-        /* address: 'https://github.com/waterloo-rocketry/rlcs-daq-plotting' */
-      /* } */
-    /* }, */
+    {
+      title: 'Autonomous Robot Race Winner',
+      img: '380.png',
+      text: ['1st place out of 23 teams',
+'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',
+'Made a dashboard that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
+'Used a game engine (pygame) and made all components from scratch to make it faster than the sluggish existing libraries like plotly dash that don\'t handle realtime data updates well',
+'Used protobufs in CPP, streamed them to laptop/dashboard in realtime over a TCP socket, and parsed them automatically in python to create readouts that update in realtime of all the communicated data',
+'Wrote my own plotting library with automatic rescaling and other overkill features like one click to immediately start plotting it',
+'GF fixed my sensors on comp day, thanks bb'],
+      link: {
+        text: 'View on github',
+        address: 'https://github.com/Oasixer/380-robot-sw'
+      }
+    },
+		{
+			title: 'GibJob (side project)',
+			img: 'gibjob.png',
+      text: [
+        'Webapp for resume creation that makes it easy to choose from styles, templates, layouts, and provides a convenient workflow to maintain and update it.',
+        'Developed backend in Go implementing user login, JWT auth, GraphQL, unit tests',
+        'Developed frontend in SvelteJS+Typescript+SCSS, leveraging local storage to store JWT & maintain sessions'
+      ],
+			link: {
+				text: 'View on github',
+				address: 'https://github.com/GibJob-ai/GObjob'
+			}
+		},
     {
       title: 'Live Rocket Data Visualiser',
       img: 'plotly.png',
@@ -80,14 +99,19 @@
       }
     },
     {
-      title: '3D Printer Firmware',
+      title: 'Ultra low budget 3D printer from scratch',
       img: 'printer.jpg',
-      text: 'Made a 3D printer powered by lego motors, programmed all of the firmware in RobotC',
+      text: 'Made a mini 3D printer powered by a 3d pen for under $40, programmed all of the firmware. Surprisingly, it kinda worked',
       link: {
         text: 'View on github',
         address: 'https://github.com/Oasixer/Lego-3D-Printer'
       }
     },
+		{
+			title: 'Sorting Algorithm Visualizers',
+			img: 'sorting.png',
+      text: 'Made visualizers using OpenCV of all the basic sorting algorithms by sorting arrays of pixels and rendering each iteration. Pretty fun project, would recommend for a rainy afternoon. Pictured: bubble sort: O(n^2) (ewww)',
+		},
     {
       title: 'Ri3D 2020',
       img: 'ri3d2020.jpg',
@@ -335,6 +359,16 @@ scale-down: The smaller of either contain or none. */
     width: 680px;
     max-width: 90%;
     max-height: 96vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  div.displayMain.wider{
+    width: 980px;
+  }
+
+  li{
+    margin-left: 15px;
+    margin-top: 15px;
   }
   
   /* div.displaySide{ */
@@ -389,6 +423,17 @@ scale-down: The smaller of either contain or none. */
     margin-right: auto;
     font-size: 25px;
   }
+	div.background-fade{
+		background: rgba(0,0,0,0.7);
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		overflow: auto;
+		/* background: lime; [> Just to visualize the extent <] */
+		z-index: 10;
+	}
 </style>
 
 <div id='portfolio'
@@ -418,34 +463,47 @@ scale-down: The smaller of either contain or none. */
 </div>
 
 {#if displayedItem != -1}
-    <ClickOutside on:clickoutside={closeDisplay} exclude={[]}>
-      <div class='displayItem displayMain' class:mobile>
-        {#if displayedItem>0 && !mobile}
-          <NextButton prev={true} on:click={()=>{clickingPrev=displayedItem==1?true:false; displayedItem-=1;}}/>
-        {/if}
-        <TrashIconButton on:click={closeDisplay} {mobile}/>
-        <h3 class='displayHeader' class:mobile>{items[displayedItem].title}</h3>
-        <!--  <div class='full-img-container'>  -->
-          <img
-            class='full'
-            class:mobile
-            alt='{items[displayedItem].img}'
-            id={'full-'+items[displayedItem].img.slice(0,items[displayedItem].img.length-4)}
-            src={base + items[displayedItem].img}
-            on:click={()=>{updateDisplayedItem(items[displayedItem].numFromTotal)}}/>
-            <!--  </div>  -->
-          <p class='displayText' class:mobile>{items[displayedItem].text}</p>
-          {#if items[displayedItem].link}
-            <a href="{items[displayedItem].link.address}" class:mobile
-            target="_blank">
-              {items[displayedItem].link.text}
-            </a>
-          {/if}
-        {#if displayedItem<items.length-1 && !mobile}
-          <NextButton prev={false} on:click={()=>{displayedItem+=1}}/>
-        {/if}
-      </div>
-    </ClickOutside>
+		<div class='background-fade'>
+			<ClickOutside on:clickoutside={closeDisplay} exclude={[]}>
+        <div class='displayItem displayMain {items[displayedItem].img=="380.png"?"wider":""}' class:mobile>
+					{#if displayedItem>0 && !mobile}
+						<NextButton prev={true} on:click={()=>{clickingPrev=displayedItem==1?true:false; displayedItem-=1;}}/>
+					{/if}
+					<TrashIconButton on:click={closeDisplay} {mobile}/>
+					<h3 class='displayHeader' class:mobile>{items[displayedItem].title}</h3>
+					<!--  <div class='full-img-container'>  -->
+					<!--{#if displayedItem.} -->
+						<img
+							class='full'
+							class:mobile
+							alt='{items[displayedItem].img}'
+							id={'full-'+items[displayedItem].img.slice(0,items[displayedItem].img.length-4)}
+							src={base + items[displayedItem].img}
+							on:click={()=>{updateDisplayedItem(items[displayedItem].numFromTotal)}}/>
+							<!--  </div>  -->
+						{#if Array.isArray(items[displayedItem].text)}
+							{#each items[displayedItem].text as bullet}
+								<ul>
+                  <li style='line-height: 1;'>
+                    {bullet}
+									</li>
+								</ul>
+							{/each}
+						{:else}
+							<p class='displayText' class:mobile>{items[displayedItem].text}</p>
+            {/if}
+						{#if items[displayedItem].link}
+							<a href="{items[displayedItem].link.address}" class:mobile
+							target="_blank">
+								{items[displayedItem].link.text}
+							</a>
+						{/if}
+					{#if displayedItem<items.length-1 && !mobile}
+						<NextButton prev={false} on:click={()=>{displayedItem+=1}}/>
+					{/if}
+				</div>
+			</ClickOutside>
+		</div>
 
     <!-- >{#if displayedItem<items.length-1} -->
     <!-- <NextButton prev={true} on:click={()=>{displayedItem-=1}}/> -->

@@ -11,7 +11,7 @@
   /* - i like to keep up with the latest tech, languages, etc */
   /* - I like to automate anything that can be automated (and some things that probably shouldn't be automated) so I can focus */
   /* - 3d printing? */
-  let text=`I am Kaelan (aka Kale), a fourth year Mechatronics Engineering (Mechanical + Software + Electrical) student at the University of Waterloo, Canada. I've loved my 6 SWE internships and am currently looking for fulltime opportunities for 2023.`
+  let text=`I am Kaelan, a fourth year Mechatronics Engineering (Mechanical + Software + Electrical) student at the University of Waterloo, Canada. I've loved my 6 SWE internships and am currently looking for fulltime opportunities for 2023.`
   
   import { onMount } from 'svelte';
   onMount(async => {
