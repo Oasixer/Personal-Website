@@ -74,7 +74,7 @@
   <div class="v-line"></div>
   <a class:darktheme={embedded} >
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faPhone}/></p>
-    <p>647-997-6743</p>
+    <p>647-997-6783</p>
   </a>
   <div class="v-line"></div>
   <a class:darktheme={embedded} href="mailto:ksmoffet@edu.uwaterloo.ca">
