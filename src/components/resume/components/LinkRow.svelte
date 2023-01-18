@@ -77,7 +77,7 @@
     <p>647-997-6783</p>
   </a>
   <div class="v-line"></div>
-  <a class:darktheme={embedded} href="mailto:ksmoffet@edu.uwaterloo.ca">
+  <a class:darktheme={embedded} href="mailto:ksmoffet@uwaterloo.ca">
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faEnvelopeSquare}/></p>
     <p>ksmoffet@uwaterloo.ca</p>
   </a>
