@@ -3,6 +3,10 @@
   export let work;
   export let embedded=false;
   export let mobile;
+  
+  import {
+    experience_position_bottom_margin
+  } from '../utils/settings.js';
 
   import ListControls from './ListControls.svelte';
   import ExpItemPointList from './ExpItemPointList.svelte';
@@ -62,7 +66,7 @@
 
 <style>
   .experience-item-main{
-    margin: 0 0 15px 0;
+    margin: 0 0 0 0; /* bottom margin (2nd last) will be overridden by setting. */
   }
 
   .experience-item-main.darktheme.mobile{
@@ -200,7 +204,7 @@
 </style>
 
 {#if !item.force_hide}
-<div class:darktheme={embedded} class:mobile class="experience-item-main">
+  <div class:darktheme={embedded} class:mobile class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
   {#if !compact_exp_info || embedded}
     <div class="row">
       {#if !compact_exp_info || embedded}

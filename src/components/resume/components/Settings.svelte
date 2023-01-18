@@ -31,6 +31,7 @@
     force_display_skills_ignore_tags,
     TagNames,
     limit_resume_height,
+    experience_position_bottom_margin,
     show_11in_line
   } from '../utils/settings.js';
 
@@ -138,6 +139,10 @@
     {
       name: 'Section bottom margin',
       store: section_bottom_margin
+    },
+    {
+      name: 'Experience position bottom margin',
+      store: experience_position_bottom_margin
     },
     {
       name: 'Skills content bottom margin',

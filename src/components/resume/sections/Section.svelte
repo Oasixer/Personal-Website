@@ -53,6 +53,7 @@
       <hr>
     {/if}
   {/if}
+		<!-- <div class='section-content' style="margin-top: {header==='Education'?'-20':$section_content_top_margin}px"> -->
   <div class='section-content' style="margin-top: {$section_content_top_margin}px">
     <slot></slot>
   </div>

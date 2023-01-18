@@ -64,17 +64,17 @@
   {/if}
   <div class='line-container'>
     <div class="col">
-      <div class="row">
-        <h1 class='skills-section-title' style="{'font-size: '+$skills_headings_font_size+'px;'}">University of Waterloo</h1>
-        <h1 class='skills-section-title-right' style="{'font-size: '+$skills_headings_font_size+'px;'}">Waterloo, ON</h1>
-      </div>
+      <!-- <div class="row"> -->
+      <!-- <h1 class='skills-section-title' style="{'font-size: '+$skills_headings_font_size+'px;'}">University of Waterloo</h1> -->
+      <!-- <h1 class='skills-section-title-right' style="{'font-size: '+$skills_headings_font_size+'px;'}">Waterloo, ON</h1> -->
+      <!-- </div> -->
       <div class='row'>
-        <p style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">Mechatronics Engineering BASc, Software Option</p>
+        <p style="font-size: {$education_awards_interests_font_size}px; line-height: 1;"><b>University of Waterloo</b> | Mechatronics Engineering BASc, Software Option</p>
 				<p class="align-right" style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">Sep 2018 - Exp. April 2023</p>
       </div>
 			<div class='row'>
 				<h1 class='skills-section-title' style="{'font-size: '+$skills_headings_font_size+'px; margin-right: 5px;'}">Coursework: </h1>
-				<p style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">Programming for Performance, Search Engines, Adaptive Algorithms, Datastructures and Algorithms, Microprocessors</p>
+				<p style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p>
 			</div>
     </div>
   </div>

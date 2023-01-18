@@ -23,6 +23,12 @@
     order: {$orders}.SKILLS,
     group: 'other',
   },
+  /* { */
+    /* name: 'Highlighted Project', */
+    /* component: WorkExperience, */
+    /* order: {$orders}.WORKEXPERIENCE, */
+    /* group: 'main', */
+  /* }, */
   {
     name: 'WorkExperience',
     component: WorkExperience,

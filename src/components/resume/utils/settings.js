@@ -145,19 +145,20 @@ export const education_awards_interests_font_size = writable("14");
 export const experience_content_font_size = writable("14");
 export const skills_headings_font_size = writable("15");
 export const skills_content_font_size = writable("15");
-export const skills_content_bottom_margin = writable("7");
+export const skills_content_bottom_margin = writable("3");
+export const experience_position_bottom_margin = writable("9");
 export const section_content_top_margin = writable("0");
 export const section_bottom_margin = writable("10");
 export const show_section_header_line = writable(false);
 export const section_headings_font_size = writable("20");
-export const top_name_font_size = writable("3");
 
 export const force_display_skills_ignore_tags = writable(false);
 export const compact_exp_info = writable(false);
 
-export const top_name_top_margin = writable("10");
-export const top_name_bottom_margin = writable("15");
-export const top_header_bottom_margin = writable("7");
+export const top_name_font_size = writable("2.8");
+export const top_name_top_margin = writable("0");
+export const top_name_bottom_margin = writable("0");
+export const top_header_bottom_margin = writable("7"); // appears above the linkrow
 
 export const disable_settings_button = writable(true); // for printing / exporting to pdf
 

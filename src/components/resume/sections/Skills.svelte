@@ -87,20 +87,6 @@
       order: 2
     },
     {
-      title: 'Frameworks',
-      tags: [
-        {title: TagNames.FLASK, order: 1, force_hide: false, use_index: true},
-        {title: TagNames.EXPRESSJS, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.SPRING, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.SVELTE, order: 23, force_hide: false, use_index: true},
-        {title: TagNames.REACT, order: 24, force_hide: false, use_index: true},
-      ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: false,
-      order: 2
-    },
-    {
       title: 'Technologies',
       tags: [
         {title: TagNames.LINUX, order: 1, force_hide: false, use_index: true},
@@ -120,7 +106,21 @@
       show_tag_controls: false,
       force_hide: false,
       order: 3
-    }
+    },
+    {
+      title: 'Frameworks',
+      tags: [
+        {title: TagNames.FLASK, order: 1, force_hide: false, use_index: true},
+        {title: TagNames.EXPRESSJS, order: 2, force_hide: false, use_index: true},
+        {title: TagNames.SPRING, order: 4, force_hide: false, use_index: true},
+        {title: TagNames.SVELTE, order: 23, force_hide: false, use_index: true},
+        {title: TagNames.REACT, order: 24, force_hide: false, use_index: true},
+      ],
+      show_controls: false,
+      show_tag_controls: false,
+      force_hide: false,
+      order: 4
+    },
   ];
 
   function toggle_tags_controls(i){
