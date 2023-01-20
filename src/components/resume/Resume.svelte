@@ -1,5 +1,6 @@
 <script>
   import WorkExperience from './sections/WorkExperience.svelte';
+  import HighlightedSideProject from './sections/HighlightedSideProject.svelte';
   import Skills from './sections/Skills.svelte';
   import Education from './sections/Education.svelte';
   import SideProjects from './sections/SideProjects.svelte';
@@ -23,12 +24,6 @@
     order: {$orders}.SKILLS,
     group: 'other',
   },
-  /* { */
-    /* name: 'Highlighted Project', */
-    /* component: WorkExperience, */
-    /* order: {$orders}.WORKEXPERIENCE, */
-    /* group: 'main', */
-  /* }, */
   {
     name: 'WorkExperience',
     component: WorkExperience,
@@ -41,6 +36,12 @@
     /* order: {$orders}.SIDEPROJECTS, */
     /* group: 'main', */
   /* }, */
+	{
+		name: 'HighlightedSideProject',
+		component: HighlightedSideProject,
+		order: {$orders}.HIGHLIGHTEDSIDEPROJ,
+		group: 'main',
+	},
   {
     name: 'Education',
     component: Education,

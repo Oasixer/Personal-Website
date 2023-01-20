@@ -32,7 +32,8 @@
     TagNames,
     limit_resume_height,
     experience_position_bottom_margin,
-    show_11in_line
+    show_11in_line,
+    disable_highlighted_side_project_section
   } from '../utils/settings.js';
 
   import { createEventDispatcher } from 'svelte';
@@ -96,6 +97,10 @@
     {
       name: 'Disable interests section',
       store: disable_interests_section
+    },
+    {
+      name: 'Disable highlighted sideproj section',
+      store: disable_highlighted_side_project_section
     },
     {
       name: 'Limit resume height to 11in',

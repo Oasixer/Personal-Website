@@ -112,12 +112,14 @@ let defaultOrders = {
   WORKEXPERIENCE: 2,
   SIDEPROJECTS: 4,
   SKILLS: 6,
+  HIGHLIGHTEDSIDEPROJ: 7,
   EDUCATION: 8,
   AWARDS: 10,
   INTERESTS: 12
 }
 
 export const disable_interests_section = writable(false);
+export const disable_highlighted_side_project_section = writable(false);
 export const show_project_locations = writable(true);
 export const show_project_positions = writable(false);
 export const show_project_dates = writable(false);

@@ -70,7 +70,7 @@
 					force_hide: false
 				},
 				{
-title: 'Forked Pybind (<Python> - <C++> bindings) to add custom behavior meeting the needs of Omnigraph, for garbage collection during shutdown and reload',
+          title: 'Forked Pybind (<Python> - <C++> bindings) to add garb. collection during shutdown and reload',
 					order: 1,
 					force_hide: false
 				},
