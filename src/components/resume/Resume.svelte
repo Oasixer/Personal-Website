@@ -8,7 +8,10 @@
   import Header from './components/Header.svelte';
   import Modal from './components/SettingsModal.svelte';
   import Settings from './components/Settings.svelte';
-  
+  // aaa
+  // aAs
+  // lfjjklaejfkljalksfj
+
   export let embedded=false;
   let showModal = false;
   let modal; // will be bound to modal instance

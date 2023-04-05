@@ -1,11 +1,22 @@
-<script>;
-  import Fa from 'svelte-fa';
-  import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-  import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
-  import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
-  import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons/faEnvelopeSquare';
+<script lang="ts">
+  // import Fa from 'svelte-fa';
+  import Fa from 'svelte-fa/src/fa.svelte';
+  // import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+  // import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
+  // import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
+  // import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons/faEnvelopeSquare';
 
-  export let embedded;
+// for typescript:
+// declare module '@fortawesome/pro-solid-svg-icons/index.es' {
+//   export * from '@fortawesome/pro-solid-svg-icons';
+// }
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+  // import { faGithub } from '@fortawesome/free-solid-svg-icons';
+  // import { faLinkedin } from '@fortawesome/free-solid-svg-icons';
+  import { faPhone } from '@fortawesome/free-solid-svg-icons';
+  import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
+
+  export let embedded: boolean;
   
 </script>
 

@@ -1,8 +1,8 @@
 <script>
   import { createEventDispatcher } from 'svelte';
   
-  import Icon from 'fa-svelte';
-  import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
+  import Fa from 'svelte-fa/src/fa.svelte';
+  import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
   let trashIcon = faTimesCircle;
   export let mobile;
   
@@ -41,5 +41,5 @@
 </style>
 
 <button on:click class:mobile>
-  <Icon icon={trashIcon}/>
+  <Fa icon={trashIcon}/>
 </button>

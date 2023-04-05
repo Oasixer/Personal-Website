@@ -8,14 +8,23 @@
   import ResumePage from '../components/resume/ResumePage.svelte';
   import SkillsPage from '../components/resume/SkillsPage.svelte';
   import BackToTop from '../components/components/BackToTop.svelte';
-  import Hamburger from '../components/components/Hamburger.svelte';
-  import HamburgerModal from '../components/components/HamburgerModal.svelte';
-  import MobileMenubarModal from '../components/components/MobileMenubarModal.svelte';
+  // import Hamburger from '../components/components/Hamburger.svelte';
+  // import HamburgerModal from '../components/components/HamburgerModal.svelte';
+  // import MobileMenubarModal from '../components/components/MobileMenubarModal.svelte';
 
   import { onMount } from 'svelte';
 
+  /**
+	 * @type {number}
+	 */
   let y;
+  /**
+	 * @type {number}
+	 */
   let width;
+  /**
+	 * @type {number}
+	 */
   let height;
   let curSection = 0;
   let mounted = false;
@@ -141,3 +150,26 @@
     <svelte:component this={section.component} bind:height={section.height} bg_color={getColor(section, n)} on:move={move} mobile={width<=maxMobileWidth}/>
   {/each}
   
+<!-- <script> -->
+<!--   import Dashboard from '../components/Dashboard.svelte'; -->
+<!---->
+<!-- </script> -->
+<!-- <style> -->
+<!--   :global(body){ -->
+<!--     margin: 0; -->
+<!--     padding: 0; -->
+<!--     box-sizing: border-box; -->
+<!--     min-width: 450px; -->
+<!--   } -->
+<!--   :global(*){ -->
+<!--     margin: 0; -->
+<!--     padding: 0; -->
+<!--     box-sizing: border-box; -->
+<!--   } -->
+<!--   :global(html){ -->
+<!--     scroll-behavior: smooth; -->
+<!--   } -->
+<!-- </style> -->
+<!-- <title>Pinguins</title> -->
+<!-- <Dashboard/> -->
+<!---->

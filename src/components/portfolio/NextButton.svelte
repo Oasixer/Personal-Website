@@ -2,9 +2,10 @@
   import { createEventDispatcher } from 'svelte';
   export let prev;
   
-  import Icon from 'fa-svelte';
-  import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons/faChevronCircleRight';
-  import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons/faChevronCircleLeft';
+
+  import Fa from 'svelte-fa/src/fa.svelte';
+  import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+  import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
   let nextIcon = faChevronCircleRight;
   let prevIcon = faChevronCircleLeft;
   
@@ -50,6 +51,6 @@
 
 <div style="margin: 0; padding: 0;" on:click>
   <button class:next={!prev} class:prev>
-    <Icon icon={prev?prevIcon:nextIcon} />
+    <Fa icon={prev?prevIcon:nextIcon} />
   </button>
 </div>

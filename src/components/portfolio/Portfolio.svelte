@@ -20,6 +20,27 @@
       title: 'Autonomous Robot Race Winner',
       img: '380.png',
       text: ['1st place out of 23 teams',
+
+// Distributed Underwater Positioning System
+// Won Best Overall Project at 2023 UWaterloo Mechatronics Symposium
+// Developed Rust server that manages the nodes, multiplexes each node's data to a seperate terminal for debugging, and spawns a webserver for live data viz.
+// Developed CPP firmware implementing realtime sliding window Fourier Transform @500KHz, enabling the nodes to communicate acoustically
+
+'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',
+'Made a dashboard that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
+'Used a game engine (pygame) and made all components from scratch to make it faster than the sluggish existing libraries like plotly dash that don\'t handle realtime data updates well',
+'Used protobufs in CPP, streamed them to laptop/dashboard in realtime over a TCP socket, and parsed them automatically in python to create readouts that update in realtime of all the communicated data',
+'Wrote my own plotting library with automatic rescaling and other overkill features like one click to immediately start plotting it',
+'GF fixed my sensors on comp day, thanks bb'],
+      link: {
+        text: 'View on github',
+        address: 'https://github.com/Oasixer/380-robot-sw'
+      }
+    },
+    {
+      title: 'Autonomous Robot Race Winner',
+      img: '380.png',
+      text: ['1st place out of 23 teams',
 'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',
 'Made a dashboard that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
 'Used a game engine (pygame) and made all components from scratch to make it faster than the sluggish existing libraries like plotly dash that don\'t handle realtime data updates well',

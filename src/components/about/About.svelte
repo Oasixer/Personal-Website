@@ -42,14 +42,14 @@
     padding: 50px 20px 60px 20px;
   }
 
-  h1{
-    font-size: 70px;
-    text-transform: uppercase;
-    color: #f3f5f4;
-    font-weight: 100;
-    font-family: "DIN Condensed Web", "Open Sans", "Helvetica", sans-serif;
-    margin-bottom: 25px;
-  }
+  /* h1{ */
+  /*   font-size: 70px; */
+  /*   text-transform: uppercase; */
+  /*   color: #f3f5f4; */
+  /*   font-weight: 100; */
+  /*   font-family: "DIN Condensed Web", "Open Sans", "Helvetica", sans-serif; */
+  /*   margin-bottom: 25px; */
+  /* } */
 
   h1.mobile{
     font-size:24px;
