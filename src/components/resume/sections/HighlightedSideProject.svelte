@@ -10,11 +10,11 @@
   export let show_section_controls = false;
 
   let item = {
-      title: 'Network Visualizer',
-      points: ['Network visualizera', 'Network <Visualizer>a', 'Network <Visual>izer']
+      title: 'Distributed Underwater Positioning System',
+      points: ['Underwater positioning system that uses acoustic beacons to perform trilateration similar to GPS', 'Graph/node based network in which minimal-overhead message protocol is used to transmit data underwater between floating nodes as audio', 'Sliding window fourier transform performed at 500KHz to decode audio signals, written in C']
     }
   
-  let header = 'Highlighted Side Project'; // section title
+  let header = 'Highlighted Project'; // section title
   header = header +': '+ item.title;
  
 </script>

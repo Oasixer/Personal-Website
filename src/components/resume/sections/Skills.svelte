@@ -62,23 +62,25 @@
           {title: TagNames.PYTHON, order: 1, force_hide: false, use_index: true},
           {title: TagNames.JS, order: 2, force_hide: false, use_index: true},
           {title: TagNames.CPP, order: 3, force_hide: false, use_index: true},
-          {title: TagNames.GOLANG, order: 4, force_hide: false, use_index: true},
-          {title: TagNames.BASH, order: 5, force_hide: false, use_index: true},
-          {title: TagNames.HTML, order: 6, force_hide: false, use_index: true},
-          {title: TagNames.SQL, order: 7, force_hide: false, use_index: true},
-          {title: TagNames.REGEX, order: 8, force_hide: false, use_index: true},
+          {title: TagNames.TYPESCRIPT, order: 6, force_hide: false, use_index: true},
+          {title: TagNames.BASH, order: 7, force_hide: false, use_index: true},
+          {title: TagNames.HTML, order: 6, force_hide: true, use_index: true},
         ],
         [
-          {title: TagNames.C, order: 12, force_hide: false, use_index: true},
+          {title: TagNames.C, order: 11, force_hide: false, use_index: true},
+          {title: TagNames.RUST, order: 12, force_hide: false, use_index: true},
           {title: TagNames.KOTLIN, order: 13, force_hide: false, use_index: true},
           {title: TagNames.JAVA, order: 14, force_hide: false, use_index: true},
-          {title: TagNames.CSS, order: 19, force_hide: false, use_index: true},
+          {title: TagNames.CSS, order: 19, force_hide: true, use_index: true},
           {title: TagNames.LUA, order: 28, force_hide: false, use_index: true},
           {title: TagNames.ASSEMBLY, order: 20, force_hide: true, use_index: true},
           {title: TagNames.VIMSCRIPT, order: 20, force_hide: true, use_index: true},
           {title: TagNames.AWK, order: 22, force_hide: true, use_index: true},
+          {title: TagNames.GOLANG, order: 18, force_hide: false, use_index: true},
           {title: TagNames.MATLAB, order: 24, force_hide: false, use_index: true},
-          {title: TagNames.LATEX, order: 27, force_hide: false, use_index: true}
+          {title: TagNames.LATEX, order: 27, force_hide: true, use_index: true},
+          {title: TagNames.SQL, order: 29, force_hide: false, use_index: true},
+          {title: TagNames.REGEX, order: 30, force_hide: false, use_index: true},
         ]
       ],
       show_controls: false,
@@ -143,6 +145,9 @@
   }
 
   function should_display_pointlist(pointList){
+    if (pointList.force_hide){
+      return false;
+    }
 		return true;
     // Returns boolean depending on whether this point list should be displayed.
     // which depends on if the tags are relevant to the loaded tags, and any other overriding settings like
@@ -335,9 +340,9 @@
         "{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+"px")+';'+
           ((!embedded)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1;">
           {#if Array.isArray(item.tags[0])}
-						<i>Proficient: </i>
+            <i>Proficient: &nbsp;</i>
 						{item.tags[0].filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: &nbsp;</i>
 						{item.tags[1].filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
 					{:else}
 						{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}

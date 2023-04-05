@@ -216,7 +216,7 @@
     </div>
   {:else if compact_exp_info && !embedded}
     <div class="row">
-      <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1>
+      <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} ${item.position?'|':''} ${item.title} ${item.location?'|':''} ${item.location}`}</h1>
       <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1>
     </div>
   {/if}

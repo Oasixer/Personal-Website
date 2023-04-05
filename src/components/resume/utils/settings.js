@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 export let TagNames = {
-  PCB: 'PCB Design',
+  RUST: 'Rust',
   PLC: 'PLC Programming',
   SOLDERING: 'Soldering',
   WIRING: 'Wiring',

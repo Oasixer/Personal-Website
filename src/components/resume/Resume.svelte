@@ -30,18 +30,18 @@
     order: {$orders}.WORKEXPERIENCE,
     group: 'main',
   },
-  /* { */
-    /* name: 'SideProjects', */
-    /* component: SideProjects, */
-    /* order: {$orders}.SIDEPROJECTS, */
-    /* group: 'main', */
-  /* }, */
-	{
-		name: 'HighlightedSideProject',
-		component: HighlightedSideProject,
-		order: {$orders}.HIGHLIGHTEDSIDEPROJ,
-		group: 'main',
-	},
+  {
+    name: 'SideProjects',
+    component: SideProjects,
+    order: {$orders}.SIDEPROJECTS,
+    group: 'main'
+  },
+	/* { */
+		/* name: 'HighlightedSideProject', */
+		/* component: HighlightedSideProject, */
+		/* order: {$orders}.HIGHLIGHTEDSIDEPROJ, */
+		/* group: 'main', */
+	/* }, */
   {
     name: 'Education',
     component: Education,

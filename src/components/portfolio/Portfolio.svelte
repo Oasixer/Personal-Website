@@ -86,7 +86,7 @@
       text: 'Handles valves which control the flow of fuel and oxidizer on board a rocket flying to 30,000 feet. Firmware for PIC microcontroller, written in C. Communicates via CAN bus with the rest of the rocket, and the remote launch control system.',
       link: {
         text: 'View on github',
-        address: 'https://github.com/waterloo-rocketry/cansw_vent/tree/v2-dev'
+        address: 'https://github.com/waterloo-rocketry/cansw_actuator/tree/55269ce3a2fa9aeb58e85e8a547158d4166ae3cd'
       }
     },
     {

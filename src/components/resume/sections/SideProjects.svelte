@@ -2,6 +2,7 @@
   export const contentSettings = () => {
     return items;
   };
+  /* $: console.log(items); */
 
   export const setContentSettings = (itemSettings) => {
     items.forEach(function (item) {
@@ -34,7 +35,7 @@
   import SectionControls from '../components/SectionControls.svelte';
   import { TagNames } from '../utils/settings.js';
 
-  let header = 'Projects';
+  let header = 'Highlighted Projects';
   let show_section_controls = false;
   let show_list_controls = false;
   let force_hide = false;
@@ -84,17 +85,66 @@
         use_index: true
     },
     ],
+    force_hide: true,
+    order: -4
+  },
+    {
+      title: 'Distributed Underwater Positioning System',
+      location: '',
+      position: '',
+      points: [{
+        'title':'Floating beacons use trilateration (3D triangulation) to resolve position of Remote Underwater Vehicle',
+        order: 1, force_hide: false
+      }, {title: 'Distributed network in which minimal-overhead message protocol is used to transmit data underwater as audio', order: 2, force_hide: false},{
+        title: 'Sliding window fourier transform performed at 500KHz to decode audio signals, written in C', order: 3, force_hide: false},
+        { title: 'Protobufs allow bidirectional comms over TCP socket between nodes and an orchestrating server', order: 5, force_hide: false
+        }],
+      tags: [],
+      date: 'Feb 2023',
+      force_hide: false,
+      order: 1
+  },
+  {
+    title: 'Distributed Underwater Positioning System',
+    /* title: 'asdfsa', */
+    location: 'Capstone Design Project',
+    position: '',
+    date: 'Feb 2023',
+    /* title: 'Rocket vent board firmware', */
+    /* location: 'UW Rocketry - Electrical Team', */
+    /* position: 'Programmer', */
+    /* date: 'Aug 2020', */
+    points: [
+      {title:'Distributed floating beacons use trilateration (3D triangulation) to resolve position of Remote Underwater Vehicle',
+        order: 1, force_hide: false
+      }, {title: 'Designed min-overhead msg protocol for transmitting data underwater as modulated audio tones', order: 2, force_hide: false},{
+        title: 'Sliding window fourier transform performed at 500KHz to decode audio signals, written in <C> for Teensy 4.1', order: 3, force_hide: false},
+      { title: 'Implemented <TCP> socket based comms between each node and <Python> server, exchanging <protobuf> for cmd & ctrl', order: 5, force_hide: false
+        }],
+    tags: [{
+        title: TagNames.C,
+        order: 2,
+        force_hide: false,
+        use_index: true
+    },
+    {
+        title: TagNames.EMBEDDED,
+        order: 4,
+        force_hide: false,
+        use_index: true
+    }
+    ],
     force_hide: false,
     order: -4
   },
-		
-		{
-    title: 'Vent Board Firmware',
+  {
+    title: 'Rocket Vent MCU Firmware',
     location: 'UW Rocketry - Electrical Team',
-    position: 'Programmer',
+    /* position: 'Programmer', */
+    position: '',
     date: 'Aug 2020',
     points: [{
-      title: 'Developed C firmware for PIC microcontroller on board a rocket flying to 30,000 feet',
+      title: 'Developed C firmware for PIC microcontroller onboard a rocket flying to 30,000 feet',
       order: 2,
       force_hide: false
     }, {
@@ -139,7 +189,7 @@
         force_hide: false,
         use_index: true
       }],
-    force_hide: false,
+    force_hide: true,
     order: -2
   },
   {
@@ -239,7 +289,7 @@
         use_index: true
       }
     ],
-    force_hide: false,
+    force_hide: true,
     order: 2
   },
   {
@@ -363,7 +413,7 @@
         use_index: true
       }
     ],
-    force_hide: false,
+    force_hide: true,
     order: 6
   },
   {
@@ -431,7 +481,7 @@
         use_index: true
       }
     ],
-    force_hide: false,
+    force_hide: true,
     order: 8
   }
 ]; 
