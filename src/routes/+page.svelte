@@ -1,18 +1,25 @@
 <script>
   import Home from '../components/home/Home.svelte';
-  import About from '../components/about/About.svelte';
-  import Portfolio from '../components/portfolio/Portfolio.svelte';
+  // import About from '../components/about/About.svelte';
+  // import Portfolio from '../components/portfolio/Portfolio.svelte';
   import Contact from '../components/contact/Contact.svelte';
   import Menubar from '../components/components/Menubar.svelte';
   import WorkExperiencePage from '../components/resume/WorkExperiencePage.svelte';
   import ResumePage from '../components/resume/ResumePage.svelte';
+  import PortfolioPage2 from '../components/portfolio2/Portfolio2.svelte';
   import SkillsPage from '../components/resume/SkillsPage.svelte';
   import BackToTop from '../components/components/BackToTop.svelte';
   // import Hamburger from '../components/components/Hamburger.svelte';
   // import HamburgerModal from '../components/components/HamburgerModal.svelte';
   // import MobileMenubarModal from '../components/components/MobileMenubarModal.svelte';
 
+  // import type { VP } from '../components/viewport';
+  import { vp } from '../components/viewport';
+
   import { onMount } from 'svelte';
+  // onMount(async() => {
+    // console.log('detailled Screen Orientation:',Viewport.detailledOrientation)
+  // })
 
   /**
 	 * @type {number}
@@ -36,34 +43,45 @@
 
   $: curSection = getCurrentSection(y);
 
+  let viewport;
+
 	onMount(async () => {
     mounted = true;
+    const Viewport = (await import('svelte-viewport-info')).default;
+    console.log('Viewport Width x Height:     ',Viewport.Width+'x'+Viewport.Height)
+    console.log('standard Screen Orientation: ',Viewport.Orientation)
+    viewport = Viewport;
 	});
 
   let sections = [
     {component: Home, name:'Home', excludeFromMenubar: false},
-    {component: About, name:'About', excludeFromMenubar: false},
-    {component: WorkExperiencePage, name:'Work Experience', excludeFromMenubar: false},
-    {component: SkillsPage, name:'Skills', excludeFromMenubar: false},
-    {component: Portfolio, name:'Portfolio', excludeFromMenubar: false},
+    // {component: About, name:'About', excludeFromMenubar: false},
+    // {component: WorkExperiencePage, name:'Work Experience', excludeFromMenubar: false},
+    // {component: SkillsPage, name:'Skills', excludeFromMenubar: false},
+    // {component: Portfolio, name:'Portfolio', excludeFromMenubar: false},
+    {component: PortfolioPage2, name:'Portfolio2', excludeFromMenubar: false},
     {component: ResumePage, name:'Resume', excludeFromMenubar: false},
     {component: Contact, name:'Contact', excludeFromMenubar: false},
     {component: BackToTop, excludeFromMenubar: true}
   ];
-
-  function move(event){
-    /* console.log('move-app'); */
-    /* console.log(event); */
-    let n=event.detail.args.n;
-    /* console.log(n); */
+  
+  function move_to_section_n(n){
     let y_temp=0;
     for(let i=0; i<n; i++){
       y_temp += sections[i].height;
     }
+    // y=100;
+    console.log("move2");
     y = y_temp;
+  }
+
+  function move(event){
+    let n=event.detail.args.n;
+    move_to_section_n(n);
   }
   
   $: scrolledFarEnoughToDisplayHamburger = y>250;
+  // $: scrolledFarEnoughToDisplayFloaty = y>250;
 
   const getCurrentSection = (y) => {
     let y_temp = y;
@@ -77,6 +95,39 @@
       }
     } 
   }
+  
+
+  // let entered_portfolio_zone = new Date();
+  // let last_y = 0;
+  let tryMoveInProgress = false;
+  // function 
+  
+  function scrollChanged(){
+    const epsilon_lower = 300; // for moving down
+    const epsilon_higher = 300; // for moving up
+    if (mounted && !tryMoveInProgress && y != sections[0].height){
+      // console.log("y: ", y, "sections[0].height: ", sections[0].heigh);
+      if ((y > sections[0].height - epsilon_lower) && y < sections[0].height + epsilon_higher){
+        // move_to_section_n(2);
+        let last_y = y;
+        tryMoveInProgress = true;
+        console.log("try move in a sec");
+        setTimeout(()=>{
+          console.log("try move. y: ",y,"last_y: ", last_y, "hgt: ", sections[0].height);
+          // move UP to section if already moving up
+          if ((y > sections[0].height) && y < sections[0].height + epsilon_higher && y < last_y){
+            move_to_section_n(1)
+          }
+          // move DOWN to section regardless
+          else if ((y > sections[0].height - epsilon_lower) && y < sections[0].height){
+            move_to_section_n(1)
+          }
+          tryMoveInProgress = false;
+        },1000);
+      }
+    }
+  }
+  $: y, scrollChanged();
 
   const getColor = (section, n) =>{
     /* console.log('hi'); */
@@ -85,16 +136,16 @@
 </script>
 
 <style>
-  :global(body){
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  :global(*){
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  /* :global(body){ */
+  /*   margin: 0; */
+  /*   padding: 0; */
+  /*   box-sizing: border-box; */
+  /* } */
+  /* :global(*){ */
+  /*   margin: 0; */
+  /*   padding: 0; */
+  /*   box-sizing: border-box; */
+  /* } */
   :global(html){
     scroll-behavior: smooth;
   }
@@ -116,12 +167,30 @@
 <title>Kaelan Moffett</title>
 
 <svelte:window bind:scrollY={y} bind:outerWidth={width} bind:outerHeight={height}/>
+<svelte:body
+  on:viewportchanged={() => {
+    if (mounted){
+      console.log('viewport Size changed to: ',viewport.Width+'x'+viewport.Height)
+      // console.log('window.width: ', width);
+    }
+    vp.set({width: viewport.Width, height: viewport.Height, layout: 'md'});
+  }}
+  on:orientationchangeend={() => { 
+    // if (mounted){
+      console.log(
+      'Screen Orientation changed to: ', viewport.Orientation + (
+        viewport.detailledOrientation == null
+        ? ''
+        : '(' + viewport.detailledOrientation + ')'
+      ));
+    // }
+  }} />
 
 {#if mounted}
   {#if width > maxMobileWidth}
     <Menubar floaty={false} {sections} {curSection} on:move={move}/>
 
-    {#if curSection>0}
+    {#if scrolledFarEnoughToDisplayHamburger}
     <Menubar floaty={true} {sections} {curSection} on:move={move}/>
     {/if}
   {:else}

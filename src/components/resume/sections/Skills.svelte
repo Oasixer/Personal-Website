@@ -1,6 +1,6 @@
 <script>
   export const contentSettings = () => {
-    console.log(items[0].force_hide);
+    // console.log(items[0].force_hide);
     return items;
   };
   export let mobile;
@@ -11,7 +11,7 @@
       let s = itemSettings.find(i => i.title == item.title);
       if (s){
         for (const property in s) {
-          console.log(`${property}: ${s[property]}`);
+          // console.log(`${property}: ${s[property]}`);
           if (property === 'tags'){
 						return;
             s.tags.forEach(function (tag) {
@@ -30,12 +30,12 @@
         };
       }
     });
-    console.log(`item0.force_hide: ${items[0].force_hide}`);
+    // console.log(`item0.force_hide: ${items[0].force_hide}`);
     items = [...items];
-    console.log(`item0.force_hide: ${items[0].force_hide}`);
+    // console.log(`item0.force_hide: ${items[0].force_hide}`);
   };
 
-  $: console.log(`item[0].force_hide: ${items[0].force_hide}`);
+  // $: console.log(`item[0].force_hide: ${items[0].force_hide}`);
 
   import Section from './Section.svelte';
   import ListControls from '../components/ListControls.svelte';
@@ -59,26 +59,25 @@
       title: 'Languages',
       tags: [
         [
-          {title: TagNames.PYTHON, order: 1, force_hide: false, use_index: true},
-          {title: TagNames.JS, order: 2, force_hide: false, use_index: true},
-          {title: TagNames.CPP, order: 3, force_hide: false, use_index: true},
-          {title: TagNames.GOLANG, order: 4, force_hide: false, use_index: true},
-          {title: TagNames.BASH, order: 5, force_hide: false, use_index: true},
-          {title: TagNames.HTML, order: 6, force_hide: false, use_index: true},
-          {title: TagNames.SQL, order: 7, force_hide: false, use_index: true},
-          {title: TagNames.REGEX, order: 8, force_hide: false, use_index: true},
+          {title: TagNames.PYTHON},
+          {title: TagNames.JS},
+          {title: TagNames.RUST},
+          {title: TagNames.CPP},
+          {title: TagNames.BASH},
+          {title: TagNames.LUA},
+          // {title: TagNames.SQL},
+          // {title: TagNames.REGEX},
+          // {title: TagNames.HTML},
         ],
         [
-          {title: TagNames.C, order: 12, force_hide: false, use_index: true},
-          {title: TagNames.KOTLIN, order: 13, force_hide: false, use_index: true},
-          {title: TagNames.JAVA, order: 14, force_hide: false, use_index: true},
-          {title: TagNames.CSS, order: 19, force_hide: false, use_index: true},
-          {title: TagNames.LUA, order: 28, force_hide: false, use_index: true},
-          {title: TagNames.ASSEMBLY, order: 20, force_hide: true, use_index: true},
-          {title: TagNames.VIMSCRIPT, order: 20, force_hide: true, use_index: true},
-          {title: TagNames.AWK, order: 22, force_hide: true, use_index: true},
-          {title: TagNames.MATLAB, order: 24, force_hide: false, use_index: true},
-          {title: TagNames.LATEX, order: 27, force_hide: false, use_index: true}
+          {title: TagNames.C},
+          {title: TagNames.GOLANG},
+          {title: TagNames.KOTLIN},
+          {title: TagNames.JAVA},
+          {title: TagNames.ASSEMBLY},
+          {title: TagNames.MATLAB},
+          // {title: TagNames.LATEX}
+          // {title: TagNames.CSS},
         ]
       ],
       show_controls: false,
@@ -89,18 +88,18 @@
     {
       title: 'Technologies',
       tags: [
-        {title: TagNames.LINUX, order: 1, force_hide: false, use_index: true},
-        {title: TagNames.DOCKER, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.KUBERNETES, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.REDIS, order: 23, force_hide: false, use_index: true},
-        {title: TagNames.PROTOBUF, order: 24, force_hide: false, use_index: true},
-        {title: TagNames.JWT, order: 25, force_hide: false, use_index: true},
-        {title: TagNames.TCPIP, order: 27, force_hide: false, use_index: true},
-        {title: TagNames.REST, order: 28, force_hide: false, use_index: true},
-        {title: TagNames.OPENCV, order: 29, force_hide: false, use_index: true},
-        {title: TagNames.NGINX, order: 27, force_hide: false, use_index: true},
-        {title: TagNames.QT, order: 27, force_hide: false, use_index: true},
-        {title: TagNames.GRAPHQL, order: 27, force_hide: false, use_index: true},
+        {title: TagNames.LINUX},
+        {title: TagNames.DOCKER},
+        {title: TagNames.KUBERNETES},
+        {title: TagNames.REDIS},
+        {title: TagNames.PROTOBUF},
+        {title: TagNames.JWT},
+        {title: TagNames.TCPIP},
+        {title: TagNames.REST},
+        {title: TagNames.OPENCV},
+        {title: TagNames.NGINX},
+        {title: TagNames.QT},
+        {title: TagNames.GRAPHQL},
       ],
       show_controls: false,
       show_tag_controls: false,
@@ -110,18 +109,14 @@
     {
       title: 'Frameworks',
       tags: [
-        {title: TagNames.FLASK, order: 1, force_hide: false, use_index: true},
-        {title: TagNames.EXPRESSJS, order: 2, force_hide: false, use_index: true},
-        {title: TagNames.SPRING, order: 4, force_hide: false, use_index: true},
-        {title: TagNames.SVELTE, order: 23, force_hide: false, use_index: true},
-        {title: TagNames.REACT, order: 24, force_hide: false, use_index: true},
+        {title: TagNames.FLASK},
+        {title: TagNames.EXPRESSJS},
+        {title: TagNames.SPRING},
+        {title: TagNames.SVELTE},
+        // {title: TagNames.REACT},
       ],
-      show_controls: false,
-      show_tag_controls: false,
-      force_hide: false,
-      order: 4
     },
-  ];
+  ].map((i, idx)=>{return {...i, show_controls: false, show_tag_controls: false, force_hide: i.hasOwnProperty('force_hide')?i.force_hide:false, order: idx, tags: Array.isArray(i.tags[0])?[i.tags[0].map((j, j_idx)=>{return {...j, force_hide: j.hasOwnProperty('force_hide')?j.force_hide:false, order: j_idx*2}}), i.tags[1].map((j, j_idx)=>{return {...j, force_hide: j.hasOwnProperty('force_hide')?j.force_hide:false, order: j_idx*2}})]:i.tags.map((j, j_idx)=>{return {...j, force_hide: j.hasOwnProperty('force_hide')?j.force_hide:false, order: j_idx*2}})}});
 
   function toggle_tags_controls(i){
     if (embedded){
@@ -129,6 +124,7 @@
     }
     i.show_tag_controls = !i.show_tag_controls;
     refresh_tags();
+    // console.log("i tags:", i.tags);
   }
   
   function toggle_force_hide(i){
@@ -159,27 +155,27 @@
       return false;
     }
 
-    function get_indexed_tags(i){
-      return i.filter(j => j.use_index).map(j => j.title);
-    }
+    // function get_indexed_tags(i){
+    //   return i.filter(j => j.use_index).map(j => j.title);
+    // }
 
-    if (arrayIntersect($tags, get_indexed_tags(pointList.tags)).length > 0){
-      return true;
-    }
+    // if (arrayIntersect($tags, get_indexed_tags(pointList.tags)).length > 0){
+    //   return true;
+    // }
 
-    if (pointList.title == 'Coursework'){
-      return true;
-    }
-
-    return false;
+    // if (pointList.title == 'Coursework'){
+    //   return true;
+    // }
+    //
+    // return false;
   } 
 
-  function tag_sort(a, b){
-    if ($tags.includes(a.title)){
-      return $tags.includes(b.title) ? 0 : -1;
-    }
-    return $tags.includes(b.title) ? 1 : 0;
-  }
+  // function tag_sort(a, b){
+  //   if ($tags.includes(a.title)){
+  //     return $tags.includes(b.title) ? 0 : -1;
+  //   }
+  //   return $tags.includes(b.title) ? 1 : 0;
+  // }
 
   function order_sort(a, b){
     return a.order - b.order;
@@ -284,8 +280,8 @@
 
   h1.skills-section-title{
     margin: 0 15px 0 0;
-    font-family: roboto, sans-serif; /* 15px font size, set by store instead of hardcoded */
-    font-weight: 900; /* 15px font size, set by store instead of hardcoded */
+    /* font-family: roboto, sans-serif; /* 15px font size, set by store instead of hardcoded */
+    /* font-weight: 900; /* 15px font size, set by store instead of hardcoded */
   }
 
   h1.skills-section-title.darktheme{
@@ -299,9 +295,9 @@
   }
 
   p{
-    margin: 0 0 0 10px;
-    font-weight: 300;
-    color: #222222;
+    /* margin: 0 0 0 10px; */
+    /* font-weight: 300; */
+    /* color: #222222; */
     /*font-size: 15px;*/ /* 15px set by store instead of hardcoded */
   }
   p.darktheme{
@@ -317,37 +313,47 @@
   {#if show_list_controls && !embedded}
     <ListControls bind:items on:close={()=>{show_list_controls=false;}}/>
   {/if}
-  <div style="{embedded?'':'margin: 0 0 0 10px'}">
+  <!-- <div style="{embedded?'':'margin: 0 0 0 10px'}"> -->
+  <div style="{embedded?'':'margin: 0 0 0 10px'}" class="flex flex-col gap-1">
   {#each items.concat().sort((a, b) => a.order - b.order) as item, n}
     {#if should_display_pointlist(item, $tags)}
-      <h1 class="skills-section-title" class:darktheme={embedded} class:mobile
-      style="{(!embedded)?('font-size: '+$skills_headings_font_size+'px;'):''}"
-         on:click={()=>{item.show_controls = !item.show_controls}}>
-          {item.title_alt?item.title_alt:item.title}
-      </h1>
-      {#if item.show_controls && !embedded}
-        <ListControls single={true} items={[item]} on:close={()=>{item.show_controls = false}}/>
-      {/if}
-        <p 
-        on:click={()=>{toggle_tags_controls(item)}}
-        class:darktheme={embedded}
-        style=
-        "{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+"px")+';'+
-          ((!embedded)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1;">
-          {#if Array.isArray(item.tags[0])}
-						<i>Proficient: </i>
-						{item.tags[0].filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i>
-						{item.tags[1].filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-					{:else}
-						{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-					{/if}
-        </p>
-        <!--{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-        </p>-->
-      {#if item.show_tag_controls && !embedded}
-        <ListControls title='Tag Controls' bind:items={item.tags} on:close={()=>{item.show_tag_controls=false}}/>
-      {/if}
+      <div>
+        <!-- style="{(!embedded)?('font-size: '+$skills_headings_font_size+'px;'):''}" -->
+        <h1 class="skills-section-title font-rubik4 dark:text-blue-light text-szBase" class:darktheme={embedded} class:mobile
+           on:click={()=>{item.show_controls = !item.show_controls}}>
+            {item.title_alt?item.title_alt:item.title}
+        </h1>
+    <!-- <div -->
+    <!--   class:mobile class="font-headerBold text-7xl text-white uppercase" -->
+    <!--   bind:this={aboutElement} -->
+    <!--   bind:offsetHeight={height}> -->
+        {#if item.show_controls && !embedded}
+          <ListControls single={true} items={[item]} on:close={()=>{item.show_controls = false}}/>
+        {/if}
+          <div
+          on:click={()=>{toggle_tags_controls(item)}}
+          class:darktheme={embedded}
+          class="flex flex-row items-center ml-4">
+          <!-- font-sans font-wgt400 text-szBase dark:text-grey-200"> -->
+          <!-- style="{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+'px;')}"> -->
+             <!-- ((!embedded)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1; font-weight: 400;"> -->
+            {#if Array.isArray(item.tags[0])}
+              <i class="font-sans font-wgt600 text-szBase text-blue-subdued mr-2">Proficient</i>
+              <p class="font-sans font-wgt400 text-szBase text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+              <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i> -->
+              <i class="font-sans font-wgt600 text-szBase text-blue-subdued mr-2 ml-auto">Familiar</i>
+              <p class="font-sans font-wgt400 text-szBase text-grey-00 mr-6">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+            {:else}
+              <p class="font-sans font-wgt400 text-szBase text-grey-00">{item.tags.filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+            {/if}
+          </div>
+          <!-- </p> -->
+          <!--{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
+          </p>-->
+        {#if item.show_tag_controls && !embedded}
+          <ListControls title='Tag Controls' bind:items={item.tags} on:close={()=>{item.show_tag_controls=false}}/>
+        {/if}
+      </div>
     {/if}
   {/each}
   </div>

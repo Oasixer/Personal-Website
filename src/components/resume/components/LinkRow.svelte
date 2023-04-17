@@ -11,12 +11,10 @@
 //   export * from '@fortawesome/pro-solid-svg-icons';
 // }
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-  // import { faGithub } from '@fortawesome/free-solid-svg-icons';
-  // import { faLinkedin } from '@fortawesome/free-solid-svg-icons';
-  import { faPhone } from '@fortawesome/free-solid-svg-icons';
-  import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
-  export let embedded: boolean;
+export let embedded: boolean;
   
 </script>
 
@@ -27,6 +25,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
     padding: 0 -10px; /*top+bot left+right*/
     width: 100%;
     justify-content: center;
+    align-items: center;
   }
   div#link-row.darktheme{
     flex-flow: column nowrap;
@@ -34,30 +33,30 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
   } 
 
   * {
-    margin: 0 5px;
+    /* margin: 0 5px; */
   }
 
   div.v-line{
     width: 1px;
-    background-color: black;
+    /* background-color: black; */
   }
   
   a, a > *{
-    font-size: 13px;
+    font-size: 18px;
   }
-  a.darktheme, a.darktheme > *{
-    font-size: 17px;
-    margin-bottom: 15px;
-  }
+  /* a.darktheme, a.darktheme > *{ */
+  /*   font-size: 17px; */
+  /*   margin-bottom: 15px; */
+  /* } */
 
   a{
     text-decoration: none;
     display: flex;
-    color: #303030;
+    /* color: #303030; */
   }
 
   a.darktheme{
-    color: #f3f5f4;
+    /* color: #f3f5f4; */
   }
 
   p{
@@ -65,9 +64,11 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
   }
   p.iconContainerP{
     margin-right: 4px;
+    margin-top: 5px;
   }
   p.iconContainerP.darktheme{
     margin-right: 15px;
+    margin-top: 5px;
   }
 </style>
 
@@ -78,23 +79,45 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
     </a>
     <div class="v-line"></div>-->
   {/if}
-  <a class:darktheme={embedded} href='http://github.com/oasixer'>
+  <a class:darktheme={embedded} class="dark:text-blue-light" href='http://github.com/oasixer'>
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faGithub}/></p>
     <p>github.com/oasixer</p>
   </a>
-  <div class="v-line"></div>
-  <a class:darktheme={embedded} >
+  <!-- <div class="v-line dark:bg-grey-800"></div> -->
+  <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
+  <a class:darktheme={embedded} class="dark:text-blue-light">
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faPhone}/></p>
     <p>647-997-6783</p>
   </a>
-  <div class="v-line"></div>
-  <a class:darktheme={embedded} href="mailto:ksmoffet@uwaterloo.ca">
+  <!-- <div class="v-line dark:bg-grey-800"></div> -->
+  <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
+  <a class:darktheme={embedded} class="dark:text-blue-light "href="mailto:ksmoffet@uwaterloo.ca">
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faEnvelopeSquare}/></p>
     <p>ksmoffet@uwaterloo.ca</p>
   </a>
-  <div class="v-line"></div>
-  <a class:darktheme={embedded} href="https://www.linkedin.com/in/kaelanms/">
+  <!-- <div class="v-line dark:bg-grey-800"></div> -->
+  <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
+  <a class:darktheme={embedded} class="dark:text-blue-light" href="https://www.linkedin.com/in/kaelanms/">
     <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faLinkedin}/></p>
-    <p>linkedin.com/kaelanms/</p>
+    <p>linkedin.com/kaelanms</p>
   </a>
+  <!-- <a class:darktheme={embedded} class:dark={embedded} href='http://github.com/oasixer'> -->
+  <!--   <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faGithub}/></p> -->
+  <!--   <p>github.com/oasixer</p> -->
+  <!-- </a> -->
+  <!-- <div class="v-line"></div> -->
+  <!-- <a class:darktheme={embedded} > -->
+  <!--   <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faPhone}/></p> -->
+  <!--   <p>647-997-6783</p> -->
+  <!-- </a> -->
+  <!-- <div class="v-line"></div> -->
+  <!-- <a class:darktheme={embedded} href="mailto:ksmoffet@uwaterloo.ca"> -->
+  <!--   <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faEnvelopeSquare}/></p> -->
+  <!--   <p>ksmoffet@uwaterloo.ca</p> -->
+  <!-- </a> -->
+  <!-- <div class="v-line"></div> -->
+  <!-- <a class:darktheme={embedded} href="https://www.linkedin.com/in/kaelanms/"> -->
+  <!--   <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faLinkedin}/></p> -->
+  <!--   <p>linkedin.com/kaelanms/</p> -->
+  <!-- </a> -->
 </div>

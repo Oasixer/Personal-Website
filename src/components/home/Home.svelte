@@ -4,36 +4,54 @@
   export let mobile;
 
   import { onMount, createEventDispatcher } from 'svelte';
+  import { clsMerge } from '../util';
 
-  let src_climb = './images/climb.jpg';
-  let src_tobermory = './images/tobermory_climb.jpg';
-  let src_seattle = './images/seattle.jpg';
-  let src_frc = './images/frc.jpg';
-  let src_windsurf = './images/windsurf.jpg';
-  let src_icesurf = './images/icesurf.jpg';
-  let src_kayak = './images/kayak.jpg';
-  let src_new = './images/new.jpg';
-  let src_new_cropped = './images/new_cropped.jpg';
-  let src_helmet = './images/helmet.jpg';
+  let on = false;
+
+  // let src_climb = './images/climb.jpg';
+  // let src_tobermory = './images/tobermory_climb.jpg';
+  // let src_seattle = './images/seattle.jpg';
+  // let src_frc = './images/frc.jpg';
+  // let src_windsurf = './images/windsurf.jpg';
+  // let src_icesurf = './images/icesurf.jpg';
+  // let src_kayak = './images/kayak.jpg';
+  // let src_new = './images/new.jpg';
+  // let src_new_cropped = './images/new_cropped.jpg';
+  // let src_helmet = './images/helmet.jpg';
+  // let src_symposium = './images/symposium.jpg';
+  // // let src_underwater = './images/underwater.jpg';
+  // let src_underwater = './images/cheque.jpg';
+
+  // let images = [src_tobermory, src_new_cropped, src_helmet,
+  //   src_seattle, src_underwater, src_symposium];
+ 
+  let images = ["yosemite.jpg", "new_cropped.jpg", "helmet.jpg",
+                "icesurf.jpg", "deeptrekker.gif", "seattle.jpg",
+                "tobermory_climb.jpg", "underwater.jpg", "climb.jpg"]
+  let imagesBase = "./images/home/";
+  
   
   let homeElement;
   let mounted = false;
-  onMount(async => {
-    const bar = () => {
-      height = homeElement.offsetHeight;
-    }
-    setTimeout(bar, 10);
-    mounted = true;
-  });
+  // onMount(async => {
+  //   const bar = () => {
+  //     height = homeElement.offsetHeight;
+  //   }
+  //   setTimeout(bar, 10);
+  //   mounted = true;
+  // });
 </script>
 
-<style>
+<style lang="postcss">
+  *{
+      box-sizing: border-box;
+  }
+  /*
   img{
     border-radius: 7px;
   }
   div#home{
     width: 100%;
-    /* height: 100vh; */
     background-color: #400857;
     display: flex;
     flex-flow: column nowrap;
@@ -51,13 +69,17 @@
     font-weight: 800;
     font-size: 50px;
     color: #ffe32e;
-    /* position: absolute; */
+  }
+  */
+    /* position: absolute;/*
     /* z-index: 2; */
     /* top: 40px; */
     /* left: 5%; */
+    /*
     margin: 0;
     padding: 0;
   }
+  /*
 
 .row {
   display: flex;
@@ -96,22 +118,36 @@
 }
 </style>
 
-<div id='home' class:mobile bind:offsetHeight={height} bind:this={homeElement}>
-  {#if mobile === false && mounted}
-    <h1 id='title'>Kaelan Moffett</h1>
-  {/if}
-  <div class="row">
-    <div class="column">
-      <img id='tobermory-pic' src={src_tobermory}/>
-      <img id='seattle-pic' src={src_seattle}/>
+
+<div id='home' class:mobile bind:offsetHeight={height} bind:this={homeElement}
+ class="w-full bg-blue-bgOuter my-0 flex flex-col">
+  <!-- {#if mobile === false && mounted} -->
+    <h1 id='title' class="font-thicc8 text-sz5xl mx-auto text-grey-00 mt-8 mb-4" style="max-width: fit-content;">Kaelan Moffett</h1>
+    <ul class="max-w-xl mx-auto">
+    <li class="text-body font-body text-white">
+    I'm a Mechatronics Engineering graduate specializing in software.
+    </li>
+    <li class="text-body font-body text-white mt-4">
+    I have completed 6 software engineering internships, most recently at Nvidia, and I am looking for fulltime opportunities in the US.
+    </li>
+    </ul>
+  <!-- {/if} -->
+  <!-- {#if mobile} -->
+  <!--   {#each images as image} -->
+  <!--     <div style="display: flex; flex-flow: column nowrap; gap: 10px;"> -->
+  <!--       <div class="w-full rounded-xl overflow-hidden"> -->
+  <!--         <img src={imagesBase+image} alt=""/> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   {/each} -->
+  <!-- {:else} -->
+    <div class="container grid grid-cols-3 gap-3 mx-auto max-w-xl mx-auto mb-3">
+      {#each images as image}
+        <div class="w-full rounded-xl overflow-hidden">
+          <img src={imagesBase+image} alt=""/>
+        </div>
+      {/each}
     </div>
-    <div class="column">
-      <img id='new-pic' src={src_new_cropped}/>
-      <img id='kayak-pic' src={src_kayak}/>
-    </div>
-    <div class="column">
-      <img id='helmet-pic' src={src_helmet}/>
-      <img id='climb-pic' src={src_climb}/>
-    </div>
-  </div>
+  <!-- {/if} -->
+  <div class="h-[1px] bg-grey-600 mt-14"></div>
 </div>

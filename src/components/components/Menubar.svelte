@@ -19,10 +19,7 @@
 
   let menubarOuterDiv;
 
-  function test(){
-    console.log('hi!');
-  }
-
+  $: sectionsAll = sections.filter(i=>!i.excludeFromMenubar);
   $: sectionsLeft = sections.slice(0,2).filter(i=>!i.excludeFromMenubar);
   $: sectionsRight = sections.slice(2).filter(i=>!i.excludeFromMenubar);
   $: floaty = mobile ? y > 250 : floaty;
@@ -45,13 +42,14 @@
 <style>
   div.menubar{
     width: 100%;
-    background-color: #081012;
+    /* background-color: #081012; */
     height: 80px;
     display: flex;
     margin: 0;
     align-items: center;
     max-width: 100%;
     overflow: hidden;
+    border-bottom: 1px solid #353f4f;
   }
 
   div#singleButton{
@@ -61,7 +59,7 @@
     z-index: 999;
     width: auto;
     height: auto;
-    background-color: #081012;
+    /* background-color: #081012; */
     padding: 2px 10px;
     opacity: 1;
     animation: fadeIn ease 0.2s;
@@ -96,6 +94,8 @@
   div.menubar.smaller button{
     font-size: 2.3vw;
   }
+  
+  /* div.group{ */
 
   div.group{
     margin: 0;
@@ -140,11 +140,11 @@
     background: none;
     outline: none;
     cursor: pointer;
-    color: #50555d;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 22px;
-    font-family: "Open Sans", sans-serif;
+    /* color: #50555d; */
+    /* text-transform: uppercase; */
+    /* font-weight: 400; */
+    /* font-size: 22px; */
+    /* font-family: "Open Sans", sans-serif; */
     margin: 0;
     padding: 9px;
   }
@@ -163,11 +163,11 @@
   }
   
   button:hover{
-    color: #f3f5f4;
+    /* color: #f3f5f4; */
   }
 
   button.selected{
-    color: #f3f5f4;
+    /* color: #f3f5f4; */
     outline: none;
   }
   button.selected:focus{
@@ -205,20 +205,20 @@
   }
 </style>
 <svelte:window bind:outerWidth={width}/>
-<div class='menubar'
-     class:floaty
+<div class:floaty
      class:smaller={width<950 && !mobile}
+     class="menubar {floaty?'bg-blue-bgOuter/90':'bg-blue-bgOuter/100'}"
      id={mobile?mobileSidebarOpen?'vertical':y>displayHamburgerHeight?'singleButton':'mobileMenubar':'desktopMenubar'}
      transition:fly="{floaty?{y:-100, duration: 200}:''}">
   {#if mobile}
     <div style="{(mobileSidebarOpen || !floaty)?'position: absolute; left: 20px; top: 26px;':''}">
       <Hamburger bind:open={mobileSidebarOpen}/>
     </div>
-    {#if y<displayHamburgerHeight || mobileSidebarOpen}
-      <button class='selected' style='font-size: 20px; font-weight: bold; margin-left: 0; padding-top: 27px;' on:click={()=>runMoveDispatcher(0)}>
-      Kaelan Moffett
-      </button>
-    {/if}
+    <!-- {#if y<displayHamburgerHeight || mobileSidebarOpen} -->
+    <!--   <button class='selected' style='font-size: 20px; font-weight: bold; margin-left: 0; padding-top: 27px;' on:click={()=>runMoveDispatcher(0)}> -->
+    <!--   Kaelan Moffett -->
+    <!--   </button> -->
+    <!-- {/if} -->
     {#if mobileSidebarOpen}
       {#each [...sectionsLeft, ...sectionsRight] as section, n}
         <button
@@ -230,30 +230,34 @@
       {/each}
     {/if}
   {:else}
-    <div class='group left' class:floaty>
-      {#each sectionsLeft as section, n}
+    <!-- <div class='group left' class:floaty> -->
+    <div class:floaty
+         class="flex flex-auto items-center flex-row justify-center gap-3">
+      {#each sectionsAll as section, n}
         <button
+          class="font-rubik4 text-szXl {curSection==n?'text-blue-light':'text-white'} hover:text-blue-light hover:underline"
           class:selected={curSection==n}
           on:click={()=>runMoveDispatcher(n)}>
           {section.name}
         </button>
       {/each}
     </div>
-    {#if !floaty}
-      <button class='selected' on:click={()=>runMoveDispatcher(0)}>
-      Kaelan Moffett
-      </button>
-    {/if}
-    <div class='group right' class:floaty>
-      {#if !mobile}
-        {#each sectionsRight as section, n}
-          <button
-            class:selected={curSection==n+sectionsLeft.length}
-            on:click={()=>runMoveDispatcher(n+sectionsLeft.length)}>
-            {section.name}
-          </button>
-        {/each}
-      {/if}
-    </div>
+    <!-- {#if !floaty} -->
+    <!--   <button class='selected' on:click={()=>runMoveDispatcher(0)}> -->
+    <!--   Kaelan Moffett -->
+    <!--   </button> -->
+    <!-- {/if} -->
+    <!-- <div class='group right' class:floaty> -->
+    <!-- <div class='group right floaty'> -->
+    <!--   {#if !mobile} -->
+    <!--     {#each sectionsRight as section, n} -->
+    <!--       <button -->
+    <!--         class:selected={curSection==n+sectionsLeft.length} -->
+    <!--         on:click={()=>runMoveDispatcher(n+sectionsLeft.length)}> -->
+    <!--         {section.name} -->
+    <!--       </button> -->
+    <!--     {/each} -->
+    <!--   {/if} -->
+    <!-- </div> -->
   {/if}
 </div>

@@ -2,9 +2,8 @@
   import WorkExperience from './sections/WorkExperience.svelte';
   import Skills from './sections/Skills.svelte';
   import Education from './sections/Education.svelte';
-  import SideProjects from './sections/SideProjects.svelte';
-  import Awards from './sections/Awards.svelte';
-  import Interests from './sections/Interests.svelte';
+  // import SideProjects from './sections/SideProjects.svelte';
+  import Awards from './sections/Awards.svelte'; import Interests from './sections/Interests.svelte';
   import Header from './components/Header.svelte';
   import Modal from './components/SettingsModal.svelte';
   import Settings from './components/Settings.svelte';
@@ -16,15 +15,17 @@
   let showModal = false;
   let modal; // will be bound to modal instance
 
-  import { orders, single_column, swap_columns, display_mode, disable_interests_section, disable_settings_button,
+  import { single_column, swap_columns, display_mode, disable_interests_section, disable_settings_button,
   top_align_sections, limit_resume_height, show_11in_line} from './utils/settings.js';
+
+  // console.log("!!!!! show_11in_line: ", show_11in_line)
 
   let allSections = [
   {
-    name: 'Skills',
+    // name: 'Skills',
     component: Skills,
-    order: {$orders}.SKILLS,
-    group: 'other',
+    // order: {$orders}.SKILLS,
+    // group: 'other',
   },
   /* { */
     /* name: 'Highlighted Project', */
@@ -35,21 +36,22 @@
   {
     name: 'WorkExperience',
     component: WorkExperience,
-    order: {$orders}.WORKEXPERIENCE,
-    group: 'main',
+    // order: {$orders}.WORKEXPERIENCE,
+    // group: 'main',
   },
-  /* { */
-    /* name: 'SideProjects', */
-    /* component: SideProjects, */
-    /* order: {$orders}.SIDEPROJECTS, */
-    /* group: 'main', */
-  /* }, */
+  // {
+  //   name: 'SideProjects',
+  //   component: SideProjects,
+  //   order: {$orders}.SIDEPROJECTS,
+  //   group: 'main',
+  // },
   {
     name: 'Education',
     component: Education,
-    order: {$orders}.EDUCATION,
-    group: 'other',
-  },
+    // order: {$orders}.EDUCATION,
+    // group: 'other',
+  }
+  ];//.map((i)=>{return { ...i, force_hide: false}});
   /* { */
     /* name: 'Awards', */
     /* component: Awards, */
@@ -62,27 +64,26 @@
     /* order: {$orders}.INTERESTS, */
     /* group: 'other', */
   /* } */
-  ];
 
-  $: singleCol = allSections.sort((a, b) => {
-    return a.order - b.order;
-  }).filter(i => !($disable_interests_section && i.name=='Interests'));
-
-  $: mainCol = allSections.filter(i => i.group=='main').sort((a, b) => {
-    return a.order - b.order;
-  });
-
-  $: otherCol = allSections.filter(i => {
-    if (i.group != 'other'){
-      return false;
-    } 
-    if (i.name=='Interests'){
-      return !$disable_interests_section;
-    }
-    return true;
-    }).sort((a, b) => {
-    return a.order - b.order;
-    });
+  // $: singleCol = allSections.sort((a, b) => {
+  //   return a.order - b.order;
+  // }).filter(i => !($disable_interests_section && i.name=='Interests'));
+  //
+  // $: mainCol = allSections.filter(i => i.group=='main').sort((a, b) => {
+  //   return a.order - b.order;
+  // });
+  //
+  // $: otherCol = allSections.filter(i => {
+  //   if (i.group != 'other'){
+  //     return false;
+  //   } 
+  //   if (i.name=='Interests'){
+  //     return !$disable_interests_section;
+  //   }
+  //   return true;
+  //   }).sort((a, b) => {
+  //   return a.order - b.order;
+  //   });
 
   const getContentSettings = () => {
     let settings = new Object();
@@ -93,7 +94,7 @@
   }
   
   const setContentSettings = (contentSettings) => {
-    console.log('setContentSettings');
+    // console.log('setContentSettings');
     allSections.forEach(i => {
       /* if (i.name == 'Awards'){ */
       i.inst.setContentSettings(contentSettings[i.name]);
@@ -149,50 +150,50 @@
   }
 </style>
 
-<main style="{$limit_resume_height?'overflow: hidden;':'overflow: visible;'+$show_11in_line?'border-bottom: 2px solid red;': 'border: none;'}">
-  {#if !$disable_settings_button}
-  <button id="modal-button" on:click="{() => showModal = true}">
-    Show Settings
-  </button>
-  {/if}
-  <Header on:click="{() => showModal=!embedded}"/>
-  <div class="main-container">
-    {#if $single_column}
-      <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main">
-        {#each singleCol as i}
-          <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
-        {/each}
-      </div>
-    {:else}
-      {#if $swap_columns}
-        <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-other">
-          {#each otherCol as i}
-            <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
-          {/each}
-        </div>
-        <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main">
-          {#each mainCol as i}
-            <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
-          {/each}
-        </div>
-      {:else}
-        <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main">
-          {#each mainCol as i}
-            <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
-          {/each}
-        </div>
-        <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-other">
-          {#each otherCol as i}
-            <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
-          {/each}
-        </div>
-      {/if}
+<!-- <div class:dark={embedded} style="{$limit_resume_height?'overflow: hidden;':'overflow: visible;'+$show_11in_line?'border-bottom: 2px solid red;': 'border: none;'}"> -->
+<div class:dark={embedded} style="{$limit_resume_height?'overflow: hidden;':'overflow: visible; '+ 'border: none;'}">
+  <div class="dark:bg-blue-bgOuter max-w-[1000px]">
+  <!-- style="min-width: 816px; max-width: 816px"> -->
+    {#if !$disable_settings_button}
+    <button id="modal-button" on:click="{() => showModal = true}">
+      Show Settings
+    </button>
     {/if}
-  </div>
+    <!-- <Header {embedded} on:click="{() => showModal=!embedded}"/> -->
+    <Header on:click="{() => showModal=!embedded}"/>
+    <div class="main-container dark:text-grey-100">
+      <!-- {#if $single_column} -->
+      <!--   <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main"> -->
+      <!--     {#each singleCol as i} -->
+      <!--       <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/> -->
+      <!--     {/each} -->
+      <!--   </div> -->
+      <!-- {:else} -->
+      <!--   {#if $swap_columns} -->
+      <!--     <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-other"> -->
+      <!--       {#each otherCol as i} -->
+      <!--         <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/> -->
+      <!--       {/each} -->
+      <!--     </div> -->
+      <!--     <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main"> -->
+      <!--       {#each mainCol as i} -->
+      <!--         <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/> -->
+      <!--       {/each} -->
+      <!--     </div> -->
+      <!--   {:else} -->
+          <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main">
+            {#each allSections as i}
+              <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
+            {/each}
+          </div>
+        <!-- {/if} -->
+      <!-- {/if} -->
+    </div>
+</div>
 
 {#if showModal}
   <Modal on:close="{() => showModal = false}" bind:this={modal}>
     <Settings {modal} {setContentSettings} {getContentSettings}/>
 	</Modal>
 {/if}
-</main>
+</div>

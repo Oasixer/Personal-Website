@@ -14,7 +14,7 @@
         item.title_alt = s.title_alt;
         item.order = s.order;
         item.force_hide = s.force_hide;
-        item.tags = s.tags;
+        // item.tags = s.tags;
         item.points.forEach(function (j) {
           let p = s.points.find(x => x.title === j.title);
           if (p){
@@ -47,45 +47,10 @@
     points: [{
       title: 'Developed backend in Go implementing user login, JWT auth, GraphQL, unit tests',
       order: 2,
-      force_hide: false
     }, {
       title: 'Developed frontend in SvelteJS+Typescript+SCSS, leveraging local storage to store JWT & maintain sessions',
       order: 4,
-      force_hide: false
     }],
-    tags: [{
-        title: TagNames.GOLANG,
-        order: 2,
-        force_hide: false,
-        use_index: true
-    },
-    {
-        title: TagNames.GRAPHQL,
-        order: 4,
-        force_hide: false,
-        use_index: true
-    },
-		{
-        title: TagNames.SVELTE,
-        order: 4,
-        force_hide: false,
-        use_index: true
-    },
-		{
-        title: TagNames.DOCKER,
-        order: 4,
-        force_hide: false,
-        use_index: true
-    },
-		{
-        title: TagNames.GCLOUD,
-        order: 4,
-        force_hide: false,
-        use_index: true
-    },
-    ],
-    force_hide: false,
-    order: -4
   },
 		
 		{
@@ -96,26 +61,10 @@
     points: [{
       title: 'Developed C firmware for PIC microcontroller on board a rocket flying to 30,000 feet',
       order: 2,
-      force_hide: false
     }, {
       title: 'Handles valves which control the flow of fuel and oxidizer, communicating with other components via CAN Bus',
       order: 4,
-      force_hide: false
     }],
-    tags: [{
-        title: TagNames.C,
-        order: 2,
-        force_hide: false,
-        use_index: true
-    },
-    {
-        title: TagNames.EMBEDDED,
-        order: 4,
-        force_hide: false,
-        use_index: true
-    }
-    ],
-    force_hide: false,
     order: -4
   },
 
@@ -127,18 +76,11 @@
     points: [{
       title: 'Created Windows native emulator of popular Linux window manager i3 which uses MSVC in C++ for UI manipulation',
       order: 2,
-      force_hide: false
     }, {
       title: 'Developed data structures to handle management logic using modern C++ techniques',
       order: 4,
       force_hide: false
     }],
-    tags: [{
-        title: TagNames.CPP,
-        order: 6,
-        force_hide: false,
-        use_index: true
-      }],
     force_hide: false,
     order: -2
   },

@@ -28,17 +28,17 @@
   }
 
   h1{
-    font-size: 70px;
-    text-transform: uppercase;
+    /* font-size: 70px; */
+    /* text-transform: uppercase; */
     color: #f3f5f4;
-    font-weight: 100;
-    font-family: "DIN Condensed Web", "Open Sans", "Helvetica", sans-serif;
+    /* font-weight: 100; */
+    /* font-family: "DIN Condensed Web", "Open Sans", "Helvetica", sans-serif; */
     margin-bottom: 25px;
   }
 
   h1.mobile{
-    font-size:24px;
-    font-weight: 500;
+    /* font-size:24px; */
+    /* font-weight: 500; */
     max-width:100%;
     overflow-wrap: normal;
     margin-bottom: 10px;
@@ -50,6 +50,8 @@
   class:mobile
   bind:this={skillsElement}
   bind:offsetHeight={height}>
-  <h1 class:mobile>Skills</h1>
+  <!-- <h1 class:mobile>Skills</h1> -->
+  <h1 class="font-headerBold text-7xl text-white uppercase">
+    Skills</h1>
   <Skills {mobile} embedded={true}/>
 </div>

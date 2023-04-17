@@ -1,15 +1,11 @@
+@import '@fontsource/montserrat/variable.css';
+@import '@fontsource/rubik/variable.css';
+@import '@fontsource/barlow/latin.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-	box-sizing: border-box;
-}
-
-h1 {
-	color: rgba(255, 255, 255, 0.75);
-	font-family: 'Montserrat', sans-serif;
-	font-size: 4rem;
-	font-weight: 800;
-	text-transform: uppercase;
-}
+/* .sans100 { */
+/* 	font-weight: 100; */
+/* 	font-family: @theme (); */
+/* } */

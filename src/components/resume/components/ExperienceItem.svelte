@@ -21,11 +21,12 @@
     show_project_locations,
     show_project_positions,
     show_project_dates,
-    show_tags_under_experience,
-    disable_categorical_tags,
+    // show_tags_under_experience,
+    // disable_categorical_tags,
     experience_content_font_size,
     compact_exp_info,
-    TagCategoryNames
+    // TagCategoryNames
+    show_font_info
   } from '../utils/settings.js';
 
   let enable_tag_controls = false;
@@ -56,11 +57,11 @@
     enable_tag_controls = !enable_tag_controls;
   }
 
-  $: tags_text = item.tags.concat().sort((a,b)=>a.order - b.order).filter(i=>{
-    let disabled_because_cat = (TagCategoryNames.includes(i.title) && $disable_categorical_tags);
-    let test = !(disabled_because_cat || i.force_hide);
-    return test;
-    }).map(i=>i.title).join(', ');
+  // $: tags_text = item.tags.concat().sort((a,b)=>a.order - b.order).filter(i=>{
+  //   let disabled_because_cat = (TagCategoryNames.includes(i.title) && $disable_categorical_tags);
+  //   let test = !(disabled_because_cat || i.force_hide);
+  //   return test;
+  //   }).map(i=>i.title).join(', ');
 
 </script>
 
@@ -107,10 +108,10 @@
   }
   
   .onelineTitle{
-    margin: 0;
+    /* margin: 0; */
     /* font-size: 15px; */
     /* font-style: bold; */
-    font: 900 15px roboto, sans-serif;
+    /* font: 900 15px roboto, sans-serif; */
   }
 
   .title.darktheme{
@@ -126,7 +127,7 @@
   .location{
     margin: 0;
     margin-left: auto;
-    color: purple;
+    /* color: purple; */
     font-size: 15px;
     font-weight: 400;
     font-style: italic;
@@ -146,7 +147,7 @@
 
   .position{
     margin: 0;
-    color: #606060;
+    /* color: #606060; */
     font-size: 12px;
     font-family: "roboto", "helvetica", sans-serif;
     text-transform: uppercase;
@@ -165,28 +166,28 @@
   }
 
   .date{
-    margin: 0;
-    margin-left: auto;
-    font-size: 15px;
-    font-weight: 400;
-    color: grey;
-    font-style: italic;
+    /* margin: 0; */
+    /* margin-left: auto; */
+    /* font-size: 15px; */
+    /* font-weight: 400; */
+    /* color: grey; */
+    /* font-style: italic; */
   }
   
-  .date:not(.darktheme){
-    transform: translateY(-2px);
-  }
-
-  .date.darktheme{
-    font-size: 17px;
-    color: grey;
-    font-weight: 500;
-  }
-
-  .date.darktheme.mobile{
-    font-size: 14px;
-    font-weight: 500;
-  }
+  /* .date:not(.darktheme){ */
+  /*   transform: translateY(-2px); */
+  /* } */
+  /**/
+  /* .date.darktheme{ */
+  /*   font-size: 17px; */
+  /*   color: grey; */
+  /*   font-weight: 500; */
+  /* } */
+  /**/
+  /* .date.darktheme.mobile{ */
+  /*   font-size: 14px; */
+  /*   font-weight: 500; */
+  /* } */
 
   ul{
     margin: 0 0;
@@ -205,46 +206,54 @@
 
 {#if !item.force_hide}
   <div class:darktheme={embedded} class:mobile class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
-  {#if !compact_exp_info || embedded}
+  <!-- {#if !compact_exp_info || embedded} -->
+  <!--   <div class="row"> -->
+  <!--     {#if !compact_exp_info || embedded} -->
+  <!--       <h1 class='title' class:mobile class:darktheme={embedded} on:click={() => {enable_section_controls = true}}>{item.title}</h1> -->
+  <!--     {/if} -->
+  <!--     {#if (work || $show_project_locations) && (item.location != undefined)} -->
+  <!--       <h1 class="location" class:mobile class:darktheme={embedded}>{item.location}</h1> -->
+  <!--     {/if} -->
+    <!-- </div> -->
+  <!-- {:else if compact_exp_info && !embedded} -->
     <div class="row">
-      {#if !compact_exp_info || embedded}
-        <h1 class='title' class:mobile class:darktheme={embedded} on:click={() => {enable_section_controls = true}}>{item.title}</h1>
-      {/if}
-      {#if (work || $show_project_locations) && (item.location != undefined)}
-        <h1 class="location" class:mobile class:darktheme={embedded}>{item.location}</h1>
-      {/if}
+      <!-- <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1> -->
+      <!-- <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1> -->
+      <!-- <h1 class='onelineTitle font-rubik4 text-grey-100/90 text-szBase hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1> -->
+      <h1 class='onelineTitle font-rubik6 text-blue-subdued/80 text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
+      <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
+      <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
+      <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
+      <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
+      <h1 class='onelineTitle font-rubik4 text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
+      <h1 class="date font-sans font-wgt500 text-szBase italic text-pink-accent" class:mobile class:darktheme={embedded}>{item.date}</h1>
     </div>
-  {:else if compact_exp_info && !embedded}
-    <div class="row">
-      <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1>
-      <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1>
-    </div>
-  {/if}
+  <!-- {/if} -->
 
   {#if enable_section_controls && !embedded}
     <ListControls on:close={refreshCloseSectionControls} single={true} bind:items={itemContainer}/>
   {/if}
-  {#if !compact_exp_info || embedded}
-    <div class="row">
-      {#if (work || $show_project_positions) && (item.position != undefined)}
-        <h1 class="position" class:mobile class:darktheme={embedded}>{item.position}</h1>
-      {/if}
-      {#if (work || $show_project_dates) && (item.date != undefined)}
-        <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1>
-      {/if}
-    </div>
-  {/if}
+  <!-- {#if !compact_exp_info || embedded} -->
+  <!--   <div class="row"> -->
+  <!--     {#if (work || $show_project_positions) && (item.position != undefined)} -->
+  <!--       <h1 class="position" class:mobile class:darktheme={embedded}>{item.position}</h1> -->
+  <!--     {/if} -->
+  <!--     {#if (work || $show_project_dates) && (item.date != undefined)} -->
+  <!--       <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
+  <!--     {/if} -->
+  <!--   </div> -->
+  <!-- {/if} -->
 
   {#if enable_exp_item_point_list_controls && !embedded}
     <ListControls bind:items={item.points} on:close={refreshClosePointList} title='ExpItem Point List Controls'/>
   {/if}
 
   <ExpItemPointList {embedded} {mobile} bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
-  {#if $show_tags_under_experience}
-    <p class="experience-tags" class:mobile class:darktheme={embedded} on:click={toggle_tag_controls}>{tags_text}</p>
-    {#if enable_tag_controls && !embedded}
-      <ListControls on:close={refreshCloseTags} bind:items={item.tags} title='Tag Controls'/>
-    {/if}
-  {/if}
+  <!-- {#if $show_tags_under_experience} -->
+  <!--   <p class="experience-tags" class:mobile class:darktheme={embedded} on:click={toggle_tag_controls}>{tags_text}</p> -->
+  <!--   {#if enable_tag_controls && !embedded} -->
+  <!--     <ListControls on:close={refreshCloseTags} bind:items={item.tags} title='Tag Controls'/> -->
+  <!--   {/if} -->
+  <!-- {/if} -->
 </div>
 {/if}

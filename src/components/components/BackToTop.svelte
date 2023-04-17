@@ -22,11 +22,11 @@
     border: none;
     background: none;
     cursor: pointer;
-    color: #c3c5c4;
+    /* color: #c3c5c4; */
     text-transform: uppercase;
-    font-weight: 400;
-    font-size: 22px;
-    font-family: "Open Sans", sans-serif;
+    /* font-weight: 400; */
+    /* font-size: 22px; */
+    /* font-family: "Open Sans", sans-serif; */
     margin: 30px 0;
   }
 

@@ -6,13 +6,13 @@
   export let mobile;
   
   let contactElement;
-  import { onMount } from 'svelte';
-  onMount(async => {
-    const bar = () => {
-      height = contactElement.offsetHeight;
-    }
-    setTimeout(bar, 10);
-  });
+  // import { onMount } from 'svelte';
+  // onMount(async => {
+  //   const bar = () => {
+  //     height = contactElement.offsetHeight;
+  //   }
+  //   setTimeout(bar, 10);
+  // });
 </script>
 
 <style>
@@ -31,17 +31,17 @@
   }
 
   h1{
-    font-size: 70px;
+    /* font-size: 70px; */
     text-transform: uppercase;
     color: #f3f5f4;
-    font-weight: 100;
-    font-family: "DIN Condensed Web", "Open Sans", "Helvetica", sans-serif;
+    /* font-weight: 100; */
+    /* font-family: "DIN Condensed Web", "Open Sans", "Helvetica", sans-serif; */
     margin-bottom: 25px;
   }
 
   h1.mobile{
-    font-size:24px;
-    font-weight: 500;
+    /* font-size:24px; */
+    /* font-weight: 500; */
     max-width:100%;
     overflow-wrap: normal;
   }
@@ -49,8 +49,8 @@
   h2{
     /* color: #a1a2a3; */
     color: #f3f5f4;
-    text-transform: uppercase;
-    font-family: "DIN Condensed Web", "Open Sans", sans-serif;
+    /* text-transform: uppercase; */
+    /* font-family: "DIN Condensed Web", "Open Sans", sans-serif; */
     text-align: center;
     margin-bottom: 50px;
   }

@@ -9,7 +9,7 @@
   const dispatch = createEventDispatcher();
   const dispatchClose = () => {
     dispatch('close');
-    console.log('close');
+    // console.log('close');
     refresh();
   };
 

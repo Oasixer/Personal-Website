@@ -24,7 +24,7 @@
 
 <div class="experience-list-container">
   {#each items.concat().sort((a,b)=>a.order - b.order) as item}
-    {#if (embedded || (arrayIntersect(item.tags.filter(i => i.use_index).map(i=>i.title), $tags).length > 0 || (work && $force_use_all_employment) && !item.force_hide))}
+    {#if (!item.force_hide)}
       <ExperienceItem bind:item on:refresh={refresh} {mobile} {embedded} {work}/>
     {/if}
   {/each}

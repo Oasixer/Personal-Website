@@ -61,17 +61,17 @@
   p{
     color: #c3c4c5;
     width: 70%;
-    font-family: "Source Sans Pro", "Helvetica", sans-serif;
-    font-weight: 300;
-    line-height: 1.65;
-    font-size: 20px;
+    /* font-family: "Source Sans Pro", "Helvetica", sans-serif; */
+    /* font-weight: 300; */
+    /* line-height: 1.65; */
+    /* font-size: 20px; */
   }
   p.mobile{
     text-align: justify;
     width: 100%;
-    font-weight: 400;
-    font-family: "Helvetica", serif;
-    font-size:18px;
+    /* font-weight: 400; */
+    /* font-family: "Helvetica", serif; */
+    /* font-size:18px; */
   }
 
   img{
@@ -83,10 +83,11 @@
 
 </style>
 <div id='about'
-  style="background-color: {bg_color}"
-  class:mobile
+  class="bg-blue-bgOuter"
+  class:mobile class="derBold text-headerBold"
   bind:this={aboutElement}
   bind:offsetHeight={height}>
+  <!-- style="background-color: {bg_color}" -->
   <h1 class:mobile>About Kaelan</h1>
     {#if !mobile}
       <div class='row'>

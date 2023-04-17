@@ -9,11 +9,11 @@
     single_column,
     compact_exp_info,
     tags,
-    orders,
+    // orders,
     display_mode,
     disable_settings_button,
-    show_tags_under_experience,
-    disable_categorical_tags,
+    // show_tags_under_experience,
+    // disable_categorical_tags,
     top_align_sections,
     education_awards_interests_font_size,
     section_content_top_margin,
@@ -47,6 +47,7 @@
 
   /* $: console.log({$tags}); */
 
+  show_11in_line.set(false);
 
   $: bools = [
     {
@@ -65,14 +66,14 @@
       name: 'Show project positions',
       store: show_project_positions
     },
-    {
-      name: 'Show tags under experience',
-      store: show_tags_under_experience
-    },
-    {
-      name: 'Disable categorical tags',
-      store: disable_categorical_tags
-    },
+    // {
+    //   name: 'Show tags under experience',
+    //   store: show_tags_under_experience
+    // },
+    // {
+    //   name: 'Disable categorical tags',
+    //   store: disable_categorical_tags
+    // },
     {
       name: 'Swap columns',
       store: swap_columns
@@ -232,11 +233,11 @@
   }
   
   async function import_settings(){
-    console.log(`fileList len: ${fileInput.files.length}`);
+    // console.log(`fileList len: ${fileInput.files.length}`);
     const text = await fileInput.files[fileInput.files.length - 1].text();
-    console.log(`text: ${text}`);
+    // console.log(`text: ${text}`);
     let settings = JSON.parse(text);
-    console.log(`settings: ${settings}`);
+    // console.log(`settings: ${settings}`);
     presets.push(settings);
     loadPreset(settings);
   }
@@ -263,7 +264,7 @@
   
   
   async function export_settings(){
-    console.log(fileInput.files)
+    // console.log(fileInput.files)
     let json = new Object();
     json.settings = new Object();
     json.settings.bools = new Object();

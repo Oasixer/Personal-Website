@@ -21,7 +21,7 @@
     padding: 0;
 		text-transform: uppercase;
 		/* font-size: 3em; */ /* loads from store - not hardcoded */
-    font-weight: 100;
+    /* font-weight: 100; */
     text-align: center;
   }
 
@@ -30,12 +30,19 @@
   }
 
 </style>
-<div style="margin-bottom: {$top_header_bottom_margin}px">
+<div class="mt-2" style="margin-bottom: {$top_header_bottom_margin}px">
   {#if !embedded}
-    <h1 
-        style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0"
-        on:click>
-        Kaelan Moffett-Steinke</h1>
+        <!-- style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0" -->
+    <div class="flex flex-row items-center justify-center gap-3 w-full">
+      <h1 class="dark:text-white font-thicc3 text-sz3xl"
+          style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0"
+          on:click>
+          Kaelan</h1>
+      <h1 class="dark:text-white font-thicc8" 
+          style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0"
+          on:click>
+          Moffett</h1>
+    </div>
   {/if}
   <!--  style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0">  -->
   <LinkRow {embedded}/>
