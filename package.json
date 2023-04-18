@@ -3,15 +3,6 @@
 	"description": "Personal Website",
 	"private": true,
 	"version": "0.0.1",
-	"_scripts": {
-		"____dev": "sapper dev",
-		"____build": "sapper build --legacy",
-		"____export": "sapper export --legacy",
-		"____start": "node __sapper__/build",
-		"____cy:run": "cypress run",
-		"____cy:open": "cypress open",
-		"____test": "run-p --race dev cy:run"
-	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

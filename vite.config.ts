@@ -1,26 +1,41 @@
-// vite.config.js
-
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
 
 /** @type {import('vite').UserConfig} */
-export default ({ mode }) => {
-	let devEnvSettings = {};
-	if (mode === 'development') {
-		devEnvSettings = {
-			server: {
-				port: 3000,
-				proxy: {
-					'/api': 'http://localhost:8080'
-				}
-			}
-		};
+const config = {
+	plugins: [sveltekit()],
+	test: {
+		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
-	return defineConfig({
-		plugins: [sveltekit()],
-		...devEnvSettings
-	});
-}; // import { sveltekit } from '@sveltejs/kit/vite';
+};
+
+export default config; // SCARS OF OLD PROJECT CONFIGS THAT I AM LEAVING HERE IN CASE THEY'RE USEFUL
+// ONE DAY:  -------------------------------------------- V1
+// import { sveltekit } from '@sveltejs/kit/vite';
+// import { defineConfig } from 'vite';
+//
+// export default ({ mode }) => {
+// 	let devEnvSettings = {};
+// 	if (mode === 'development') {
+// 		devEnvSettings = {
+// 			server: {
+// 				port: 3000,
+// 				proxy: {
+// 					'/api': 'http://localhost:8080'
+// 				}
+// 			}
+// 		};
+// 	}
+// 	return defineConfig({
+// 		plugins: [sveltekit()],
+// 		...devEnvSettings
+// 	});
+// };  // -----------------------------------------------------------------end of v1
+
+// SCARS OF OLD PROJECT CONFIGS THAT I AM LEAVING HERE IN CASE THEY'RE USEFUL
+// ONE DAY:  -------------------------------------------- V2
+//
+/** @type {import('vite').UserConfig} */
+// import { sveltekit } from '@sveltejs/kit/vite';
 // // import {svelte} from "@sveltejs/vite-plugin-svelte"
 // import { defineConfig } from 'vite';
 
