@@ -3,6 +3,16 @@
   import ProjectImageScroller from './ProjectImageScroller.svelte';
   import ProjectLanguagesIconStack from './ProjectLanguagesIconStack.svelte';
   import ProjImgConst from './project';
+  import { get } from 'svelte/store';
+
+  import { sz } from './project';
+  import type { Sizes } from './project';
+
+  import { vp } from '../viewport';
+  import type { VP } from '../viewport';
+
+  import { getStoreValue } from '../resume/utils/misc'
+  
 
   export let pstate: PortfolioState;
   export let proj: ProjMeta;
@@ -27,6 +37,39 @@
     }
     return indices;
   }
+
+
+  // dont really need reactivity from pstate updates,
+  // provided that we run this when expand_all is triggered
+  function updateWidths(_vp: VP, _pstate: PortfolioState){
+    if (_vp.width == 0){
+        return;
+      }
+    if (_vp.width < 500){
+      _pstate.expand_all = true;
+      console.log("Mobile?? ", _vp.width);
+      // todo set whatever
+      sz.set({
+        pcard_width: ProjImgConst.CARD_WIDTH_MOBILE
+      } as Sizes);
+    }
+    else{
+      sz.set(
+        {
+          full_width: ProjImgConst.CARD_WIDTH_MED - ProjImgConst.ICON_STACK_WIDTH - ProjImgConst.SEP - 1 - ProjImgConst.CARD_PAD * 2,
+          full_height: (ProjImgConst.CARD_WIDTH_MED - ProjImgConst.ICON_STACK_WIDTH - ProjImgConst.SEP - 1 - ProjImgConst.CARD_PAD * 2)/ProjImgConst.THUMB_ASPECT_RATIO,
+          pcard_width: ProjImgConst.CARD_WIDTH_MED,
+          pcard_content_width: ProjImgConst.CARD_CONTENT_WIDTH_MED,
+          text_col_width: (ProjImgConst.CARD_CONTENT_WIDTH_MED - ProjImgConst.SEP - 1) / 2,
+        } as Sizes
+      );
+    }
+  }
+
+  vp.subscribe((_vp) => {
+    updateWidths(_vp, pstate);
+  });
+  // $: updateWidths(vp, pstate);
   
   function split(line: string){
     const open = "<";
@@ -84,12 +127,15 @@
 
     // so, fuck it, if i want the columns balanced, ill just hardcode values here for each project.
 
+    console.log("get(sz): ", get(sz));
+    newLeftColWidth = get(sz).text_col_width * _proj.leftColWidthFactor;
+    // newRightColWidth = get(sz).text_col_width / _proj.leftColWidthFactor ;
     // leftColHeight = 25;
     // let fact;
     // if (leftColHeight > rightColHeight){
     //   let amount = (leftColHeight - rightColHeight)*factor;
-    newLeftColWidth = leftColWidth*_proj.leftColWidthFactor;
-    newRightColWidth = rightColWidth/_proj.leftColWidthFactor-50;
+    // newLeftColWidth = leftColWidth*_proj.leftColWidthFactor;
+    // newRightColWidth = rightColWidth/_proj.leftColWidthFactor-50;
     //   newRightColWidth = rightColWidth - amount;
     // }
     // if (rightColHeight > leftColHeight){
@@ -116,7 +162,8 @@
   }
 </script>
 
-<div class="flex flex-col items-center h-fit mb-auto bg-blue-bgOuter rounded-xl p-4 border-2 border-grey-0">
+<div class="flex flex-col items-center h-fit mb-auto bg-blue-bgOuter rounded-xl border-2 border-grey-2"
+     style="padding: {ProjImgConst.CARD_PAD}px; min-width: {$sz.pcard_width}px; max-width: {$sz.pcard_width}px">
 
   <!-- project title in expanded card -->
   <h1 class="font-thicc5 text-sz3xl text-white mb-3">
@@ -124,9 +171,9 @@
   </h1>
 
   <!-- row w/ image scroller | ProjectLanguagesIconStack -->
-  <div class="flex flex-row flex-nowrap w-full h-fit gap-3">
+  <div class="flex flex-row flex-nowrap w-full gap-3">
     <ProjectImageScroller proj={proj}/>
-  <div class="h-[full] w-[1px] bg-grey-700 mx-1"></div>
+  <div class="h-[full] w-[1px] min-w-[1px] bg-grey-700 mx-1"></div>
     <!-- stack of language names w/ devicons -->
     <!-- <div class="flex flex-col h-full"> -->
     <ProjectLanguagesIconStack proj={proj}/>
@@ -135,14 +182,17 @@
   </div>
   <!-- horizontal line seperator -->
   <div class="h-[1px] flex-none bg-grey-700 my-5" style="min-height: 1px; min-width: 100%;"></div>
-  <div class="flex flex-row flex-nowrap" style="width: {portfolio_card_available_width}px; max-width: {portfolio_card_available_width}px;">
+  <div class="flex flex-row flex-nowrap" style="width: {$sz.pcard_content_width}px; max-width: {$sz.pcard_content_width}px;">
     <div class="flex flex-col grow h-fit w-2" style="{newLeftColWidth > 0?('max-width: '+newLeftColWidth.toString()+'px; min-width: '+newLeftColWidth.toString()+'px;'):''}" id="overview-column">
-      <h1 class="font-rubik5 text-szLg text-grey-00 w-fit ml-[-6px]">
+
+      <!-- w-fit ml-[-6px]"> -->
+      <h1 class="font-rubik5 text-szLg text-grey-00">
         Project Overview
       </h1>
       <ul class="list-disc">
         {#each proj.project_desc as line}
-          <li class="font-sans font-wgt400 text-szBase text-grey-0 mb-1 {should_indent(line)?'indent':''}" style="{should_indent(line)?'margin-left: 30px;':'margin-left: 10px;'}">
+          <li class="font-sans font-wgt400 text-szBase text-grey-0 mb-1 {should_indent(line)?'indent':''}"
+              style="{should_indent(line)?'margin-left: 34px;':'margin-left: 17px;'}">
             {#each split(should_indent(line)?line.slice(1):line) as portion}
               {#if portion[0] == 'p'}
                 <em class="font-sans font-wgt400 not-italic text-szBase text-grey-0">{portion[1]}</em>
@@ -153,11 +203,6 @@
           </li>
         {/each}
       </ul>
-      <!--   <li class="font-rubik3 text-szBase text-grey-1 ml-3 list-disc"> -->
-      <!--     {line} -->
-      <!--   </li> -->
-      <!--   {/each} -->
-      <!-- </ul> -->
     </div>
     <!-- vertical line separator -->
     <div class="w-[1px] flex-none bg-grey-700" style="min-width: 1px; min-height: 100%; margin: 0 {ProjImgConst.SEP/2+10}px 0 {ProjImgConst.SEP/2}px"></div>
@@ -167,7 +212,8 @@
       </h1>
       <ul class="list-disc">
         {#each proj.contributions as line}
-          <li class="font-sans font-wgt400 text-szBase text-grey-0 mb-1 {should_indent(line)?'indent':''}" style="{should_indent(line)?'margin-left: 30px;':'margin-left: 10px;'}">
+          <li class="font-sans font-wgt400 text-szBase text-grey-0 mb-1 {should_indent(line)?'indent':''}"
+              style="{should_indent(line)?'margin-left: 27px;':'margin-left: 10px;'}">
             {#each split(should_indent(line)?line.slice(1):line) as portion}
               {#if portion[0] == 'p'}
                 <em class="font-sans font-wgt400 not-italic text-szBase text-grey-0">{portion[1]}</em>

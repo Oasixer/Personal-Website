@@ -106,26 +106,25 @@
   <!-- <div class="h-[48px] bg-white"> <!-- may contain menubar -->
   <!-- </div> -->
   <div id="portfolio-gradient-card"
-       class="rounded-xl gap-5 flex flex-col px-12 pb-12 border-2 border-grey-0 bg-blue-bgOuter h-full"
+       class="rounded-xl gap-5 flex flex-row flex-nowrap px-12 pb-12 pt-3 border-0 border-grey-0 bg-blue-bgOuter h-full"
        style="max-height: {maxOuterCardHeightUnexpanded($vp.height)}px;"
   > <!-- update height to something smart like calculate vw - 48px in the js later -->
 
     <!-- row containing header -->
-    <div class="w-full flex flex-row flex-nowrap items-center gap-4 mb-[-10px]">
-      <!-- <h1 class="font-thicc8 uppercase text-sz5xl text-grey-00 mr-auto"> -->
-      <h1 class="font-thicc8 uppercase text-sz5xl text-grey-00 mr-auto">
-        Portfolio
-      </h1>
-      <Toggle on:toggle_on_callback={toggle_on_callback} on:toggle_off_callback={toggle_off_callback} title={"Expand All"}/>
-      <div class="flex flex-col">
-        <p class="font-rubik5 text-grey-00">
-          use j/k to scroll projects
-        </p>
-        <p class="font-rubik5 text-grey-00">
-          use h/l to scroll images
-        </p>
-      </div>
-    </div> <!-- end of header row -->
+    <!-- <div class="w-full flex flex-row flex-nowrap items-center gap-4 mb-[-10px]"> -->
+    <!--   <h1 class="font-thicc8 uppercase text-sz5xl text-grey-00 mr-auto"> -->
+    <!--     Portfolio -->
+    <!--   </h1> -->
+    <!--   <Toggle on:toggle_on_callback={toggle_on_callback} on:toggle_off_callback={toggle_off_callback} title={"Expand All"}/> -->
+    <!--   <div class="flex flex-col"> -->
+    <!--     <p class="font-rubik5 text-grey-00"> -->
+    <!--       use j/k to scroll projects -->
+    <!--     </p> -->
+    <!--     <p class="font-rubik5 text-grey-00"> -->
+    <!--       use h/l to scroll images -->
+    <!--     </p> -->
+    <!--   </div> -->
+    <!-- </div> <!-- end of header row -->
     <!-- next element of card col, if not expand_all -->
     {#if pstate.expand_all}
       {#each projects.slice(1,-1) as proj}
@@ -135,15 +134,30 @@
       {/each}
     {:else}
       <!-- = normal row layout, thumbnails on the left -->
-      <div class="w-full h-full flex flex-row flex-nowrap content-align gap-12">
+      <div class="w-full h-full flex flex-row flex-nowrap content-align gap-4">
         {#if !pstate.expand_all}
-          <div class="flex flex-col w-fit content-center gap-4">
+          <div class="flex flex-col content-center gap-4 w-[325px] min-w-[325px] max-w-[325px]">
+            <!-- moving header shit here -->
+            <h1 class="font-thicc8 uppercase text-sz5xl text-grey-00 mr-7 mb-[-12px] ml-auto">
+              Portfolio
+            </h1>
             <!-- {#each visibleProjects as proj} -->
-              <ProjectThumb proj={topProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
-              <ProjectThumb proj={middleProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
-              <ProjectThumb proj={bottomProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
-            <!-- {/each} -->
+            <ProjectThumb proj={topProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+            <ProjectThumb proj={middleProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+            <ProjectThumb proj={bottomProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+            <div class="w-full flex flex-row flex-nowrap items-center gap-0 mt-[-13px]">
               <Toggle on:toggle_on_callback={toggle_on_callback} on:toggle_off_callback={toggle_off_callback} title={"Expand All"}/>
+              <div class="flex flex-col mr-5 gap-0">
+                <p class="font-rubik5 text-grey-00 mt-[2px] ml-auto">
+                  j/k ⬄ images
+                </p>
+                <p class="font-rubik5 text-grey-00 mt-[-3px] mb-[-2px] ml-auto">
+                  h/l ⇳ projects
+                </p>
+              </div>
+            </div> <!-- end of header row -->
+            <!-- {/each} -->
+              <!-- <Toggle on:toggle_on_callback={toggle_on_callback} on:toggle_off_callback={toggle_off_callback} title={"Expand All"}/> -->
           </div>
         {:else}
         {/if}

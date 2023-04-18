@@ -32,7 +32,7 @@ export let projects: ProjMeta[] = [
 		],
 		links: ['https://github.com/kiranjray/fydp_software'],
 		images: ['award', 'demo_outside', 'underwater', 'pinguins'],
-		leftColWidthFactor: 0.7
+		leftColWidthFactor: 0.55
 	},
 	{
 		name: 'Autonomous Robot Race Winner',
@@ -85,7 +85,7 @@ export let projects: ProjMeta[] = [
 	{
 		name: 'Backr Inc. Backend and Analytics',
 		dir: 'backr',
-		languages: ['python', 'js'],
+		languages: ['python', 'flask', 'js'],
 		project_desc: [
 			'Now dead startup that did a bunch of twitter and youtube scraping and data analysis for youtubers seeking to have good fan interaction'
 		],
@@ -129,7 +129,7 @@ export let projects: ProjMeta[] = [
 	},
 	{
 		name: 'Rocket Microcontroller Firmware',
-		images: ['vent.png'],
+		images: ['vent'],
 		dir: 'vent',
 		languages: ['c'],
 		project_desc: [
@@ -158,7 +158,7 @@ export let projects: ProjMeta[] = [
 	{
 		name: 'Ultra low budget 3D printer from scratch',
 		dir: 'printer',
-		images: ['printer.jpg'],
+		images: ['printer'],
 		languages: ['c'],
 		project_desc: [
 			'Made a mini 3D printer powered by a 3d pen for under $40, programmed some prototype firmware',

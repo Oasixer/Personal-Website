@@ -111,9 +111,9 @@
         // move_to_section_n(2);
         let last_y = y;
         tryMoveInProgress = true;
-        console.log("try move in a sec");
+        // console.log("try move in a sec");
         setTimeout(()=>{
-          console.log("try move. y: ",y,"last_y: ", last_y, "hgt: ", sections[0].height);
+          // console.log("try move. y: ",y,"last_y: ", last_y, "hgt: ", sections[0].height);
           // move UP to section if already moving up
           if ((y > sections[0].height) && y < sections[0].height + epsilon_higher && y < last_y){
             move_to_section_n(1)

@@ -1,6 +1,8 @@
 <script lang="ts">
 import DevIcon from './DevIcon.svelte';
 import type { ProjMeta, PortfolioState, FilterFn } from './project';
+import type { Sizes } from './project';
+import { sz } from './project';
 import ProjImgConst from './project';
 
 export let proj: ProjMeta; 
@@ -51,21 +53,21 @@ function handleMouseOutRight(){
 
 
 <div class="w-full rounded-xl overflow-hidden relative"
- style="width: {ProjImgConst.FULL_WIDTH}px; height: {ProjImgConst.FULL_HEIGHT}px; min-height: {ProjImgConst.FULL_HEIGHT}px">
+ style="width: {$sz.full_width}px; min-width: {$sz.full_width}px">
 
   <!-- large/full img -->
   <img class="rounded-xl z-10"
-       style="width: {ProjImgConst.FULL_WIDTH}px; height: {ProjImgConst.FULL_HEIGHT}px"
+       style="width: {$sz.full_width}px;"
        src={image_src} alt=""/> 
 
   <!-- element clipped into img for icons n shit -->
   <div class="absolute flex flex-row"
-       style="width: {ProjImgConst.FULL_WIDTH}px; height: {ProjImgConst.FULL_HEIGHT}px margin-top: {-ProjImgConst.FULL_HEIGHT}px;">
+       style="width: {$sz.full_width}px; margin-top: {-$sz.full_height}px;">
 
     {#if proj.selected_img > 0}
       <!-- left arrow full height tint box -->
       <div class="mr-auto bg-black/70 flex flex-col justify-center items-center cursor-pointer"
-         style="width: {ProjImgConst.FULL_IMG_NEXTARROW_TINT_WIDTH}px; height: {ProjImgConst.FULL_HEIGHT}px; margin-top: {-ProjImgConst.FULL_HEIGHT}px;"
+         style="width: {ProjImgConst.FULL_IMG_NEXTARROW_TINT_WIDTH}px; height: {$sz.full_height}px; margin-top: {-$sz.full_height}px;"
          on:mouseover={handleMouseOverLeft} on:mouseout={handleMouseOutLeft} on:click={click_left}>
         <!-- left arrow -->
         <div class="w-fit h-fit ml-1">
@@ -77,7 +79,7 @@ function handleMouseOutRight(){
     {#if proj.selected_img < proj.images.length - 1}
     <!-- right arrow full height tint box -->
     <div class="ml-auto bg-black/70 flex flex-col justify-center items-center cursor-pointer"
-       style="width: {ProjImgConst.FULL_IMG_NEXTARROW_TINT_WIDTH}px; height: {ProjImgConst.FULL_HEIGHT}px; margin-top: {-ProjImgConst.FULL_HEIGHT}px;"
+       style="width: {ProjImgConst.FULL_IMG_NEXTARROW_TINT_WIDTH}px; height: {$sz.full_height}px; margin-top: {-$sz.full_height}px;"
        on:mouseover={handleMouseOverRight} on:mouseout={handleMouseOutRight} on:click={click_right}>
       <!-- right arrow -->
       <div class="w-fit h-fit mr-1">

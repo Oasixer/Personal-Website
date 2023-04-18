@@ -27,7 +27,7 @@ let clickable_and_tinted_and_arrow_visible = false;
 let arrowDown = false;
 
 function update_tinted(pstate: PortfolioState, project: ProjMeta) {
-  console.log("idx:", project.idx);
+  // console.log("idx:", project.idx);
   if (project.idx == 0 || project.idx == pstate.n_projects-1){
     clickable_and_tinted_and_arrow_visible = false;
     border_class = 'border_grey1';
@@ -59,7 +59,7 @@ function update_tinted(pstate: PortfolioState, project: ProjMeta) {
     border_class = 'border_blue_light_transparent';
   }
   clickable_and_tinted_and_arrow_visible = false;
-  console.log("bye", project.idx);
+  // console.log("bye", project.idx);
 
   // border_class = calculate_border_class(clickable_and_tinted_and_arrow_visible, proj, dummy);
 }
@@ -163,14 +163,14 @@ and doesn't actually do anything by itself except for -->
       </div>
 
       <!-- lang icons bar -->
-      <div class="flex flex-row flex-nowrap ml-auto gap-2 pr-2">
+      <div class="flex flex-row flex-nowrap ml-auto gap-1 pr-2">
         {#each proj.languages.slice(0,4) as lang}
-          <DevIcon width={28} {lang} label={false}/>
+          <DevIcon width={26} {lang} label={false}/>
         {/each}
       </div>
     </div>
     <div class="absolute rounded-xl flex flex-row items-center justify-center z-30"
-         style="width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px;
+         style="min-width: {ProjImgConst.THUMB_WIDTH}px; max-width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px;
                 margin-top: {-ProjImgConst.THUMB_HEIGHT}px; background-color: {clickable_and_tinted_and_arrow_visible?'#000000aa':'#ffffff00'};
                 cursor: pointer;"
          on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:click={try_dispatch_thumbnail_click}> <!-- for searchability: handleMouseOver and handleMouseOut are for hover start and hover end -->

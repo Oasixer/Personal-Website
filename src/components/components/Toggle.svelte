@@ -10,8 +10,8 @@
   const dispatch_state = () => {on?dispatch_on():dispatch_off()}
 </script>
 
-<div class='flex flex-row flex-nowrap items-center'>
-  <div class='font-rubik6' style="color: {on?'#7dd3fc':'#5d8fb6'};">{title}</div>
+<div class='flex flex-row flex-wrap items-center'>
+  <div class='font-rubik5 font-szSm mr-[-10px]' style="color: {on?'#7dd3fc':'#5d8fb6'};">{title}</div>
   <label class="switch">
     <input type="checkbox" bind:checked={on} on:change={dispatch_state}>
     <span class="slider round"></span>
@@ -23,7 +23,7 @@
   position: relative;
   display: inline-block;
   width: 60px;
-  height: 34px;
+  height: 30px;
   margin: 0 15px;
 }
 
@@ -48,10 +48,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
+  height: 23px;
   width: 26px;
   left: 4px;
-  bottom: 4px;
+  bottom: 3px;
   background-color: #FFFFFF;
   transition: .25s;
 }
