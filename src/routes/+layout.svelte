@@ -1,6 +1,5 @@
 <script context="module">
   import '../app.css';
-  export const ssr = false;
 </script>
 
 <!-- <h1 class="font-sans text-headerBold text-xl">Blah</h1> -->
