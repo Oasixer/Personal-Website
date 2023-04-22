@@ -1,11 +1,14 @@
 import { writable } from 'svelte/store';
+import type { VP } from '../viewport';
 
 export interface PortfolioState {
 	active: bool;
 	proj_idx: number;
 	expand_all: bool;
+	force_expand_all: bool;
 	filter_fn: FilterFn;
 	readonly n_projects: number;
+	shouldColorKeywords: boolean;
 }
 
 export interface LanguageInfo {
@@ -120,6 +123,7 @@ export interface ProjMeta {
 	selected_img: number;
 	hovered: boolean;
 	leftColWidthFactor: number;
+	mobile: boolean;
 }
 
 export function getGithubLink(proj: ProjMeta): string | undefined {
@@ -143,19 +147,23 @@ namespace ProjImgConst {
 	export let THUMB_ASPECT_RATIO = 5 / 3;
 	export let THUMB_LABEL_HEIGHT = 50;
 	export let THUMB_WIDTH = 300;
-	export let ICON_STACK_WIDTH = 150;
+	export let ICON_STACK_WIDTH = 170;
 	export let THUMB_HEIGHT = Math.floor(THUMB_WIDTH / THUMB_ASPECT_RATIO);
 	export let FULL_HEIGHT = Math.floor(FULL_WIDTH / THUMB_ASPECT_RATIO);
 	export let FULL_IMG_NEXTARROW_TINT_WIDTH = 50;
-	export let SEP = 20;
+	export let SEP = 25;
 	export let IMAGES_BASE_DIR = './images/portfolio/';
 
 	export let CARD_PAD = 18;
 	export let CARD_WIDTH_MED = 800;
 	export let CARD_CONTENT_WIDTH_MED = CARD_WIDTH_MED - CARD_PAD * 2;
-	export let CARD_WIDTH_MOBILE = 450;
+	// export let CARD_WIDTH_MOBILE = 450;
 
 	export let FULL_WIDTH = 650;
+
+	export let CARD_WIDTH_XS = 300;
+	export let CARD_CONTENT_WIDTH_XS = CARD_WIDTH_XS - CARD_PAD * 2;
+	export let FULL_WIDTH_XS = CARD_CONTENT_WIDTH_XS;
 }
 
 export default ProjImgConst;
@@ -168,7 +176,30 @@ export interface Sizes {
 	text_col_width: number;
 }
 
-export const sz = writable({
+export const sz_xs_scale_to_vp = (_vp: VP): Sizes => {
+	let pcard_width = _vp.width;
+	let pcard_content_width = pcard_width - ProjImgConst.CARD_PAD * 2;
+	return {
+		pcard_width,
+		pcard_content_width,
+		full_width: pcard_content_width,
+		full_height: pcard_content_width / ProjImgConst.THUMB_ASPECT_RATIO,
+		text_col_width: pcard_content_width
+	} as Sizes;
+};
+
+// XS = less than 639 px. So lets keep CARD_PAD at 18px, and have card_width at 600px;
+export const SZ_XS = {
+	full_width: ProjImgConst.CARD_WIDTH_XS - ProjImgConst.CARD_PAD * 2,
+	full_height:
+		(ProjImgConst.CARD_WIDTH_XS - ProjImgConst.CARD_PAD * 2) / ProjImgConst.THUMB_ASPECT_RATIO,
+	pcard_width: ProjImgConst.CARD_WIDTH_XS,
+	pcard_content_width: ProjImgConst.CARD_CONTENT_WIDTH_XS,
+	text_col_width: ProjImgConst.CARD_CONTENT_WIDTH_XS,
+	mobile: true
+} as Sizes;
+
+export const SZ_MED = {
 	full_width:
 		ProjImgConst.CARD_WIDTH_MED -
 		ProjImgConst.ICON_STACK_WIDTH -
@@ -184,5 +215,8 @@ export const sz = writable({
 		ProjImgConst.THUMB_ASPECT_RATIO,
 	pcard_width: ProjImgConst.CARD_WIDTH_MED,
 	pcard_content_width: ProjImgConst.CARD_CONTENT_WIDTH_MED,
-	text_col_width: (ProjImgConst.CARD_CONTENT_WIDTH_MED - ProjImgConst.SEP - 1) / 2
-} as Sizes);
+	text_col_width: (ProjImgConst.CARD_CONTENT_WIDTH_MED - ProjImgConst.SEP - 1) / 2,
+	mobile: false
+} as Sizes;
+
+export const sz = writable(SZ_XS);

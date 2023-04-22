@@ -4,6 +4,7 @@
   import SectionControls from '../components/SectionControls.svelte';
 
   let header = 'Education';
+  export let standalone;
   /* let lines = ['BASc in Mechatronics Engineering, Software Option', 'University of Waterloo', 'Expected Graduation April 2023']; */
 
   export const contentSettings = () => {};
@@ -58,7 +59,7 @@
   /* } */
 </style>
 
-<Section {header} {force_hide} bind:show_section_controls>
+<Section {header} {force_hide} {standalone} bind:show_section_controls>
   {#if show_section_controls}
     <SectionControls bind:force_hide on:close={()=>{show_section_controls=false}}/>
   {/if}
@@ -69,24 +70,23 @@
       <!-- <h1 class='skills-section-title-right' style="{'font-size: '+$skills_headings_font_size+'px;'}">Waterloo, ON</h1> -->
       <!-- </div> -->
       <div class='flex flex-row w-full items-center'>
-        <p class="dark:text-blue-subdued text-szBase font-rubik6">
+        <p class="text-blue-subdued text-szBase font-rubik6">
         <!-- <p class="dark:text-blue-light" style="font-size: {$education_awards_interests_font_size}px; line-height: 1;"> -->
           University of Waterloo
         </p>
         <!-- <div class="dark:bg-grey-800" style="width: 2px;"></div> -->
         <div class="h-4 mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-        <p class="dark:text-blue-light font-rubik6"> Mechatronics Engineering BASc</p>
+        <p class="text-blue-light font-rubik6"> Mechatronics Engineering BASc</p>
         <div class="h-4 mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-        <p class="dark:text-blue-light font-rubik6">Software Option</p>
+        <p class="text-blue-light font-rubik6">Software Option</p>
 				<!-- <p class="align-right" style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">2018 - Apr 2023</p> -->
 				<p class="font-sans font-wgt500 text-szBase italic text-pink-accent ml-auto">2018-Apr 2023</p>
       </div>
-			<div class='flex flex-row flex-nowra;w
-      items-center font-sans font-wgt500 gap-2'>
+			<div class='flex flex-row flex-nowrap items-center font-sans font-wgt500 gap-2 mt-[-5px]'>
 				<p class=''>Coursework</p>
 				<p class='text-blue-light'>⯈</p>
 				<!-- <h1 class='skills-section-title' style="{'font-size: '+$skills_headings_font_size+'px; margin-right: 5px;'}">Coursework: </h1> -->
-				<p class='font-sans font-wgt300 text-grey-00'> Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p>
+				<p class='font-sans whitespace-nowrap font-wgt300 text-grey-00'> Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p>
 				<!-- <p style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p> -->
 			</div>
     </div>

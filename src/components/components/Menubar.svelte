@@ -44,6 +44,7 @@
     width: 100%;
     /* background-color: #081012; */
     height: 80px;
+    min-height: 80px;
     display: flex;
     margin: 0;
     align-items: center;

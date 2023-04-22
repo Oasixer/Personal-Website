@@ -5,4 +5,6 @@
 	<title>Resume Generator</title>
 </svelte:head>
 
-<Resume/>
+<div>
+<Resume standalone={true}/>
+</div>

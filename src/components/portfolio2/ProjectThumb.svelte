@@ -143,19 +143,20 @@ function splitString(str: string): string[] {
 
 <!-- make container relative in order to clip label in front. relative means relative to normal document flow, 
 and doesn't actually do anything by itself except for -->
-<div class="w-full rounded-xl overflow-hidden relative {border_class}" style="width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px; min-height: {ProjImgConst.THUMB_HEIGHT}px">
+<div class="thumbCard w-full rounded-xl overflow-hidden relative {border_class}" style="width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px; min-height: {ProjImgConst.THUMB_HEIGHT}px">
   {#if dummy}
     <div class="rounded-xl z-10" style="width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px"></div>
   {:else}
     <img class="z-10" style="width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px" src={thumb_src} alt=""/> <!-- thumbnail -->
 
     <!-- label bar -->
-    <div class="absolute bg-blue-bgOuter/90  z-20 w-full flex flex-row items-center" style="margin-top: -{ProjImgConst.THUMB_LABEL_HEIGHT.toString()}px; height: {ProjImgConst.THUMB_LABEL_HEIGHT.toString()}px">
+    <div class="absolute bg-blue-bgOuter/90  z-20 w-full flex flex-row items-center"
+         style="margin-top: -{ProjImgConst.THUMB_LABEL_HEIGHT.toString()}px; height: {ProjImgConst.THUMB_LABEL_HEIGHT.toString()}px">
 
       <!-- project name label -->
       <div class="flex flex-col justify-center items-center" style="width: {label_title_width}px;">
         {#each splitString(proj.name) as line}
-        <p class="font-rubik5 text-szSm w-fit mx-auto whitespace-nowrap"
+        <p class="font-rubik5 text-szXs w-fit mx-auto whitespace-nowrap"
            style="color: white">
           {line}
         </p>
@@ -169,7 +170,7 @@ and doesn't actually do anything by itself except for -->
         {/each}
       </div>
     </div>
-    <div class="absolute rounded-xl flex flex-row items-center justify-center z-30"
+    <div class="thumbOverlay {border_class} absolute rounded-xl flex flex-row items-center justify-center z-30"
          style="min-width: {ProjImgConst.THUMB_WIDTH}px; max-width: {ProjImgConst.THUMB_WIDTH}px; height: {ProjImgConst.THUMB_HEIGHT}px;
                 margin-top: {-ProjImgConst.THUMB_HEIGHT}px; background-color: {clickable_and_tinted_and_arrow_visible?'#000000aa':'#ffffff00'};
                 cursor: pointer;"
@@ -185,7 +186,7 @@ and doesn't actually do anything by itself except for -->
   <!-- TODO: update bar ^^^ and add an element clipping into the entire thing to detect hover etc w/o having to check both the img and the label -->
 </div>
 
-<style lang="postcss">
+<style>
   .border_grey_00{
     border: 2px solid #cbd3da; 
   }
@@ -201,8 +202,11 @@ and doesn't actually do anything by itself except for -->
   .border_blue_light{
     border: 2px solid #7dd3fc;
   }
-  .border_blue_light_transparent{
+  .border_blue_light_transparent.thumbOverlay{
     border: 2px solid #7dd3fc50;
+    /* transform: scale(1.07); */
+  }
+  .border_blue_light_transparent.thumbCard{
     transform: scale(1.07);
   }
 </style>

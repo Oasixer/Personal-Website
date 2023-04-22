@@ -1,7 +1,7 @@
 <script>
   export let item;
   export let work;
-  export let embedded=false;
+  export let standalone;
   export let mobile;
   
   import {
@@ -51,7 +51,7 @@
   }
 
   function toggle_tag_controls(){
-    if (embedded){
+    if (!standalone){
       return;
     }
     enable_tag_controls = !enable_tag_controls;
@@ -205,7 +205,7 @@
 </style>
 
 {#if !item.force_hide}
-  <div class:darktheme={embedded} class:mobile class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
+  <div class:mobile class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
   <!-- {#if !compact_exp_info || embedded} -->
   <!--   <div class="row"> -->
   <!--     {#if !compact_exp_info || embedded} -->
@@ -220,17 +220,25 @@
       <!-- <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1> -->
       <!-- <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1> -->
       <!-- <h1 class='onelineTitle font-rubik4 text-grey-100/90 text-szBase hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1> -->
-      <h1 class='onelineTitle font-rubik6 text-blue-subdued/80 text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
-      <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-      <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
-      <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-      <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-      <h1 class='onelineTitle font-rubik4 text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
-      <h1 class="date font-sans font-wgt500 text-szBase italic text-pink-accent" class:mobile class:darktheme={embedded}>{item.date}</h1>
+      {#if work}
+        <h1 class='onelineTitle font-rubik6 text-blue-subdued/80 text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
+        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
+        <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent'
+            on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
+        <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
+        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
+        <h1 class='onelineTitle font-rubik4 text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
+        <h1 class="date font-sans font-wgt500 text-szBase italic text-pink-accent" class:mobile>{item.date}</h1>
+      {:else} <!-- highlighted side project -->
+        <div class="mb-[4px] mt-[1px] w-[1px] ml-[307px] bg-grey-700 mx-4"></div>
+        <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent'>{`${item.title}`}</h1>
+        <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
+        <h1 class="date font-sans font-wgt500 text-szBase italic ml-auto text-pink-accent" class:mobile>{item.date}</h1>
+      {/if}
     </div>
   <!-- {/if} -->
 
-  {#if enable_section_controls && !embedded}
+  {#if enable_section_controls && standalone}
     <ListControls on:close={refreshCloseSectionControls} single={true} bind:items={itemContainer}/>
   {/if}
   <!-- {#if !compact_exp_info || embedded} -->
@@ -244,16 +252,10 @@
   <!--   </div> -->
   <!-- {/if} -->
 
-  {#if enable_exp_item_point_list_controls && !embedded}
+  {#if enable_exp_item_point_list_controls && standalone}
     <ListControls bind:items={item.points} on:close={refreshClosePointList} title='ExpItem Point List Controls'/>
   {/if}
 
-  <ExpItemPointList {embedded} {mobile} bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
-  <!-- {#if $show_tags_under_experience} -->
-  <!--   <p class="experience-tags" class:mobile class:darktheme={embedded} on:click={toggle_tag_controls}>{tags_text}</p> -->
-  <!--   {#if enable_tag_controls && !embedded} -->
-  <!--     <ListControls on:close={refreshCloseTags} bind:items={item.tags} title='Tag Controls'/> -->
-  <!--   {/if} -->
-  <!-- {/if} -->
+  <ExpItemPointList {mobile} bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
 </div>
 {/if}

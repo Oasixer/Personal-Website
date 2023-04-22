@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import LinkRow from './LinkRow.svelte';
     import {createEventDispatcher} from 'svelte';
 
@@ -9,7 +9,7 @@
     top_header_bottom_margin
   } from '../utils/settings.js';
 
-  export let embedded=false;
+  export let standalone: boolean;
   
   const dispatch = createEventDispatcher();
 	export const click = () => dispatch('click');
@@ -30,20 +30,19 @@
   }
 
 </style>
-<div class="mt-2" style="margin-bottom: {$top_header_bottom_margin}px">
-  {#if !embedded}
-        <!-- style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0" -->
+<div on:click style="margin-bottom: {$top_header_bottom_margin}px">
+  <!-- {#if standalone} -->
     <div class="flex flex-row items-center justify-center gap-3 w-full">
-      <h1 class="dark:text-white font-thicc3 text-sz3xl"
+      <h1 class="text-white font-thicc3"
           style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0"
-          on:click>
+          >
           Kaelan</h1>
-      <h1 class="dark:text-white font-thicc8" 
-          style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0"
+      <h1 class="text-white font-thicc8" 
+          style="font-size: {$top_name_font_size}em;  margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0;"
           on:click>
           Moffett</h1>
     </div>
-  {/if}
+  <!-- {/if} -->
   <!--  style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0">  -->
-  <LinkRow {embedded}/>
+  <LinkRow {standalone}/>
 </div>

@@ -48,7 +48,7 @@
   import {onMount} from 'svelte';
   import {sleep} from '../utils/misc.js';
   
-  export let embedded=false;
+  export let standalone=false;
   let header = 'Skills';
   let show_section_controls = false;
   let show_list_controls = false;
@@ -60,11 +60,12 @@
       tags: [
         [
           {title: TagNames.PYTHON},
-          {title: TagNames.JS},
           {title: TagNames.RUST},
           {title: TagNames.CPP},
-          {title: TagNames.BASH},
+          {title: TagNames.TS},
+          {title: TagNames.JS},
           {title: TagNames.LUA},
+          {title: TagNames.BASH},
           // {title: TagNames.SQL},
           // {title: TagNames.REGEX},
           // {title: TagNames.HTML},
@@ -75,7 +76,7 @@
           {title: TagNames.KOTLIN},
           {title: TagNames.JAVA},
           {title: TagNames.ASSEMBLY},
-          {title: TagNames.MATLAB},
+          // {title: TagNames.MATLAB},
           // {title: TagNames.LATEX}
           // {title: TagNames.CSS},
         ]
@@ -106,20 +107,20 @@
       force_hide: false,
       order: 3
     },
-    {
-      title: 'Frameworks',
-      tags: [
-        {title: TagNames.FLASK},
-        {title: TagNames.EXPRESSJS},
-        {title: TagNames.SPRING},
-        {title: TagNames.SVELTE},
-        // {title: TagNames.REACT},
-      ],
-    },
+    // {
+    //   title: 'Frameworks',
+    //   tags: [
+    //     {title: TagNames.FLASK},
+    //     {title: TagNames.EXPRESSJS},
+    //     {title: TagNames.SPRING},
+    //     {title: TagNames.SVELTE},
+    //     // {title: TagNames.REACT},
+    //   ],
+    // },
   ].map((i, idx)=>{return {...i, show_controls: false, show_tag_controls: false, force_hide: i.hasOwnProperty('force_hide')?i.force_hide:false, order: idx, tags: Array.isArray(i.tags[0])?[i.tags[0].map((j, j_idx)=>{return {...j, force_hide: j.hasOwnProperty('force_hide')?j.force_hide:false, order: j_idx*2}}), i.tags[1].map((j, j_idx)=>{return {...j, force_hide: j.hasOwnProperty('force_hide')?j.force_hide:false, order: j_idx*2}})]:i.tags.map((j, j_idx)=>{return {...j, force_hide: j.hasOwnProperty('force_hide')?j.force_hide:false, order: j_idx*2}})}});
 
   function toggle_tags_controls(i){
-    if (embedded){
+    if (!standalone){
       return;
     }
     i.show_tag_controls = !i.show_tag_controls;
@@ -284,42 +285,42 @@
     /* font-weight: 900; /* 15px font size, set by store instead of hardcoded */
   }
 
-  h1.skills-section-title.darktheme{
-    color: #0078b4;
-    font-size: 20px;
-  }
+  /* h1.skills-section-title.darktheme{ */
+  /*   color: #0078b4; */
+  /*   font-size: 20px; */
+  /* } */
 
-  h1.skills-section-title.mobile{
-    font-size: 16px;
-    font-weight: 600;
-  }
+  /* h1.skills-section-title.mobile{ */
+  /*   font-size: 16px; */
+  /*   font-weight: 600; */
+  /* } */
 
-  p{
+  /* p{ */
     /* margin: 0 0 0 10px; */
     /* font-weight: 300; */
     /* color: #222222; */
     /*font-size: 15px;*/ /* 15px set by store instead of hardcoded */
-  }
-  p.darktheme{
-    color: #a3a4a5;
-    font-size: 18px;
-  }
+  /* } */
+  /* p.darktheme{ */
+  /*   color: #a3a4a5; */
+  /*   font-size: 18px; */
+  /* } */
 </style>
 
-<Section {header} {embedded} {force_hide} bind:show_section_controls bind:show_list_controls>
-  {#if show_section_controls && !embedded}
+<Section {header} {standalone} {force_hide} bind:show_section_controls bind:show_list_controls>
+  {#if show_section_controls && standalone}
     <SectionControls bind:force_hide on:close={()=>{show_section_controls=false}}/>
   {/if}
-  {#if show_list_controls && !embedded}
+  {#if show_list_controls && standalone}
     <ListControls bind:items on:close={()=>{show_list_controls=false;}}/>
   {/if}
   <!-- <div style="{embedded?'':'margin: 0 0 0 10px'}"> -->
-  <div style="{embedded?'':'margin: 0 0 0 10px'}" class="flex flex-col gap-1">
+  <div style="{!standalone?'':'margin: 0 0 0 10px'}" class="flex flex-col gap-1">
   {#each items.concat().sort((a, b) => a.order - b.order) as item, n}
     {#if should_display_pointlist(item, $tags)}
       <div>
-        <!-- style="{(!embedded)?('font-size: '+$skills_headings_font_size+'px;'):''}" -->
-        <h1 class="skills-section-title font-rubik4 dark:text-blue-light text-szBase" class:darktheme={embedded} class:mobile
+        <!-- style="{(standalone)?('font-size: '+$skills_headings_font_size+'px;'):''}" -->
+        <h1 class="skills-section-title font-rubik4 text-blue-light text-szBase" class:mobile
            on:click={()=>{item.show_controls = !item.show_controls}}>
             {item.title_alt?item.title_alt:item.title}
         </h1>
@@ -327,16 +328,15 @@
     <!--   class:mobile class="font-headerBold text-7xl text-white uppercase" -->
     <!--   bind:this={aboutElement} -->
     <!--   bind:offsetHeight={height}> -->
-        {#if item.show_controls && !embedded}
+        {#if item.show_controls && standalone}
           <ListControls single={true} items={[item]} on:close={()=>{item.show_controls = false}}/>
         {/if}
           <div
           on:click={()=>{toggle_tags_controls(item)}}
-          class:darktheme={embedded}
           class="flex flex-row items-center ml-4">
           <!-- font-sans font-wgt400 text-szBase dark:text-grey-200"> -->
           <!-- style="{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+'px;')}"> -->
-             <!-- ((!embedded)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1; font-weight: 400;"> -->
+             <!-- ((standalone)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1; font-weight: 400;"> -->
             {#if Array.isArray(item.tags[0])}
               <i class="font-sans font-wgt600 text-szBase text-blue-subdued mr-2">Proficient</i>
               <p class="font-sans font-wgt400 text-szBase text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
@@ -350,7 +350,7 @@
           <!-- </p> -->
           <!--{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
           </p>-->
-        {#if item.show_tag_controls && !embedded}
+        {#if item.show_tag_controls && standalone}
           <ListControls title='Tag Controls' bind:items={item.tags} on:close={()=>{item.show_tag_controls=false}}/>
         {/if}
       </div>

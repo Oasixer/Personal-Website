@@ -4,7 +4,7 @@
   import { tags, force_use_all_employment } from '../utils/settings.js';
   export let items;
   export let work;
-  export let embedded=false;
+  export let standalone;
   export let mobile;
 
   const refresh = () => {
@@ -25,7 +25,7 @@
 <div class="experience-list-container">
   {#each items.concat().sort((a,b)=>a.order - b.order) as item}
     {#if (!item.force_hide)}
-      <ExperienceItem bind:item on:refresh={refresh} {mobile} {embedded} {work}/>
+      <ExperienceItem bind:item on:refresh={refresh} {mobile} {standalone} {work}/>
     {/if}
   {/each}
 </div>

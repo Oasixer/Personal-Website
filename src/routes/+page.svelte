@@ -4,19 +4,46 @@
   // import Portfolio from '../components/portfolio/Portfolio.svelte';
   import Contact from '../components/contact/Contact.svelte';
   import Menubar from '../components/components/Menubar.svelte';
-  import WorkExperiencePage from '../components/resume/WorkExperiencePage.svelte';
+  // import WorkExperiencePage from '../components/resume/WorkExperiencePage.svelte';
   import ResumePage from '../components/resume/ResumePage.svelte';
   import PortfolioPage2 from '../components/portfolio2/Portfolio2.svelte';
-  import SkillsPage from '../components/resume/SkillsPage.svelte';
   import BackToTop from '../components/components/BackToTop.svelte';
   // import Hamburger from '../components/components/Hamburger.svelte';
   // import HamburgerModal from '../components/components/HamburgerModal.svelte';
   // import MobileMenubarModal from '../components/components/MobileMenubarModal.svelte';
 
   // import type { VP } from '../components/viewport';
-  import { vp } from '../components/viewport';
+  import { vp, LAYOUT } from '../components/viewport';
 
   import { onMount } from 'svelte';
+
+  function setLayout(){
+    console.log('viewport Size changed to: ',viewport.Width+'x'+viewport.Height)
+      // console.log('window.width: ', width);
+    let layout = LAYOUT['xs'];
+    // if (viewport.Width > 1280){
+    //   layout = LAYOUT['xl'];
+    // }
+    if (viewport.Width > 1400){
+      layout = LAYOUT['lg'];
+    }
+    else if (viewport.Width > 1175){
+      layout = LAYOUT['md'];
+    }
+    // else if (viewport.Width > 1175){
+    //   layout = LAYOUT['lg'];
+    // }
+    // else if (viewport.Width > 768){
+    //   layout = LAYOUT['md'];
+    // }
+    // else if (viewport.Width > 640){
+    //   layout = LAYOUT['sm'];
+    // }
+    else if (viewport.Width > 475){
+      layout = LAYOUT['sm'];
+    }
+    vp.set({width: viewport.Width, height: viewport.Height, layout});
+  }
   // onMount(async() => {
     // console.log('detailled Screen Orientation:',Viewport.detailledOrientation)
   // })
@@ -35,7 +62,7 @@
   let height;
   let curSection = 0;
   let mounted = false;
-  let maxMobileWidth = 500;
+  let maxMobileWidth = 1174;
   let hamburgerOpen = false;
   let hamburgerModal;
   let mobileSidebarOpen = false;
@@ -49,8 +76,9 @@
     mounted = true;
     const Viewport = (await import('svelte-viewport-info')).default;
     console.log('Viewport Width x Height:     ',Viewport.Width+'x'+Viewport.Height)
-    console.log('standard Screen Orientation: ',Viewport.Orientation)
+    // console.log('standard Screen Orientation: ',Viewport.Orientation)
     viewport = Viewport;
+    setLayout();
 	});
 
   let sections = [
@@ -59,10 +87,10 @@
     // {component: WorkExperiencePage, name:'Work Experience', excludeFromMenubar: false},
     // {component: SkillsPage, name:'Skills', excludeFromMenubar: false},
     // {component: Portfolio, name:'Portfolio', excludeFromMenubar: false},
-    {component: PortfolioPage2, name:'Portfolio2', excludeFromMenubar: false},
+    {component: PortfolioPage2, name:'Portfolio', excludeFromMenubar: false},
     {component: ResumePage, name:'Resume', excludeFromMenubar: false},
-    {component: Contact, name:'Contact', excludeFromMenubar: false},
-    {component: BackToTop, excludeFromMenubar: true}
+    // {component: Contact, name:'Contact', excludeFromMenubar: false},
+    // {component: BackToTop, excludeFromMenubar: true}
   ];
   
   function move_to_section_n(n){
@@ -71,7 +99,7 @@
       y_temp += sections[i].height;
     }
     // y=100;
-    console.log("move2");
+    // console.log("move2");
     y = y_temp;
   }
 
@@ -168,57 +196,28 @@
 
 <svelte:window bind:scrollY={y} bind:outerWidth={width} bind:outerHeight={height}/>
 <svelte:body
-  on:viewportchanged={() => {
-    if (mounted){
-      console.log('viewport Size changed to: ',viewport.Width+'x'+viewport.Height)
-      // console.log('window.width: ', width);
-    }
-    vp.set({width: viewport.Width, height: viewport.Height, layout: 'md'});
-  }}
+  on:viewportchanged={setLayout}
   on:orientationchangeend={() => { 
     // if (mounted){
       console.log(
       'Screen Orientation changed to: ', viewport.Orientation + (
         viewport.detailledOrientation == null
-        ? ''
-        : '(' + viewport.detailledOrientation + ')'
+        ? '' : '(' + viewport.detailledOrientation + ')'
       ));
     // }
   }} />
 
-{#if mounted}
-  {#if width > maxMobileWidth}
-    <Menubar floaty={false} {sections} {curSection} on:move={move}/>
 
-    {#if scrolledFarEnoughToDisplayHamburger}
-    <Menubar floaty={true} {sections} {curSection} on:move={move}/>
-    {/if}
-  {:else}
-    {#if scrolledFarEnoughToDisplayHamburger}
-      <div style='width:100%; height: 80px;'>
-      </div>
-    {/if}
-    <Menubar mobile={true} bind:mobileSidebarOpen {y} {sections} {curSection} on:move={move}/>
-      <!-- <MobileMenubarModal on:close="{() => mobileSidebarOpen = false}" bind:this={mobileSidebarModal}> -->
-      <!-- <Menubar {y} {sections} {curSection} bind:mobileSidebarOpen mobile={true}/> -->
-      <!-- </MobileMenubarModal> -->
-      <!-- <Hamburger bind:open={mobileSidebarOpen}/> -->
-      <!-- <div style='position:fixed; left:25px; top:25px; z-index: 999; background-color: #081012; padding: 2px 10px;'> -->
-      <!-- blah -->
-      <!-- <Hamburger bind:open={mobileSidebarOpen}/> -->
-      <!-- >{#if mobileSidebarOpen} -->
-      <!-- >{/if} -->
-      <!-- </div> -->
-      <!-- >{:else} -->
-    <!-- <Hamburger fixed={true} bind:open={mobileSidebarOpen} modal={hamburgerModal}/> -->
-    <!-- {/if} -->
-  {/if}
+{#if scrolledFarEnoughToDisplayHamburger}
+  <Menubar floaty={true} {sections} {curSection} on:move={move}/>
 {/if}
-
+<div id="outer_container"
+     class="bg-green-500 absolute top-0 right-0 bottom-0 left-0 flex flex-col w-full min-w-full">
+<Menubar floaty={false} {sections} {curSection} on:move={move}/>
   {#each sections as section, n}
     <svelte:component this={section.component} bind:height={section.height} bg_color={getColor(section, n)} on:move={move} mobile={width<=maxMobileWidth}/>
   {/each}
-  
+</div>
 <!-- <script> -->
 <!--   import Dashboard from '../components/Dashboard.svelte'; -->
 <!---->

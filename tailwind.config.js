@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -17,8 +19,27 @@ export default {
 			borderWidth: {
 				1: '1px'
 			}
+			// screens: {}
 		},
-		darkMode: 'class',
+		screens: {
+			// xs = anything smaller, & default
+			//
+			sm: '475px',
+			// sm: '640px',
+			// => @media (min-width: 640px) { ... }
+
+			md: '1175px',
+			// => @media (min-width: 768px) { ... }
+
+			lg: '1400px'
+			// => @media (min-width: 1024px) { ... }
+
+			// xl: '1280px'
+			// => @media (min-width: 1280px) { ... }
+			//
+			// defaultTheme.screens.2xl
+			// ...defaultTheme.screens
+		},
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',
@@ -35,7 +56,7 @@ export default {
 				900: '#1f2c6d',
 				bgOuter: '#0f172a',
 				bgInner: '#1e293b',
-				light: '#7dd3fc',
+				light: '#7dd3fc', // equivalent to sky-300
 				bright: '#38bdf8',
 				subdued: '#5d8fb6'
 			},
@@ -64,6 +85,7 @@ export default {
 			violet: colors.violet,
 			pink: colors.pink,
 			green: colors.green,
+			red: colors.red,
 			// 	subdued: '#348f6c',
 			// 	accent: '#4bc596'
 			// 100: colors.green["100"],

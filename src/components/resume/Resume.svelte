@@ -2,16 +2,21 @@
   import WorkExperience from './sections/WorkExperience.svelte';
   import Skills from './sections/Skills.svelte';
   import Education from './sections/Education.svelte';
+  import HighlightedSideProject from './sections/HighlightedSideProject.svelte';
   // import SideProjects from './sections/SideProjects.svelte';
   import Awards from './sections/Awards.svelte'; import Interests from './sections/Interests.svelte';
   import Header from './components/Header.svelte';
   import Modal from './components/SettingsModal.svelte';
   import Settings from './components/Settings.svelte';
+
+  import { resume_width } from './utils/settings';
+  import { vp } from '../viewport';
   // aaa
   // aAs
   // lfjjklaejfkljalksfj
 
-  export let embedded=false;
+  export let standalone=false;
+  // export let embeddedResumeWidth=false;
   let showModal = false;
   let modal; // will be bound to modal instance
 
@@ -20,9 +25,11 @@
 
   // console.log("!!!!! show_11in_line: ", show_11in_line)
 
+// $: console.log("standalone from resume: ", standalone);
+
   let allSections = [
   {
-    // name: 'Skills',
+    name: 'Skills',
     component: Skills,
     // order: {$orders}.SKILLS,
     // group: 'other',
@@ -39,6 +46,11 @@
     // order: {$orders}.WORKEXPERIENCE,
     // group: 'main',
   },
+  {
+      'name': 'Highlighted Project',
+      component: HighlightedSideProject
+  },
+
   // {
   //   name: 'SideProjects',
   //   component: SideProjects,
@@ -150,18 +162,19 @@
   }
 </style>
 
-<!-- <div class:dark={embedded} style="{$limit_resume_height?'overflow: hidden;':'overflow: visible;'+$show_11in_line?'border-bottom: 2px solid red;': 'border: none;'}"> -->
-<div class:dark={embedded} style="{$limit_resume_height?'overflow: hidden;':'overflow: visible; '+ 'border: none;'}">
-  <div class="dark:bg-blue-bgOuter max-w-[1000px]">
+<div class="bg-blue-bgOuter min-h-[11in]">
+<!-- <div class:dark={standalone} style="{$limit_resume_height?'overflow: hidden;':'overflow: visible;'+$show_11in_line?'border-bottom: 2px solid red;': 'border: none;'}"> -->
+<div class="dark bg-blue-bgOuter" style="{$limit_resume_height?'overflow: hidden;':'overflow: visible; '+ 'border: none;'}">
+  <div style="{standalone?('max-width: ' + $resume_width + 'px;'):('max-width: 1000px; min-width: '+Math.min($vp.width*0.9, 1080)+'px;')}">
   <!-- style="min-width: 816px; max-width: 816px"> -->
     {#if !$disable_settings_button}
-    <button id="modal-button" on:click="{() => showModal = true}">
-      Show Settings
-    </button>
+      <button id="modal-button" on:click="{() => showModal = true}">
+        Show Settings
+      </button>
     {/if}
-    <!-- <Header {embedded} on:click="{() => showModal=!embedded}"/> -->
-    <Header on:click="{() => showModal=!embedded}"/>
-    <div class="main-container dark:text-grey-100">
+    <!-- <Header {standalone} on:click="{() => showModal=!standalone}"/> -->
+    <Header on:click="{() => showModal=standalone}" {standalone}/>
+    <div class="main-container text-grey-100 min-h-[500px]">
       <!-- {#if $single_column} -->
       <!--   <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main"> -->
       <!--     {#each singleCol as i} -->
@@ -183,12 +196,14 @@
       <!--   {:else} -->
           <div style={$top_align_sections?"justify-content: flex-start":""} class="column col-main">
             {#each allSections as i}
-              <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings}/>
+              <svelte:component this={i.component} bind:this={i.inst} bind:contentSettings={i.contentSettings} {standalone}/>
             {/each}
           </div>
         <!-- {/if} -->
       <!-- {/if} -->
     </div>
+</div>
+
 </div>
 
 {#if showModal}

@@ -1,30 +1,62 @@
 <script lang="ts">
 	export let on: boolean;
   export let title: string;
+  export let smallerText: boolean = false;
+
+  // export let allow_wrap: boolean = false;
+
+  // $: can_wrap: boolean = (allow_wrap)
 
   import { createEventDispatcher } from 'svelte';
+
+  let element: HTMLElement;
+
+  // function updateChecked(on){
+  //   if (element !== undefined){
+  //     element.checke
+  //   }
+  // }
+
+  // $: console.log("checkbox ", title, " = ", on);
 
   const dispatch = createEventDispatcher();
   const dispatch_on = () => {dispatch('toggle_on_callback');}
   const dispatch_off = () => {dispatch('toggle_off_callback');}
   const dispatch_state = () => {on?dispatch_on():dispatch_off()}
+  const dispatch_toggle = () => {on=!on; on?dispatch_on():dispatch_off()}
+
+
 </script>
 
-<div class='flex flex-row flex-wrap items-center'>
-  <div class='font-rubik5 font-szSm mr-[-10px]' style="color: {on?'#7dd3fc':'#5d8fb6'};">{title}</div>
+<div class='flex flex-row flex-nowrap items-center gap-1'>
   <label class="switch">
-    <input type="checkbox" bind:checked={on} on:change={dispatch_state}>
+    <input bind:this={element} type="checkbox" bind:checked={on} on:change={dispatch_state}>
     <span class="slider round"></span>
   </label>
+  {#if smallerText}
+    <div class='font-rubik4 text-szSm mr-[0px] cursor-pointer select-none'
+         style="color:{on?'#7dd3fc':'#5d8fb6'};"
+         on:click={dispatch_toggle}
+    >
+      {title}
+    </div>
+  {:else}
+    <div class='font-rubik5 text-szBase mr-[0px] cursor-pointer select-none'
+         style="color: {on?'#7dd3fc':'#5d8fb6'};"
+         on:click={dispatch_toggle}
+    >
+      {title}
+    </div>
+  {/if}
 </div>
 
 <style>
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 30px;
-  margin: 0 15px;
+  width: 45px;
+  height: 26px;
+  margin: 0 0px 0 5px; /* left margin between toggle & label */
 }
 
 .switch input {
@@ -48,10 +80,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 23px;
-  width: 26px;
-  left: 4px;
-  bottom: 3px;
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
   background-color: #FFFFFF;
   transition: .25s;
 }
@@ -67,7 +99,7 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(19px);
 }
 
 .slider.round {

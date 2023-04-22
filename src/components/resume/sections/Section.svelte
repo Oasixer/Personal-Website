@@ -3,13 +3,15 @@
   export let show_section_controls = false;
   export let show_list_controls = false;
   export let force_hide;
-  export let embedded=false;
+  export let standalone=false;
   import { section_headings_font_size, section_content_top_margin, show_section_header_line, section_bottom_margin } from '../utils/settings.js';
 
   function enable_controls(){
     show_section_controls=true;
     show_list_controls=true;
   }
+
+  // $: console.log("standalone from section: ", standalone);
 </script>
 
 <style>
@@ -46,15 +48,12 @@
 
 {#if !force_hide}
   <div class='section-main' style="margin-bottom: {$section_bottom_margin}px">
-  {#if !embedded}
 <!-- style="font-size: {$section_headings_font_size}px;" -->
-    <h1 class= "dark:text-grey-100 font-thicc7 text-sz2xl"
+    <h1 class= "text-grey-100 font-thicc7 text-sz2xl"
         on:click={enable_controls}>{header}</h1>
     {#if $show_section_header_line}
       <hr>
     {/if}
-  {/if}
-		<!-- <div class='section-content' style="margin-top: {header==='Education'?'-20':$section_content_top_margin}px"> -->
   <div class='section-content' style="margin-top: {$section_content_top_margin}px">
     <slot></slot>
   </div>

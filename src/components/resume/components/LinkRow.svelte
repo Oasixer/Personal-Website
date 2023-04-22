@@ -14,8 +14,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
-export let embedded: boolean;
-  
+export let standalone: boolean;
+
 </script>
 
 <style>
@@ -27,10 +27,10 @@ export let embedded: boolean;
     justify-content: center;
     align-items: center;
   }
-  div#link-row.darktheme{
-    flex-flow: column nowrap;
-    align-items: center;
-  } 
+  /* div#link-row.darktheme{ */
+  /*   flex-flow: column nowrap; */
+  /*   align-items: center; */
+  /* }  */
 
   * {
     /* margin: 0 5px; */
@@ -66,39 +66,39 @@ export let embedded: boolean;
     margin-right: 4px;
     margin-top: 5px;
   }
-  p.iconContainerP.darktheme{
-    margin-right: 15px;
-    margin-top: 5px;
-  }
+  /* p.iconContainerP.darktheme{ */
+  /*   margin-right: 15px; */
+  /*   margin-top: 5px; */
+  /* } */
 </style>
 
-<div id="link-row" class:darktheme={embedded}>
-  {#if !embedded}
-    <!--<a class:darktheme={embedded} href='https://kaelan.xyz'>
-    <p>www.kaelan.xyz</p>
+<div id="link-row">
+  {#if standalone}
+    <a class="text-blue-light" href='https://kaelan.xyz'>
+      <p class="underline underline-offset-2">kaelan.xyz</p>
     </a>
-    <div class="v-line"></div>-->
+    <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
   {/if}
-  <a class:darktheme={embedded} class="dark:text-blue-light" href='http://github.com/oasixer'>
-    <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faGithub}/></p>
+  <a class="text-blue-light" href="https://www.linkedin.com/in/kaelanms/">
+    <p class="iconContainerP"><Fa icon={faGithub}/></p>
     <p>github.com/oasixer</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
   <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
-  <a class:darktheme={embedded} class="dark:text-blue-light">
-    <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faPhone}/></p>
+  <a class="text-blue-light">
+    <p class="iconContainerP"><Fa icon={faPhone}/></p>
     <p>647-997-6783</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
   <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
-  <a class:darktheme={embedded} class="dark:text-blue-light "href="mailto:ksmoffet@uwaterloo.ca">
-    <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faEnvelopeSquare}/></p>
+  <a class="text-blue-light "href="mailto:ksmoffet@uwaterloo.ca">
+    <p class="iconContainerP"><Fa icon={faEnvelopeSquare}/></p>
     <p>ksmoffet@uwaterloo.ca</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
   <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
-  <a class:darktheme={embedded} class="dark:text-blue-light" href="https://www.linkedin.com/in/kaelanms/">
-    <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faLinkedin}/></p>
+  <a class="text-blue-light" href="https://www.linkedin.com/in/kaelanms/">
+    <p class="iconContainerP"><Fa icon={faLinkedin}/></p>
     <p>linkedin.com/kaelanms</p>
   </a>
   <!-- <a class:darktheme={embedded} class:dark={embedded} href='http://github.com/oasixer'> -->

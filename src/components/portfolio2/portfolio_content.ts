@@ -18,15 +18,16 @@ export let projects: ProjMeta[] = [
 		project_desc: [
 			'The <Final Year Design Project> for my Mechatronics Engineering degree, 8 months of work by my 4 teammates and I.',
 			'`Awarded <Best Overall Project> out of 52 teams',
-			'Distributed positioning system for underwater robots using acoustic nodes in a mesh' // Received first place out of 52 teams.',
+			'Distributed positioning system for underwater robots using acoustic nodes in a mesh', // Received first place out of 52 teams.',
+			'demo_in_browser'
 		],
 		contributions: [
-			'Responsible for the <Rust> Server which orchestrates all the devices, ingests live data, delivers the webserver',
+			'Responsible for the <`rust!Rust> Server which orchestrates all the devices, ingests live data, delivers the webserver',
 			"`Server multiplexes each node's data to a seperate terminal for debugging",
 			'`Manages client state and provides smooth reconnection for nodes that get interrupted',
 			'Responsible for the dashboard webapp incl. live data visualizer and playback of pre-recorded data sync’d with video',
 			'`TODO: link / embed video of this here',
-			'Architected the <CPP> firmware, wrote all the network integrations, implemented the calibration algorithm',
+			'Architected the <`cpp!C++> firmware, wrote all the network integrations, implemented the calibration algorithm',
 			'Responsible for the system infrastructure: networking (full stack), software build systems, and message protocols',
 			'`Responsible for the team’s website (nothing impressive, not at all the focus of the project) but https://pinguins.boats)'
 		],

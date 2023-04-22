@@ -4,7 +4,6 @@
 
   export let mobile;
   export let show_controls = false;
-  export let embedded = false;
   
   /* $: split_items = generate_split_items(items); */
   /* $: console.log(`split_items: ${split_items}`); */
@@ -26,6 +25,8 @@
     const open = "<";
     const close = ">";
 		let item_text = item.title_alt || item.title;
+    // console.log('item: ',item);
+    // console.log('title: ',item.title);
 		let bold_start_tag_indices = getIndicesOf(open, item_text);
 		let bold_end_tag_indices = getIndicesOf(close, item_text);
 		let i = 0;
@@ -115,7 +116,7 @@
 <ul class="list-disc ml-1"
 on:click={toggle_controls}>
   {#each items.map(i=>split(i)) as i}
-    <li class="font-sans font-wgt400 text-szBase not-dark:text-black">
+    <li class="font-sans font-wgt400 text-szBase">
     <!-- style="{(!embedded)?('font-size: '+$experience_content_font_size+'px'):''}"> -->
       {#each i as portion}
         {#if portion[0] == 'p'}

@@ -46,83 +46,21 @@
   *{
       box-sizing: border-box;
   }
-  /*
-  img{
-    border-radius: 7px;
-  }
-  div#home{
-    width: 100%;
-    background-color: #400857;
-    display: flex;
-    flex-flow: column nowrap;
-    padding: 40px 15px 40px 15px;
-  }
-  div#home.mobile{
-    padding: 15px;
-  }
-
-  h1#title{
-    margin:0;
-    letter-spacing: 4px;
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 50px;
-    color: #ffe32e;
-  }
-  */
-    /* position: absolute;/*
-    /* z-index: 2; */
-    /* top: 40px; */
-    /* left: 5%; */
-    /*
-    margin: 0;
-    padding: 0;
-  }
-  /*
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-  /* flex: 0 1 1; */
-  flex: 33.3%;
-  max-width: 33.3%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
-}
 </style>
 
 
 <div id='home' class:mobile bind:offsetHeight={height} bind:this={homeElement}
- class="w-full bg-blue-bgOuter my-0 flex flex-col">
+     class="w-full bg-blue-bgOuter my-0 flex flex-col p-2 pb-0"><!--  note: if you have bottom padding it will frick up the element height for lining up section below -->
   <!-- {#if mobile === false && mounted} -->
-    <h1 id='title' class="font-thicc8 text-sz5xl mx-auto text-grey-00 mt-8 mb-4" style="max-width: fit-content;">Kaelan Moffett</h1>
+    <!-- <h1 id='title' class="font-thicc8 text-sz5xl mx-auto text-grey-00 mt-8 mb-4" style="max-width: fit-content;">Kaelan Moffett</h1> -->
+    <div class="flex flex-row items-center justify-center gap-3 w-full uppercase text-sz4xl md:text-sz6xl mt-5 mb-3">
+      <h1 class="text-white font-thicc3"
+          >
+          Kaelan</h1>
+      <h1 class="text-white font-thicc8"
+          >
+          Moffett</h1>
+    </div>
     <ul class="max-w-xl mx-auto">
     <li class="text-body font-body text-white">
     I'm a Mechatronics Engineering graduate specializing in software.

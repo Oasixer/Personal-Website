@@ -69,6 +69,6 @@
   {#if !mobile}
     <h2>Kaelan Moffett-Steinke</h2>
   {/if}
-  <Header embedded={true}/>
+  <Header standalone={true}/>
   <hr>
 </div>

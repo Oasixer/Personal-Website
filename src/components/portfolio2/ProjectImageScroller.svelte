@@ -1,4 +1,6 @@
 <script lang="ts">
+
+import { get } from 'svelte/store';
 import DevIcon from './DevIcon.svelte';
 import type { ProjMeta, PortfolioState, FilterFn } from './project';
 import type { Sizes } from './project';
@@ -49,6 +51,8 @@ function handleMouseOutRight(){
   right_icon_colour = "white";
   right_icon_sz = ICON_DEFAULT_SCALE;
 }
+
+$: console.log("sz[from ProjImgScroller]: ", get(sz));
 </script>
 
 

@@ -28,6 +28,7 @@
     top_header_bottom_margin,
     section_bottom_margin,
     top_name_font_size,
+    resume_width,
     force_display_skills_ignore_tags,
     TagNames,
     limit_resume_height,
@@ -113,6 +114,10 @@
   ].sort((a,b)=>a.name<b.name?-1:1);
 
   $: ints = [
+    {
+      name: 'Resume width',
+      store: resume_width
+    },
     {
       name: 'Education, awards, interests font size',
       store: education_awards_interests_font_size

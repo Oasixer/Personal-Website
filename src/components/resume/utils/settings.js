@@ -82,7 +82,8 @@ export let TagNames = {
 	GOLANG: 'Golang',
 	KUBERNETES: 'Kubernetes',
 	TCPIP: 'TCP/IP',
-	TYPESCRIPT: 'Typescript',
+	TYPESCRIPT: 'TypeScript',
+	TS: 'TypeScript',
 	MATLAB: 'MATLAB',
 	JWT: 'JWT',
 	JAVA: 'Java',
@@ -120,6 +121,8 @@ export const tags = writable(Object.values(TagNames));
 
 export const display_mode = writable(false); // if true, dont show modal button
 
+export const resume_width = writable('1080'); // appears above the linkrow
+
 export const education_awards_interests_font_size = writable('14');
 export const experience_content_font_size = writable('14');
 export const skills_headings_font_size = writable('15');
@@ -136,8 +139,10 @@ export const compact_exp_info = writable(false);
 
 export const top_name_font_size = writable('2.8');
 export const top_name_top_margin = writable('0');
-export const top_name_bottom_margin = writable('20');
+export const top_name_bottom_margin = writable('-8');
 export const top_header_bottom_margin = writable('12'); // appears above the linkrow
+
+export const link_row_bottom_margin = writable('0'); // appears above the linkrow
 
 export const disable_settings_button = writable(true); // for printing / exporting to pdf
 
