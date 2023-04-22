@@ -13,7 +13,7 @@
   // import MobileMenubarModal from '../components/components/MobileMenubarModal.svelte';
 
   // import type { VP } from '../components/viewport';
-  import { vp, LAYOUT } from '../components/viewport';
+  import { vp, LAYOUT, MENUBAR_HEIGHT } from '../components/viewport';
 
   import { onMount } from 'svelte';
 
@@ -111,18 +111,25 @@
   $: scrolledFarEnoughToDisplayHamburger = y>250;
   // $: scrolledFarEnoughToDisplayFloaty = y>250;
 
+  const FRACTION_OF_VIEWPORT_IN_VIEW_TO_BE_IN_SECTION = 0.45;
+
   const getCurrentSection = (y) => {
     let y_temp = y;
+    // console.log("y_temp=y @ top of func: ", y);
     for (let n=0;n<sections.length; n++){
       let i=sections[n];
-      if (y_temp < i.height - 40){
+      if (y_temp < i.height - MENUBAR_HEIGHT - $vp.height * FRACTION_OF_VIEWPORT_IN_VIEW_TO_BE_IN_SECTION){
+        // console.log("returning section=", n);
         return n;
       }
       else{
+        // console.log("i.height: ", i.height);
         y_temp -= i.height;
       }
     } 
+    // console.log("not returning a section i guess. y: ", y, "y_temp: ", y_temp, "sections[-1].height: ", sections[2].height);
   }
+  // $: console.log("currentSection: ", getCurrentSection(y));
   
 
   // let entered_portfolio_zone = new Date();
@@ -215,7 +222,7 @@
      class="bg-green-500 absolute top-0 right-0 bottom-0 left-0 flex flex-col w-full min-w-full">
 <Menubar floaty={false} {sections} {curSection} on:move={move}/>
   {#each sections as section, n}
-    <svelte:component this={section.component} bind:height={section.height} bg_color={getColor(section, n)} on:move={move} mobile={width<=maxMobileWidth}/>
+    <svelte:component this={section.component} bind:height={section.height} bg_color={getColor(section, n)} on:move={move} />
   {/each}
 </div>
 <!-- <script> -->

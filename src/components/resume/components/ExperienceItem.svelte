@@ -2,7 +2,6 @@
   export let item;
   export let work;
   export let standalone;
-  export let mobile;
   
   import {
     experience_position_bottom_margin
@@ -70,9 +69,9 @@
     margin: 0 0 0 0; /* bottom margin (2nd last) will be overridden by setting. */
   }
 
-  .experience-item-main.darktheme.mobile{
-    margin-top: 17px;
-  }
+  /* .experience-item-main.darktheme.mobile{ */
+  /*   margin-top: 17px; */
+  /* } */
 
   li:not(.darktheme){
     line-height: 1;
@@ -90,9 +89,9 @@
     font-size: 17px;
   }
 
-  p.experience-tags.darktheme.mobile{
-    font-size: 15px;
-  }
+  /* p.experience-tags.darktheme.mobile{ */
+  /*   font-size: 15px; */
+  /* } */
 
   div.row{
     display: flex;
@@ -119,10 +118,10 @@
     font-size: 32px;
   }
 
-  .title.darktheme.mobile{
-    color: #0078b4;
-    font-size: 18px;
-  }
+  /* .title.darktheme.mobile{ */
+  /*   color: #0078b4; */
+  /*   font-size: 18px; */
+  /* } */
 
   .location{
     margin: 0;
@@ -139,11 +138,11 @@
     font-weight: 500;
   }
   
-  .location.darktheme.mobile{
-    font-size: 17px;
-    color: #0078b4;
-    font-weight: 500;
-  }
+  /* .location.darktheme.mobile{ */
+  /*   font-size: 17px; */
+  /*   color: #0078b4; */
+  /*   font-weight: 500; */
+  /* } */
 
   .position{
     margin: 0;
@@ -161,9 +160,9 @@
   .position:not(.darktheme){
     transform: translateY(2px);
   }
-  .position.darktheme.mobile{
-    font-size: 13px;
-  }
+  /* .position.darktheme.mobile{ */
+  /*   font-size: 13px; */
+  /* } */
 
   .date{
     /* margin: 0; */
@@ -205,7 +204,7 @@
 </style>
 
 {#if !item.force_hide}
-  <div class:mobile class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
+  <div class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
   <!-- {#if !compact_exp_info || embedded} -->
   <!--   <div class="row"> -->
   <!--     {#if !compact_exp_info || embedded} -->
@@ -217,23 +216,20 @@
     <!-- </div> -->
   <!-- {:else if compact_exp_info && !embedded} -->
     <div class="row">
-      <!-- <h1 class='onelineTitle' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1> -->
-      <!-- <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position} | ${item.title} | ${item.location}`}</h1> -->
-      <!-- <h1 class='onelineTitle font-rubik4 text-grey-100/90 text-szBase hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1> -->
       {#if work}
-        <h1 class='onelineTitle font-rubik6 text-blue-subdued/80 text-szLg hover:text-pink-accent' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
-        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-        <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent'
+        <h1 class='onelineTitle font-rubik6 text-slate-700 dark:text-blue-subdued/80 hover:text-pink-accent text-szLg' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
+        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-blue-light text-szLg hover:text-pink-accent'
             on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
         <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-        <h1 class='onelineTitle font-rubik4 text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
-        <h1 class="date font-sans font-wgt500 text-szBase italic text-pink-accent" class:mobile>{item.date}</h1>
+        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
+        <h1 class="date font-sans font-wgt500 text-szBase italic text-sky-800 dark:text-pink-accent">{item.date}</h1>
       {:else} <!-- highlighted side project -->
-        <div class="mb-[4px] mt-[1px] w-[1px] ml-[307px] bg-grey-700 mx-4"></div>
-        <h1 class='onelineTitle font-rubik6 text-blue-light text-szLg hover:text-pink-accent'>{`${item.title}`}</h1>
+        <div class="mb-[3px] mt-[1px] w-[1px] ml-[297px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        <h1 class='onelineTitle font-rubik6 mb-[2px] text-sky-800 dark:text-blue-light text-szLg hover:text-pink-accent'>{`${item.title}`}</h1>
         <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        <h1 class="date font-sans font-wgt500 text-szBase italic ml-auto text-pink-accent" class:mobile>{item.date}</h1>
+        <h1 class="date font-sans font-wgt500 text-szBase italic ml-auto text-sky-800 dark:text-pink-accent">{item.date}</h1>
       {/if}
     </div>
   <!-- {/if} -->
@@ -256,6 +252,6 @@
     <ListControls bind:items={item.points} on:close={refreshClosePointList} title='ExpItem Point List Controls'/>
   {/if}
 
-  <ExpItemPointList {mobile} bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
+  <ExpItemPointList bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
 </div>
 {/if}

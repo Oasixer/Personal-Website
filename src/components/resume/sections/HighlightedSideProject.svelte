@@ -6,9 +6,6 @@
   
   /* title: 'Tracked down long standing difficult to solve bugs in python and cpp (maybe mention LLVM (memory leaks in python GCC system ca))', */
 
-  export let mobile;
-  /* $: console.log(`items: ${items}`); */
-
   import ExperienceItem from '../components/ExperienceItem.svelte';
   import Section from './Section.svelte';
   import ExperienceList from '../components/ExperienceList.svelte';
@@ -43,7 +40,7 @@ for (let i = 0; i < points.length; i++) {
 let item ={
   title: 'Distributed Underwater Positioning System',
   position: '',
-  date: 'Oct-Apr 2023',
+  date: 'Sep 2022 - Apr 2023',
   points: objects,
 };
 </script>
@@ -58,7 +55,7 @@ let item ={
   <!--   <ListControls bind:items on:close={()=>{show_list_controls=false;}}/> -->
   <!-- {/if} -->
   <div class="ml-2">
-    <ExperienceItem bind:item on:refresh={()=>{item = {...item}}} work={false} {mobile} {standalone}/>
+    <ExperienceItem bind:item on:refresh={()=>{item = {...item}}} work={false} {standalone}/>
   </div>
   <div class="mb-[-12px]"></div>
 </Section>

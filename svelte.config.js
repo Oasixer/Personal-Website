@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-vercel';
+import path from 'path';
 // import adapter from '@sveltejs/adapter-static';
 // import preprocess from 'svelte-preprocess';
 // import sveltePreprocess from 'svelte-preprocess';
@@ -31,7 +32,19 @@ const config = {
 
 		prerender: {
 			entries: []
+		},
+
+		alias: {
+			'@resume': path.resolve('./src/components/resume'),
+			'@viewport': path.resolve('./src/components/viewport.ts')
 		}
+		// vite: {
+		// 	resolve: {
+		// 		alias: {
+		// 			'@resume': path.resolve('./src/components/resume')
+		// 		}
+		// 	}
+		// }
 	}
 };
 

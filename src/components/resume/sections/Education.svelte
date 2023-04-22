@@ -70,23 +70,23 @@
       <!-- <h1 class='skills-section-title-right' style="{'font-size: '+$skills_headings_font_size+'px;'}">Waterloo, ON</h1> -->
       <!-- </div> -->
       <div class='flex flex-row w-full items-center'>
-        <p class="text-blue-subdued text-szBase font-rubik6">
+        <p class="text-slate-700 dark:text-blue-subdued text-szBase font-rubik6">
         <!-- <p class="dark:text-blue-light" style="font-size: {$education_awards_interests_font_size}px; line-height: 1;"> -->
           University of Waterloo
         </p>
         <!-- <div class="dark:bg-grey-800" style="width: 2px;"></div> -->
-        <div class="h-4 mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-        <p class="text-blue-light font-rubik6"> Mechatronics Engineering BASc</p>
-        <div class="h-4 mt-[1px] w-[1px] bg-grey-700 mx-4"></div>
-        <p class="text-blue-light font-rubik6">Software Option</p>
+        <div class="h-4 mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        <p class="text-sky-800 dark:text-sky-300 font-rubik6"> Mechatronics Engineering BASc</p>
+        <div class="h-4 mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        <p class="text-sky-600 font-rubik6">Software Option</p>
 				<!-- <p class="align-right" style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">2018 - Apr 2023</p> -->
-				<p class="font-sans font-wgt500 text-szBase italic text-pink-accent ml-auto">2018-Apr 2023</p>
+				<p class="font-sans font-wgt500 text-szBase italic text-sky-800 dark:text-pink-accent ml-auto">Sep 2018 - Apr 2023</p>
       </div>
-			<div class='flex flex-row flex-nowrap items-center font-sans font-wgt500 gap-2 mt-[-5px]'>
-				<p class=''>Coursework</p>
-				<p class='text-blue-light'>⯈</p>
+			<div class='flex flex-row flex-nowrap items-center font-sans text-szBase font-wgt500 gap-2 mt-[-5px]'>
+				<p class='text-sky-800 dark:text-grey-0 font-rubik5 text-szBaseSm'>Coursework</p>
+				<p class='text-sky-600 dark:text-sky-300'>⯈</p>
 				<!-- <h1 class='skills-section-title' style="{'font-size: '+$skills_headings_font_size+'px; margin-right: 5px;'}">Coursework: </h1> -->
-				<p class='font-sans whitespace-nowrap font-wgt300 text-grey-00'> Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p>
+				<p class='font-sans whitespace-nowrap font-wgt400 text-slate-800 dark:text-grey-00'> Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p>
 				<!-- <p style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">Programming for Performance, Search Engines, Adaptive Algos, Datastructures and Algos, Microprocessors</p> -->
 			</div>
     </div>

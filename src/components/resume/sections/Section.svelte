@@ -5,6 +5,7 @@
   export let force_hide;
   export let standalone=false;
   import { section_headings_font_size, section_content_top_margin, show_section_header_line, section_bottom_margin } from '../utils/settings.js';
+  import { purpleMode } from '@viewport';
 
   function enable_controls(){
     show_section_controls=true;
@@ -20,22 +21,12 @@
     flex-flow: row nowrap;
   }
 
-  div.section-main{
-    margin: 0;
-  }
-  
-  div.section-content{
-    margin: 10px 0 0px 0;
-  }
-
-  h1{
-    width: fit-content;
-    padding: 0;
-    margin: 0;
     /* color: purple; */
     /* font-size: 24px; */ /* set by store not hardcoded */
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
     /* font-weight: bold; */
+  div.section-content{
+    margin: 10px 0 0px 0;
   }
 
   hr{
@@ -49,12 +40,13 @@
 {#if !force_hide}
   <div class='section-main' style="margin-bottom: {$section_bottom_margin}px">
 <!-- style="font-size: {$section_headings_font_size}px;" -->
-    <h1 class= "text-grey-100 font-thicc7 text-sz2xl"
+    <h1 class="text-sky-600 dark:text-grey-100 font-thicc7 text-sz2xl w-fit"
+        class:!text-purple-900={$purpleMode}
         on:click={enable_controls}>{header}</h1>
     {#if $show_section_header_line}
       <hr>
     {/if}
-  <div class='section-content' style="margin-top: {$section_content_top_margin}px">
+  <div class='mt-3 ml-2' style="margin-top: {$section_content_top_margin}px">
     <slot></slot>
   </div>
 </div>

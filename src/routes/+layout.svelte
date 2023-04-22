@@ -1,6 +1,18 @@
 <script context="module">
   import '../app.css';
 </script>
+<style global lang="postcss">
+  /* @tailwind base; */
+  /* @tailwind components; */
+  /* @tailwind utilities; */
+  #thing{
+    color: theme(colors.orange.600);
+    @apply text-sz5xl;
+  }
+</style>
+
+<!-- <h1 id="thing" class="min-h-[500px] h-[800px]">blah</h1> -->
+
 
 <!-- <h1 class="font-sans text-headerBold text-xl">Blah</h1> -->
 <!-- <p>Use flex-initial =(flex grow0 shrink1 basis<b>auto</b>) to allow a flex item to shrink but not grow, taking into account its initial size: equiv. to flex 1 1 0% (grow shrink basis)</p> -->

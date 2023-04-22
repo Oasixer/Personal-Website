@@ -72,32 +72,33 @@ export let standalone: boolean;
   /* } */
 </style>
 
-<div id="link-row">
+<div id="link-row" class="text-slate-700 dark:text-sky-300 flex flex-row flex-nowrap">
   {#if standalone}
-    <a class="text-blue-light" href='https://kaelan.xyz'>
+    <a class="" href='https://kaelan.xyz'>
       <p class="underline underline-offset-2">kaelan.xyz</p>
     </a>
-    <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
+    <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
   {/if}
-  <a class="text-blue-light" href="https://www.linkedin.com/in/kaelanms/">
+  <a class="" href="https://www.linkedin.com/in/kaelanms/">
     <p class="iconContainerP"><Fa icon={faGithub}/></p>
     <p>github.com/oasixer</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
-  <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
-  <a class="text-blue-light">
+  <!-- <div class="h-4 w-[1px] dark:bg-grey-700 mx-4"></div> -->
+  <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+  <a class="">
     <p class="iconContainerP"><Fa icon={faPhone}/></p>
     <p>647-997-6783</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
-  <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
-  <a class="text-blue-light "href="mailto:ksmoffet@uwaterloo.ca">
+  <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+  <a class=" "href="mailto:ksmoffet@uwaterloo.ca">
     <p class="iconContainerP"><Fa icon={faEnvelopeSquare}/></p>
     <p>ksmoffet@uwaterloo.ca</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
-  <div class="h-4 w-[1px] bg-grey-700 mx-4"></div>
-  <a class="text-blue-light" href="https://www.linkedin.com/in/kaelanms/">
+  <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+  <a class="" href="https://www.linkedin.com/in/kaelanms/">
     <p class="iconContainerP"><Fa icon={faLinkedin}/></p>
     <p>linkedin.com/kaelanms</p>
   </a>

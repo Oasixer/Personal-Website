@@ -6,7 +6,6 @@
   
   /* title: 'Tracked down long standing difficult to solve bugs in python and cpp (maybe mention LLVM (memory leaks in python GCC system ca))', */
 
-  export let mobile;
   /* $: console.log(`items: ${items}`); */
 
   import Section from './Section.svelte';
@@ -102,8 +101,8 @@
         date: 'Jun-Sep 2020',
         points: [
           'Designed and led a team in implementing a <Flask> server to ingest high volume <websocket> stream, collecting it into custom graph datastructure for fast CRUD and scalability',
-          'Reduced AWS costs by refactoring ML monolithic pipeline into microservices to enabling granular scaling, reducing latencies as a side benefit',
-          'Selected and implemented deployment and testing pipelines via GCP and Github Actions for the company\'s 3 largest repositories and the microservices',
+          'Reduced AWS costs by refactoring monolithic ML pipeline into microservices, enabling granular scaling and reducing latency',
+          'Enhanced DevOps by Dockerizing and adding CI/CD pipelines to the company\'s main repos',
         ]
       },
       {
@@ -162,6 +161,6 @@
   {#if show_list_controls && standalone}
     <ListControls bind:items on:close={()=>{show_list_controls=false;}}/>
   {/if}
-  <ExperienceList bind:items {standalone} {mobile} work={true}/>
+  <ExperienceList bind:items {standalone} work={true}/>
   <div class="h-1"></div>
 </Section>

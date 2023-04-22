@@ -5,12 +5,16 @@
   /* import Icon from 'fa-svelte/src/Icon.svelte';//'fa-svelte'; */
   import Fa from 'svelte-fa';
   import { faFileDownload } from '@fortawesome/free-solid-svg-icons/faFileDownload';
-  import { vp, LAYOUT } from '../viewport';
+  import { vp, LAYOUT, purpleMode } from '../viewport';
   import Resume from './Resume.svelte';
   
   import Toggle from '../components/Toggle.svelte'
+
   /* let src_uw = './images/uw.png'; */
   let dark = true;
+  let purpleModeBool = false;
+
+  $: purpleMode.set(purpleModeBool);
 </script>
 
 <style>
@@ -21,7 +25,9 @@
 <!-- </div> -->
 <!-- outer page, just bg and containing inner page -->
 <div id="outer_resume_page"
-     class="flex flex-col w-full bg-blue-bgOuter items-center" class:dark>
+     class="flex flex-col w-full bg-blue-bgOuter items-center"
+     class:dark
+     bind:offsetHeight={height}>
   <!-- inner page w/ title & resume, width should be set by the resume, no border -->
   <div id="inner_resume_page"
        class="flex flex-col flex-nowrap w-fit">
@@ -29,11 +35,12 @@
       <div class="font-thicc8 text-white text-sz6xl flex-initial flex w-fit mr-auto uppercase" class:mobile>
       Resume
       </div>
+      <!-- <Toggle bind:on={purpleModeBool} title={'TogglePurple(temp)'} /> -->
+      <Toggle bind:on={dark} title={'Toggle Darktheme'} />
       <a class='flex flex-row flex-nowrap items-center text-blue-light md:text-sz2xl md:mr-7' href='./Kaelan_Resume_2020.pdf' download>
         <p class="mr-4"><Fa icon={faFileDownload}/></p>
         <p class="font-rubik5">PDF</p>
       </a>
-      <Toggle bind:on={dark} title={'Toggle Darktheme'} />
     </div>
     {#if $vp.width > 975}
       <!-- <div class="h-5"></div> -->

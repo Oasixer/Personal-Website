@@ -236,7 +236,7 @@
          class="flex flex-auto items-center flex-row justify-center gap-3">
       {#each sectionsAll as section, n}
         <button
-          class="font-rubik4 text-szXl {curSection==n?'text-blue-light':'text-white'} hover:text-blue-light hover:underline"
+          class="font-rubik4 text-szXl {curSection==n?'text-sky-300':'text-white'} hover:text-sky-400 hover:underline"
           class:selected={curSection==n}
           on:click={()=>runMoveDispatcher(n)}>
           {section.name}

@@ -125,6 +125,7 @@ export default {
 				}
 			],
 			szSm: ['0.875rem' /* 14px */, { lineHeight: '1.00rem' /* idk px */ }],
+			szBaseSm: ['0.95rem', { lineHeight: '1.125rem' /* idk px */ }],
 			szBase: ['1rem' /* 16px */, { lineHeight: '1.125rem' /* idk px */ }],
 			szLg: ['1.0625rem' /* 18px */, { lineHeight: '1.1rem' /* idk px */ }],
 			szXl: ['1.125rem' /* 18px */, { lineHeight: '1.15rem' /* idk px */ }],

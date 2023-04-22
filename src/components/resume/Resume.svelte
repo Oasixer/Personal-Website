@@ -164,7 +164,7 @@
 
 <div class="bg-blue-bgOuter min-h-[11in]">
 <!-- <div class:dark={standalone} style="{$limit_resume_height?'overflow: hidden;':'overflow: visible;'+$show_11in_line?'border-bottom: 2px solid red;': 'border: none;'}"> -->
-<div class="dark bg-blue-bgOuter" style="{$limit_resume_height?'overflow: hidden;':'overflow: visible; '+ 'border: none;'}">
+<div class="bg-white dark:bg-blue-bgOuter" style="{$limit_resume_height?'overflow: hidden;':'overflow: visible; '+ 'border: none;'}">
   <div style="{standalone?('max-width: ' + $resume_width + 'px;'):('max-width: 1000px; min-width: '+Math.min($vp.width*0.9, 1080)+'px;')}">
   <!-- style="min-width: 816px; max-width: 816px"> -->
     {#if !$disable_settings_button}

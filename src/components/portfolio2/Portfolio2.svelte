@@ -129,6 +129,7 @@
   style="height: {()=>{return (pstate.expand_all || pstate.force_expand_all)?'fit-content;': '1200px;'}}"
   bind:this={portfolioElement}
   bind:offsetHeight={height}>
+          <h1 id="thing">blah</h1>
   <!-- <div class="h-[48px] bg-white"> <!-- may contain menubar -->
   <!-- </div> -->
   <!-- <div id="portfolio-gradient-card" -->
@@ -158,7 +159,7 @@
     {#if (pstate.expand_all || pstate.force_expand_all)}
       <div class="flex flex-col w-fit items-center gap-4">
         <div class="flex flex-row flex-nowrap h-fit items-center w-full">
-          <h1 class="font-thicc8 uppercase text-sz5xl text-grey-00 w-fit mr-auto">
+          <h1 class="font-thicc8 uppercase text-sz5xl text-white w-fit mr-auto">
             Portfolio
           </h1>
           <!-- <div> -->
@@ -179,7 +180,7 @@
       <div class="w-fit h-full flex flex-nowrap content-align gap-4">
         <div class="flex flex-col gap-4 w-[325px] min-w-[325px] max-w-[325px]">
           <!-- moving header shit here -->
-          <h1 class="font-thicc8 uppercase text-sz5xl text-grey-00 mr-7 mb-[-12px] ml-auto">
+          <h1 class="font-thicc8 uppercase text-sz5xl text-white mr-7 mb-[-12px] ml-auto">
             Portfolio
           </h1>
           <!-- {#each visibleProjects as proj} -->
@@ -202,10 +203,5 @@
     <div class="h-[1px] w-[100%] bg-grey-600 mt-14"></div>
   </div>
 <!-- </div> -->
-<style>
-  #portfolio-gradient-card{
-    /* background: radial-gradient(25.79% 32.06% at 63.37% 57.26%, rgba(102, 107, 159, 0.97) 0%, rgba(76, 81, 125, 0.97) 44.96%, rgba(23, 27, 57, 0.97) 100%); */
-    /* border: 1px solid #FFFFFF; */
-    /* border-radius: 16px; */
-  }
+<style lang="postcss">
 </style>

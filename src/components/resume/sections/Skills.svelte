@@ -3,8 +3,8 @@
     // console.log(items[0].force_hide);
     return items;
   };
-  export let mobile;
   import { skills_content_bottom_margin } from '../utils/settings.js';
+  import { purpleMode } from '@viewport';
 
   export const setContentSettings = (itemSettings) => {
     items.forEach(function (item) {
@@ -320,7 +320,8 @@
     {#if should_display_pointlist(item, $tags)}
       <div>
         <!-- style="{(standalone)?('font-size: '+$skills_headings_font_size+'px;'):''}" -->
-        <h1 class="skills-section-title font-rubik4 text-blue-light text-szBase" class:mobile
+        <!-- class:!text-purple-500={$purpleMode} -->
+        <h1 class="font-rubik6 text-szBase text-slate-700 dark:text-sky-300" 
            on:click={()=>{item.show_controls = !item.show_controls}}>
             {item.title_alt?item.title_alt:item.title}
         </h1>
@@ -338,13 +339,13 @@
           <!-- style="{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+'px;')}"> -->
              <!-- ((standalone)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1; font-weight: 400;"> -->
             {#if Array.isArray(item.tags[0])}
-              <i class="font-sans font-wgt600 text-szBase text-blue-subdued mr-2">Proficient</i>
-              <p class="font-sans font-wgt400 text-szBase text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+              <i class="font-sans font-wgt600 text-szBase text-sky-900 dark:text-blue-subdued mr-2">Proficient</i>
+              <p class="font-sans font-wgt400 text-szBase text-slate-900 dark:text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
               <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i> -->
-              <i class="font-sans font-wgt600 text-szBase text-blue-subdued mr-2 ml-auto">Familiar</i>
-              <p class="font-sans font-wgt400 text-szBase text-grey-00 mr-6">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+              <i class="font-sans font-wgt600 text-szBase text-sky-900 dark:text-blue-subdued mr-2 ml-auto">Familiar</i>
+              <p class="font-sans font-wgt400 text-szBase text-slate-900 dark:text-grey-00 mr-6">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
             {:else}
-              <p class="font-sans font-wgt400 text-szBase text-grey-00">{item.tags.filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+              <p class="font-sans font-wgt400 text-szBase text-slate-900 dark:text-grey-00">{item.tags.filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
             {/if}
           </div>
           <!-- </p> -->

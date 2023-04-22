@@ -15,7 +15,10 @@ export const LAYOUT = {
 	// xl: 5
 };
 
+export const MENUBAR_HEIGHT = 40;
+
 export const vp = writable({ width: 0, height: 0, layout: 0 } as VP);
 // export const vp_height = writable(0);
 // export const layout = writable('med');
 // export const vp_height = writable(0);
+export const purpleMode = writable(true);
