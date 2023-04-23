@@ -21,7 +21,7 @@
 const points = [
   'Created positioning system for underwater robots using acoustic nodes in a mesh, outperforming commercial solutions in terms of tolerance to reflections and obstructions, achieving 85 meter range w/ max 2% error.',
   'Awarded <Best Overall Project> out of 52 teams presenting at 2023 U of Waterloo Mechatronics Engineering symposium.',
-  'Responsible for the <Rust> Server which commands & handles high bandwidth data from each Node, delivers web UI.',
+  'Responsible for the <Rust> Server which sends cmds to & receives high bandwidth data from each Node, delivers web UI.',
   'Architected Node firmware (<C++>, targeting ARM M7), incl. live positioning, networking, msg protocols, autocalibration.',
   'Optimized realtime freq. analysis, via Sliding Window implementation of Fast Fourier Transform performed at 500KHz.',
   'Responsible for the UI dashboard (<SvelteJS> webapp) including live positioning visualizer w/ recording & playback.',

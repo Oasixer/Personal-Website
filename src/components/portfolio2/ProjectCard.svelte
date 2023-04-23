@@ -125,20 +125,4 @@
   </div>
 </div>
 <style>
-ul li.indent::marker {
-  /* font-family: 'Rubik'; */
-  /* font-weight: 900; */
-  /* font-size: 35px; */
-  color: #7dd3fc;
-  /* font-style = @theme ('font-thicc8'); */
-  /* font-size = @theme ('text-sz3xl'); */
-}
-ul li::marker {
-  /* font-family: 'Rubik'; */
-  /* font-weight: 500; */
-  /* font-size: 25px; */
-  color: #cbd3da;
-  /* font-style = @theme ('font-thicc8'); */
-  /* font-size = @theme ('text-sz3xl'); */
-}
 </style>

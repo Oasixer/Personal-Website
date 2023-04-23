@@ -1,17 +1,18 @@
 <script lang="ts">
-  import { getGithubLink } from './project';
+  // import { getGithubLink } from './project';
   import Fa from 'svelte-fa/src/fa.svelte';
   import {faGithubSquare} from '@fortawesome/free-brands-svg-icons';
   import ProjImgConst from './project';
+  import { show_pinguins_modal } from './project';
   import { vp, LAYOUT } from '../viewport';
 
   import type { ProjMeta, PortfolioState, FilterFn } from './project';
   export let proj: ProjMeta;
   export let row: bool = false;
-  let githubLink = '';
-  if (getGithubLink(proj) !== undefined){
-    githubLink = getGithubLink(proj) as string;
-  }
+  // let githubLink = '';
+  // if (getGithubLink(proj) !== undefined){
+  //   githubLink = getGithubLink(proj) as string;
+  // }
 
   import DevIcon from './DevIcon.svelte';
 
@@ -53,13 +54,18 @@
     </div>
     <div class="flex flex-col mr-auto ml-3 sm:ml-8">
       <h1 class="font-rubik5 text-szBase text-grey-0 mb-1">Links</h1>
-      {#if githubLink != ''}
-        <a class="flex flex-row items-center gap-2" href="{githubLink}" target="_blank" rel="noreferrer">
-          <Fa size="1.4x" icon={faGithubSquare} color="white"/>
-          <p class="font-rubik5 text-szSm underline"
-             style="color: white">github</p>
-        </a>
-      {/if}
+      <!-- {#if githubLink != ''} -->
+      {#each proj.links as link}
+        {#if link.target.startsWith('https://github')}
+          <a class="flex flex-row items-center gap-2" href="{link.target}" target="_blank" rel="noreferrer">
+            <Fa size="1.4x" icon={faGithubSquare} color="white"/>
+            <p class="font-rubik5 text-szSm underline"
+               style="color: white">{link.display}</p>
+          </a>
+        {/if}
+        <!-- {:else if ....} -->
+      {/each}
+      <!-- {/if} -->
     </div>
   </div>
 {:else}
@@ -74,14 +80,21 @@
 
     <!-- <div class="flex flex-col ml-auto mr-0 sm:mr-5"> -->
     <h1 class="font-rubik5 text-szBase text-grey-0 mt-auto">Links</h1>
-    {#if githubLink != ''}
-      <a class="flex flex-row items-center gap-2" href="{githubLink}" target="_blank" rel="noreferrer">
-        <Fa size="1.4x" icon={faGithubSquare} color="white"/>
-        <p class="font-rubik5 text-szSm underline"
-           style="color: white">
-           Project github
-         </p>
-      </a>
-    {/if}
+    <!-- {#if githubLink != ''} -->
+      {#each proj.links as link}
+        {#if link.target.startsWith('https://github')}
+          <a class="flex flex-row items-center gap-2" href="{link.target}" target="_blank" rel="noreferrer">
+            <Fa size="1.4x" icon={faGithubSquare} color="white"/>
+            <p class="font-rubik5 text-szSm underline"
+               style="color: white">{link.display}</p>
+          </a>
+        {:else if link.target === 'pinguins_demo'}
+          <button class="text-sky-300 bg-sky-900"
+                  on:click={()=>show_pinguins_modal.set(true)}>
+            {link.display}
+          </button>
+        {/if}
+      {/each}
+    <!-- {/if} -->
   </div>
 {/if}

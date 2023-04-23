@@ -1,6 +1,11 @@
 import { writable } from 'svelte/store';
 import type { VP } from '../viewport';
 
+export interface Link {
+	display: string;
+	target: string;
+}
+
 export interface PortfolioState {
 	active: bool;
 	proj_idx: number;
@@ -126,9 +131,9 @@ export interface ProjMeta {
 	mobile: boolean;
 }
 
-export function getGithubLink(proj: ProjMeta): string | undefined {
-	return proj.links.find((link) => link.startsWith('https://github'));
-}
+// export function getGithubLink(proj: ProjMeta): string | undefined {
+// 	return proj.links.find((link) => link.startsWith('https://github'));
+// }
 
 // export interface ProjCard {
 // 	export const THUMB_ASPECT_RATIO = 5 / 3;
@@ -220,3 +225,4 @@ export const SZ_MED = {
 } as Sizes;
 
 export const sz = writable(SZ_XS);
+export const show_pinguins_modal = writable(false);

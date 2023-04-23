@@ -36,7 +36,9 @@ const config = {
 
 		alias: {
 			'@resume': path.resolve('./src/components/resume'),
-			'@viewport': path.resolve('./src/components/viewport.ts')
+			'@pinguins': path.resolve('./src/components/portfolio2/pinguins'),
+			'@viewport': path.resolve('./src/components/viewport.ts'),
+			'@components': path.resolve('./src/components')
 		}
 		// vite: {
 		// 	resolve: {

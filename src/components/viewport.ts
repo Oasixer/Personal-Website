@@ -7,11 +7,18 @@ export interface VP {
 }
 
 export const LAYOUT = {
-	xxs: 0,
-	xs: 1,
-	sm: 2,
-	md: 3,
-	lg: 4
+	xs: 0,
+	sm: 1,
+	md: 2,
+	lg: 3
+	// xl: 5
+};
+
+export const LAYOUT_MIN_THRESH = {
+	xs: 0,
+	sm: 475,
+	md: 1175,
+	lg: 1400
 	// xl: 5
 };
 
@@ -21,4 +28,4 @@ export const vp = writable({ width: 0, height: 0, layout: 0 } as VP);
 // export const vp_height = writable(0);
 // export const layout = writable('med');
 // export const vp_height = writable(0);
-export const purpleMode = writable(true);
+export const purpleMode = writable(false);

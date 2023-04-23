@@ -1,13 +1,20 @@
 <script>
   import Home from '../components/home/Home.svelte';
-  // import Contact from '../components/contact/Contact.svelte';
+  // import About from '../components/about/About.svelte';
+  // import Portfolio from '../components/portfolio/Portfolio.svelte';
+  import Contact from '../components/contact/Contact.svelte';
   import Menubar from '../components/components/Menubar.svelte';
+  // import WorkExperiencePage from '../components/resume/WorkExperiencePage.svelte';
   import ResumePage from '../components/resume/ResumePage.svelte';
   import PortfolioPage2 from '../components/portfolio2/Portfolio2.svelte';
   import BackToTop from '../components/components/BackToTop.svelte';
+  // import Hamburger from '../components/components/Hamburger.svelte';
+  // import HamburgerModal from '../components/components/HamburgerModal.svelte';
+  // import MobileMenubarModal from '../components/components/MobileMenubarModal.svelte';
 
-  import { vp, LAYOUT, LAYOUT_MIN_THRESH, MENUBAR_HEIGHT } from '../components/viewport';
-  import { show_pinguins_modal } from '../components/portfolio2/project'
+  // import type { VP } from '../components/viewport';
+  import { vp, LAYOUT, MENUBAR_HEIGHT } from '../components/viewport';
+
   import { onMount } from 'svelte';
 
   function setLayout(){
@@ -17,10 +24,10 @@
     // if (viewport.Width > 1280){
     //   layout = LAYOUT['xl'];
     // }
-    if (viewport.Width > LAYOUT_MIN_THRESH['lg']){
+    if (viewport.Width > 1400){
       layout = LAYOUT['lg'];
     }
-    else if (viewport.Width > LAYOUT_MIN_THRESH['md']){
+    else if (viewport.Width > 1175){
       layout = LAYOUT['md'];
     }
     // else if (viewport.Width > 1175){
@@ -32,7 +39,7 @@
     // else if (viewport.Width > 640){
     //   layout = LAYOUT['sm'];
     // }
-    else if (viewport.Width > LAYOUT_MIN_THRESH['sm']){
+    else if (viewport.Width > 475){
       layout = LAYOUT['sm'];
     }
     vp.set({width: viewport.Width, height: viewport.Height, layout});
@@ -55,6 +62,11 @@
   let height;
   let curSection = 0;
   let mounted = false;
+  let maxMobileWidth = 1174;
+  let hamburgerOpen = false;
+  let hamburgerModal;
+  let mobileSidebarOpen = false;
+  let mobileSidebarModal;
 
   $: curSection = getCurrentSection(y);
 
@@ -71,10 +83,14 @@
 
   let sections = [
     {component: Home, name:'Home', excludeFromMenubar: false},
+    // {component: About, name:'About', excludeFromMenubar: false},
+    // {component: WorkExperiencePage, name:'Work Experience', excludeFromMenubar: false},
+    // {component: SkillsPage, name:'Skills', excludeFromMenubar: false},
+    // {component: Portfolio, name:'Portfolio', excludeFromMenubar: false},
     {component: PortfolioPage2, name:'Portfolio', excludeFromMenubar: false},
     {component: ResumePage, name:'Resume', excludeFromMenubar: false},
     // {component: Contact, name:'Contact', excludeFromMenubar: false},
-    {component: BackToTop, excludeFromMenubar: true}
+    // {component: BackToTop, excludeFromMenubar: true}
   ];
   
   function move_to_section_n(n){
@@ -147,6 +163,11 @@
     }
   }
   $: y, scrollChanged();
+
+  const getColor = (section, n) =>{
+    /* console.log('hi'); */
+    return n % 2 ? '#202020' : '#161a28';
+  }
 </script>
 
 <style>
@@ -163,6 +184,7 @@
   :global(html){
     scroll-behavior: smooth;
   }
+
   /* :global(main){ */
     /* display: flex; */
     /* flex-flow: column nowrap; */
@@ -171,6 +193,12 @@
     /* padding: 0px; */
   /* } */
 </style>
+<!--  <svelte:head>
+<link href="//db.onlinewebfonts.com/c/69dbc1186412d7831b88d8a78a360360?family=DIN+Condensed+Web" rel="stylesheet" type="text/css"/>
+<link href="//db.onlinewebfonts.com/c/84d8d4c49f66a6a5abe1e0608ba764a2?family=Source+Sans+Pro" rel="stylesheet" type="text/css"/>
+<link href="//db.onlinewebfonts.com/c/36c361ac34f216ed98000d61fa8ac996?family=Futura+PT+Web+Light" rel="stylesheet" type="text/css"/>
+<link href="//db.onlinewebfonts.com/c/6e390d15863032277a741e08a6b18ce2?family=Futura+Std+Medium" rel="stylesheet" type="text/css"/>
+</svelte:head>  -->
 <title>Kaelan Moffett</title>
 
 <svelte:window bind:scrollY={y} bind:outerWidth={width} bind:outerHeight={height}/>
@@ -186,13 +214,37 @@
     // }
   }} />
 
-{#if scrolledFarEnoughToDisplayHamburger && !$show_pinguins_modal}
+
+{#if scrolledFarEnoughToDisplayHamburger}
   <Menubar floaty={true} {sections} {curSection} on:move={move}/>
 {/if}
 <div id="outer_container"
      class="bg-green-500 absolute top-0 right-0 bottom-0 left-0 flex flex-col w-full min-w-full">
 <Menubar floaty={false} {sections} {curSection} on:move={move}/>
   {#each sections as section, n}
-    <svelte:component this={section.component} bind:height={section.height} on:move={move} />
+    <svelte:component this={section.component} bind:height={section.height} bg_color={getColor(section, n)} on:move={move} />
   {/each}
 </div>
+<!-- <script> -->
+<!--   import Dashboard from '../components/Dashboard.svelte'; -->
+<!---->
+<!-- </script> -->
+<!-- <style> -->
+<!--   :global(body){ -->
+<!--     margin: 0; -->
+<!--     padding: 0; -->
+<!--     box-sizing: border-box; -->
+<!--     min-width: 450px; -->
+<!--   } -->
+<!--   :global(*){ -->
+<!--     margin: 0; -->
+<!--     padding: 0; -->
+<!--     box-sizing: border-box; -->
+<!--   } -->
+<!--   :global(html){ -->
+<!--     scroll-behavior: smooth; -->
+<!--   } -->
+<!-- </style> -->
+<!-- <title>Pinguins</title> -->
+<!-- <Dashboard/> -->
+<!---->

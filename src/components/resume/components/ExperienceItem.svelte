@@ -219,7 +219,7 @@
       {#if work}
         <h1 class='onelineTitle font-rubik6 text-slate-700 dark:text-blue-subdued/80 hover:text-pink-accent text-szLg' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
         <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-blue-light text-szLg hover:text-pink-accent'
+        <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'
             on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
         <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
         <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
@@ -227,7 +227,7 @@
         <h1 class="date font-sans font-wgt500 text-szBase italic text-sky-800 dark:text-pink-accent">{item.date}</h1>
       {:else} <!-- highlighted side project -->
         <div class="mb-[3px] mt-[1px] w-[1px] ml-[297px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        <h1 class='onelineTitle font-rubik6 mb-[2px] text-sky-800 dark:text-blue-light text-szLg hover:text-pink-accent'>{`${item.title}`}</h1>
+        <h1 class='onelineTitle font-rubik6 mb-[2px] text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'>{`${item.title}`}</h1>
         <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
         <h1 class="date font-sans font-wgt500 text-szBase italic ml-auto text-sky-800 dark:text-pink-accent">{item.date}</h1>
       {/if}

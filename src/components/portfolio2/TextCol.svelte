@@ -108,6 +108,26 @@ function split(line: string){
 // });
 </script>
 
+<style lang="postcss">
+ul li.indent::marker {
+  /* font-family: 'Rubik'; */
+  /* font-weight: 900; */
+  /* font-size: 35px; */
+  color: theme(colors.sky.300);
+  /* @apply */
+  /* font-style = @theme ('font-thicc8'); */
+  /* font-size = @theme ('text-sz3xl'); */
+}
+ul li::marker {
+  /* font-family: 'Rubik'; */
+  /* font-weight: 500; */
+  /* font-size: 25px; */
+  /* color: theme#cbd3da; */
+  @apply text-grey-00;
+  /* font-style = @theme ('font-thicc8'); */
+  /* font-size = @theme ('text-sz3xl'); */
+}
+</style>
 <!-- {newLeftColWidth > 0?('max-width: '+newLeftColWidth.toString()+'px; min-width: '+newLeftColWidth.toString()+'px;'):''}" id="overview-column"> -->
 <div class="flex flex-col grow h-fit"
      style="width: {getWidth($sz, leftColWidthFactor, $vp)};">

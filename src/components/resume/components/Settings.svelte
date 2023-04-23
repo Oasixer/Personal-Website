@@ -184,49 +184,49 @@
   }
 
 
-  function toggleTag(tag){
-    tags.update(i => {
-      let index = i.indexOf(tag);
-      if (index !== -1){
-        i.splice(index, 1);
-      }
-      else{
-        i.push(tag);
-      }
-      return i;
-    });
-  }
-
-  function toggleAllTags(tag){
-    let any_missing = false;
-    tags.update((cur_tags)=>{
-      Object.values(TagNames).forEach((i)=>{
-        if (!(cur_tags.includes(i))){
-          any_missing = true;
-        }
-      });
-      /* console.log(any_missing); */
-      if (any_missing){
-        Object.values(TagNames).forEach((i)=>{
-          if (!(cur_tags.includes(i))){
-              cur_tags.push(i);
-          }
-        });
-      }
-      else{
-        Object.values(TagNames).forEach((i)=>{
-          if (cur_tags.includes(i)){
-            toggleTag(i);
-          }
-        });
-      }
-      return cur_tags;
-    });
-  }
-
-  function tagIsEnabled(tag){
-    return {$tags}.includes(tag);
-  }
+  // function toggleTag(tag){
+  //   tags.update(i => {
+  //     let index = i.indexOf(tag);
+  //     if (index !== -1){
+  //       i.splice(index, 1);
+  //     }
+  //     else{
+  //       i.push(tag);
+  //     }
+  //     return i;
+  //   });
+  // }
+  //
+  // function toggleAllTags(tag){
+  //   let any_missing = false;
+  //   tags.update((cur_tags)=>{
+  //     Object.values(TagNames).forEach((i)=>{
+  //       if (!(cur_tags.includes(i))){
+  //         any_missing = true;
+  //       }
+  //     });
+  //     /* console.log(any_missing); */
+  //     if (any_missing){
+  //       Object.values(TagNames).forEach((i)=>{
+  //         if (!(cur_tags.includes(i))){
+  //             cur_tags.push(i);
+  //         }
+  //       });
+  //     }
+  //     else{
+  //       Object.values(TagNames).forEach((i)=>{
+  //         if (cur_tags.includes(i)){
+  //           toggleTag(i);
+  //         }
+  //       });
+  //     }
+  //     return cur_tags;
+  //   });
+  // }
+  //
+  // function tagIsEnabled(tag){
+  //   return {$tags}.includes(tag);
+  // }
 
   
   let fileInput;
@@ -392,7 +392,7 @@ input[type="number"]{
 </style>
 
 <div>
-  <div class="row">
+  <div class="flex flex-row flex-nowrap">
     <div class="column-wrap">
       <h3>Settings</h3>
       {#each bools as bool}
@@ -408,16 +408,16 @@ input[type="number"]{
         </div>
       {/each}
     </div>
-    <div class="column-wrap">
-      <h3>Tags</h3>
-      {#each Object.values(TagNames).sort() as tag}
-          <label class="container">{tag}
-            <input type="checkbox" checked={$tags.includes(tag)} on:click={()=>{toggleTag(tag)}}>
-            <span class="checkmark"></span>
-          </label>
-      {/each}
-      <button on:click={()=>{toggleAllTags()}}>Check/Uncheck All</button> 
-    </div>
+    <!-- <div class="column-wrap"> -->
+    <!--   <h3>Tags</h3> -->
+    <!--   {#each Object.values(TagNames).sort() as tag} -->
+    <!--       <label class="container">{tag} -->
+    <!--         <input type="checkbox" checked={$tags.includes(tag)} on:click={()=>{toggleTag(tag)}}> -->
+    <!--         <span class="checkmark"></span> -->
+    <!--       </label> -->
+    <!--   {/each} -->
+    <!--   <button on:click={()=>{toggleAllTags()}}>Check/Uncheck All</button>  -->
+    <!-- </div> -->
   </div>
 </div>
 <button on:click={export_print}>Export to PDF by printing (select PDF)</button>

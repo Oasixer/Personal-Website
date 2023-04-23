@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Map from './Map.svelte';
-    import Readouts from './Readouts.svelte';
+    // import Readouts from './Readouts.svelte';
     import type { Node, NodeDataDisplay } from "./node_data";
     import { rov_positions_pac } from "./node_data";
     import Video from './Video.svelte';
@@ -17,14 +17,14 @@
         updated: new Date(),
     };
     
-    let replay_pac = false;
+    let replay_pac = true;
     let replay_tick: number = 0;
     let replay_ping: number = 0;
     // let replay_started: Date;
     //
     let last_replay_video_time = 0;
 
-    let replay_data: NodeDataDisplay;
+    let replay_data: NodeDataDisplay = {};
     // const REPLAY_TICK_DURATION_MS = 10000;
     const REPLAY_TICK_DURATION_MS = 1320;
     const REPLAY_PING_DURATION_MS = REPLAY_TICK_DURATION_MS/4;
@@ -153,6 +153,7 @@
 //   let map;
   onMount(() => {
     const intervalId = setInterval(async () => {
+        initialize_replay();
         node_data = await update();
         console.log("updated: " + node_data.updated);
         console.log("updated: " + node_data.updated.toLocaleTimeString());
@@ -169,18 +170,18 @@
 </script>
 
 <div class='outer'>
-    <div class='rect'>
+    <div class='rect bg-red-500'>
         <div>
-            <img src="logo_text_new.png" alt="" style="width: 450px; height: auto; margin-left: 40px;"/>
-            {#if replay_pac}
+            <img src="images/pinguins/logo_text_new.png" alt="" style="width: 450px; height: auto; margin-left: 40px;"/>
+            {#if replay_pac && mounted}
               <Video bind:video_time_sec/> 
             {/if}
-            {#if !replay_pac}
-              <div style="height: 100%;">
-                  <button id="startReplay" on:click={()=>{initialize_replay()}}>Show Demo</button>
-                  <Readouts bind:node_data bind:counter bind:mouseX bind:mouseY/>
-              </div>
-            {/if}
+            <!-- {#if !replay_pac} -->
+            <!--   <div style="height: 100%;"> -->
+            <!--       <button id="startReplay" on:click={()=>{initialize_replay()}}>Show Demo</button> -->
+            <!--       <Readouts bind:node_data bind:counter bind:mouseX bind:mouseY/> -->
+            <!--   </div> -->
+            <!-- {/if} -->
         </div>
         <div style="margin-left: auto; margin-right: auto; padding-top: {replay_pac?'80px':'0px'}">
             <Map {replay_pac} bind:node_data bind:counter bind:mouseX bind:mouseY/>

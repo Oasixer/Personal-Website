@@ -44,9 +44,9 @@
 </style>
 
 <div id='backToTop'
-  style="background-color: {bg_color}"
+  class="bg-blue-bgOuter flex flex-row items-center justify-center"
   bind:clientHeight={height}>
-  <button
+  <button class="text-sky-300 font-rubik6 text-szLg"
     on:click={()=>runMoveDispatcher()}>
     Back to top
   </button>

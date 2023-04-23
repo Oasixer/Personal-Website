@@ -5,7 +5,6 @@
   export let items;
   export let work;
   export let standalone;
-  export let mobile;
 
   const refresh = () => {
     items = [...items];
@@ -25,7 +24,7 @@
 <div class="experience-list-container">
   {#each items.concat().sort((a,b)=>a.order - b.order) as item}
     {#if (!item.force_hide)}
-      <ExperienceItem bind:item on:refresh={refresh} {mobile} {standalone} {work}/>
+      <ExperienceItem bind:item on:refresh={refresh} {standalone} {work}/>
     {/if}
   {/each}
 </div>

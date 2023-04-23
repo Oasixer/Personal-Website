@@ -1,20 +1,24 @@
 <script lang="ts">
   import type { ProjMeta, PortfolioState, FilterFn, LanguageInfo } from './project';
   import { projects } from './portfolio_content';
-  import { LANGUAGES } from './project';
+  import { show_pinguins_modal, LANGUAGES } from './project';
   import ProjImgConst from './project';
   import ProjectThumb from './ProjectThumb.svelte';
   import ProjectCard from './ProjectCard.svelte';
   import PortfolioControls from './PortfolioControls.svelte';
+  import TrashIconButton from '@components/TrashIconButton.svelte';
   import ProjectImageScroller from './ProjectImageScroller.svelte';
   import ProjectLanguagesIconStack from './ProjectLanguagesIconStack.svelte';
   import { vp } from '../viewport';
   import type { VP } from '../viewport';
   import Toggle from '../components/Toggle.svelte';
+  import PinguinsModal from '@pinguins/PinguinsModal.svelte';
+  import Dashboard from '@pinguins/Dashboard.svelte';
 
   let portfolioElement: HTMLElement;
 
   export let height: number=0;
+  let pinguinsModal: any = undefined;
 
   export let pstate: PortfolioState = {
     active: false,
@@ -125,11 +129,10 @@
 
   <!-- style="height: {(pstate.expand_all || pstate.force_expand_all)?'fit-content;': '1200px;'}" -->
 <div id='portfolio2'
-  class="bg-blue-bgOuter w-full my-0 flex flex-col items-center gap-5 flex-nowrap md:px-12 pb-12 pt-4"
+  class="bg-blue-bgOuter w-full my-0 flex flex-col items-center gap-5 flex-nowrap md:px-12 pb-12 pt-4 relative"
   style="height: {()=>{return (pstate.expand_all || pstate.force_expand_all)?'fit-content;': '1200px;'}}"
   bind:this={portfolioElement}
   bind:offsetHeight={height}>
-          <h1 id="thing">blah</h1>
   <!-- <div class="h-[48px] bg-white"> <!-- may contain menubar -->
   <!-- </div> -->
   <!-- <div id="portfolio-gradient-card" -->
@@ -156,52 +159,68 @@
     <!-- next element of card col, if not expand_all -->
       <!-- = normal row layout, thumbnails on the left -->
 
-    {#if (pstate.expand_all || pstate.force_expand_all)}
-      <div class="flex flex-col w-fit items-center gap-4">
-        <div class="flex flex-row flex-nowrap h-fit items-center w-full">
-          <h1 class="font-thicc8 uppercase text-sz5xl text-white w-fit mr-auto">
-            Portfolio
-          </h1>
-          <!-- <div> -->
-            <!-- in:receive="{{key: 1}}" -->
-            <!-- out:send="{{key: 1}}"> -->
-              <!-- {#if beginMoving} -->
-                <PortfolioControls bind:pstate/>
-              <!-- {/if} -->
-          <!-- </div> -->
-        </div>
-        <!-- {#if beginMoving} -->
-          {#each projects.slice(1,-1) as proj}
-              <ProjectCard bind:pstate={pstate} {proj}/>
-          {/each}
-        <!-- {/if} -->
+  {#if (pstate.expand_all || pstate.force_expand_all)}
+    <div class="flex flex-col w-fit items-center gap-4">
+      <div class="flex flex-row flex-nowrap h-fit items-center w-full">
+        <h1 class="font-thicc8 uppercase text-sz5xl text-white w-fit mr-auto">
+          Portfolio
+        </h1>
+        <!-- <div> -->
+          <!-- in:receive="{{key: 1}}" -->
+          <!-- out:send="{{key: 1}}"> -->
+            <!-- {#if beginMoving} -->
+              <PortfolioControls bind:pstate/>
+            <!-- {/if} -->
+        <!-- </div> -->
       </div>
-    {:else}
-      <div class="w-fit h-full flex flex-nowrap content-align gap-4">
-        <div class="flex flex-col gap-4 w-[325px] min-w-[325px] max-w-[325px]">
-          <!-- moving header shit here -->
-          <h1 class="font-thicc8 uppercase text-sz5xl text-white mr-7 mb-[-12px] ml-auto">
-            Portfolio
-          </h1>
-          <!-- {#each visibleProjects as proj} -->
-          <ProjectThumb proj={topProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
-          <ProjectThumb proj={middleProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
-          <ProjectThumb proj={bottomProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+      <!-- {#if beginMoving} -->
+        {#each projects.slice(1,-1) as proj}
+            <ProjectCard bind:pstate={pstate} {proj}/>
+        {/each}
+      <!-- {/if} -->
+    </div>
+  {:else}
+    <div class="w-fit h-full flex flex-nowrap content-align gap-4">
+      <div class="flex flex-col gap-4 w-[325px] min-w-[325px] max-w-[325px]">
+        <!-- moving header shit here -->
+        <h1 class="font-thicc8 uppercase text-sz5xl text-white mr-7 mb-[-12px] ml-auto">
+          Portfolio
+        </h1>
+        <!-- {#each visibleProjects as proj} -->
+        <ProjectThumb proj={topProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+        <ProjectThumb proj={middleProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+        <ProjectThumb proj={bottomProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
 
-          <!-- <div> -->
-            <!-- in:receive="{{key: 1}}" -->
-            <!-- out:send="{{key: 1}}"> -->
-                <PortfolioControls bind:pstate on:toggle_expand={toggle_expand}/>
-              <!-- {/if} -->
-          <!-- </div> -->
-        </div>
-        <!-- {#if !beginbeginMoving} -->
-          <ProjectCard bind:pstate={pstate} proj={projects[pstate.proj_idx]}/>
-        <!-- {/if} -->
+        <!-- <div> -->
+          <!-- in:receive="{{key: 1}}" -->
+          <!-- out:send="{{key: 1}}"> -->
+              <PortfolioControls bind:pstate on:toggle_expand={toggle_expand}/>
+            <!-- {/if} -->
+        <!-- </div> -->
       </div>
-    {/if}
-    <div class="h-[1px] w-[100%] bg-grey-600 mt-14"></div>
+      <!-- {#if !beginbeginMoving} -->
+        <ProjectCard bind:pstate={pstate} proj={projects[pstate.proj_idx]}/>
+      <!-- {/if} -->
+    </div>
+  {/if}
+  {#if $show_pinguins_modal}
+  <div class="absolute flex flex-col"
+       style="height: {height}px; margin-top: 0px; z-index:100;">
+    <div class="flex flex-row flex-nowrap">
+      <div class="bg-red-800">
+        This feature only 50% implemented, missing some icons, style, explanation. TODO
+      </div>
+      <TrashIconButton on:click={()=>{show_pinguins_modal.set(false)}}/>
+    </div>
+    <Dashboard/>
   </div>
+  {/if}
+  <div class="h-[1px] w-[100%] bg-grey-600 mt-14"></div>
+</div>
 <!-- </div> -->
+
+  <!-- <PinguinsModal on:close={() => show_pinguins_modal.set(false)} bind:this={pinguinsModal}> -->
+	<!-- </PinguinsModal> -->
+
 <style lang="postcss">
 </style>

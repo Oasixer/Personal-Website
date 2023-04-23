@@ -1,4 +1,4 @@
-import type { ProjMeta } from './project.ts';
+import type { ProjMeta, Link } from './project.ts';
 import { LANGUAGES } from './project.ts';
 export let projects: ProjMeta[] = [
 	{
@@ -18,20 +18,23 @@ export let projects: ProjMeta[] = [
 		project_desc: [
 			'The <Final Year Design Project> for my Mechatronics Engineering degree, 8 months of work by my 4 teammates and I.',
 			'`Awarded <Best Overall Project> out of 52 teams',
-			'Distributed positioning system for underwater robots using acoustic nodes in a mesh', // Received first place out of 52 teams.',
-			'demo_in_browser'
+			'Distributed positioning system for underwater robots using acoustic nodes in a mesh' // Received first place out of 52 teams.',
+			// 'demo_in_browser'
 		],
 		contributions: [
-			'Responsible for the <`rust!Rust> Server which orchestrates all the devices, ingests live data, delivers the webserver',
-			"`Server multiplexes each node's data to a seperate terminal for debugging",
+			'Responsible for the <`rust!Rust Server> which orchestrates all the devices, ingests live data, serves the dashboard',
+			"`<`rust!Server> multiplexes each node's data to a seperate terminal for debugging",
 			'`Manages client state and provides smooth reconnection for nodes that get interrupted',
-			'Responsible for the dashboard webapp incl. live data visualizer and playback of pre-recorded data sync’d with video',
-			'`TODO: link / embed video of this here',
+			'Responsible for the dashboard, a <`svelte!SvelteJS webapp> which serves as the user interface for the entire system',
+			'`Designed live data visualizer and playback of pre-recorded data sync’d with video [see <Demo in Browser> btn above]',
 			'Architected the <`cpp!C++> firmware, wrote all the network integrations, implemented the calibration algorithm',
 			'Responsible for the system infrastructure: networking (full stack), software build systems, and message protocols',
-			'`Responsible for the team’s website (nothing impressive, not at all the focus of the project) but https://pinguins.boats)'
+			'`Responsible for the team’s website (nothing impressive, not at all the focus of the project), live @ https://pinguins.boats)'
 		],
-		links: ['https://github.com/kiranjray/fydp_software'],
+		links: [
+			{ display: 'Demo in browser', target: 'pinguins_demo' },
+			{ target: 'https://github.com/kiranjray/fydp_software' }
+		],
 		images: ['award', 'demo_outside', 'underwater', 'pinguins'],
 		leftColWidthFactor: 0.55
 	},
@@ -45,13 +48,13 @@ export let projects: ProjMeta[] = [
 		],
 		contributions: [
 			'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',
-			'Used protobufs in CPP, streamed them to laptop/dashboard in realtime over a TCP socket, and parsed them automatically in python to create realtime readouts and plots.',
-			'Made a dashboard in Python that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
+			'Used <`protobuf!protobufs> in <`cpp!C++>, streamed them to laptop/dashboard in realtime over a TCP socket, and parsed them automatically in <`python!Python> to create realtime readouts and plots.',
+			'Made a dashboard in <`python!Python> that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
 			'`Developed simulation mode for dashboard which simulated the robot physics and enabled us to develop and refine the algorithms before we finished building the robot.',
 			'Wrote my own plotting library with automatic rescaling and other overkill features',
 			'GF fixed my sensors on comp day, thanks bb'
 		],
-		links: ['https://github.com/Oasixer/380-robot-sw'],
+		links: [{ target: 'https://github.com/Oasixer/380-robot-sw' }],
 		images: ['380'],
 		leftColWidthFactor: 0.65
 	},
@@ -65,7 +68,7 @@ export let projects: ProjMeta[] = [
 			'Developed frontend in <SvelteJS>+<Typescript>+SCSS, leveraging local storage to store JWT & maintain sessions'
 		],
 		contributions: [],
-		links: ['https://github.com/GibJob-ai/GObjob'],
+		links: [{ target: 'https://github.com/GibJob-ai/GObjob' }],
 		images: ['gibjob'],
 		leftColWidthFactor: 0.6
 	},
@@ -79,7 +82,7 @@ export let projects: ProjMeta[] = [
 			'Improved analysis capabilities by creating data visualizations with D3.js graphs encapsulated as Python Plotly Dash components'
 		],
 		contributions: [],
-		links: ['https://github.com/waterloo-rocketry/rlcs-daq-plotting'],
+		links: [{ target: 'https://github.com/waterloo-rocketry/rlcs-daq-plotting' }],
 		images: ['plotly'],
 		leftColWidthFactor: 0.6
 	},
@@ -95,7 +98,7 @@ export let projects: ProjMeta[] = [
 			'Designed an overhauled db schema for the entire product using SQLAlchemy ORM',
 			'Maintained the legacy ExpressJS server codebase while switching over to my improved design.'
 		],
-		links: ['https://backr.space/'],
+		links: [{ target: 'https://backr.space/' }],
 		images: ['backr'],
 		leftColWidthFactor: 0.5
 	},
@@ -110,7 +113,7 @@ export let projects: ProjMeta[] = [
 			'Never got around to finishing this, but the prototype is linked (github, above)'
 		],
 		contributions: [],
-		links: ['https://github.com/Oasixer/i3_emu'],
+		links: [{ target: 'https://github.com/Oasixer/i3_emu' }],
 		leftColWidthFactor: 1
 	},
 	{
@@ -125,7 +128,7 @@ export let projects: ProjMeta[] = [
 			'Set up onboard Rasperry Pi and Arduino to control motors, sensors, and lights.',
 			'Achieved second place, and received Leap Motion award.'
 		],
-		links: ['https://github.com/ParthSareen/SmartLamp'],
+		links: [{ target: 'https://github.com/ParthSareen/SmartLamp' }],
 		leftColWidthFactor: 1
 	},
 	{
@@ -139,7 +142,7 @@ export let projects: ProjMeta[] = [
 			'Communicates via CAN bus with the rest of the rocket, and the remote launch control system.'
 		],
 		contributions: [],
-		links: ['https://github.com/waterloo-rocketry/cansw_vent/tree/v2-dev'],
+		links: [{ target: 'https://github.com/waterloo-rocketry/cansw_vent/tree/v2-dev' }],
 		leftColWidthFactor: 1
 	},
 	{
@@ -153,7 +156,7 @@ export let projects: ProjMeta[] = [
 			'Implemented Robot Operating System (ROS) message publishing/subscribing to relay critical information to and from the robot'
 		],
 		contributions: [],
-		links: ['https://github.com/uwreact/frc_control'],
+		links: [{ target: 'https://github.com/uwreact/frc_control' }],
 		leftColWidthFactor: 1
 	},
 	{
@@ -167,7 +170,7 @@ export let projects: ProjMeta[] = [
 		],
 		contributions: [],
 		// links: [],
-		links: ['https://github.com/Oasixer/Lego-3D-Printer'],
+		links: [{ target: 'https://github.com/Oasixer/Lego-3D-Printer' }],
 		leftColWidthFactor: 1
 	},
 	{
@@ -176,12 +179,19 @@ export let projects: ProjMeta[] = [
 		languages: [],
 		project_desc: [],
 		contributions: [],
-		links: [''],
+		links: [{}],
 		images: [],
 		leftColWidthFactor: 1
 	}
 ].map((i, idx) => {
 	// add index property to each element
+	let _links: Link[] = [];
+	for (let j = 0; j < i.links.length; j++) {
+		_links.push({
+			display: i.links[j].hasOwnProperty('display') ? i.links[j].display : 'github',
+			target: i.links[j].target
+		} as Link);
+	}
 	return {
 		...i,
 		idx,
@@ -189,6 +199,7 @@ export let projects: ProjMeta[] = [
 		languages: i.languages.map((j) => {
 			return LANGUAGES[j];
 		}),
+		links: _links,
 		thumb_hovered: false
 	};
 });

@@ -60,15 +60,15 @@
   }
 </style>
 
-<!-- <div id='contact' -->
-<!--   bind:this={contactElement} -->
-<!--   style="background-color: {bg_color}" -->
-<!--   class:mobile -->
-<!--   bind:offsetHeight={height}> -->
-<!--   <h1 class:mobile>contact</h1> -->
-<!--   {#if !mobile} -->
-<!--     <h2>Kaelan Moffett-Steinke</h2> -->
-<!--   {/if} -->
-<!--   <Header standalone={true}/> -->
-<!--   <hr> -->
-<!-- </div> -->
+<div id='contact'
+  bind:this={contactElement}
+  style="background-color: {bg_color}"
+  class:mobile
+  bind:offsetHeight={height}>
+  <h1 class:mobile>contact</h1>
+  {#if !mobile}
+    <h2>Kaelan Moffett-Steinke</h2>
+  {/if}
+  <Header standalone={true}/>
+  <hr>
+</div>

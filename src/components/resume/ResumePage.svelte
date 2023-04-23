@@ -37,7 +37,7 @@
       </div>
       <!-- <Toggle bind:on={purpleModeBool} title={'TogglePurple(temp)'} /> -->
       <Toggle bind:on={dark} title={'Toggle Darktheme'} />
-      <a class='flex flex-row flex-nowrap items-center text-blue-light md:text-sz2xl md:mr-7' href='./Kaelan_Resume_2020.pdf' download>
+      <a class='flex flex-row flex-nowrap items-center text-sky-300 md:text-sz2xl md:mr-7' href='./Kaelan_Resume_2020.pdf' download>
         <p class="mr-4"><Fa icon={faFileDownload}/></p>
         <p class="font-rubik5">PDF</p>
       </a>
@@ -47,10 +47,12 @@
       <Resume standalone={false}/>
     {:else}
       <div>
-      <h1>Resume not currently supported on mobile/viewport narrower than 975 :(</h1>
+        <h1 class="text-white">Embedded Resume not currently supported on mobile/viewport narrower than 975 :(</h1>
+        <h1 class="text-white">Pls download as PDF (button above) instead.</h1>
       </div>
     {/if}
 
     <!-- {/if} -->
   </div>
+  <div class="h-[1px] w-[100%] bg-grey-600 mt-14"></div>
 </div>
