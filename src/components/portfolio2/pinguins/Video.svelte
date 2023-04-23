@@ -59,8 +59,10 @@
 		src=""//https://sveltejs.github.io/assets/caminandes-llamigos.mp4" -->
 <div style="width: 95%">
 <!-- </div>; border-radius: 5px; overflow: hidden;"> -->
+		<!-- src="https://drive.google.com/uc?export=download&id=1V9KPjgeNHA1hPN1--bddMRd76ppTFcOS" -->
+<!-- <iframe src="https://drive.google.com/file/d/1V9KPjgeNHA1hPN1--bddMRd76ppTFcOS/preview" width="640" height="480" allow="autoplay"></iframe> -->
 	<video
-		poster="thumb.png"
+		poster="images/pinguins/thumb.png"
 		src="images/pinguins/pac_demo.mp4"
 		on:mousemove={handleMove}
 		on:touchmove|preventDefault={handleMove}

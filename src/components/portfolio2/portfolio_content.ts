@@ -25,7 +25,7 @@ export let projects: ProjMeta[] = [
 			'Responsible for the <`rust!Rust Server> which orchestrates all the devices, ingests live data, serves the dashboard',
 			"`<`rust!Server> multiplexes each node's data to a seperate terminal for debugging",
 			'`Manages client state and provides smooth reconnection for nodes that get interrupted',
-			'Responsible for the dashboard, a <`svelte!SvelteJS webapp> which serves as the user interface for the entire system',
+			'Responsible for the dashboard, a <`svelte!SvelteJS> + <`ts!TypeScript> webapp which serves as the user interface for the entire system',
 			'`Designed live data visualizer and playback of pre-recorded data sync’d with video [see <Demo in Browser> btn above]',
 			'Architected the <`cpp!C++> firmware, wrote all the network integrations, implemented the calibration algorithm',
 			'Responsible for the system infrastructure: networking (full stack), software build systems, and message protocols',
@@ -79,7 +79,7 @@ export let projects: ProjMeta[] = [
 		project_desc: [
 			'Visualisation dashboard for UW Rocketry to display live sensor data.',
 			'Developed data transfer protocol for realtime transmission of rocket sensor data.',
-			'Improved analysis capabilities by creating data visualizations with D3.js graphs encapsulated as Python Plotly Dash components'
+			'Improved analysis capabilities by creating data visualizations with <`js!D3.js> graphs encapsulated as <`python!Python> Plotly Dash components'
 		],
 		contributions: [],
 		links: [{ target: 'https://github.com/waterloo-rocketry/rlcs-daq-plotting' }],
@@ -94,9 +94,9 @@ export let projects: ProjMeta[] = [
 			'Now dead startup that did a bunch of twitter and youtube scraping and data analysis for youtubers seeking to have good fan interaction'
 		],
 		contributions: [
-			'Led the design and development of Flask server that handles data ingestion and analytics for customers.',
+			'Led the design and development of <`flask!Flask> server that handles data ingestion and analytics for customers.',
 			'Designed an overhauled db schema for the entire product using SQLAlchemy ORM',
-			'Maintained the legacy ExpressJS server codebase while switching over to my improved design.'
+			'Maintained the legacy <`js!ExpressJS> server codebase while switching over to my improved design.'
 		],
 		links: [{ target: 'https://backr.space/' }],
 		images: ['backr'],
@@ -109,7 +109,7 @@ export let projects: ProjMeta[] = [
 		languages: ['cpp'],
 		project_desc: [
 			'Windows native emulator of popular Linux window manager i3 that we all know and love',
-			'Developed using MSVC in C++ for UI manipulation',
+			'Developed using MSVC in <`cpp!C++> for UI manipulation',
 			'Never got around to finishing this, but the prototype is linked (github, above)'
 		],
 		contributions: [],
