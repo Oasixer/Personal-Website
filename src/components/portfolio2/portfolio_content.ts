@@ -50,7 +50,7 @@ export let projects: ProjMeta[] = [
 			'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',
 			'Used <`protobuf!protobufs> in <`cpp!C++>, streamed them to laptop/dashboard in realtime over a TCP socket, and parsed them automatically in <`python!Python> to create realtime readouts and plots.',
 			'Made a dashboard in <`python!Python> that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
-			'`Developed simulation mode for dashboard which simulated the robot physics and enabled us to develop and refine the algorithms before we finished building the robot.',
+			'`Developed simulation mode which approximates the robot physics and enabled us to develop and refine the algorithms before we finished building the robot.',
 			'Wrote my own plotting library with automatic rescaling and other overkill features',
 			'GF fixed my sensors on comp day, thanks bb'
 		],
@@ -64,8 +64,8 @@ export let projects: ProjMeta[] = [
 		languages: ['go', 'graphql', 'svelte', 'js'],
 		project_desc: [
 			'Webapp for resume creation that makes it easy to choose from styles, templates, layouts, and provides a convenient workflow to maintain and update it.',
-			'Developed backend in <Go> implementing user login, JWT auth, <GraphQL>, unit tests',
-			'Developed frontend in <SvelteJS>+<Typescript>+SCSS, leveraging local storage to store JWT & maintain sessions'
+			'Developed backend in <`go!Go> implementing user login, JWT auth, <`graphql!GraphQL>, unit tests',
+			'Developed frontend in <`svelte!SvelteJS>+<`ts!Typescript>+SCSS, leveraging local storage to store JWT & maintain sessions'
 		],
 		contributions: [],
 		links: [{ target: 'https://github.com/GibJob-ai/GObjob' }],
@@ -109,7 +109,7 @@ export let projects: ProjMeta[] = [
 		languages: ['cpp'],
 		project_desc: [
 			'Windows native emulator of popular Linux window manager i3 that we all know and love',
-			'Developed using MSVC in <`cpp!C++> for UI manipulation',
+			'Developed using MSVC in <`cpp!C++> for manipulation of OS windows',
 			'Never got around to finishing this, but the prototype is linked (github, above)'
 		],
 		contributions: [],

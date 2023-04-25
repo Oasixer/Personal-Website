@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ProjMeta, PortfolioState, FilterFn, LanguageInfo } from './project';
   import { projects } from './portfolio_content';
-  import { show_pinguins_modal, LANGUAGES } from './project';
+  import { show_pinguins_modal, LANGUAGES, highlight_hjkl } from './project';
   import ProjImgConst from './project';
   import ProjectThumb from './ProjectThumb.svelte';
   import ProjectCard from './ProjectCard.svelte';
@@ -9,10 +9,9 @@
   import TrashIconButton from '@components/TrashIconButton.svelte';
   import ProjectImageScroller from './ProjectImageScroller.svelte';
   import ProjectLanguagesIconStack from './ProjectLanguagesIconStack.svelte';
-  import { vp } from '../viewport';
-  import type { VP } from '../viewport';
+  import { goToPortfolio } from '@viewport';
+  // import type { VP } from '../viewport';
   import Toggle from '../components/Toggle.svelte';
-  import PinguinsModal from '@pinguins/PinguinsModal.svelte';
   import Dashboard from '@pinguins/Dashboard.svelte';
 
   let portfolioElement: HTMLElement;
@@ -30,11 +29,31 @@
     shouldColorKeywords: true,
   };
 
+  let loaded = {};
+  for (const proj in projects){
+    loaded[get_src(proj)] = false;
+  }
+
+  function preload(src: string) {
+    if (loaded[src]) return;
+    loaded[src] = true;
+    return new Promise(function(resolve) {
+      let img = new Image()
+      img.onload = resolve
+      img.src = src
+    })
+  }
+
   // $: console.log(projects);
+  function get_src(proj: ProjMeta){
+    return ProjImgConst.IMAGES_BASE_DIR+proj.dir+'/thumb.png';
+  }
 
   let topProj: ProjMeta = projects[0];
   let middleProj: ProjMeta = projects[1];
   let bottomProj: ProjMeta = projects[2];
+  // let preload1: string = get_src(projects[3]);
+  // let preload2: string = get_src(projects[4]);
 
   let beginMoving = false;
   // let beginbeginMoving = false;
@@ -54,18 +73,30 @@
     if (down === true){
       pstate.proj_idx += 1;
       // pstate = {...pstate};
+      highlight_hjkl.set({'h':false,'j':true,'k':false,'l':false});
+      setTimeout(()=>{highlight_hjkl.set({'h':false,'j':false,'k':false,'l':false})}, 500);
     }
     else if (down === false){
       pstate.proj_idx -= 1;
+      highlight_hjkl.set({'h':false,'j':false,'k':true,'l':false});
+      setTimeout(()=>{highlight_hjkl.set({'h':false,'j':false,'k':false,'l':false})}, 500);
     }
     else{
-      while(true){
-        console.log("uh oh"); // todo remove, temp
-      }
     }
     topProj = projects[pstate.proj_idx - 1];
     middleProj = projects[pstate.proj_idx];
     bottomProj = projects[pstate.proj_idx + 1];
+
+    let preload1: string;
+    let preload2: string;
+    if (pstate.proj_idx + 2 < pstate.n_projects - 1){
+      preload1 = get_src(projects[pstate.proj_idx+2]);
+      preload(preload1);
+    }
+    if (pstate.proj_idx + 3 < pstate.n_projects - 1){
+      preload2 = get_src(projects[pstate.proj_idx+3]);
+      preload(preload2);
+    }
 
   }
 
@@ -74,13 +105,6 @@
     let down: boolean = event.detail.down;
     advance_proj(down, false);
   }
-
-  // // let maxProjectCardHeightUnexpanded = maxCardHeight(200);
-  // function maxOuterCardHeightUnexpanded(vpHeight: number): number{
-  //   // console.log("maxCardHgt");
-  //   console.log("vpHeight: ", vpHeight);
-  //   return vpHeight - 100;
-  // }
 
     import { quintOut } from 'svelte/easing';
     import { crossfade } from 'svelte/transition';
@@ -125,7 +149,64 @@
 
   $: console.log("pstate from Portfolio: ", pstate);
 
+	const handle_keydown = e => {
+    console.log("key!", e.key);
+		if (e.key === 'j') {
+      // -2 to account for dummy project icon
+      if (pstate.proj_idx >= pstate.n_projects - 2){
+          return;
+      }
+      advance_proj(true, true);
+      $goToPortfolio();
+			return;
+		}
+		if (e.key === 'k') {
+      if (pstate.proj_idx <= 1){
+          return;
+      }
+      advance_proj(false, true);
+      $goToPortfolio();
+			return;
+		}
+		if (e.key === 'l') {
+      if (middleProj.selected_img >= middleProj.images.length - 1){
+        return; 
+      }
+      let newMid = {...middleProj};
+      middleProj.selected_img += 1;
+      middleProj = {...bottomProj};
+      middleProj = {...newMid};
+      // middleProj.selected_img += 1;
+      // middleProj = {...middleProj}; // for reactivity
+      // middleProj = []; // for reactivity
+			return;
+		}
+		if (e.key === 'h') {
+      if (middleProj.selected_img <= 0){
+        return; 
+      }
+      middleProj.selected_img -= 1;
+      middleProj = {...middleProj}; // for reactivity
+			return;
+		}
+		// if (e.key === 'Tab') {
+			// trap focus
+		// 	const nodes = modal.querySelectorAll('*');
+		// 	const tabbable = Array.from(nodes).filter(n => n.tabIndex >= 0);
+		//
+		// 	let index = tabbable.indexOf(document.activeElement);
+		// 	if (index === -1 && e.shiftKey) index = 0;
+		//
+		// 	index += tabbable.length + (e.shiftKey ? -1 : 1);
+		// 	index %= tabbable.length;
+		//
+		// 	tabbable[index].focus();
+		// 	e.preventDefault();
+		// }
+	};
 </script>
+
+<svelte:window on:keydown={handle_keydown}/>
 
   <!-- style="height: {(pstate.expand_all || pstate.force_expand_all)?'fit-content;': '1200px;'}" -->
 <div id='portfolio2'
@@ -162,7 +243,8 @@
   {#if (pstate.expand_all || pstate.force_expand_all)}
     <div class="flex flex-col w-fit items-center gap-4">
       <div class="flex flex-row flex-nowrap h-fit items-center w-full">
-        <h1 class="font-thicc8 uppercase text-sz5xl text-white w-fit mr-auto">
+        <h1 class="font-thicc8 uppercase text-sz5xl text-white w-fit mr-auto"
+            class:mt-auto={pstate.expand_all || pstate.force_expand_all}>
           Portfolio
         </h1>
         <!-- <div> -->
@@ -190,6 +272,10 @@
         <ProjectThumb proj={topProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
         <ProjectThumb proj={middleProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
         <ProjectThumb proj={bottomProj} pstate={pstate} on:click_thumb_advance_proj={click_thumb_advance_proj}/>
+        
+      <!-- $: thumb_src = ProjImgConst.IMAGES_BASE_DIR+proj.dir+'/thumb.png'; -->
+        <!-- <img src={preload1} preload/> -->
+        <!-- <img src={preload2} preload/> -->
 
         <!-- <div> -->
           <!-- in:receive="{{key: 1}}" -->
@@ -209,6 +295,11 @@
     <div class="flex flex-row flex-nowrap">
       <div class="bg-red-800">
         This feature only 50% implemented, missing some icons, style, explanation. TODO
+        If you are reading this now, before it's ready, this is basically a video of us demoing the robot.
+        Then, since the dashboard UI wasn't ready during that demo footage, the data from the video is replayed
+        through the dashboard in realtime, sync'd with the video.
+
+        But it's still broken at the moment.
       </div>
       <TrashIconButton on:click={()=>{show_pinguins_modal.set(false)}}/>
     </div>

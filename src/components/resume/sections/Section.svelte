@@ -38,7 +38,7 @@
 </style>
 
 {#if !force_hide}
-  <div class='section-main' style="margin-bottom: {$section_bottom_margin}px">
+  <div class='section-main max-w-[980px]' style="margin-bottom: {$section_bottom_margin}px">
 <!-- style="font-size: {$section_headings_font_size}px;" -->
     <h1 class="text-sky-600 dark:text-grey-100 font-thicc7 text-sz2xl w-fit"
         class:!text-purple-900={$purpleMode}

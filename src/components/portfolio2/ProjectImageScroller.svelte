@@ -4,7 +4,7 @@ import { get } from 'svelte/store';
 import DevIcon from './DevIcon.svelte';
 import type { ProjMeta, PortfolioState, FilterFn } from './project';
 import type { Sizes } from './project';
-import { sz } from './project';
+import { sz, highlight_hjkl } from './project';
 import ProjImgConst from './project';
 
 export let proj: ProjMeta; 
@@ -30,6 +30,41 @@ function click_right(){
 function click_left(){
   proj.selected_img -= 1;
 }
+	
+const handle_keydown = e => {
+  // console.log("key!", e.key);
+  if (e.key === 'l') {
+    highlight_hjkl.set({'h':false,'j':false,'k':false,'l':true});
+    setTimeout(()=>{highlight_hjkl.set({'h':false,'j':false,'k':false,'l':false})}, 500);
+    if (proj.selected_img >= proj.images.length - 1){
+      return; 
+    }
+    proj.selected_img += 1;
+  }
+  if (e.key === 'h') {
+    highlight_hjkl.set({'h':true,'j':false,'k':false,'l':false});
+    setTimeout(()=>{highlight_hjkl.set({'h':false,'j':false,'k':false,'l':false})}, 500);
+    if (proj.selected_img <= 0){
+      return; 
+    }
+    proj.selected_img -= 1;
+    return;
+  }
+  // if (e.key === 'Tab') {
+    // trap focus
+  // 	const nodes = modal.querySelectorAll('*');
+  // 	const tabbable = Array.from(nodes).filter(n => n.tabIndex >= 0);
+  //
+  // 	let index = tabbable.indexOf(document.activeElement);
+  // 	if (index === -1 && e.shiftKey) index = 0;
+  //
+  // 	index += tabbable.length + (e.shiftKey ? -1 : 1);
+  // 	index %= tabbable.length;
+  //
+  // 	tabbable[index].focus();
+  // 	e.preventDefault();
+  // }
+};
 function handleMouseOverLeft(){
   left_icon_colour = "#7dd3fc";
   left_icon_sz = ICON_LG_SCALE;
@@ -52,9 +87,11 @@ function handleMouseOutRight(){
   right_icon_sz = ICON_DEFAULT_SCALE;
 }
 
+
 $: console.log("sz[from ProjImgScroller]: ", get(sz));
 </script>
 
+<svelte:window on:keydown={handle_keydown}/>
 
 <div class="w-full rounded-xl overflow-hidden relative"
  style="width: {$sz.full_width}px; min-width: {$sz.full_width}px">

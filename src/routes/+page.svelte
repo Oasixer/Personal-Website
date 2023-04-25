@@ -5,6 +5,7 @@
   import ResumePage from '../components/resume/ResumePage.svelte';
   import PortfolioPage2 from '../components/portfolio2/Portfolio2.svelte';
   import BackToTop from '../components/components/BackToTop.svelte';
+  import { goToPortfolio } from '@viewport';
 
   import { vp, LAYOUT, LAYOUT_MIN_THRESH, MENUBAR_HEIGHT } from '../components/viewport';
   import { show_pinguins_modal } from '../components/portfolio2/project'
@@ -67,6 +68,8 @@
     // console.log('standard Screen Orientation: ',Viewport.Orientation)
     viewport = Viewport;
     setLayout();
+
+    goToPortfolio.set(()=>{move_to_section_n(1)});
 	});
 
   let sections = [
@@ -147,6 +150,7 @@
     }
   }
   $: y, scrollChanged();
+
 </script>
 
 <style>
@@ -173,7 +177,10 @@
 </style>
 <title>Kaelan Moffett</title>
 
-<svelte:window bind:scrollY={y} bind:outerWidth={width} bind:outerHeight={height}/>
+<svelte:window
+bind:scrollY={y}
+bind:outerWidth={width}
+bind:outerHeight={height}/>
 <svelte:body
   on:viewportchanged={setLayout}
   on:orientationchangeend={() => { 

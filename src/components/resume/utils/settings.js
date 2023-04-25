@@ -121,7 +121,7 @@ export const tags = writable(Object.values(TagNames));
 
 export const display_mode = writable(false); // if true, dont show modal button
 
-export const resume_width = writable('1080'); // appears above the linkrow
+export const resume_width = writable('1000'); // appears above the linkrow
 
 export const education_awards_interests_font_size = writable('14');
 export const experience_content_font_size = writable('14');
@@ -138,7 +138,7 @@ export const force_display_skills_ignore_tags = writable(false);
 export const compact_exp_info = writable(false);
 
 export const top_name_font_size = writable('2.8');
-export const top_name_top_margin = writable('0');
+export const top_name_top_margin = writable('30');
 export const top_name_bottom_margin = writable('-8');
 export const top_header_bottom_margin = writable('12'); // appears above the linkrow
 

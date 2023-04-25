@@ -224,5 +224,6 @@ export const SZ_MED = {
 	mobile: false
 } as Sizes;
 
+export const highlight_hjkl = writable({ h: false, j: false, k: false, l: false });
 export const sz = writable(SZ_XS);
 export const show_pinguins_modal = writable(false);

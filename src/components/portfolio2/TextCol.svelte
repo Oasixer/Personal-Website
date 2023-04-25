@@ -33,8 +33,8 @@ function should_indent(line: string): boolean{
 }
 
 function getWidth(_sz: Sizes, _leftColWidthFactor: number, _vp: VP){
-  console.log("vp: ", _vp);
-  console.log("get(vp): ", get(vp));
+  // console.log("vp: ", _vp);
+  // console.log("get(vp): ", get(vp));
   if (_vp.layout < LAYOUT['md']){
     console.log("smol width");
     return 'auto';

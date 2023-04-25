@@ -19,12 +19,17 @@
   let show_list_controls = false;
 
 const points = [
-  'Created positioning system for underwater robots using acoustic nodes in a mesh, outperforming commercial solutions in terms of tolerance to reflections and obstructions, achieving 85 meter range w/ max 2% error.',
-  'Awarded <Best Overall Project> out of 52 teams presenting at 2023 U of Waterloo Mechatronics Engineering symposium.',
-  'Responsible for the <Rust> Server which sends cmds to & receives high bandwidth data from each Node, delivers web UI.',
-  'Architected Node firmware (<C++>, targeting ARM M7), incl. live positioning, networking, msg protocols, autocalibration.',
-  'Optimized realtime freq. analysis, via Sliding Window implementation of Fast Fourier Transform performed at 500KHz.',
-  'Responsible for the UI dashboard (<SvelteJS> webapp) including live positioning visualizer w/ recording & playback.',
+  'Created positioning system for underwater robots using acoustic nodes in a graph, outperforming commercial solutions in tolerance to reflections and obstructions, achieving 85 meter range with 98% accuracy.',
+  'Awarded <Best Overall Project> out of 52 teams presenting at 2023 U of Waterloo Mechatronics Eng. symposium.',
+  'Responsible for <Rust> Server to send and receive high bandwidth data from each Node and deliver UI webapp.',
+  'Architected node firmware (<C++>, targeting ARM M7), real-time positioning, networking, and autocalibration.',
+  'Optimized realtime freq. analysis, via <sliding window> implementation of <Fast Fourier Transform> at 2μs intervals, utilizing a ringbuffer to analyze 20MB/s of acoustic samples.',
+  // 'Designed positioning strategy in which each node listens and replies to acoustic pings underwater, the distances are calculated using Time of Flight, then absolute positions of each node are resolved using multilateration.'
+  // 'FFT updated every 2 microseconds via an ISR that adds to a ringbuffer and updates the calculation.',
+  // 'Iwhere 2μs an ISR adds a sample to a ringbuffer which represents the '
+  // 'Optimized realtime freq. analysis, via <sliding window> implementation of <Fast Fourier Transform> (FFT)',// running every 2μs.',
+  // 'Implemented '
+  // 'Responsible for the UI dashboard (<SvelteJS> webapp) including live positioning visualizer w/ recording & playback.',
 ];
 
 let objects = [];

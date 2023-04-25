@@ -1,7 +1,5 @@
 <script>
-  export let bg_color;
   export let height=undefined;
-  export let mobile;
   /* import Icon from 'fa-svelte/src/Icon.svelte';//'fa-svelte'; */
   import Fa from 'svelte-fa';
   import { faFileDownload } from '@fortawesome/free-solid-svg-icons/faFileDownload';
@@ -32,7 +30,7 @@
   <div id="inner_resume_page"
        class="flex flex-col flex-nowrap w-fit">
     <div class="flex flex-row flex-nowrap items-center gap-6 w-[100%]">
-      <div class="font-thicc8 text-white text-sz6xl flex-initial flex w-fit mr-auto uppercase" class:mobile>
+      <div class="font-thicc8 text-white text-sz6xl flex-initial flex w-fit mr-auto uppercase">
       Resume
       </div>
       <!-- <Toggle bind:on={purpleModeBool} title={'TogglePurple(temp)'} /> -->

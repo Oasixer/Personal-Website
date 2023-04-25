@@ -30,7 +30,10 @@
   }
 
 </style>
-<div on:click style="margin-bottom: {$top_header_bottom_margin}px">
+<div on:click
+     class="mx-auto"
+     style="margin-bottom: {$top_header_bottom_margin}px"
+     >
   <!-- {#if standalone} -->
     <div class="flex flex-row items-center justify-center gap-3 w-full text-black dark:text-white ">
       <h1 class="font-thicc3"

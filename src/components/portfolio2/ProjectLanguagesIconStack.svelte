@@ -62,6 +62,11 @@
             <p class="font-rubik5 text-szSm underline"
                style="color: white">{link.display}</p>
           </a>
+        {:else if link.target === 'pinguins_demo'}
+          <button class="text-sky-300 bg-sky-900 rounded-md"
+                  on:click={()=>show_pinguins_modal.set(true)}>
+            {link.display}
+          </button>
         {/if}
         <!-- {:else if ....} -->
       {/each}
@@ -89,7 +94,7 @@
                style="color: white">{link.display}</p>
           </a>
         {:else if link.target === 'pinguins_demo'}
-          <button class="text-sky-300 bg-sky-900"
+          <button class="text-sky-300 bg-sky-900 rounded-md"
                   on:click={()=>show_pinguins_modal.set(true)}>
             {link.display}
           </button>

@@ -78,29 +78,31 @@
     padding: 0 0 0 18px;
   }
 
-  li{
-    margin: 0px 0px;
-  }
-  
-  li:not(.darktheme){
-    line-height: 1.15;
-  }
+  /* li{ */
+  /*   margin: 0px 0px; */
+  /* } */
+  /*  */
+  /* li:not(.darktheme){ */
+  /*   line-height: 1.15; */
+  /* } */
 
 
 </style>
 
-<ul class="list-disc ml-1 text-slate-800 dark:text-grey-00"
+<ul class="list-disc ml-1 text-slate-800 dark:text-grey-00 flex flex-col gap-1"
 on:click={toggle_controls}>
   {#each items.map(i=>split(i)) as i}
-    <li class="font-sans font-wgt400 text-szBase">
+    <li class="text-slate-700 dark:text-grey-0">
+    <p class="font-sans font-wgt400 not-italic text-szLg text-slate-700 dark:text-grey-0 text-justify">
     <!-- style="{(!embedded)?('font-size: '+$experience_content_font_size+'px'):''}"> -->
       {#each i as portion}
         {#if portion[0] == 'p'}
-          <em class="font-sans font-wgt400 not-italic text-szBase text-slate-700 dark:text-grey-0">{portion[1]}</em>
+          {portion[1]}
         {:else}
-          <em class="font-sans font-wgt600 dark:font-wgt600 not-italic text-szBaseSm text-slate-900 dark:text-grey-00">{portion[1]}</em>
+          <em class="font-sans font-wgt600 dark:font-wgt600 not-italic text-szLg text-slate-900 dark:text-grey-00">{portion[1]}</em>
         {/if}
       {/each}
+      </p>
     </li>
   {/each}
 </ul>

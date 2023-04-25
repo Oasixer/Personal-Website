@@ -168,8 +168,12 @@
      class:rounded-xl={!standalone}
      class:mt-5={!standalone}
      class:p-5={!standalone}
+     class:pr-3={true}
+     class:max-w-[1020px]={standalone}
+     class:max-w-[1080px]={!standalone}
      style="{$limit_resume_height?'overflow: hidden;':'overflow: visible; '+ 'border: none;'}">
-  <div style="{standalone?('max-width: ' + $resume_width + 'px;'):('max-width: 1000px; min-width: '+Math.min($vp.width*0.9, 1080)+'px;')}">
+  <div class:max-w-[1000px]={true} class="">
+  <!-- style="{standalone?('max-width: ' + $resume_width + 'px;'):('max-width: '+$resume_width + px; min-width: '+Math.min($vp.width*0.9, 1000)+'px;')}"> -->
   <!-- style="min-width: 816px; max-width: 816px"> -->
     <!-- {#if !$disable_settings_button} -->
       <!-- <button id="modal-button" on:click="{() => showModal = true}"> -->

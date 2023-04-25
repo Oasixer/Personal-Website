@@ -2,7 +2,6 @@
   import { onMount, createEventDispatcher } from 'svelte';
 
   export let height=undefined;
-  export let bg_color;
 
   const dispatch = createEventDispatcher();
   const dispatcher = (args) => dispatch('move', {args:args});

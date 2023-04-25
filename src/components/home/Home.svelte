@@ -1,8 +1,5 @@
 <script>
   export let height=undefined;
-  export let bg_color; // unused bc we use a seperate color for home
-  export let mobile;
-
   import { onMount, createEventDispatcher } from 'svelte';
   import { clsMerge } from '../util';
 
@@ -49,7 +46,7 @@
 </style>
 
 
-<div id='home' class:mobile bind:offsetHeight={height} bind:this={homeElement}
+<div id='home' bind:offsetHeight={height} bind:this={homeElement}
      class="w-full bg-blue-bgOuter my-0 flex flex-col p-2 pb-0"><!--  note: if you have bottom padding it will frick up the element height for lining up section below -->
   <!-- {#if mobile === false && mounted} -->
     <!-- <h1 id='title' class="font-thicc8 text-sz5xl mx-auto text-grey-00 mt-8 mb-4" style="max-width: fit-content;">Kaelan Moffett</h1> -->

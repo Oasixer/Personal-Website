@@ -12,9 +12,6 @@
   import { vp, LAYOUT } from '../viewport';
   import type { VP } from '../viewport';
 
-  import { getStoreValue } from '../resume/utils/misc'
-  
-
   export let pstate: PortfolioState;
   export let proj: ProjMeta;
   // export let

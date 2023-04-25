@@ -98,6 +98,7 @@ input:focus + .slider {
   outline: none;
 }
 
+/* does nothing? idk*/
 input:checked + .slider:before {
   transform: translateX(19px);
 }

@@ -4,7 +4,7 @@
   export let curSection;
   export let mobile=false;
   export let mobileSidebarOpen=false;
-  export let y;
+  export let y = undefined;
 
   let width;
 

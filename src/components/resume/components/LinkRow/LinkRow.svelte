@@ -13,6 +13,7 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
+import { faSquareArrowUpRight } from '@fortawesome/free-solid-svg-icons';
 
 export let standalone: boolean;
 
@@ -21,11 +22,8 @@ export let standalone: boolean;
 <style>
   div#link-row{
     display: flex;
-    flex-flow: row wrap;
     padding: 0 -10px; /*top+bot left+right*/
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    /* width: 100%; */
   }
   /* div#link-row.darktheme{ */
   /*   flex-flow: column nowrap; */
@@ -72,14 +70,16 @@ export let standalone: boolean;
   /* } */
 </style>
 
-<div id="link-row" class="text-slate-700 dark:text-sky-300 flex flex-row flex-nowrap">
+<div id="link-row" class="text-slate-700 dark:text-sky-300 flex flex-row flex-nowrap items-center w-fit mx-auto">
   {#if standalone}
     <a class="" href='https://kaelan.xyz'>
-      <p class="underline underline-offset-2">kaelan.xyz</p>
+    <!--   <p class="underline underline-offset-2">kaelan.xyz</p> -->
+      <p class="iconContainerP"><Fa icon={faSquareArrowUpRight}/></p>
+      <p>kaelan.xyz</p>
     </a>
     <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
   {/if}
-  <a class="" href="https://www.linkedin.com/in/kaelanms/">
+  <a class="" href="https://github.com/oasixer">
     <p class="iconContainerP"><Fa icon={faGithub}/></p>
     <p>github.com/oasixer</p>
   </a>
@@ -100,7 +100,7 @@ export let standalone: boolean;
   <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
   <a class="" href="https://www.linkedin.com/in/kaelanms/">
     <p class="iconContainerP"><Fa icon={faLinkedin}/></p>
-    <p>linkedin.com/kaelanms</p>
+    <p>linkedin</p>
   </a>
   <!-- <a class:darktheme={embedded} class:dark={embedded} href='http://github.com/oasixer'> -->
   <!--   <p class="iconContainerP" class:darktheme={embedded}><Fa icon={faGithub}/></p> -->
