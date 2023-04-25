@@ -60,9 +60,9 @@
     </div>
     <ul class="max-w-xl mx-auto">
     <li class="text-body font-body text-white">
-    I'm a Mechatronics Engineering graduate specializing in software.
+    I'm a Mechatronics Engineering graduate specializing in software, especially backend, cloud, and distributed systems.
     </li>
-    <li class="text-body font-body text-white mt-4">
+    <li class="text-body font-body text-white mt-4 mb-3">
     I have completed 6 software engineering internships, most recently at Nvidia, and I am looking for fulltime opportunities in the US.
     </li>
     </ul>

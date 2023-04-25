@@ -86,36 +86,22 @@ export let projects: ProjMeta[] = [
 		images: ['plotly'],
 		leftColWidthFactor: 0.6
 	},
-	{
-		name: 'Backr Inc. Backend and Analytics',
-		dir: 'backr',
-		languages: ['python', 'flask', 'js'],
-		project_desc: [
-			'Now dead startup that did a bunch of twitter and youtube scraping and data analysis for youtubers seeking to have good fan interaction'
-		],
-		contributions: [
-			'Led the design and development of <`flask!Flask> server that handles data ingestion and analytics for customers.',
-			'Designed an overhauled db schema for the entire product using SQLAlchemy ORM',
-			'Maintained the legacy <`js!ExpressJS> server codebase while switching over to my improved design.'
-		],
-		links: [{ target: 'https://backr.space/' }],
-		images: ['backr'],
-		leftColWidthFactor: 0.5
-	},
-	{
-		name: 'i3 Window Manager Emulator',
-		dir: 'i3',
-		images: ['i3'],
-		languages: ['cpp'],
-		project_desc: [
-			'Windows native emulator of popular Linux window manager i3 that we all know and love',
-			'Developed using MSVC in <`cpp!C++> for manipulation of OS windows',
-			'Never got around to finishing this, but the prototype is linked (github, above)'
-		],
-		contributions: [],
-		links: [{ target: 'https://github.com/Oasixer/i3_emu' }],
-		leftColWidthFactor: 1
-	},
+	// {
+	// 	name: 'Backr Inc. Backend and Analytics',
+	// 	dir: 'backr',
+	// 	languages: ['python', 'flask', 'js'],
+	// 	project_desc: [
+	// 		'Now dead startup that did a bunch of twitter and youtube scraping and data analysis for youtubers seeking to have good fan interaction'
+	// 	],
+	// 	contributions: [
+	// 		'Led the design and development of <`flask!Flask> server that handles data ingestion and analytics for customers.',
+	// 		'Designed an overhauled db schema for the entire product using SQLAlchemy ORM',
+	// 		'Maintained the legacy <`js!ExpressJS> server codebase while switching over to my improved design.'
+	// 	],
+	// 	links: [{ target: 'https://backr.space/' }],
+	// 	images: ['backr'],
+	// 	leftColWidthFactor: 0.5
+	// },
 	{
 		name: 'Smart Headlamp',
 		dir: 'headlamp',
@@ -171,6 +157,20 @@ export let projects: ProjMeta[] = [
 		contributions: [],
 		// links: [],
 		links: [{ target: 'https://github.com/Oasixer/Lego-3D-Printer' }],
+		leftColWidthFactor: 1
+	},
+	{
+		name: 'i3 Window Manager Emulator',
+		dir: 'i3',
+		images: ['i3'],
+		languages: ['cpp'],
+		project_desc: [
+			'Windows native emulator of popular Linux window manager i3 that we all know and love',
+			'Developed using MSVC in <`cpp!C++> for manipulation of OS windows'
+			// 'Never got around to finishing this, but the prototype is linked (github, above)'
+		],
+		contributions: [],
+		links: [{ target: 'https://github.com/Oasixer/i3_emu' }],
 		leftColWidthFactor: 1
 	},
 	{

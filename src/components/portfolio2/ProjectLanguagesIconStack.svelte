@@ -29,7 +29,7 @@
   // $: console.log(left);
 </script>
 
-{#if row}
+{#if row} <!-- MOBILE / expand_all !!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
   <div class="flex flex-row">
     <div class="flex flex-col">
     <!-- {#if $vp.layout <} -->
@@ -63,10 +63,12 @@
                style="color: white">{link.display}</p>
           </a>
         {:else if link.target === 'pinguins_demo'}
-          <button class="text-sky-300 bg-sky-900 rounded-md"
-                  on:click={()=>show_pinguins_modal.set(true)}>
-            {link.display}
-          </button>
+          {#if !vp.layout >= LAYOUT['md']}
+            <button class="text-sky-300 bg-sky-900 rounded-md"
+                    on:click={()=>show_pinguins_modal.set(true)}>
+              {link.display}
+            </button>
+          {/if}
         {/if}
         <!-- {:else if ....} -->
       {/each}

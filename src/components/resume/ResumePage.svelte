@@ -25,17 +25,21 @@
 <div id="outer_resume_page"
      class="flex flex-col w-full bg-blue-bgOuter items-center"
      class:dark
+     class:px-3={$vp.layout < LAYOUT['md']}
      bind:offsetHeight={height}>
   <!-- inner page w/ title & resume, width should be set by the resume, no border -->
   <div id="inner_resume_page"
        class="flex flex-col flex-nowrap w-fit">
     <div class="flex flex-row flex-nowrap items-center gap-6 w-[100%]">
-      <div class="font-thicc8 text-white text-sz6xl flex-initial flex w-fit mr-auto uppercase">
+      <div class="font-thicc8 text-white text-sz6xl flex-initial flex w-fit mr-auto uppercase"
+           class:!text-sz3xl={$vp.layout < LAYOUT['md']}>
       Resume
       </div>
       <!-- <Toggle bind:on={purpleModeBool} title={'TogglePurple(temp)'} /> -->
+      {#if $vp.width > 975}
       <Toggle bind:on={dark} title={'Toggle Darktheme'} />
-      <a class='flex flex-row flex-nowrap items-center text-sky-300 md:text-sz2xl md:mr-7' href='./Kaelan_Resume_2020.pdf' download>
+      {/if}
+      <a class='flex flex-row flex-nowrap items-center text-sky-300 md:text-sz2xl md:mr-7' href='./kaelan_moffett_resume2023v4.pdf' download>
         <p class="mr-4"><Fa icon={faFileDownload}/></p>
         <p class="font-rubik5">PDF</p>
       </a>
@@ -45,7 +49,7 @@
       <Resume standalone={false}/>
     {:else}
       <div>
-        <h1 class="text-white">Embedded Resume not currently supported on mobile/viewport narrower than 975 :(</h1>
+        <h1 class="text-white">Embedded Resume not currently supported on mobile / narrow viewport.</h1>
         <h1 class="text-white">Pls download as PDF (button above) instead.</h1>
       </div>
     {/if}

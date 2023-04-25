@@ -51,13 +51,14 @@
     max-width: 100%;
     overflow: hidden;
     border-bottom: 1px solid #353f4f;
+    z-index: 90;
   }
 
   div#singleButton{
     position:fixed;
     left:13px;
     top:26px;
-    z-index: 999;
+    z-index: 99;
     width: auto;
     height: auto;
     /* background-color: #081012; */
@@ -89,11 +90,11 @@
   div.menubar.floaty{
     position: fixed;
     top: 0;
-    z-index: 5;
+    z-index: 98;
   }
 
   div.menubar.smaller button{
-    font-size: 2.3vw;
+    /* font-size: 2.3vw; */
   }
   
   /* div.group{ */
@@ -235,6 +236,7 @@
     <div class:floaty
          class="flex flex-auto items-center flex-row justify-center gap-3">
       {#each sectionsAll as section, n}
+          <!-- class:!text-sz3Xl={} -->
         <button
           class="font-rubik4 text-szXl {curSection==n?'text-sky-300':'text-white'} hover:text-sky-400 hover:underline"
           class:selected={curSection==n}
