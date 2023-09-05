@@ -67,12 +67,17 @@
           // 'Developed features for Omnigraph (scalable compute engine), working with WARP convert Python',
 
           // "Worked on the Core team for OmniGraph, the scalable procedural graph engine that supports hundreds of Python and C++ extensions",
-          "Reduced latency for core <C++> and <Python> nodes in OmniGraph (scalable procedural graph engine) using memoization to cache repeated vector inputs.",
+          // "Reduced latency for core <C++> and <Python> nodes in OmniGraph (scalable procedural graph engine) using memoization to cache repeated vector inputs.",
+          "Reduced latency and improved performance in OmniGraph (scalable procedural <graph> engine) by porting n-dimensional vector math nodes from <Python> to <C++>",
+
           // "Accelerated rendering pipeline by 10% by porting Python extension to C++, and used Pybind ", // a flag in the config for action graph nodes, equivalent to @cache
           // "Collaborated with BMW to create an adapter between their physics simulation and the OmniGraph framework"
           // ""
-          "Identified memory leaks coming from hash grids in JIT-compiled <CUDA C++> kernels using <Heaptrack> and <GDB>.",
-          "Overhauled versioning and installation system for OmniGraph extensions to cache dependencies, reduce conflicts, and allow multi-instancing on developer machines.",
+          // "Identified memory leaks coming from hash grids in JIT-compiled <CUDA C++> kernels using <Heaptrack> and <GDB>.",
+
+          "Overhauled versioning and installation system for OmniGraph <C++>/<Python> extensions to cache dependencies, reduce conflicts, and allow multi-instancing on developer machines.",
+          "Identified memory leaks coming from <C++> extensions reloading at runtime and improved <hot-reload> performance with caching",
+
           // "Reduced hot-reload time up to 60% by leveraging Merkle Tree datastructure to diff each node ",
           // https://github.com/NVIDIA/warp/commit/bf7c252332a336573ec4990f06604e05349226c4
           // "Reduced hot-reload time up to 60% for runtime <C++>/<Python> extensions by leveraging Merkle Tree datastructure to recursively hash and compare dependent nodes, persisting the unchanged nodes",

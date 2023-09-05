@@ -87,16 +87,16 @@
     middleProj = projects[pstate.proj_idx];
     bottomProj = projects[pstate.proj_idx + 1];
 
-    let preload1: string;
-    let preload2: string;
-    if (pstate.proj_idx + 2 < pstate.n_projects - 1){
-      preload1 = get_src(projects[pstate.proj_idx+2]);
-      preload(preload1);
-    }
-    if (pstate.proj_idx + 3 < pstate.n_projects - 1){
-      preload2 = get_src(projects[pstate.proj_idx+3]);
-      preload(preload2);
-    }
+    // let preload1: string;
+    // let preload2: string;
+    // if (pstate.proj_idx + 2 < pstate.n_projects - 1){
+    //   preload1 = get_src(projects[pstate.proj_idx+2]);
+    //   preload(preload1);
+    // }
+    // if (pstate.proj_idx + 3 < pstate.n_projects - 1){
+    //   preload2 = get_src(projects[pstate.proj_idx+3]);
+    //   preload(preload2);
+    // }
 
   }
 
