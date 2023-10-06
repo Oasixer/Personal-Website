@@ -23,7 +23,7 @@
   //   src_seattle, src_underwater, src_symposium];
  
   let images = ["yosemite.jpg", "new_cropped.jpg", "helmet.jpg",
-                "icesurf.jpg", "deeptrekker.gif", "seattle.jpg",
+                "icesurf.jpg", "yosemite.jpg", "seattle.jpg",
                 "tobermory_climb.jpg", "underwater.jpg", "climb.jpg"]
   let imagesBase = "./images/home/";
   

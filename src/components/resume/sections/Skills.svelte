@@ -89,15 +89,15 @@
     {
       title: 'Technologies',
       tags: [
-        {title: TagNames.LINUX},
+        {title: TagNames.TCPIP},
+        {title: TagNames.KUBERNETES},
         {title: TagNames.GRAPHQL},
         {title: TagNames.DOCKER},
         {title: TagNames.REDIS},
-        {title: TagNames.TCPIP},
         {title: TagNames.NGINX},
         // {title: TagNames.REST},
+        {title: TagNames.LINUX},
         {title: TagNames.OPENCV},
-        {title: TagNames.KUBERNETES},
         {title: TagNames.PROTOBUF},
         // {title: TagNames.JWT},
         // {title: TagNames.QT},

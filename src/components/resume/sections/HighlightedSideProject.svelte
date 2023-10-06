@@ -19,11 +19,11 @@
   let show_list_controls = false;
 
 const points = [
-  'Created positioning system for underwater robots using acoustic nodes in a graph, outperforming commercial solutions in tolerance to reflections and obstructions, achieving 85 meter range with 98% accuracy.',
   'Awarded <Best Overall Project> out of 52 teams presenting at 2023 U of Waterloo Mechatronics Eng. symposium.',
-  'Responsible for <Rust> Server to send and receive high bandwidth data from each Node and deliver UI webapp.',
-  'Architected node firmware (<C++>, targeting ARM M7), real-time positioning, networking, and autocalibration.',
-  'Optimized realtime freq. analysis, via <sliding window> implementation of <Fast Fourier Transform> at 2μs intervals, utilizing a ringbuffer to analyze 20MB/s of acoustic samples.',
+  'Created positioning system for underwater robots using acoustics, outperforming commercial solutions in tolerance to reflections and obstructions, achieving 85 meter range with 98% accuracy.',
+  'Responsible for a <Rust> Server exchanging high bandwidth data with each node and delivering the UI (app).',
+  'Architected firmware (<C++> on ARM M7), implementing positioning, autocalibration, and fault-tolerant networking',
+  'Enabled realtime freq. analysis, via <sliding window Fast Fourier Transform> at 2μs intervals, processing 20MB/s of acoustic samples.',
   // 'Designed positioning strategy in which each node listens and replies to acoustic pings underwater, the distances are calculated using Time of Flight, then absolute positions of each node are resolved using multilateration.'
   // 'FFT updated every 2 microseconds via an ISR that adds to a ringbuffer and updates the calculation.',
   // 'Iwhere 2μs an ISR adds a sample to a ringbuffer which represents the '
