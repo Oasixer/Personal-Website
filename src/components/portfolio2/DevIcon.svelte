@@ -12,6 +12,7 @@
   }
   $: src = update_src(lang);
 
+  // let sizeMod = lang.sizeMod
   let finalWidth: number = width * lang.sizeMod;
 
 </script>

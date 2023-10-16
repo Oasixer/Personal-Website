@@ -1,5 +1,6 @@
 import type { ProjMeta, Link } from './project.ts';
 import { LANGUAGES } from './project.ts';
+
 export let projects: ProjMeta[] = [
 	{
 		name: 'dummy',
@@ -16,8 +17,8 @@ export let projects: ProjMeta[] = [
 		dir: 'pinguins',
 		languages: ['rust', 'cpp', 'ts', 'svelte', 'docker'],
 		project_desc: [
+			'Awarded <Best Overall Project> out of 52 teams',
 			'The <Final Year Design Project> for my Mechatronics Engineering degree, 8 months of work by my 4 teammates and I.',
-			'`Awarded <Best Overall Project> out of 52 teams',
 			'Distributed positioning system for underwater robots using acoustic nodes in a mesh' // Received first place out of 52 teams.',
 			// 'demo_in_browser'
 		],
@@ -26,25 +27,55 @@ export let projects: ProjMeta[] = [
 			"`<`rust!Server> multiplexes each node's data to a seperate terminal for debugging",
 			'`Manages client state and provides smooth reconnection for nodes that get interrupted',
 			'Responsible for the dashboard, a <`svelte!SvelteJS> + <`ts!TypeScript> webapp which serves as the user interface for the entire system',
-			'`Designed live data visualizer and playback of pre-recorded data sync’d with video [see <Demo in Browser> btn above]',
+			'`Designed live data visualizer and playback of pre-recorded data sync’d with video', // [see <Demo in Browser> btn above]',
 			'Architected the <`cpp!C++> firmware, wrote all the network integrations, implemented the calibration algorithm',
 			'Responsible for the system infrastructure: networking (full stack), software build systems, and message protocols',
 			'`Responsible for the team’s website (nothing impressive, not at all the focus of the project), live @ https://pinguins.boats)'
 		],
 		links: [
-			{ display: 'Demo in browser', target: 'pinguins_demo' },
+			// { display: 'Demo in browser', target: 'pinguins_demo' },
 			{ target: 'https://github.com/kiranjray/fydp_software' }
 		],
 		images: ['award', 'demo_outside', 'underwater', 'pinguins'],
 		leftColWidthFactor: 0.55
 	},
 	{
+		name: 'grappler.nvim (Neovim plugin)',
+		dir: 'grappler',
+		languages: ['lua', 'nvim'],
+		project_desc: [
+			'Grappling hook based movement plugin written in <`lua!Lua>',
+			'Intuitive and fast movement based on whitespace and raycasting',
+			'Configurable animation function, keybinds, timing parameters.'
+		],
+		contributions: [],
+		links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
+		images: ['video{grappler}'],
+		leftColWidthFactor: 0.55
+	},
+	// {
+	// 	name: 'Packet Panic',
+	// 	dir: 'packet_panic',
+	// 	languages: ['golang'],
+	// 	project_desc: [
+	// 		'A high performance golang application for emulating bad network conditions for arbitrary devices on your machine or network',
+	// 		'Uses the TUN interface to transparently intercept network packets at the transport layer',
+	// 		'Dispatches coroutines to handle each request concurrently',
+	// 		'`Applies filter stages such as packet loss/corruption/delay using probablistic models',
+	// 		'`Each request is then forwarded to the original destination with a spoofed source address so that replies are also intercepted'
+	// 	],
+	// 	contributions: [],
+	// 	links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
+	// 	images: ['video{grappler}'],
+	// 	leftColWidthFactor: 0.55
+	// },
+	{
 		name: 'Autonomous Robot Race Winner',
 		dir: '380',
 		languages: ['cpp', 'python', 'protobuf'],
 		project_desc: [
-			'Wheeled robot that autonomously navigates an obstacle course as fast as possible',
-			'1st place out of 23 teams'
+			'1st place out of 23 teams',
+			'Wheeled robot that autonomously navigates an obstacle course as fast as possible'
 		],
 		contributions: [
 			'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',

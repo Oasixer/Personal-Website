@@ -1,6 +1,8 @@
 import { writable } from 'svelte/store';
 import type { VP } from '../viewport';
 
+const null_img_src = './images/null.png';
+
 export interface Link {
 	display: string;
 	target: string;
@@ -16,6 +18,25 @@ export interface PortfolioState {
 	shouldColorKeywords: boolean;
 }
 
+export interface MediaSource {
+	filename: string;
+	is_video: boolean;
+}
+
+export function parse_media_source(input: string, base_dir: string): MediaSource {
+	const isVideo = input.startsWith('video{');
+	const filename = isVideo ? input.match(/^{(.*?)}/)?.[1] + '/vid.mp4' : input + '/full.png';
+
+	if (filename !== undefined) {
+		return {
+			filename: base_dir + filename,
+			is_video: isVideo
+		};
+	} else {
+		return { filename: null_img_src, is_video: false }; // Invalid input
+	}
+}
+
 export interface LanguageInfo {
 	readonly name: string;
 	readonly color: string;
@@ -23,6 +44,12 @@ export interface LanguageInfo {
 }
 
 export const LANGUAGES: Record<string, LanguageInfo> = {
+	lua: {
+		id: 'lua',
+		name: 'Lua',
+		color: '#6b6bf9',
+		sizeMod: 1
+	},
 	rust: {
 		id: 'rust',
 		name: 'Rust',
@@ -93,6 +120,12 @@ export const LANGUAGES: Record<string, LanguageInfo> = {
 		id: 'protobuf',
 		name: 'Protobuf',
 		color: '#ffffff',
+		sizeMod: 1
+	},
+	nvim: {
+		id: 'nvim',
+		name: 'Neovim',
+		color: '#69a746',
 		sizeMod: 1
 	}
 };
