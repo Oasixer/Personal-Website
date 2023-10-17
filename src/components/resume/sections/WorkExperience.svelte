@@ -13,7 +13,6 @@
   import ListControls from '../components/ListControls.svelte';
   import SectionControls from '../components/SectionControls.svelte';
   import { TagNames } from '../utils/settings.js';
-
   let header = 'Work Experience';
   export let standalone=false;
 
@@ -110,7 +109,7 @@
           'Implemented a fault-tolerant bidirectional <DB sync> (robot ↔ cloud) using <Merkle Tree> based algorithm.',
           // 'Leveraged <Merkle Tree> data structure to bidirectionally sync onboard and cloud DBs, allowing seamless access for customers with spotty internet.',
           // 'Eliminated expensive manual testing by designing integration testing framework in <Bash> that emulates a remote server to verify behavior of the onboard server across a suite of use-cases.',
-          // 'Created three way integration testing (mobile app ↔ robot ↔ cloud) in <Bash>, reducing the manual QA testing workload by 15%',
+          'Created three way integration testing (mobile ↔ robot ↔ cloud) in <Bash>, reducing QA testing workload by 15%',
           'Improved security, performance and maintainability by porting legacy <ExpressJS> login server to <Spring>/<Kotlin>',
           // "Wrote <ROS> pubsub in <C++> to send live robot data to AWS, proxy\'d through the onboard server Java Native interfaceonboard <Spring> server using ",
           // 'Designed data exchange between '
@@ -150,6 +149,7 @@
         location: 'Toronto',
         position: 'Fullstack Developer Intern',
         date: 'Sep-Dec 2019',
+        force_hide: true,
         points: [
           'Created full-stack webapp for managers to create and retrieve fraud reports, built in <Flask>, <SvelteJS>, Postgres.',
           'Streamlined ticket inflow process for fraud reports by creating a <classifier> using spaCy, NLTK in <Python>.',
@@ -181,7 +181,7 @@
         stringy += "- " + __items[i].points[j].replaceAll('<','').replaceAll('>','') + "\n";
       }
       _items.push({
-        force_hide: false,
+        force_hide: __items[i].force_hide || false,
         order: i,
         points,
         location: __items[i].location,

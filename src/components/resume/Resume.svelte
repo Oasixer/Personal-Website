@@ -1,8 +1,9 @@
 <script>
   import WorkExperience from './sections/WorkExperience.svelte';
+  import SideProjects2 from './sections/SideProjects2.svelte';
   import Skills from './sections/Skills.svelte';
   import Education from './sections/Education.svelte';
-  import HighlightedSideProject from './sections/HighlightedSideProject.svelte';
+  // import HighlightedSideProject from './sections/HighlightedSideProject.svelte';
   // import SideProjects from './sections/SideProjects.svelte';
   import Awards from './sections/Awards.svelte'; import Interests from './sections/Interests.svelte';
   import Header from './components/Header.svelte';
@@ -47,8 +48,8 @@
     // group: 'main',
   },
   {
-      'name': 'Highlighted Project',
-      component: HighlightedSideProject
+      'name': 'Side Projects',
+      component: SideProjects2,
   },
 
   // {

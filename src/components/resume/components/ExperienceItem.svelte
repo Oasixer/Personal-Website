@@ -222,7 +222,9 @@
         <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'
             on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
         <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        {#if item.location !== ''}
+          <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+        {/if}
         <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
         <h1 class="date font-sans font-wgt500 text-szLg italic text-sky-800 mr-0 dark:text-pink-accent">{item.date}</h1>
       {:else} <!-- highlighted side project -->
