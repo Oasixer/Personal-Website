@@ -21,7 +21,7 @@ let click: any;
 
 $: proj_images_base = "./images/portfolio/" + proj.dir + "/";
 
-$: image_src = proj_images_base + proj.images[proj.selected_img] + "/full.png";
+$: image_src = proj_images_base + proj.images[proj.selected_img] + "/full.jpg";
 // $: image_str = proj.images[proj.selected_img];
 $: media_src = parse_media_source(proj.images[proj.selected_img], proj_images_base);
 

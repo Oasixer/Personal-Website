@@ -62,14 +62,13 @@
   let viewport;
 
 	onMount(async () => {
-    mounted = true;
     const Viewport = (await import('svelte-viewport-info')).default;
     console.log('Viewport Width x Height:     ',Viewport.Width+'x'+Viewport.Height)
     // console.log('standard Screen Orientation: ',Viewport.Orientation)
     viewport = Viewport;
     setLayout();
-
     goToPortfolio.set(()=>{move_to_section_n(1)});
+    mounted = true;
 	});
 
   let sections = [
@@ -197,9 +196,11 @@ bind:outerHeight={height}/>
   <Menubar floaty={true} {sections} {curSection} on:move={move}/>
 {/if}
 <div id="outer_container"
-     class="bg-green-500 absolute top-0 right-0 bottom-0 left-0 flex flex-col w-full min-w-full">
+     class="bg-blue-bgOuter absolute top-0 right-0 bottom-0 left-0 flex flex-col w-full min-w-full">
 <Menubar floaty={false} {sections} {curSection} on:move={move}/>
   {#each sections as section, n}
-    <svelte:component this={section.component} bind:height={section.height} on:move={move} />
+    {#if mounted || n === 0}
+      <svelte:component this={section.component} bind:height={section.height} on:move={move} />
+    {/if}
   {/each}
 </div>

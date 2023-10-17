@@ -247,11 +247,12 @@
             class:mt-auto={pstate.expand_all || pstate.force_expand_all}>
           Portfolio
         </h1>
+        <!-- <PortfolioControls bind:pstate/> -->
+
         <!-- <div> -->
           <!-- in:receive="{{key: 1}}" -->
           <!-- out:send="{{key: 1}}"> -->
             <!-- {#if beginMoving} -->
-              <PortfolioControls bind:pstate/>
             <!-- {/if} -->
         <!-- </div> -->
       </div>
@@ -313,5 +314,6 @@
   <!-- <PinguinsModal on:close={() => show_pinguins_modal.set(false)} bind:this={pinguinsModal}> -->
 	<!-- </PinguinsModal> -->
 
+<!-- {/if} -->
 <style lang="postcss">
 </style>

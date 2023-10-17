@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import type { VP } from '../viewport';
 
-const null_img_src = './images/null.png';
+const null_img_src = './images/null.jpg';
 
 export interface Link {
 	display: string;
@@ -25,7 +25,7 @@ export interface MediaSource {
 
 export function parse_media_source(input: string, base_dir: string): MediaSource {
 	const isVideo = input.startsWith('video{');
-	const filename = isVideo ? input.match(/^{(.*?)}/)?.[1] + '/vid.mp4' : input + '/full.png';
+	const filename = isVideo ? input.match(/^{(.*?)}/)?.[1] + '/vid.mp4' : input + '/full.jpg';
 
 	if (filename !== undefined) {
 		return {
@@ -139,15 +139,15 @@ export interface FilterFn {
 //   images/
 //     portfolio/
 //       dir_property_for_this_proj/
-//         thumb.png <-- use this for thumb for project
+//         thumb.jpg <-- use this for thumb for project
 //         image_name_1/
-//           thumb.png
-//           full.png
+//           thumb.jpg
+//           full.jpg
 //         image_name_2/
-//           thumb.png
-//           full.png
+//           thumb.jpg
+//           full.jpg
 //       other_proj/
-//         thumb.png
+//         thumb.jpg
 //         ...
 export interface ProjMeta {
 	readonly name: string;
