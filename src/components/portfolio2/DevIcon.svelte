@@ -6,7 +6,7 @@
 
   let base_dir = './images/portfolio/devicons_240x240/';
   function update_src(_lang: LanguageInfo){
-    let _src = base_dir + _lang.id + '.png';
+    let _src = base_dir + _lang.id + '.jpg';
     // console.log("src: ", _src);
     return _src
   }
