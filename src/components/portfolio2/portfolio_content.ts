@@ -29,8 +29,8 @@ export let projects: ProjMeta[] = [
 			'Responsible for the dashboard, a <`svelte!SvelteJS> + <`ts!TypeScript> webapp which serves as the user interface for the entire system',
 			'`Designed live data visualizer and playback of pre-recorded data sync’d with video', // [see <Demo in Browser> btn above]',
 			'Architected the <`cpp!C++> firmware, wrote all the network integrations, implemented the calibration algorithm',
-			'Responsible for the system infrastructure: networking (full stack), software build systems, and message protocols',
-			'`Responsible for the team’s website (nothing impressive, not at all the focus of the project), live @ https://pinguins.boats)'
+			'Responsible for the system infrastructure: networking (full stack), software build systems, and message protocols'
+			// '`Responsible for the team’s website (nothing impressive, not at all the focus of the project), live @ https://pinguins.boats)'
 		],
 		links: [
 			// { display: 'Demo in browser', target: 'pinguins_demo' },
