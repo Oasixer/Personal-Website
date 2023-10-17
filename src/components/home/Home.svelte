@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let height=undefined;
   import { onMount, createEventDispatcher } from 'svelte';
   import { clsMerge } from '../util';
@@ -22,9 +22,12 @@
   // let images = [src_tobermory, src_new_cropped, src_helmet,
   //   src_seattle, src_underwater, src_symposium];
  
-  let images = ["yosemite.jpg", "new_cropped.jpg", "helmet.jpg",
-                "icesurf.jpg", "yosemite.jpg", "seattle.jpg",
-                "tobermory_climb.jpg", "underwater.jpg", "climb.jpg"]
+  // let images = ["yosemite.jpg", "new_cropped.jpg", "helmet.jpg",
+  //               "icesurf.jpg", "yosemite.jpg", "seattle.jpg",
+  //               "tobermory_climb.jpg", "underwater.jpg", "climb.jpg"]
+  let images = ["tobermory_climb.jpg", "underwater.jpg", "helmet.jpg"]
+                // "icesurf.jpg", "yosemite.jpg", "seattle.jpg",
+                // "tobermory_climb.jpg", "underwater.jpg", "climb.jpg"]
   let imagesBase = "./images/home/";
   
   
@@ -56,14 +59,14 @@
           Kaelan</h1>
       <h1 class="text-white font-thicc8"
           >
-          Moffett</h1>
+          Moffett-Steinke</h1>
     </div>
     <ul class="max-w-xl mx-auto">
     <li class="text-body font-body text-white">
-    I'm a Mechatronics Engineering graduate specializing in software, especially backend, cloud, and distributed systems.
+    I'm a Mechatronics Engineering graduate from UWaterloo specializing in software, especially backend, cloud, and distributed systems.
     </li>
     <li class="text-body font-body text-white mt-4 mb-3">
-    I have completed 6 software engineering internships, most recently at Nvidia, and I am looking for fulltime opportunities in the US.
+    I've completed 6 software engineering internships, most recently at Nvidia, and I am looking for fulltime opportunities in the US.
     </li>
     </ul>
   <!-- {/if} -->
