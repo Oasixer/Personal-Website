@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from PIL import Image
 
@@ -6,9 +7,10 @@ from PIL import Image
 input_dir = '.'
 
 # Maximum JPEG size in bytes (200 KB)
-max_size_bytes = 200 * 1024
+max_size_kb_full = 130
+max_size_kb_thumb = 50
 
-default_quality = 70
+default_quality = 90
 
 # Function to convert PNG to JPEG and compress
 def convert_to_jpeg_and_compress(input_path, output_path):
@@ -20,10 +22,17 @@ def convert_to_jpeg_and_compress(input_path, output_path):
     # Save as JPEG with specific quality and optimize for size
     img.save(output_path, 'JPEG', quality=default_quality, optimize=True)
 
+    
+    if Path(output_path).stem == 'thumb':
+        max_size = max_size_kb_thumb
+    else:
+        max_size = max_size_kb_full
+
     # Check and reduce image size if necessary
     for quality in range(default_quality, 10, -10):
         img.save(output_path, 'JPEG', quality=quality, optimize=True)
-        if os.path.getsize(output_path) < max_size_bytes:
+        if os.path.getsize(output_path)/1024 < max_size:
+            print(f"{output_path} output @ qual{quality} {os.path.getsize(output_path)/1000}")
             break
         os.remove(output_path)
 

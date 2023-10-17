@@ -174,7 +174,7 @@
     /* padding: 0px; */
   /* } */
 </style>
-<title>Kaelan Moffett</title>
+<title>Kaelan Moffett-Steinke</title>
 
 <svelte:window
 bind:scrollY={y}
