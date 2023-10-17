@@ -25,15 +25,15 @@
 
 <!-- <div class="w-fit flex flex-row flex-nowrap items-stretch gap-0" -->
 <!--      style="{(pstate.expand_all || pstate.force_expand_all)?'margin: 0 0 0 auto;':'margin: -5px auto 0 auto;'}"> -->
-<div class="w-fit flex flex-col gap-1">
+<div class="w-fit flex flex-col gap-1 ml-auto mr-8">
   <div class="flex flex-row gap-3">
-    {#if !(pstate.expand_all || pstate.force_expand_all)}
-      <Toggle bind:on={pstate.shouldColorKeywords}
-              on:toggle_on_callback={()=>{pstate.shouldColorKeywords = true}}
-              on:toggle_off_callback={() => {pstate.shouldColorKeywords = false}}
-              title={"ColorizeTerms"}
-              smallerText={true}/>
-    {/if}
+    <!-- {#if !(pstate.expand_all || pstate.force_expand_all)} -->
+    <!--   <Toggle bind:on={pstate.shouldColorKeywords} -->
+    <!--           on:toggle_on_callback={()=>{pstate.shouldColorKeywords = true}} -->
+    <!--           on:toggle_off_callback={() => {pstate.shouldColorKeywords = false}} -->
+    <!--           title={"ColorizeTerms"} -->
+    <!--           smallerText={true}/> -->
+    <!-- {/if} -->
     {#if $vp.layout >= LAYOUT.sm}
       <div class="flex flex-row gap-1 items-center ml-auto">
         <KeycapIcon key="H"/>
@@ -47,11 +47,11 @@
   </div>
   <div class="flex flex-row gap-3">
     {#if !(pstate.expand_all || pstate.force_expand_all)}
-      <Toggle bind:on={pstate.expand_all}
-              on:toggle_on_callback={dispatchExpandAll}
-              on:toggle_off_callback={set_expand_all_false}
-              title={"ExpandAll"}
-              smallerText={true}/>
+      <!-- <Toggle bind:on={pstate.expand_all} -->
+      <!--         on:toggle_on_callback={dispatchExpandAll} -->
+      <!--         on:toggle_off_callback={set_expand_all_false} -->
+      <!--         title={"ExpandAll"} -->
+      <!--         smallerText={true}/> -->
     {:else if (pstate.expand_all)}
       <div class="flex flex-col">
         <p class="text-szBase text-grey-200"

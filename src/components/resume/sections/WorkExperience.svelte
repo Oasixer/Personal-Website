@@ -61,7 +61,7 @@
         title: 'NVIDIA',
         location: 'Remote',
         position: 'Software Engineer Intern',
-        date: 'May-Aug 2022',
+        date: "May '22 - Aug '22",
         points: [
           // 'Developed features for Omnigraph (scalable compute engine), working with WARP convert Python',
 
@@ -102,7 +102,7 @@
         title: 'Trexo Robotics',
         location: 'Toronto',
         position: 'Backend Engineer Intern',
-        date: 'Sep-Dec 2021',
+        date: "Sep '21 - Dec '21",
         points: [
           'Responsible for creating a <Kotlin>+<Spring> server on <AWS> to manage live data to and from 200 exoskeleton robots.',
           // 'Integrated registration, login, ',
@@ -123,7 +123,7 @@
         title: 'Pronti Inc.',
         location: 'Waterloo',
         position: 'Backend/Infrastructure Engineer Intern',
-        date: 'Jan-Apr 2021',
+        date: "Jan '21 - Apr '21",
         points: [
           'Created <Flask> server for registration/logins using SMS 2FA, <JWT>, and <GraphQL> to reduce API boilerplate.',
           // 'Created nightly job that scrapes clothing retailer websites and hydrates an ML pipeline where results are classified.',
@@ -135,7 +135,7 @@
         title: 'Backr Inc.',
         location: 'Toronto',
         position: 'Backend Developer Intern',
-        date: 'Jun-Sep 2020',
+        date: "Jun '20 - Sep '20",
         points: [
           'Ported high-volume ingestion microservice to <Go>, resulting in 4x speedup over OG <Python> implementation.',
           'Reduced <AWS> costs by refactoring monolithic ML pipeline into microservices to enable granular scaling.',
@@ -148,7 +148,7 @@
         title: 'CIBC',
         location: 'Toronto',
         position: 'Fullstack Developer Intern',
-        date: 'Sep-Dec 2019',
+        date: "Sep '19 - Dec '19",
         force_hide: true,
         points: [
           'Created full-stack webapp for managers to create and retrieve fraud reports, built in <Flask>, <SvelteJS>, Postgres.',
@@ -160,7 +160,7 @@
         title: 'North Inc. (Acquired by Google)',
         location: 'Waterloo',
         position: 'Computer Vision Software Intern',
-        date: 'Jan-Apr 2019',
+        date: "Jan '19 - Apr '19",
         points: [
           // 'Improved simulation raytracing accuracy by 36% by developing a performance critical <DLL> plugin',
           'Created optical raytracing engine using <OpenCV> matrices in <C++> and optimized for specialized ASIC.',

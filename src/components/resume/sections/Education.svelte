@@ -80,7 +80,7 @@
         <div class="h-4 mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
         <p class="text-sky-600 font-rubik6">Software Option</p>
 				<!-- <p class="align-right" style="font-size: {$education_awards_interests_font_size}px; line-height: 1;">2018 - Apr 2023</p> -->
-				<p class="font-sans font-wgt500 text-szLg italic text-sky-800 dark:text-pink-accent ml-auto mr-2">Sep 2018 - Apr 2023</p>
+				<p class="font-sans font-wgt500 text-szLg italic text-sky-800 dark:text-pink-accent ml-auto mr-2">Sep '18 - Apr '23</p>
       </div>
 			<div class='flex flex-row flex-nowrap items-center font-sans text-szBase font-wgt500 gap-2 mt-[-5px]'>
 				<p class='text-sky-800 dark:text-grey-0 font-rubik5 text-szBase'>Coursework</p>

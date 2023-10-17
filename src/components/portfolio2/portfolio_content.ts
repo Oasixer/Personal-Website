@@ -53,22 +53,22 @@ export let projects: ProjMeta[] = [
 		images: ['video{grappler}'],
 		leftColWidthFactor: 0.55
 	},
-	// {
-	// 	name: 'Packet Panic',
-	// 	dir: 'packet_panic',
-	// 	languages: ['golang'],
-	// 	project_desc: [
-	// 		'A high performance golang application for emulating bad network conditions for arbitrary devices on your machine or network',
-	// 		'Uses the TUN interface to transparently intercept network packets at the transport layer',
-	// 		'Dispatches coroutines to handle each request concurrently',
-	// 		'`Applies filter stages such as packet loss/corruption/delay using probablistic models',
-	// 		'`Each request is then forwarded to the original destination with a spoofed source address so that replies are also intercepted'
-	// 	],
-	// 	contributions: [],
-	// 	links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
-	// 	images: ['video{grappler}'],
-	// 	leftColWidthFactor: 0.55
-	// },
+	{
+		name: 'Packet Panic',
+		dir: 'packet_panic',
+		languages: ['go'],
+		project_desc: [
+			'A high performance golang application for emulating bad network conditions for arbitrary devices on your machine or network',
+			'Uses the TUN interface to transparently intercept network packets at the transport layer',
+			'Dispatches coroutines to handle each request concurrently',
+			'`Applies filter stages such as packet loss/corruption/delay using probablistic models',
+			'`Each request is then forwarded to the original destination with a spoofed source address so that replies are also intercepted'
+		],
+		contributions: [],
+		links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
+		images: ['packet_panic'],
+		leftColWidthFactor: 0.55
+	},
 	{
 		name: 'Autonomous Robot Race Winner',
 		dir: '380',

@@ -18,7 +18,7 @@ export let pstate: PortfolioState;
 
 
 let border_class = 'border_grey1';
-$: thumb_src = ProjImgConst.IMAGES_BASE_DIR+proj.dir+'/thumb.png';
+$: thumb_src = ProjImgConst.IMAGES_BASE_DIR+proj.dir+'/thumb.jpg';
 
 $: dummy = proj.name === 'dummy';
 

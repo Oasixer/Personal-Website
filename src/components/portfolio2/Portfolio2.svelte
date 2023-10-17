@@ -46,7 +46,7 @@
 
   // $: console.log(projects);
   function get_src(proj: ProjMeta){
-    return ProjImgConst.IMAGES_BASE_DIR+proj.dir+'/thumb.png';
+    return ProjImgConst.IMAGES_BASE_DIR+proj.dir+'/thumb.jpg';
   }
 
   let topProj: ProjMeta = projects[0];

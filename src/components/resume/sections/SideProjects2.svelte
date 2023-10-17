@@ -62,7 +62,7 @@
         title: 'Distributed Underwater Positioning System',
         location: '',
         position: 'Final Year Design Project',
-        date: 'Sep 2022 - Apr 2023',
+        date: "Sep '22 - Apr '23",
         points: [
           'Awarded <Best Overall Project> out of 52 teams presenting at 2023 U of Waterloo Mechatronics Eng. symposium.',
           'Created positioning system for underwater robots using acoustics, outperforming commercial solutions in tolerance to reflections and obstructions, achieving 85 meter range with 98% accuracy.',
@@ -75,12 +75,11 @@
         title: 'Packet Panic',
         location: '',
         position: 'Side Project',
-        date: 'Oct 2023',
+        date: "Oct '23",
         points: [
-          'A high performance <Go> application that emulates bad network conditions in/out of your machine/application',
-          'Uses the TUN interface to transparently intercept network packets at the transport layer',
-          'Dispatches coroutines to handle requests concurrently, apply packet loss/corruption/delay',
-          'Requests get forwarded to the original destination with a spoofed source address; replies are also intercepted'
+          'High performance <Go> networking tool that emulates bad network conditions in/out of your machine/application, to verify the fault-tolerance of your system in realistic adverse conditions.',
+          'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept <3+ Gb/s> of layer 3 packets.',
+          '<Coroutines> are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to dest.',
         ]
       },
     ];
