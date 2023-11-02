@@ -94,7 +94,7 @@ export let standalone: boolean;
   <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
   <a class=" "href="mailto:kaelan.ms@gmail.com">
     <p class="iconContainerP"><Fa icon={faEnvelopeSquare}/></p>
-    <p>ksmoffet@uwaterloo.ca</p>
+    <p>kaelan.ms@gmail.com</p>
   </a>
   <!-- <div class="v-line dark:bg-grey-800"></div> -->
   <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
