@@ -36,6 +36,7 @@ const config = {
 
 		alias: {
 			'@resume': path.resolve('./src/components/resume'),
+			'@spa': path.resolve('./src/components/spa.svelte'),
 			'@pinguins': path.resolve('./src/components/portfolio2/pinguins'),
 			'@portfolio': path.resolve('./src/components/portfolio2'),
 			'@viewport': path.resolve('./src/components/viewport.ts'),

@@ -1,10 +1,5 @@
-<script>
-  import Resume from '../../components/resume/Resume.svelte';
+<script lang="ts">
+  import SPA from '@spa';
 </script>
-<svelte:head>
-	<title>Resume Generator</title>
-</svelte:head>
 
-<div>
-<Resume standalone={true}/>
-</div>
+<SPA load_resume={true}></SPA>

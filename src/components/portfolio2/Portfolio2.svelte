@@ -2,6 +2,7 @@
   import type { ProjMeta, PortfolioState, FilterFn, LanguageInfo } from './project';
   import { projects } from './portfolio_content';
   import { show_pinguins_modal, LANGUAGES, highlight_hjkl } from './project';
+  import { choosePortfolioProj } from '@viewport';
   import ProjImgConst from './project';
   import ProjectThumb from './ProjectThumb.svelte';
   import ProjectCard from './ProjectCard.svelte';
@@ -28,6 +29,28 @@
     n_projects: projects.length,
     shouldColorKeywords: true,
   };
+  choosePortfolioProj.set((proj_name: string)=>{
+    console.log(`proj_idx: ${pstate.proj_idx}`);
+    pstate.proj_idx = find_project(proj_name); 
+    topProj = projects[pstate.proj_idx - 1];
+    middleProj = projects[pstate.proj_idx];
+    bottomProj = projects[pstate.proj_idx + 1];
+  });
+
+  function find_project(proj_id_dir: string){
+    // proj_id_dir is the project id aka the dirname used for its assets
+
+    // console.log(`looking for: ${proj_id_dir} in projects:`);
+
+    for (let i=0; i<projects.length; i++){
+      let p = projects[i];
+      // console.log(`dir: ${p.dir} == LF? ${p.dir == proj_id_dir}`);
+      if (p.dir == proj_id_dir){
+        return p.idx;
+      }
+    }
+    return 1;
+  }
 
   let loaded = {};
   for (const proj in projects){
@@ -58,6 +81,8 @@
   let beginMoving = false;
   // let beginbeginMoving = false;
 
+  function set_proj(idx: number){
+  }
   function advance_proj(down: boolean, keyboard: boolean){
     projects[pstate.proj_idx].selected_img = 0;
     if (!keyboard){

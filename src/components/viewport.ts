@@ -31,3 +31,4 @@ export const vp = writable({ width: 0, height: 0, layout: 0 } as VP);
 export const purpleMode = writable(false);
 
 export const goToPortfolio = writable(() => {});
+export const choosePortfolioProj = writable((string) => {});

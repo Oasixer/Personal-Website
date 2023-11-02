@@ -1,12 +1,12 @@
 <script lang="ts">
   export let pstate;
-  // export let omit: boolean;
-  import ProjImgConst from './project';
+  import { projects } from './portfolio_content';
   import KeycapIcon from './KeycapIcon.svelte';
-  
   import Toggle from '../components/Toggle.svelte'
-  import { createEventDispatcher } from 'svelte';
   import { vp, LAYOUT } from '../viewport';
+
+  import { createEventDispatcher } from 'svelte';
+
   const dispatch = createEventDispatcher();
   const dispatchExpandAll = () => {
     dispatch('toggle_expand');

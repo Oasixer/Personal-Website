@@ -24,6 +24,15 @@ export interface MediaSource {
 }
 
 export function parse_media_source(input: string, base_dir: string): MediaSource {
+	if (input === undefined || base_dir == undefined) {
+		console.log(
+			`Error: bad argument to parse_media_source from input: ${input} or base_dir: ${base_dir}`
+		);
+		return {
+			filename: 'ERROR',
+			is_video: false
+		};
+	}
 	const isVideo = input.startsWith('video{');
 	const filename = isVideo ? input.match(/^{(.*?)}/)?.[1] + '/vid.mp4' : input + '/full.jpg';
 
