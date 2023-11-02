@@ -77,9 +77,9 @@
         position: 'Side Project',
         date: "Oct '23",
         points: [
-          'High performance <Go> networking tool that emulates bad network conditions in/out of your machine/application, to verify the fault-tolerance of your system in realistic adverse conditions.',
-          'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept <3+ Gb/s> of layer 3 packets.',
-          '<Coroutines> are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to dest.',
+          'High performance <Go networking tool> that emulates bad network conditions in/out of your machine/application, to verify the fault-tolerance of your system in realistic adverse conditions.',
+          'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 3+ Gb/s of layer 3 packets.',
+          '<Coroutines> are dispatched to handle requests <concurrently>, apply packet loss/corruption/delay, forward to dest.',
         ]
       },
     ];

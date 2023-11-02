@@ -104,7 +104,7 @@
         position: 'Backend Engineer Intern',
         date: "Sep '21 - Dec '21",
         points: [
-          'Responsible for creating a <Kotlin>+<Spring> server on <AWS> to manage live data to and from 200 exoskeleton robots.',
+          'Created a <Kotlin>+<Spring Boot> server on <AWS> to manage live data to and from <200 exoskeleton robots>.',
           // 'Integrated registration, login, ',
           'Implemented a fault-tolerant bidirectional <DB sync> (robot ↔ cloud) using <Merkle Tree> based algorithm.',
           // 'Leveraged <Merkle Tree> data structure to bidirectionally sync onboard and cloud DBs, allowing seamless access for customers with spotty internet.',
@@ -162,10 +162,10 @@
         position: 'Computer Vision Software Intern',
         date: "Jan '19 - Apr '19",
         points: [
-          // 'Improved simulation raytracing accuracy by 36% by developing a performance critical <DLL> plugin',
           'Created optical raytracing engine using <OpenCV> matrices in <C++> and optimized for specialized ASIC.',
           'Worked with scientists to create a material property calculator with n-dimensional interpolation in <C++>.',
-          'Automated high-powered laser test jig by developing a <Python> app and <Arduino> firmware with alerts and logging.',
+          'Improved optical raytracing accuracy by 36% by developing a <DLL> plugin in <C++> for a simulation engine',
+          // 'Automated high-powered laser test jig by developing a <Python> + <Arduino> IOT .',
         ]
       }
     ];

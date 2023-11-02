@@ -58,14 +58,14 @@ export let projects: ProjMeta[] = [
 		dir: 'packet_panic',
 		languages: ['go'],
 		project_desc: [
-			'A high performance golang application for emulating bad network conditions for arbitrary devices on your machine or network',
-			'Uses the TUN interface to transparently intercept network packets at the transport layer',
-			'Dispatches coroutines to handle each request concurrently',
-			'`Applies filter stages such as packet loss/corruption/delay using probablistic models',
-			'`Each request is then forwarded to the original destination with a spoofed source address so that replies are also intercepted'
+			'High performance <`go!Golang> networking tool that emulates bad network conditions in/out of your machine/application, to verify the fault-tolerance of your system in realistic adverse conditions.',
+			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 3+ Gb/s of layer 3 packets.',
+			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
+			'`filter stages such as packet loss/corruption/delay are applied using probablistic models',
+			'Each request is then forwarded to the original destination with a spoofed source address so that replies can also be intercepted and processed.'
 		],
 		contributions: [],
-		links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
+		links: [{ target: 'https://github.com/Oasixer/packet-panic.nvim' }],
 		images: ['packet_panic'],
 		leftColWidthFactor: 0.55
 	},

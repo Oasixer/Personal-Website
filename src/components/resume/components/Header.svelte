@@ -40,10 +40,10 @@
           style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0"
           >
           Kaelan</h1>
-      <h1 class="font-thicc8" 
+      <h1 class="font-thicc7" 
           style="font-size: {$top_name_font_size}em;  margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0;"
           on:click>
-          Moffett</h1>
+          Moffett-Steinke</h1>
     </div>
   <!-- {/if} -->
   <!--  style="font-size: {$top_name_font_size}em; margin: {$top_name_top_margin}px 0 {$top_name_bottom_margin}px 0">  -->
