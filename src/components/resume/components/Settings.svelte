@@ -392,15 +392,19 @@ input[type="number"]{
 </style>
 
 <div>
+  <h3>Settings</h3>
   <div class="flex flex-row flex-nowrap">
-    <div class="column-wrap">
-      <h3>Settings</h3>
+    <div class="flex flex-column flex-nowrap">
       {#each bools as bool}
-        <label class="container">{bool.name}
-          <input type="checkbox" checked={getStoreValue(bool)} on:click={()=>{toggleBool(bool);}}>
-          <span class="checkmark"></span>
-        </label>
+        <div class="flex flex-row">
+          <label class="container">{bool.name}
+            <input type="checkbox" checked={getStoreValue(bool)} on:click={()=>{toggleBool(bool);}}>
+            <span class="checkmark"></span>
+          </label>
+        </div>
       {/each}
+    </div>
+    <div class="flex flex-column">
       {#each ints as int}
         <div class="row">
           <input type="number" value={getStoreValue(int)} bind:this={int.inst} on:change={()=>{updateStoreValue(int)}}>

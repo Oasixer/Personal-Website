@@ -79,7 +79,7 @@ export let TagNames = {
 	MEME: 'Meme:',
 	SWAGGER: 'Swagger',
 	ASSEMBLY: 'x86',
-	GOLANG: 'Golang',
+	GO: 'Go',
 	KUBERNETES: 'Kubernetes',
 	TCPIP: 'TCP/IP',
 	TYPESCRIPT: 'TypeScript',

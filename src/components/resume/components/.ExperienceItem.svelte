@@ -2,8 +2,7 @@
   import type {
     Item
   } from '@resume/sections/SideProjects/side_projects_content.js';
-  import Fa from 'svelte-fa/src/fa.svelte';
-  import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
   export let item: Item;
   export let work: boolean;
   export let standalone: boolean;
@@ -215,37 +214,32 @@
     <!-- </div> -->
   <!-- {:else if compact_exp_info && !embedded} -->
     <div class="row mb-1">
-      {#if work}
-        <h1 class='onelineTitle font-rubik6 text-slate-700 dark:text-blue-subdued/80 hover:text-pink-accent text-szLg' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
+      <h1 class='onelineTitle font-rubik6 text-slate-700 dark:text-blue-subdued/80 hover:text-pink-accent text-szLg' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
+      <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+      <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'
+          on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
+      <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
+      {#if item.location !== ''}
         <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        {#if item.repo !== undefined}
-          <a href={item.repo}
-          class='onelineTitle font-rubik6 mb-[2px] text-sky-600 dark:text-sky-300 underline text-szLg hover:text-pink-accent flex flex-row'>
-          <p>{`${item.title}`}</p>
-           <p class="text-sky-600 dark:text-sky-300 ml-1"><Fa icon={faGithub} size="0.95x"/></p>
-          </a>
-    
-        {:else}
-          <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'
-              on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
-        {/if}
-        <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        {#if item.location !== ''}
-          <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        {/if}
-        <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
-        <h1 class="date font-sans font-wgt500 text-szLg italic text-sky-800 mr-0 dark:text-pink-accent">{item.date}</h1>
-      {:else} <!-- highlighted side project -->
-        <div class="mb-[3px] mt-[1px] w-[1px] ml-[297px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        <!--   <h1 class='onelineTitle font-rubik6 mb-[2px] text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'>{`${item.title}`}</h1> -->
-        <!-- {:else if item.repo_is_website === true} -->
-        <!--   <a href=item -->
-        <!--   class='onelineTitle font-rubik6 mb-[2px] text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'> -->
-        <!--   {`${item.title}`}</a> -->
-        <!-- {/if} -->
-        <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        <h1 class="date font-sans font-wgt500 text-szLg italic ml-auto mr-0 text-sky-800 dark:text-pink-accent">{item.date}</h1>
       {/if}
+      <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
+      <!-- {#if item.repo !== null} -->
+      <!--   <a href=item.repo -->
+      <!--   class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto'> -->
+      <!--   {`${item.title}`}</a> -->
+      <!-- {:else if item.website_link !== null} -->
+      <!--   <a href=item.website_link -->
+      <!--   class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto'> -->
+      <!--   {`${item.title}`}</a> -->
+      <!-- {:else} -->
+      <!--   <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto'>{`${item.title}`}</h1> -->
+      <!-- {/if} -->
+      <h1 class="date font-sans font-wgt500 text-szLg italic text-sky-800 mr-0 dark:text-pink-accent">{item.date}</h1>
+      <!-- {:else} <!-- highlighted side project --> -->
+      <!--   <div class="mb-[3px] mt-[1px] w-[1px] ml-[297px] bg-grey-600 dark:bg-grey-700 mx-4"></div> -->
+      <!--   <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> --> -->
+      <!--   <h1 class="date font-sans font-wgt500 text-szLg italic ml-auto mr-0 text-sky-800 dark:text-pink-accent">{item.date}</h1> -->
+      <!-- {/if} -->
     </div>
   <!-- {/if} -->
 

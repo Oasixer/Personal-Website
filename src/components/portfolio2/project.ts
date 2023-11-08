@@ -85,7 +85,7 @@ export const LANGUAGES: Record<string, LanguageInfo> = {
 	},
 	go: {
 		id: 'go',
-		name: 'Golang',
+		name: 'Go',
 		color: '#00aad5',
 		sizeMod: 1
 	},

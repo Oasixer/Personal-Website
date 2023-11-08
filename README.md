@@ -1,3 +1,6 @@
+this readme is ridiculously outdated. but one thing that should probably be in here are some of the url page args:
+for example `https://kaelan.xyz/portfolio?proj=grappler` is legal, as is `https://kaelan.xyz/generate_resume?print=true`
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

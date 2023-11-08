@@ -1,11 +1,11 @@
 <script>
   import WorkExperience from './sections/WorkExperience.svelte';
-  import SideProjects2 from './sections/SideProjects2.svelte';
+  import SideProjects from './sections/SideProjects/SideProjects.svelte';
   import Skills from './sections/Skills.svelte';
   import Education from './sections/Education.svelte';
   // import HighlightedSideProject from './sections/HighlightedSideProject.svelte';
   // import SideProjects from './sections/SideProjects.svelte';
-  import Awards from './sections/Awards.svelte'; import Interests from './sections/Interests.svelte';
+  // import Awards from './sections/Awards.svelte'; import Interests from './sections/Interests.svelte';
   import Header from './components/Header.svelte';
   import Modal from './components/SettingsModal.svelte';
   import Settings from './components/Settings.svelte';
@@ -49,7 +49,7 @@
   },
   {
       'name': 'Side Projects',
-      component: SideProjects2,
+      component: SideProjects,
   },
 
   // {

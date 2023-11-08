@@ -34,7 +34,7 @@ export let projects: ProjMeta[] = [
 		],
 		links: [
 			// { display: 'Demo in browser', target: 'pinguins_demo' },
-			{ target: 'https://github.com/kiranjray/fydp_software' }
+			{ target: 'https://github.com/Oasixer/underwater_PINGuins' }
 		],
 		images: ['award', 'demo_outside', 'underwater', 'pinguins'],
 		leftColWidthFactor: 0.55
@@ -58,8 +58,8 @@ export let projects: ProjMeta[] = [
 		dir: 'ppanic',
 		languages: ['go'],
 		project_desc: [
-			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
-			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
+			'High performance network proxy written in <`go!Go> that emulates bad network conditions to verify the fault-tolerance of distributed systems in adverse conditions.',
+			'Implemented <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
 			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
 			'`filter stages such as packet loss/corruption/delay are applied using probablistic models',
 			'Each request is then forwarded to the original destination with a spoofed source address so that replies can also be intercepted and processed.'

@@ -1,9 +1,23 @@
 <svelte:options accessors={true}/>
-<script>
+<script lang="ts">
+  import type {
+    Item, ProtoItem
+  } from '@resume/sections/SideProjects/side_projects_content.js';
+  import {
+    generateStringy
+  } from '@resume/sections/SideProjects/side_projects_content.js';
+  import {
+    enumerateProtoItemsToItemInstances,
+  } from '@resume/sections/SideProjects/side_projects_content.js';
+  import { onMount } from "svelte";
+  import { page } from '$app/stores';
+  let print_experience: string = $page.url.searchParams.get('print') || "false";
   export const contentSettings = () => {
     return items;
   };
   
+  onMount(() => {
+  });
   /* title: 'Tracked down long standing difficult to solve bugs in python and cpp (maybe mention LLVM (memory leaks in python GCC system ca))', */
 
   /* $: console.log(`items: ${items}`); */
@@ -56,7 +70,7 @@
   // };
 
   function get_items(){
-    let __items = [
+    let __items: ProtoItem[] = [
       {
         title: 'NVIDIA',
         location: 'Remote',
@@ -169,29 +183,11 @@
         ]
       }
     ];
-    let _items = [];
 
-    let stringy = "";
-    for (let i = 0; i < __items.length; i++) {
-      let points = [];
-      stringy += "Position: " + __items[i].position + "\n";
-      stringy += "Company: " + __items[i].title + "\n";
-      for (let j = 0; j < __items[i].points.length; j++) {
-        points.push({ 'title': __items[i].points[j], order: j});
-        stringy += "- " + __items[i].points[j].replaceAll('<','').replaceAll('>','') + "\n";
-      }
-      _items.push({
-        force_hide: __items[i].force_hide || false,
-        order: i,
-        points,
-        location: __items[i].location,
-        position: __items[i].position,
-        title: __items[i].title,
-        date: __items[i].date,
-      });
-    };
-    console.log(stringy);
-    // console.log(_items);
+    let _items: Item[] = enumerateProtoItemsToItemInstances(__items);
+    if (print_experience === "true") {
+      console.log(generateStringy(__items));
+    }
     return _items;
   }
 

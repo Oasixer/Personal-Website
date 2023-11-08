@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
   import ExperienceItem from '../components/ExperienceItem.svelte';
+  import type {
+    Item
+  } from '@resume/sections/SideProjects/side_projects_content.js';
   import { arrayIntersect } from '../utils/misc.js';
   import { tags, force_use_all_employment } from '../utils/settings.js';
   export let items;

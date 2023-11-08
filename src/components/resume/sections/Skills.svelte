@@ -61,9 +61,10 @@
         [
           {title: TagNames.PYTHON},
           {title: TagNames.RUST},
-          {title: TagNames.CPP},
           {title: TagNames.TS},
           {title: TagNames.JS},
+          {title: TagNames.GO},
+          {title: TagNames.CPP},
           {title: TagNames.LUA},
           {title: TagNames.BASH},
           // {title: TagNames.SQL},
@@ -71,9 +72,8 @@
           // {title: TagNames.HTML},
         ],
         [
-          {title: TagNames.C},
-          {title: TagNames.GOLANG},
           {title: TagNames.KOTLIN},
+          {title: TagNames.C},
           {title: TagNames.JAVA},
           {title: TagNames.ASSEMBLY},
           // {title: TagNames.MATLAB},
