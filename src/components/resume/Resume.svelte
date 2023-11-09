@@ -1,5 +1,5 @@
 <script>
-  import WorkExperience from './sections/WorkExperience.svelte';
+  import WorkExperience from './sections/WorkExperience/WorkExperience.svelte';
   import SideProjects from './sections/SideProjects/SideProjects.svelte';
   import Skills from './sections/Skills.svelte';
   import Education from './sections/Education.svelte';

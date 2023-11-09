@@ -1,5 +1,5 @@
 this readme is ridiculously outdated. but one thing that should probably be in here are some of the url page args:
-for example `https://kaelan.xyz/portfolio?proj=grappler` is legal, as is `https://kaelan.xyz/generate_resume?print=true`
+for example `https://kaelan.xyz/pf?proj=grappler` is legal, as is `https://kaelan.xyz/generate_resume?print=true`
 
 # create-svelte
 
