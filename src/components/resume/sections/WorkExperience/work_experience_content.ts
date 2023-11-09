@@ -1,7 +1,10 @@
 import type { Item, ProtoItem } from '../SideProjects/side_projects_content';
-import { enumerateProtoItemsToItemInstances } from '../SideProjects/side_projects_content';
+import {
+	generateStringy,
+	enumerateProtoItemsToItemInstances
+} from '../SideProjects/side_projects_content';
 
-export function get_items() {
+export function get_items(print_experience: boolean) {
 	let __items: ProtoItem[] = [
 		{
 			title: 'NVIDIA',
@@ -128,5 +131,8 @@ export function get_items() {
 	];
 
 	let _items: Item[] = enumerateProtoItemsToItemInstances(__items);
+	if (print_experience) {
+		console.log(generateStringy(__items));
+	}
 	return _items;
 }

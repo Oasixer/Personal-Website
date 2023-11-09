@@ -70,11 +70,7 @@
   // };
 
 
-  let items = get_items();
-
-	if (print_experience === 'true') {
-    console.log(generateStringy(__items));
-	}
+  let items = get_items(print_experience === 'true');
 </script>
 
 <Section {header} {standalone} {force_hide} bind:show_section_controls bind:show_list_controls>
