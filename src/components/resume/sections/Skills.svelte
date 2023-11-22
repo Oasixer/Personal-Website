@@ -95,6 +95,7 @@
         {title: TagNames.DOCKER},
         {title: TagNames.REDIS},
         {title: TagNames.NGINX},
+        {title: TagNames.TERRAFORM},
         // {title: TagNames.REST},
         {title: TagNames.LINUX},
         {title: TagNames.OPENCV},

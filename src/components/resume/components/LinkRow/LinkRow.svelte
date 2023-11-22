@@ -46,7 +46,7 @@ export let standalone: boolean;
     <a class="" href='https://kaelan.xyz'>
     <!--   <p class="underline underline-offset-2">kaelan.xyz</p> -->
       <p class="iconContainerP"><Fa icon={faSquareArrowUpRight}/></p>
-      <p>kaelan.xyz/portfolio</p>
+      <p>kaelan.xyz/pf</p>
     </a>
     <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
   {/if}

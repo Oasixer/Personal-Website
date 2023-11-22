@@ -39,7 +39,7 @@
       {#if $vp.width > 975}
       <Toggle bind:on={dark} title={'Toggle Darktheme'} />
       {/if}
-      <a class='flex flex-row flex-nowrap items-center text-sky-300 md:text-sz2xl md:mr-7' href='./kaelan_moffett_resume2023v8.pdf' download>
+      <a class='flex flex-row flex-nowrap items-center text-sky-300 md:text-sz2xl md:mr-7' href='./kaelan_moffett_resume2023v10.pdf' download>
         <p class="mr-4"><Fa icon={faFileDownload}/></p>
         <p class="font-rubik5">PDF</p>
       </a>

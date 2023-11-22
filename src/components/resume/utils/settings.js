@@ -93,7 +93,8 @@ export let TagNames = {
 	REST: 'REST',
 	KAFKA: 'Kafka',
 	AWK: 'Awk',
-	RUST: 'Rust'
+	RUST: 'Rust',
+	TERRAFORM: 'Terraform'
 };
 
 export const disable_interests_section = writable(false);
