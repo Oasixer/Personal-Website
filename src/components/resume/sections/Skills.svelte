@@ -96,7 +96,7 @@
         {title: TagNames.NGINX},
         {title: TagNames.REACT},
         {title: TagNames.SVELTE},
-        {title: TagNames.TERRAFORM},
+        // {title: TagNames.TERRAFORM},
         // {title: TagNames.REST},
         {title: TagNames.LINUX},
         // {title: TagNames.OPENCV},

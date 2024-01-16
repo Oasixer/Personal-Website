@@ -21,7 +21,7 @@ export let projects: ProjMeta[] = [
 			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
 			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
 			'`Filter stages such as packet loss/corruption/delay are applied using configurable probablistic models',
-			'Designed and implemented the <`react!dashboard> (pictured above) from scratch in <`react!React> with <`ts!Typescript>',
+			'Designed and implemented the <`react!dashboard> from scratch in <`react!ReactJS> + <`ts!Typescript>.',
 			'`Visualize and manipulate packets and connections in realtime, enable and disable manipulations to control the experiment.'
 			// '`All packets and replies can be exported to disk
 		],
