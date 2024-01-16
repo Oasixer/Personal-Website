@@ -17,9 +17,9 @@ export let projects: ProjMeta[] = [
 		dir: 'ppanic',
 		languages: ['go', 'react', 'ts'],
 		project_desc: [
-			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
-			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
-			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
+			'I created a high performance <`go!Go network proxy> that emulates <bad network conditions> to verify the <`svelte!fault-tolerance> of <your system> in realistic adverse conditions.',
+			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept <15+ Gb/s> of layer 3 packets, and visualize the data in the realtime <`react!dashboard>.',
+			'Coroutines are dispatched to handle requests <concurrently>, apply <packet loss>/<corruption>/<delay>, forward to destination',
 			'`Filter stages such as packet loss/corruption/delay are applied using configurable probablistic models',
 			'Designed and implemented the <`react!dashboard> from scratch in <`react!ReactJS> + <`ts!Typescript>.',
 			'`Visualize and manipulate packets and connections in realtime, enable and disable manipulations to control the experiment.'
@@ -37,7 +37,7 @@ export let projects: ProjMeta[] = [
 		project_desc: [
 			'I created an open-source <grappling hook> based <movement> plugin for <`nvim!Neovim> written in <`lua!Lua>',
 			'A possibly novel form of movement for vim: raycasting for whitespace boundaries.',
-			'Fast, intuitive, and satisfying cursor movement governed by extensive configuration.',
+			'Fast, intuitive, and satisfying cursor <movement> governed by extensive <`lua!lua configuration>.',
 			'`Configurable animation function, keybinds, timing parameters.'
 		],
 		contributions: [],
@@ -48,15 +48,15 @@ export let projects: ProjMeta[] = [
 	{
 		name: 'Distributed Underwater Positioning System',
 		dir: 'pinguins',
-		languages: ['rust', 'cpp', 'ts', 'svelte', 'docker'],
+		languages: ['rust', 'cpp', 'ts', 'svelte', 'docker', 'protobuf'],
 		project_desc: [
 			'Awarded <Best Overall Project> out of 52 teams',
 			'The <Final Year Design Project> for my Mechatronics Engineering degree, 8 months of work by my 4 teammates and I.',
-			'Distributed positioning system for underwater robots using acoustic nodes in a mesh' // Received first place out of 52 teams.',
+			'We built a <Distributed positioning> system for <underwater robots> using <acoustic nodes> in a mesh.'
 			// 'demo_in_browser'
 		],
 		contributions: [
-			'Responsible for the <`rust!Rust Server> which orchestrates all the devices, ingests live data, serves the dashboard',
+			'Responsible for the <`rust!Rust Server> which orchestrates all the devices, ingests live data, serves the <`svelte!dashboard>',
 			"`<`rust!Server> multiplexes each node's data to a seperate terminal for debugging",
 			'`Manages client state and provides smooth reconnection for nodes that get interrupted',
 			'Responsible for the dashboard, a <`svelte!SvelteJS> + <`ts!TypeScript> webapp which serves as the user interface for the entire system',
@@ -77,8 +77,8 @@ export let projects: ProjMeta[] = [
 		dir: '380',
 		languages: ['cpp', 'python', 'protobuf'],
 		project_desc: [
-			'1st place out of 23 teams',
-			'Wheeled robot that autonomously navigates an obstacle course as fast as possible'
+			'Achieved <1st place> out of 23 teams',
+			'Four teammates and I built a <wheeled robot> that <autonomously> navigates an obstacle course as fast as possible'
 		],
 		contributions: [
 			'Developed pathfinding algorithm and PID controller with look-ahead to stay on track at high speeds',
@@ -97,9 +97,9 @@ export let projects: ProjMeta[] = [
 		dir: 'gibjob',
 		languages: ['go', 'graphql', 'svelte', 'js'],
 		project_desc: [
-			'Webapp for resume creation that makes it easy to choose from styles, templates, layouts, and provides a convenient workflow to maintain and update it.',
+			'Webapp for <resume creation> that makes it easy to choose from styles, templates, layouts, and provides a convenient workflow to maintain and update it.',
 			'Developed backend in <`go!Go> implementing user login, JWT auth, <`graphql!GraphQL>, unit tests',
-			'Developed frontend in <`svelte!SvelteJS>+<`ts!Typescript>+SCSS, leveraging local storage to store JWT & maintain sessions'
+			'Developed frontend in <`svelte!SvelteJS>+<`ts!Typescript>+SCSS, leveraging local storage to store <JWT> & maintain sessions'
 		],
 		contributions: [],
 		links: [{ target: 'https://github.com/GibJob-ai/GObjob' }],
