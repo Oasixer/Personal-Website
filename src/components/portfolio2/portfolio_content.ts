@@ -13,6 +13,39 @@ export let projects: ProjMeta[] = [
 		leftColWidthFactor: 1
 	},
 	{
+		name: 'Packet Panic',
+		dir: 'ppanic',
+		languages: ['go', 'react', 'ts'],
+		project_desc: [
+			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
+			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
+			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
+			'`Filter stages such as packet loss/corruption/delay are applied using configurable probablistic models',
+			'Designed and implemented the <`react!dashboard> (pictured above) from scratch in <`react!React> with <`ts!Typescript>',
+			'`Visualize and manipulate packets and connections in realtime, enable and disable manipulations to control the experiment.'
+			// '`All packets and replies can be exported to disk
+		],
+		contributions: [],
+		links: [{ target: 'https://github.com/Oasixer/packet-panic' }],
+		images: ['ppanic'],
+		leftColWidthFactor: 0.55
+	},
+	{
+		name: 'grappler.nvim (Neovim plugin)',
+		dir: 'grappler',
+		languages: ['lua', 'nvim'],
+		project_desc: [
+			'Grappling hook based movement plugin for <`nvim!Neovim> written in <`lua!Lua>',
+			'A possibly novel form of movement for vim: raycasting for whitespace boundaries.',
+			'Fast, intuitive, and satisfying cursor movement.',
+			'Configurable animation function, keybinds, timing parameters.'
+		],
+		contributions: [],
+		links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
+		images: ['video{grappler}'],
+		leftColWidthFactor: 0.55
+	},
+	{
 		name: 'Distributed Underwater Positioning System',
 		dir: 'pinguins',
 		languages: ['rust', 'cpp', 'ts', 'svelte', 'docker'],
@@ -40,52 +73,6 @@ export let projects: ProjMeta[] = [
 		leftColWidthFactor: 0.55
 	},
 	{
-		name: 'Packet Panic',
-		dir: 'ppanic',
-		languages: ['go', 'react', 'ts'],
-		project_desc: [
-			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
-			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
-			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
-			'`filter stages such as packet loss/corruption/delay are applied using probablistic models',
-			'Dashboard made in <`react!React> with <`ts!Typescript> shows packets, connections, and manipulations to monitor the proxy during operation.'
-		],
-		contributions: [],
-		links: [{ target: 'https://github.com/Oasixer/packet-panic' }],
-		images: ['ppanic'],
-		leftColWidthFactor: 0.55
-	},
-	{
-		name: 'grappler.nvim (Neovim plugin)',
-		dir: 'grappler',
-		languages: ['lua', 'nvim'],
-		project_desc: [
-			'Grappling hook based movement plugin written in <`lua!Lua>',
-			'Intuitive and fast movement based on whitespace and raycasting',
-			'Configurable animation function, keybinds, timing parameters.'
-		],
-		contributions: [],
-		links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
-		images: ['video{grappler}'],
-		leftColWidthFactor: 0.55
-	},
-	{
-		name: 'Packet Panic',
-		dir: 'ppanic',
-		languages: ['go', 'react'],
-		project_desc: [
-			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
-			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
-			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
-			'`filter stages such as packet loss/corruption/delay are applied using probablistic models',
-			'Dashboard made in React shows packets, connections, and manipulations to monitor the proxy during operation.'
-		],
-		contributions: [],
-		links: [{ target: 'https://github.com/Oasixer/packet-panic' }],
-		images: ['ppanic'],
-		leftColWidthFactor: 0.55
-	},
-	{
 		name: 'Autonomous Robot Race Winner',
 		dir: '380',
 		languages: ['cpp', 'python', 'protobuf'],
@@ -98,7 +85,7 @@ export let projects: ProjMeta[] = [
 			'Used <`protobuf!protobufs> in <`cpp!C++>, streamed them to laptop/dashboard in realtime over a TCP socket, and parsed them automatically in <`python!Python> to create realtime readouts and plots.',
 			'Made a dashboard in <`python!Python> that visualizes robot position, robot trajectory, and gives readouts of key data at high refresh rates / realtime, can save and replay data',
 			'`Developed simulation mode which approximates the robot physics and enabled us to develop and refine the algorithms before we finished building the robot.',
-			'Wrote my own plotting library with automatic rescaling and other overkill features',
+			'Wrote my own plotting library in <`python!Python> with automatic rescaling and other overkill features',
 			'GF fixed my sensors on comp day, thanks bb'
 		],
 		links: [{ target: 'https://github.com/Oasixer/380-robot-sw' }],

@@ -18,13 +18,16 @@ export let shouldColorKeywords: boolean;
   
 // I used to just bold keywords. But now that I have the languages for each project iconified, it would be kinda sweet
 // to colour the relevant keywords, if a little cheesy...
-function keywordColor(keyword: string, shouldColorKeywords: boolean){
-  if (!(keyword.startsWith('`') && shouldColorKeywords)){
+function keywordColor(keyword: string, shouldColorKeywords: boolean): string {
+  if (!(keyword.startsWith('`') && shouldColorKeywords)) {
     // text-grey-0
     return '#cbd3da'; // indicate no keyword colour found
-  }
-  else{
-    return LANGUAGES[keyword.slice(1, keyword.indexOf('!'))].color;
+  } else {
+    const languageKey = keyword.slice(1, keyword.indexOf('!'));
+    if (LANGUAGES[languageKey] === undefined) {
+      throw new Error(`Language not found for keyword: ${keyword}`);
+    }
+    return LANGUAGES[languageKey].color;
   }
 }
 
