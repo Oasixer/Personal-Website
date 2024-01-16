@@ -40,6 +40,7 @@ const config = {
 			'@pinguins': path.resolve('./src/components/portfolio2/pinguins'),
 			'@portfolio': path.resolve('./src/components/portfolio2'),
 			'@viewport': path.resolve('./src/components/viewport.ts'),
+			'@resume_utils': path.resolve('./src/components/resume/utils'),
 			'@components': path.resolve('./src/components')
 		}
 		// vite: {

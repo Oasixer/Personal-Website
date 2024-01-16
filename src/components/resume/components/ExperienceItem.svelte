@@ -1,7 +1,23 @@
-<script>
-  export let item;
-  export let work;
-  export let standalone;
+<script lang="ts">
+  import type {
+    Item
+  } from '@resume/sections/SideProjects/side_projects_content.js';
+  import Fa from 'svelte-fa/src/fa.svelte';
+  import { faGithub } from '@fortawesome/free-brands-svg-icons';
+  import { onMount } from 'svelte';
+  export let item: Item;
+  export let work: boolean;
+  export let standalone: boolean;
+  export let select: string;
+  let mounted: boolean = false;
+	onMount(async () => {
+    mounted = true;
+  });
+
+  $: selected = item.title.startsWith(select);
+  // ((select: string, item: Item) => {
+  //   return 
+  // })(select, item)
   
   import {
     experience_position_bottom_margin
@@ -56,6 +72,18 @@
     enable_tag_controls = !enable_tag_controls;
   }
 
+  function display_color(selected, mounted){
+    let white = '#AAAADDFF';
+    let trans = '#AAAADD00';
+    if (!selected){
+      return trans;
+    }
+    if (mounted){
+      return trans;
+    }
+    return white;
+  }
+
   // $: tags_text = item.tags.concat().sort((a,b)=>a.order - b.order).filter(i=>{
   //   let disabled_because_cat = (TagCategoryNames.includes(i.title) && $disable_categorical_tags);
   //   let test = !(disabled_because_cat || i.force_hide);
@@ -106,12 +134,6 @@
     font: 900 15px roboto, sans-serif;
   }
   
-  .onelineTitle{
-    /* margin: 0; */
-    /* font-size: 15px; */
-    /* font-style: bold; */
-    /* font: 900 15px roboto, sans-serif; */
-  }
 
   .title.darktheme{
     color: #0078b4;
@@ -200,60 +222,51 @@
     color: #c0c0c0;
     font-size: 18px;
   }
+ .fade-background {
+  transition: background-color 3s ease-in;
+  background-color: transparent; /* This will be the end state of the transition */
+}
 
 </style>
 
 {#if !item.force_hide}
-  <div class="experience-item-main" style="margin-bottom: {$experience_position_bottom_margin}px;">
-  <!-- {#if !compact_exp_info || embedded} -->
-  <!--   <div class="row"> -->
-  <!--     {#if !compact_exp_info || embedded} -->
-  <!--       <h1 class='title' class:mobile class:darktheme={embedded} on:click={() => {enable_section_controls = true}}>{item.title}</h1> -->
-  <!--     {/if} -->
-  <!--     {#if (work || $show_project_locations) && (item.location != undefined)} -->
-  <!--       <h1 class="location" class:mobile class:darktheme={embedded}>{item.location}</h1> -->
-  <!--     {/if} -->
-    <!-- </div> -->
-  <!-- {:else if compact_exp_info && !embedded} -->
+  <div class="experience-item-main fade-background"
+  style="margin-bottom: {$experience_position_bottom_margin}px; background-color:{display_color(selected, mounted)};">
+    <!-- header row -->
     <div class="row mb-1">
-      {#if work}
-        <h1 class='onelineTitle font-rubik6 text-slate-700 dark:text-blue-subdued/80 hover:text-pink-accent text-szLg' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
-        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+      <!-- {#if work} -->
+      <h1 class='onelineTitle font-rubik6 text-slate-700 dark:text-blue-subdued/80 hover:text-pink-accent text-szLg' on:click={() => {enable_section_controls = true}}>{`${item.position}`}</h1>
+      <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+      {#if item.repo !== undefined}
+        <a href={item.repo}
+        class='onelineTitle font-rubik6 mb-[2px] text-sky-600 dark:text-sky-300 text-szLg hover:text-pink-accent flex flex-row'
+        style="text-decoration: {item.website_link?'underline':'underline'};">
+        <p>{`${item.title}`}</p>
+        {#if item.website_link !== true}
+           <p class="text-sky-600 dark:text-sky-300 ml-1"><Fa icon={faGithub} size="0.95x"/></p>
+         {/if}
+        </a>
+  
+      {:else}
         <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'
             on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>
-        <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        {#if item.location !== ''}
-          <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        {/if}
-        <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
-        <h1 class="date font-sans font-wgt500 text-szLg italic text-sky-800 mr-0 dark:text-pink-accent">{item.date}</h1>
-      {:else} <!-- highlighted side project -->
-        <div class="mb-[3px] mt-[1px] w-[1px] ml-[297px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
-        <h1 class='onelineTitle font-rubik6 mb-[2px] text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'>{`${item.title}`}</h1>
-        <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-        <h1 class="date font-sans font-wgt500 text-szLg italic ml-auto mr-0 text-sky-800 dark:text-pink-accent">{item.date}</h1>
       {/if}
+      <!-- <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
+      {#if item.location !== ''}
+        <div class="mb-[4px] mt-[1px] w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
+      {/if}
+      <h1 class='onelineTitle font-rubik4 text-slate-800 dark:text-grey-500 text-szLg hover:text-pink-accent mr-auto' on:click={() => {enable_section_controls = true}}>{`${item.location}`}</h1>
+      <h1 class="date font-sans font-wgt500 text-szLg italic text-sky-800 mr-0 dark:text-pink-accent">{item.date}</h1>
     </div>
-  <!-- {/if} -->
 
-  {#if enable_section_controls && standalone}
-    <ListControls on:close={refreshCloseSectionControls} single={true} bind:items={itemContainer}/>
-  {/if}
-  <!-- {#if !compact_exp_info || embedded} -->
-  <!--   <div class="row"> -->
-  <!--     {#if (work || $show_project_positions) && (item.position != undefined)} -->
-  <!--       <h1 class="position" class:mobile class:darktheme={embedded}>{item.position}</h1> -->
-  <!--     {/if} -->
-  <!--     {#if (work || $show_project_dates) && (item.date != undefined)} -->
-  <!--       <h1 class="date" class:mobile class:darktheme={embedded}>{item.date}</h1> -->
-  <!--     {/if} -->
-  <!--   </div> -->
-  <!-- {/if} -->
+    {#if enable_section_controls && standalone}
+      <ListControls on:close={refreshCloseSectionControls} single={true} bind:items={itemContainer}/>
+    {/if}
 
-  {#if enable_exp_item_point_list_controls && standalone}
-    <ListControls bind:items={item.points} on:close={refreshClosePointList} title='ExpItem Point List Controls'/>
-  {/if}
+    {#if enable_exp_item_point_list_controls && standalone}
+      <ListControls bind:items={item.points} on:close={refreshClosePointList} title='ExpItem Point List Controls'/>
+    {/if}
 
-  <ExpItemPointList bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
-</div>
+    <ExpItemPointList bind:items={item.points} bind:show_controls={enable_exp_item_point_list_controls} />
+  </div>
 {/if}

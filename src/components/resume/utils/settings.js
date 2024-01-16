@@ -79,7 +79,7 @@ export let TagNames = {
 	MEME: 'Meme:',
 	SWAGGER: 'Swagger',
 	ASSEMBLY: 'x86',
-	GOLANG: 'Golang',
+	GO: 'Go',
 	KUBERNETES: 'Kubernetes',
 	TCPIP: 'TCP/IP',
 	TYPESCRIPT: 'TypeScript',
@@ -93,7 +93,8 @@ export let TagNames = {
 	REST: 'REST',
 	KAFKA: 'Kafka',
 	AWK: 'Awk',
-	RUST: 'Rust'
+	RUST: 'Rust',
+	TERRAFORM: 'Terraform'
 };
 
 export const disable_interests_section = writable(false);

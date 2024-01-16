@@ -13,7 +13,7 @@ export let projects: ProjMeta[] = [
 		leftColWidthFactor: 1
 	},
 	{
-		name: 'Packet Panic',
+		name: 'Packet Panic (Side Project)',
 		dir: 'ppanic',
 		languages: ['go', 'react', 'ts'],
 		project_desc: [
@@ -35,10 +35,10 @@ export let projects: ProjMeta[] = [
 		dir: 'grappler',
 		languages: ['lua', 'nvim'],
 		project_desc: [
-			'Grappling hook based movement plugin for <`nvim!Neovim> written in <`lua!Lua>',
+			'I created an open-source <grappling hook> based <movement> plugin for <`nvim!Neovim> written in <`lua!Lua>',
 			'A possibly novel form of movement for vim: raycasting for whitespace boundaries.',
-			'Fast, intuitive, and satisfying cursor movement.',
-			'Configurable animation function, keybinds, timing parameters.'
+			'Fast, intuitive, and satisfying cursor movement governed by extensive configuration.',
+			'`Configurable animation function, keybinds, timing parameters.'
 		],
 		contributions: [],
 		links: [{ target: 'https://github.com/Oasixer/grappler.nvim' }],
@@ -67,7 +67,7 @@ export let projects: ProjMeta[] = [
 		],
 		links: [
 			// { display: 'Demo in browser', target: 'pinguins_demo' },
-			{ target: 'https://github.com/kiranjray/fydp_software' }
+			{ target: 'https://github.com/Oasixer/underwater_PINGuins' }
 		],
 		images: ['award', 'demo_outside', 'underwater', 'pinguins'],
 		leftColWidthFactor: 0.55

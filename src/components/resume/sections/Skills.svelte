@@ -61,9 +61,10 @@
         [
           {title: TagNames.PYTHON},
           {title: TagNames.RUST},
-          {title: TagNames.CPP},
           {title: TagNames.TS},
           {title: TagNames.JS},
+          {title: TagNames.GO},
+          {title: TagNames.CPP},
           {title: TagNames.LUA},
           {title: TagNames.BASH},
           // {title: TagNames.SQL},
@@ -71,9 +72,8 @@
           // {title: TagNames.HTML},
         ],
         [
-          {title: TagNames.C},
-          {title: TagNames.GOLANG},
           {title: TagNames.KOTLIN},
+          {title: TagNames.C},
           {title: TagNames.JAVA},
           {title: TagNames.ASSEMBLY},
           // {title: TagNames.MATLAB},
@@ -96,6 +96,7 @@
         {title: TagNames.NGINX},
         {title: TagNames.REACT},
         {title: TagNames.SVELTE},
+        {title: TagNames.TERRAFORM},
         // {title: TagNames.REST},
         {title: TagNames.LINUX},
         // {title: TagNames.OPENCV},
@@ -344,8 +345,8 @@
               <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2">Proficient</i>
               <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
               <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i> -->
-              <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2 ml-7">Familiar</i>
-              <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00 mr-6">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+              <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2 ml-auto">Familiar</i>
+              <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00 mr-0">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
             {:else}
               <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00">{item.tags.filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
             {/if}
