@@ -40,6 +40,22 @@ export let projects: ProjMeta[] = [
 		leftColWidthFactor: 0.55
 	},
 	{
+		name: 'Packet Panic',
+		dir: 'ppanic',
+		languages: ['go', 'react', 'ts'],
+		project_desc: [
+			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
+			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
+			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
+			'`filter stages such as packet loss/corruption/delay are applied using probablistic models',
+			'Dashboard made in <`react!React> with <`ts!Typescript> shows packets, connections, and manipulations to monitor the proxy during operation.'
+		],
+		contributions: [],
+		links: [{ target: 'https://github.com/Oasixer/packet-panic' }],
+		images: ['ppanic'],
+		leftColWidthFactor: 0.55
+	},
+	{
 		name: 'grappler.nvim (Neovim plugin)',
 		dir: 'grappler',
 		languages: ['lua', 'nvim'],
@@ -56,13 +72,13 @@ export let projects: ProjMeta[] = [
 	{
 		name: 'Packet Panic',
 		dir: 'ppanic',
-		languages: ['go'],
+		languages: ['go', 'react'],
 		project_desc: [
 			'High performance <`go!Go> network proxy that emulates bad network conditions to verify the fault-tolerance of your system in realistic adverse conditions.',
 			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept 15+ Gb/s of layer 3 packets.',
 			'Coroutines are dispatched to handle requests concurrently, apply packet loss/corruption/delay, forward to destination',
 			'`filter stages such as packet loss/corruption/delay are applied using probablistic models',
-			'Each request is then forwarded to the original destination with a spoofed source address so that replies can also be intercepted and processed.'
+			'Dashboard made in React shows packets, connections, and manipulations to monitor the proxy during operation.'
 		],
 		contributions: [],
 		links: [{ target: 'https://github.com/Oasixer/packet-panic' }],

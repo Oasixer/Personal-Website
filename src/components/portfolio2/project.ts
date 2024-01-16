@@ -136,6 +136,12 @@ export const LANGUAGES: Record<string, LanguageInfo> = {
 		name: 'Neovim',
 		color: '#69a746',
 		sizeMod: 1
+	},
+	react: {
+		id: 'react',
+		name: 'React',
+		color: '#00d8ff',
+		sizeMod: 1
 	}
 };
 
