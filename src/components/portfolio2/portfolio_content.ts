@@ -17,7 +17,7 @@ export let projects: ProjMeta[] = [
 		dir: 'ppanic',
 		languages: ['go', 'react', 'ts'],
 		project_desc: [
-			'I created a high performance <`go!Go network proxy> that emulates <bad network conditions> to verify the <`svelte!fault-tolerance> of <your system> in realistic adverse conditions.',
+			'I created a high performance <`go!Go network proxy> that emulates <bad network conditions> to verify the <`svelte!fault-tolerance> of your system in realistic adverse conditions.',
 			'Used <TUN> (kernel virtual interface) to transparently and bidirectionally intercept <15+ Gb/s> of layer 3 packets, and visualize the data in the realtime <`react!dashboard>.',
 			'Coroutines are dispatched to handle requests <concurrently>, apply <packet loss>/<corruption>/<delay>, forward to destination',
 			'`Filter stages such as packet loss/corruption/delay are applied using configurable probablistic models',
@@ -51,7 +51,7 @@ export let projects: ProjMeta[] = [
 		languages: ['rust', 'cpp', 'ts', 'svelte', 'docker', 'protobuf'],
 		project_desc: [
 			'Awarded <Best Overall Project> out of 52 teams',
-			'The <Final Year Design Project> for my Mechatronics Engineering degree, 8 months of work by my 4 teammates and I.',
+			'The <Final Year Design Project> for my Mechatronics Engineering degree, 5 months of work by my 4 teammates and I.',
 			'We built a <Distributed positioning> system for <underwater robots> using <acoustic nodes> in a mesh.'
 			// 'demo_in_browser'
 		],
@@ -66,7 +66,7 @@ export let projects: ProjMeta[] = [
 			// '`Responsible for the team’s website (nothing impressive, not at all the focus of the project), live @ https://pinguins.boats)'
 		],
 		links: [
-			// { display: 'Demo in browser', target: 'pinguins_demo' },
+			{ display: 'Demo in browser', target: 'pinguins_demo' },
 			{ target: 'https://github.com/Oasixer/underwater_PINGuins' }
 		],
 		images: ['award', 'demo_outside', 'underwater', 'pinguins'],

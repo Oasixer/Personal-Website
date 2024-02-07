@@ -11,8 +11,8 @@ export function get_items(print_experience: boolean) {
 			location: 'Remote',
 			position: 'Software Engineer Intern',
 			date: "May '22 - Aug '22",
-			repo: 'https://kaelan.xyz/resume?select=NVIDIA',
-			website_link: true,
+			// repo: 'https://kaelan.xyz/resume?select=NVIDIA',
+			// website_link: true,
 			points: [
 				// 'Developed features for Omnigraph (scalable compute engine), working with WARP convert Python',
 
@@ -25,7 +25,7 @@ export function get_items(print_experience: boolean) {
 				// ""
 				// "Identified memory leaks coming from hash grids in JIT-compiled <CUDA C++> kernels using <Heaptrack> and <GDB>.",
 
-				'Ported OmniGraph (scalable <graph> engine) nodes for vector math from <Python> to <C++>, resulting in 4x speedup.',
+				'Ported OmniGraph (distributed <graph> engine) nodes for vector math from <Python> to <C++>, resulting in 4x speedup.',
 				// "Overhauled OmniGraph extension install system by integrating a global cache for dependencies, reducing build sizes 18+%",
 				'Improved OmniGraph extension installation with global cache, reducing build size by 18+%',
 				// the reason why nobody had done it was realistically because it was a huge pain in the ass to switch from all relative paths
@@ -53,8 +53,8 @@ export function get_items(print_experience: boolean) {
 			location: 'Toronto',
 			position: 'Distributed Systems / Backend Engineer',
 			date: "Sep '21 - Dec '21",
-			repo: 'https://kaelan.xyz/resume?select=Trexo',
-			website_link: true,
+			// repo: 'https://kaelan.xyz/resume?select=Trexo',
+			// website_link: true,
 			points: [
 				'Created a <Kotlin>+<Spring Boot> server on <AWS> to manage live data to and from <200 exoskeleton robots>.',
 				// 'Integrated registration, login, ',
@@ -76,8 +76,8 @@ export function get_items(print_experience: boolean) {
 			location: 'Waterloo',
 			position: 'Backend/Infrastructure Engineer Intern',
 			date: "Jan '21 - Apr '21",
-			repo: 'https://kaelan.xyz/resume?select=Pronti',
-			website_link: true,
+			// repo: 'https://kaelan.xyz/resume?select=Pronti',
+			// website_link: true,
 			points: [
 				'Created <Flask> server for registration/logins using SMS 2FA, <JWT>, and <GraphQL> to reduce API boilerplate.',
 				// 'Created nightly job that scrapes clothing retailer websites and hydrates an ML pipeline where results are classified.',
@@ -90,8 +90,8 @@ export function get_items(print_experience: boolean) {
 			location: 'Toronto',
 			position: 'Backend Developer Intern',
 			date: "Jun '20 - Sep '20",
-			repo: 'https://kaelan.xyz/resume?select=Backr',
-			website_link: true,
+			// repo: 'https://kaelan.xyz/resume?select=Backr',
+			// website_link: true,
 			points: [
 				'Ported high-volume ingestion microservice to <Go>, resulting in 4x speedup over OG <Python> implementation.',
 				'Reduced <AWS> costs by refactoring monolithic ML pipeline into microservices to enable granular scaling.',
@@ -106,8 +106,8 @@ export function get_items(print_experience: boolean) {
 			position: 'Fullstack Developer Intern',
 			date: "Sep '19 - Dec '19",
 			force_hide: true,
-			repo: 'https://kaelan.xyz/resume?select=CIBC',
-			website_link: true,
+			// repo: 'https://kaelan.xyz/resume?select=CIBC',
+			// website_link: true,
 			points: [
 				'Created full-stack webapp for managers to create and retrieve fraud reports, built in <Flask>, <SvelteJS>, Postgres.',
 				'Streamlined ticket inflow process for fraud reports by creating a <classifier> using spaCy, NLTK in <Python>.'
@@ -119,8 +119,8 @@ export function get_items(print_experience: boolean) {
 			location: 'Waterloo',
 			position: 'Computer Vision Software Intern',
 			date: "Jan '19 - Apr '19",
-			repo: 'https://kaelan.xyz/resume?select=North',
-			website_link: true,
+			// repo: 'https://kaelan.xyz/resume?select=North',
+			// website_link: true,
 			points: [
 				'Created optical raytracing engine using <OpenCV> matrices in <C++> and optimized for specialized ASIC.',
 				'Worked with scientists to create a material property calculator with n-dimensional interpolation in <C++>.',

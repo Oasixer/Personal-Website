@@ -242,11 +242,10 @@
         class='onelineTitle font-rubik6 mb-[2px] text-sky-600 dark:text-sky-300 text-szLg hover:text-pink-accent flex flex-row'
         style="text-decoration: {item.website_link?'underline':'underline'};">
         <p>{`${item.title}`}</p>
-        {#if item.website_link !== true}
-           <p class="text-sky-600 dark:text-sky-300 ml-1"><Fa icon={faGithub} size="0.95x"/></p>
-         {/if}
+        <!-- {#if item.website_link !== true} -->
+        <p class="text-sky-600 dark:text-sky-300 ml-1"><Fa icon={faGithub} size="0.95x"/></p>
+         <!-- {/if} -->
         </a>
-  
       {:else}
         <h1 class='onelineTitle font-rubik6 text-sky-800 dark:text-sky-300 text-szLg hover:text-pink-accent'
             on:click={() => {enable_section_controls = true}}>{`${item.title}`}</h1>

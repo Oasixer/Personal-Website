@@ -21,7 +21,7 @@ export interface Item {
 	title: string;
 	date: string;
 	repo?: string | null;
-	website_link?: boolean | null;
+	// website_link?: boolean | null;
 }
 export interface ProtoItem {
 	points: string[];
@@ -31,7 +31,7 @@ export interface ProtoItem {
 	date: string;
 	force_hide?: boolean | null;
 	repo?: string | null;
-	website_link?: boolean | null;
+	// website_link?: boolean | null;
 }
 
 export function generateStringy(protoItems: ProtoItem[]) {
@@ -54,7 +54,7 @@ export function enumerateProtoItemsToItemInstances(protoItems: ProtoItem[]): Ite
 		title: proto.title,
 		date: proto.date,
 		repo: proto.repo,
-		website_link: proto.website_link,
+		// website_link: proto.website_link,
 		force_hide: proto.force_hide || false,
 		order: index // 0-indexed enumeration
 	}));
