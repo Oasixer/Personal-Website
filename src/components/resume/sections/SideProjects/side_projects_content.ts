@@ -34,10 +34,58 @@ export interface ProtoItem {
 	// website_link?: boolean | null;
 }
 
+function parseDateRange(dateRange: string): string[] {
+	// Define a map for month abbreviations to their numeric representations
+	const monthMap: { [key: string]: string } = {
+		Jan: '01',
+		Feb: '02',
+		Mar: '03',
+		Apr: '04',
+		May: '05',
+		Jun: '06',
+		Jul: '07',
+		Aug: '08',
+		Sep: '09',
+		Oct: '10',
+		Nov: '11',
+		Dec: '12'
+	};
+
+	// Split the date range into start and end
+	const parts = dateRange.split(' - ');
+	const startPart = parts[0];
+	const endPart = parts[1];
+
+	// Function to parse a date part into YYYY/MM format
+	const parsePart = (part: string): string => {
+		const [monthAbbr, year] = part.split(' ');
+		const numericMonth = monthMap[monthAbbr];
+		// Assuming the year is always in the format "'YY"
+		const fullYear = `20${year.slice(1)}`;
+		return `${fullYear}/${numericMonth}`;
+	};
+
+	// Handle the 'Present' case
+	if (endPart === 'Present') {
+		return [parsePart(startPart), 'present'];
+	}
+
+	// Default case, parse both start and end parts
+	return [parsePart(startPart), parsePart(endPart)];
+}
+
+// Example usage:
+// console.log(parseDateRange("Apr '23 - Jun '23")); // ["2023/04", "2023/06"]
+// console.log(parseDateRange("Aug '23 - Present")); // ["2023/08", "present"]
+
 export function generateStringy(protoItems: ProtoItem[]) {
 	let stringy = '';
 	for (let i = 0; i < protoItems.length; i++) {
+		const date = parseDateRange(protoItems[i].date);
 		stringy += 'Position: ' + protoItems[i].position + '\n';
+		stringy += protoItems[i].date + '\n';
+		stringy += date[0] + '\n';
+		stringy += date[1] + `\n`;
 		stringy += 'Company: ' + protoItems[i].title + '\n';
 		for (let j = 0; j < protoItems[i].points.length; j++) {
 			stringy += '- ' + protoItems[i].points[j].replaceAll('<', '').replaceAll('>', '') + '\n';
@@ -77,7 +125,7 @@ let __items: ProtoItem[] = [
 	{
 		title: 'Packet Panic',
 		location: '',
-		position: 'Side Project',
+		position: 'Networking Project',
 		date: "Oct '23",
 		repo: 'https://github.com/Oasixer/packet-panic',
 		points: [

@@ -58,7 +58,7 @@ export let standalone: boolean;
   <a class="">
     <p class="iconContainerP"><Fa icon={faPhone}/></p>
     <!-- <p>647-997-6783</p> -->
-    <p>669-245-1735</p>
+    <p>647-997-6783</p>
   </a>
   <div class="h-4 w-[1px] bg-grey-600 dark:bg-grey-700 mx-4"></div>
   <a class=" "href="mailto:kaelan.ms@gmail.com">

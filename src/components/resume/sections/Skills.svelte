@@ -60,11 +60,9 @@
       tags: [
         [
           {title: TagNames.PYTHON},
-          {title: TagNames.RUST},
           {title: TagNames.TS},
           {title: TagNames.JS},
           {title: TagNames.GO},
-          {title: TagNames.CPP},
           {title: TagNames.LUA},
           {title: TagNames.BASH},
           // {title: TagNames.SQL},
@@ -72,10 +70,12 @@
           // {title: TagNames.HTML},
         ],
         [
-          {title: TagNames.KOTLIN},
+          {title: TagNames.CPP},
           {title: TagNames.C},
+          {title: TagNames.RUST},
+          {title: TagNames.KOTLIN},
           {title: TagNames.JAVA},
-          {title: TagNames.ASSEMBLY},
+          // {title: TagNames.ASSEMBLY},
           // {title: TagNames.MATLAB},
           // {title: TagNames.LATEX}
           // {title: TagNames.CSS},
