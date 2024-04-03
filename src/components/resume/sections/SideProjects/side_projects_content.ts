@@ -82,7 +82,8 @@ export function generateStringy(protoItems: ProtoItem[]) {
 	let stringy = '';
 	for (let i = 0; i < protoItems.length; i++) {
 		const date = parseDateRange(protoItems[i].date);
-		stringy += 'Position: ' + protoItems[i].position + '\n';
+		stringy += /*'Position: ' +*/ protoItems[i].position + '\n';
+		stringy += /*'Position: ' +*/ protoItems[i].location + '\n';
 		stringy += protoItems[i].date + '\n';
 		stringy += date[0] + '\n';
 		stringy += date[1] + `\n`;
