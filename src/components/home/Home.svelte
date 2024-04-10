@@ -63,11 +63,11 @@
     </div>
     <ul class="max-w-xl mx-auto">
     <li class="text-body font-body text-white">
-    I'm a Mechatronics Engineering graduate from UWaterloo specializing in software, especially backend, cloud, and distributed systems.
+    I'm a Mechatronics Engineering graduate from UWaterloo specializing in SWE. I have a broad range of experience in full stack web dev, cloud/infra, embedded, robotics, and distributed systems.
     </li>
     <li class="text-body font-body text-white mt-4 mb-3">
-    I've completed 6 software engineering internships, most recently at Nvidia, and I am looking for fulltime opportunities in the US.
     </li>
+    <!-- I've completed 6 software engineering internships, most recently at Nvidia, and I am looking for fulltime opportunities in the US. -->
     </ul>
   <!-- {/if} -->
   <!-- {#if mobile} -->
