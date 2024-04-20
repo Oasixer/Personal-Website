@@ -10,3 +10,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vercel
 .output
+
+/static/images/pinguins/pac_demo.mp4
