@@ -63,7 +63,7 @@
     </div>
     <ul class="max-w-xl mx-auto">
     <li class="text-body font-body text-white">
-    I'm a Mechatronics Engineering graduate from UWaterloo specializing in SWE. I have a broad range of experience in full stack web dev, cloud/infra, embedded, robotics, and distributed systems.
+    I'm a Mechatronics Engineering graduate from UWaterloo specializing in SWE. I have a broad range of experience in full stack web dev, embedded development, cloud/infra, and distributed systems.
     </li>
     <li class="text-body font-body text-white mt-4 mb-3">
     </li>

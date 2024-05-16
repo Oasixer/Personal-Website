@@ -73,7 +73,7 @@ export function get_items(print_experience: boolean) {
 				'Implemented a fault-tolerant bidirectional <DB sync> (robot ↔ cloud) using <Merkle Tree> based algorithm.',
 				// 'Leveraged <Merkle Tree> data structure to bidirectionally sync onboard and cloud DBs, allowing seamless access for customers with spotty internet.',
 				// 'Eliminated expensive manual testing by designing integration testing framework in <Bash> that emulates a remote server to verify behavior of the onboard server across a suite of use-cases.',
-				'Created three way integration testing (mobile ↔ robot ↔ cloud) in <Bash>, reducing QA testing workload by 15%'
+				'Automated 3way integration testing (mobile ↔ robot ↔ cloud) in <Bash>, reducing QA testing workload by 15%'
 				// 'Improved security, performance and maintainability by porting legacy <ExpressJS> login server to <Spring>/<Kotlin>'
 				// "Wrote <ROS> pubsub in <C++> to send live robot data to AWS, proxy\'d through the onboard server Java Native interfaceonboard <Spring> server using ",
 				// 'Designed data exchange between '
