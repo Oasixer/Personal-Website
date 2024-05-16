@@ -81,6 +81,7 @@ export let TagNames = {
 	ASSEMBLY: 'x86',
 	GO: 'Go',
 	KUBERNETES: 'Kubernetes',
+	BLUETOOTH: 'Bluetooth',
 	TCPIP: 'TCP/IP',
 	TYPESCRIPT: 'TypeScript',
 	TS: 'TypeScript',
