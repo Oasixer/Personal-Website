@@ -122,19 +122,19 @@ let __items: ProtoItem[] = [
 			'Architected firmware (<C++> on ARM M7), implementing positioning, autocalibration, and fault-tolerant networking',
 			'Enabled realtime freq. analysis, via <sliding window Fast Fourier Transform> at 2μs intervals, processing 20MB/s of acoustic samples.'
 		]
-	},
-	{
-		title: 'Packet Panic',
-		location: '',
-		position: 'Networking Project',
-		date: "Oct '23",
-		repo: 'https://github.com/Oasixer/packet-panic',
-		points: [
-			'High performance <Go> network proxy that emulates bad network conditions to verify the fault-tolerance of distributed systems in adverse conditions.',
-			'<TUN> (kernel virtual interface) is used to transparently and bidirectionally intercept <15+ Gb/s> of <layer 3 packets>.',
-			'<Coroutines> are dispatched to handle requests <concurrently>, apply packet loss/corruption/delay, fwd to dest.'
-		]
 	}
+	// {
+	// 	title: 'Packet Panic',
+	// 	location: '',
+	// 	position: 'Networking Project',
+	// 	date: "Oct '23",
+	// 	repo: 'https://github.com/Oasixer/packet-panic',
+	// 	points: [
+	// 		'High performance <Go> network proxy that emulates bad network conditions to verify the fault-tolerance of distributed systems in adverse conditions.',
+	// 		'<TUN> (kernel virtual interface) is used to transparently and bidirectionally intercept <15+ Gb/s> of <layer 3 packets>.',
+	// 		'<Coroutines> are dispatched to handle requests <concurrently>, apply packet loss/corruption/delay, fwd to dest.'
+	// 	]
+	// }
 ];
 
 export function getItems(): Item[] {

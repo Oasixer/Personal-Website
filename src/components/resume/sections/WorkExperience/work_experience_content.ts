@@ -91,7 +91,7 @@ export function get_items(print_experience: boolean) {
 			// repo: 'https://kaelan.xyz/resume?select=Pronti',
 			// website_link: true,
 			points: [
-				'Created <Flask> server for registration/logins using SMS 2FA, <JWT>, and <GraphQL> to reduce API boilerplate.',
+				'Created Flask (<Python>) server for registration/logins using SMS 2FA, <JWT>, and <GraphQL> to reduce API boilerplate.',
 				// 'Created nightly job that scrapes clothing retailer websites and hydrates an ML pipeline where results are classified.',
 				// 'Reduced runtime of recommender algorithm by 75% by batching SQL queries, and caching results in <Redis>.',
 				// 'Migrated server container from <GCP> to <Kubernetes> to scale with an influx of users, and implemented waitlist/referral system to manage growth rate.'
