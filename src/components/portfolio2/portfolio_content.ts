@@ -153,7 +153,7 @@ export let projects: ProjMeta[] = [
 	},
 	{
 		name: 'Rocket Microcontroller Firmware',
-		images: ['vent'],
+		images: ['sidebyside', 'vent'],
 		dir: 'vent',
 		languages: ['c'],
 		project_desc: [
