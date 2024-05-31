@@ -143,8 +143,8 @@ export let projects: ProjMeta[] = [
 		images: ['headlamp'],
 		contributions: [],
 		project_desc: [
-			'Gesture controlled headlamp with deep learning facial recognition via Haar Cascades in OpenCV (performed offboard)',
-			'Implemented Leap Motion Control using C++.',
+			'Created gesture controlled headlamp with deep learning facial recognition via Haar Cascades in OpenCV (performed offboard)',
+			// 'Implemented Leap Motion Control using C++.',
 			'Set up onboard Rasperry Pi and Arduino to control motors, sensors, and lights.',
 			'Achieved second place, and received Leap Motion award.'
 		],
@@ -162,7 +162,7 @@ export let projects: ProjMeta[] = [
 			'Communicates via CAN bus with the rest of the rocket, and the remote launch control system.'
 		],
 		contributions: [],
-		links: [{ target: 'https://github.com/waterloo-rocketry/cansw_vent/tree/v2-dev' }],
+		links: [{ target: 'https://github.com/waterloo-rocketry/cansw_vent/' }],
 		leftColWidthFactor: 1
 	},
 	{
@@ -171,7 +171,7 @@ export let projects: ProjMeta[] = [
 		images: ['ros'],
 		languages: ['python'],
 		project_desc: [
-			'Lead the design and development of a QT application which provides a human interface to the robot simulator.',
+			'Lead the design and development of a Python QT application which provides a human interface to the robot simulator.',
 			'Implemented driver station in Python handling joystick input, high-level state control, and diagnostic info.',
 			'Implemented Robot Operating System (ROS) message publishing/subscribing to relay critical information to and from the robot'
 		],

@@ -59,13 +59,13 @@
       title: 'Languages',
       tags: [
         [
+          {title: TagNames.C},
+          {title: TagNames.CPP},
           {title: TagNames.PYTHON},
           {title: TagNames.TS},
           // {title: TagNames.JS},
-          {title: TagNames.C},
           {title: TagNames.GO},
           {title: TagNames.LUA},
-          {title: TagNames.CPP},
           // {title: TagNames.SQL},
           // {title: TagNames.REGEX},
           // {title: TagNames.HTML},
@@ -85,31 +85,44 @@
       show_controls: false,
       show_tag_controls: false,
       force_hide: false,
+      subtitles: ['Proficient', 'Familiar'],
       order: 2
     },
     {
       title: 'Technologies',
       tags: [
-        {title: TagNames.TCPIP},
-        {title: TagNames.OPENCV},
-        {title: TagNames.BLUETOOTH},
-        // {title: TagNames.O},
-        {title: TagNames.GRAPHQL},
-        {title: TagNames.NGINX},
-        // {title: TagNames.KUBERNETES},
-        // {title: TagNames.REACT},
-        // {title: TagNames.SVELTE},
-        // {title: TagNames.TERRAFORM},
-        // {title: TagNames.REST},
-        {title: TagNames.LINUX},
-        {title: TagNames.REDIS},
-        // {title: TagNames.PROTOBUF},
-        // {title: TagNames.DOCKER},
-        // {title: TagNames.JWT},
-        // {title: TagNames.QT},
+        [
+          {title: TagNames.OPENCV},
+          {title: TagNames.BLUETOOTH},
+          {title: TagNames.GDB},
+          {title: TagNames.LINUX},
+          {title: TagNames.GIT},
+          {title: TagNames.JIRA},
+          // {title: TagNames.TCPIP},
+          // {title: TagNames.O},
+          // {title: TagNames.GRAPHQL},
+          // {title: TagNames.NGINX},
+          // {title: TagNames.KUBERNETES},
+          // {title: TagNames.REACT},
+          // {title: TagNames.SVELTE},
+          // {title: TagNames.TERRAFORM},
+          // {title: TagNames.REST},
+          // {title: TagNames.REDIS},
+          // {title: TagNames.PROTOBUF},
+          // {title: TagNames.DOCKER},
+          // {title: TagNames.JWT},
+          // {title: TagNames.QT},
+        ],
+        [
+          {title: TagNames.OSCILLOSCOPE},
+          {title: TagNames.LOGIC_ANALYZER},
+          {title: TagNames.SOLDERING},
+          {title: TagNames.JTAG},
+        ]
       ],
       show_controls: false,
       show_tag_controls: false,
+      subtitles: ['SW', 'HW'],
       force_hide: false,
       order: 3
     },
@@ -338,25 +351,25 @@
         {#if item.show_controls && standalone}
           <ListControls single={true} items={[item]} on:close={()=>{item.show_controls = false}}/>
         {/if}
-          <div
-          on:click={()=>{toggle_tags_controls(item)}}
-          class="flex flex-row items-center ml-4">
+        <div
+        on:click={()=>{toggle_tags_controls(item)}}
+        class="flex flex-row items-center ml-4">
           <!-- font-sans font-wgt400 text-szBase dark:text-grey-200"> -->
           <!-- style="{'margin-bottom: '+((n == items.length -1) ? '0' : $skills_content_bottom_margin+'px;')}"> -->
-             <!-- ((standalone)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1; font-weight: 400;"> -->
-            {#if Array.isArray(item.tags[0])}
-              <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2">Proficient</i>
-              <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
-              <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i> -->
-              <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2 ml-auto">Familiar</i>
-              <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00 mr-0">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
-            {:else}
-              <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00">{item.tags.filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
-            {/if}
-          </div>
-          <!-- </p> -->
-          <!--{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
-          </p>-->
+           <!-- ((standalone)?('font-size: '+$skills_content_font_size+'px;'):'')} line-height: 1; font-weight: 400;"> -->
+          {#if Array.isArray(item.tags[0])}
+            <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2">{item.subtitles[0]}</i>
+            <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00">{item.tags[0].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Familiar: </i> -->
+            <i class="font-sans font-wgt600 text-szLg text-sky-900 dark:text-blue-subdued mr-2 ml-auto">{item.subtitles[1]}</i>
+            <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00 mr-0">{item.tags[1].filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+          {:else}
+            <p class="font-sans font-wgt400 text-szLg text-slate-900 dark:text-grey-00">{item.tags.filter(i => !i.force_hide).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}</p>
+          {/if}
+        </div>
+        <!-- </p> -->
+        <!--{item.tags.filter(i => !i.force_hide).sort(tag_sort).sort(order_sort).map(i => i.title_alt?i.title_alt:i.title).join(', ')}
+        </p>-->
         {#if item.show_tag_controls && standalone}
           <ListControls title='Tag Controls' bind:items={item.tags} on:close={()=>{item.show_tag_controls=false}}/>
         {/if}

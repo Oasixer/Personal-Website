@@ -118,9 +118,22 @@ let __items: ProtoItem[] = [
 		points: [
 			'Awarded <Best Overall Project> out of 52 teams presenting at 2023 U of Waterloo Mechatronics Eng. symposium.',
 			'Created positioning system for underwater robots using acoustics, outperforming commercial solutions in tolerance to reflections and obstructions, achieving 85 meter range with 98% accuracy.',
-			'Responsible for a <Rust> Server exchanging high bandwidth data with each node and delivering the UI (app).',
-			'Architected firmware (<C++> on ARM M7), implementing positioning, autocalibration, and fault-tolerant networking',
+			// 'Responsible for a <Rust> Server exchanging high bandwidth data with each node and delivering the UI (app).',
+			'Architected <C++> firmware, implementing 3d positioning, autocalibration, and fault-tolerant networking',
 			'Enabled realtime freq. analysis, via <sliding window Fast Fourier Transform> at 2μs intervals, processing 20MB/s of acoustic samples.'
+		]
+	},
+	{
+		title: 'Smart Headlamp',
+		location: '',
+		position: 'Hackathon Project',
+		date: "Sep '18",
+		repo: 'https://github.com/ParthSareen/SmartLamp',
+		points: [
+			'Created gesture controlled headlamp with deep learning facial recognition using <OpenCV> in <C++>',
+			// 'Implemented Leap Motion Control using C++.',
+			'Set up onboard Rasperry Pi and Arduino to control motors, sensors, and LEDs.',
+			'Achieved second place, and received Leap Motion award.'
 		]
 	}
 	// {

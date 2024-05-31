@@ -9,13 +9,15 @@ export function get_items(print_experience: boolean) {
 		{
 			title: 'Tronix Product Design',
 			location: 'Toronto',
-			position: 'Embedded Software Developer',
-			date: "Oct '23 - Present",
+			position: 'Embedded Firmware Developer',
+			// date: "Oct '23 - Present",
+			date: "July '23 - Present",
 			points: [
 				'Designed and implemented <C> firmware leveraging <Zephyr RTOS> on an nRF52 ARM-based embedded system.',
 				// 'Implemented <Bluetooth> audio streaming from PDM mic with LC3 compression for offboard processing.',
-				'Implemented <Bluetooth> audio streaming, wireless charging, and capacitative touch sensing.',
-				'Integrated MCUboot bootloader to perform OTA (wireless) firmware updates over Bluetooth.'
+				'Implemented <Bluetooth> audio, <LC3 Compression>, wireless charging, and capacitive touch sense applications.',
+				'Succesfully performed board bringup and troubleshooted prototype HW using <GDB> and <JTAG>.',
+				'Integrated MCUboot bootloader to perform OTA (wireless) firmware updates over <Bluetooth>.'
 			]
 		},
 		{
@@ -37,7 +39,7 @@ export function get_items(print_experience: boolean) {
 				// ""
 				// "Identified memory leaks coming from hash grids in JIT-compiled <CUDA C++> kernels using <Heaptrack> and <GDB>.",
 
-				'Ported OmniGraph (distributed <graph> engine) nodes for vector math from <Python> to <C++>, resulting in 4x speedup.',
+				'Ported OmniGraph (distributed <graph> engine) nodes for vector math from <Python> to <C++>, for a 4x speedup.',
 				// "Overhauled OmniGraph extension install system by integrating a global cache for dependencies, reducing build sizes 18+%",
 				'Improved OmniGraph extension installation with global cache, reducing build size by 18+%',
 				// the reason why nobody had done it was realistically because it was a huge pain in the ass to switch from all relative paths
@@ -68,7 +70,7 @@ export function get_items(print_experience: boolean) {
 			// repo: 'https://kaelan.xyz/resume?select=Trexo',
 			// website_link: true,
 			points: [
-				'Created a <Kotlin>+<Spring Boot> server on <AWS> to manage live data to and from <200 exoskeleton robots>.',
+				'Created a <Python> server on <AWS> to manage live data to and from <200 exoskeleton robots> running FreeRTOS.',
 				// 'Integrated registration, login, ',
 				'Implemented a fault-tolerant bidirectional <DB sync> (robot ↔ cloud) using <Merkle Tree> based algorithm.',
 				// 'Leveraged <Merkle Tree> data structure to bidirectionally sync onboard and cloud DBs, allowing seamless access for customers with spotty internet.',
@@ -91,11 +93,12 @@ export function get_items(print_experience: boolean) {
 			// repo: 'https://kaelan.xyz/resume?select=Pronti',
 			// website_link: true,
 			points: [
-				'Created Flask (<Python>) server for registration/logins using SMS 2FA, <JWT>, and <GraphQL> to reduce API boilerplate.',
+				'Created Flask (<Python>) login server w/ SMS 2FA, <JWT>, and <GraphQL> to reduce API boilerplate.',
 				// 'Created nightly job that scrapes clothing retailer websites and hydrates an ML pipeline where results are classified.',
 				// 'Reduced runtime of recommender algorithm by 75% by batching SQL queries, and caching results in <Redis>.',
 				// 'Migrated server container from <GCP> to <Kubernetes> to scale with an influx of users, and implemented waitlist/referral system to manage growth rate.'
-				'Migrated containers to <Kubernetes>, implemented waitlist/referral system to manage growth rate.'
+				// 'Migrated containers to <Kubernetes>, implemented waitlist/referral system to manage growth rate.'
+				'Created optimized <image pipeline> with resizing and compression using automatic cron job and ImageMagick.'
 				// 'Redesigned main DB schema to speed up CRUD with indexing and relationships, migrated <3M> rows using <Python> script, and used <GraphQL> to simplify the associated API endpoints.'
 				// 'Redesigned main DB schema to speed up CRUD with indexing and relations, migrated <3M> rows using <Python> script.'
 			]
@@ -108,7 +111,8 @@ export function get_items(print_experience: boolean) {
 			// repo: 'https://kaelan.xyz/resume?select=Backr',
 			// website_link: true,
 			points: [
-				'Ported high-volume ingestion microservice to <Go>, resulting in 4x speedup over OG <Python> implementation.',
+				// 'Ported high-volume ingestion microservice to <Go>, resulting in 4x speedup over OG <Python> implementation.',
+				'Created high-volume JSON ingestion microservice in <Python>, hosted with Docker on AWS.',
 				'Reduced <AWS> costs by refactoring monolithic ML pipeline into microservices to enable granular scaling.'
 				// 'Redesigned main DB schema to speed up CRUD with indexing and relationships, migrated <3M> rows using <Python> script, and used <GraphQL> to simplify the associated API endpoints.'
 				// 'Enhanced Docker Compose and CI/CD pipelines to the company\'s main projects.',
@@ -137,7 +141,7 @@ export function get_items(print_experience: boolean) {
 			// repo: 'https://kaelan.xyz/resume?select=North',
 			// website_link: true,
 			points: [
-				'Created optical raytracing engine using <OpenCV> matrices in <C++> and optimized for specialized ASIC.',
+				'Created optical simulation engine using <OpenCV> matrices in <C++> and optimized for specialized ASIC.',
 				'Worked with scientists to create a material property calculator with n-dimensional interpolation in <C++>.',
 				'Improved optical raytracing accuracy by 36% by developing a <DLL> plugin in <C++> for a simulation engine.'
 				// 'Automated high-powered laser test jig by developing a <Python> + <Arduino> IOT .',

@@ -1,6 +1,13 @@
 import { writable } from 'svelte/store';
 
 export let TagNames = {
+	OSCILLOSCOPE: 'Oscilloscope',
+	LOGIC_ANALYZER: 'Logic Analyzer',
+	SOLDERING: 'Soldering',
+	GDB: 'GDB',
+	JTAG: 'JTAG',
+	JIRA: 'Jira',
+
 	PCB: 'PCB Design',
 	PLC: 'PLC Programming',
 	SOLDERING: 'Soldering',
