@@ -10,7 +10,7 @@ export function get_items(print_experience: boolean) {
 			title: 'Tronix Product Design',
 			location: 'Toronto',
 			position: 'Embedded Software Developer',
-			date: "Oct '23 - Present",
+			date: "Dec '23 - Present",
 			points: [
 				'Designed and implemented <C> firmware leveraging <Zephyr RTOS> on an nRF52 ARM-based embedded system.',
 				// 'Implemented <Bluetooth> audio streaming from PDM mic with LC3 compression for offboard processing.',
