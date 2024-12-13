@@ -7,10 +7,22 @@ import {
 export function get_items(print_experience: boolean) {
 	let __items: ProtoItem[] = [
 		{
+			title: 'Apple',
+			location: 'Cupertino',
+			position: 'Software Development Engineer',
+			date: "Aug '24 - Present",
+			points: [
+				'Created a flexible markdown rendering mobile app in SwiftUI to address several use cases at once',
+				// 'Implemented <Bluetooth> audio streaming from PDM mic with LC3 compression for offboard processing.',
+				'Architected and implementd a 3d rendering + video conferencing app for vision pro',
+				'Created a form webapp using SvelteJS including 3d rendering in browser'
+			]
+		},
+		{
 			title: 'Tronix Product Design',
 			location: 'Toronto',
 			position: 'Embedded Software Developer',
-			date: "Dec '23 - Present",
+			date: "Dec '23 - July '24",
 			points: [
 				'Designed and implemented <C> firmware leveraging <Zephyr RTOS> on an nRF52 ARM-based embedded system.',
 				// 'Implemented <Bluetooth> audio streaming from PDM mic with LC3 compression for offboard processing.',
@@ -115,6 +127,7 @@ export function get_items(print_experience: boolean) {
 				// 'Desigustom graph datastructure for fast CRUD and scalability',
 			]
 		},
+		/*
 		{
 			title: 'CIBC',
 			location: 'Toronto',
@@ -128,7 +141,7 @@ export function get_items(print_experience: boolean) {
 				'Streamlined ticket inflow process for fraud reports by creating a <classifier> using spaCy, NLTK in <Python>.'
 				// 'Provided data visualiations by embedding Tableau dashboards in new <JS/SCSS/HTML> webapp, developed to help identify patterns that may indicate fraudulant transactions',
 			]
-		},
+		},*/
 		{
 			title: 'North Inc. (Acquired by Google)',
 			location: 'Waterloo',

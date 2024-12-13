@@ -72,7 +72,7 @@
 
 <!--project_card"-->
 <div 
-     class="flex flex-col items-start md:items-center h-fit mb-auto bg-blue-bgOuter rounded-xl border-2 border-grey-2"
+     class="flex items-start md:items-center h-fit mb-auto bg-blue-bgOuter rounded-xl border-2 border-grey-2"
      style="{$vp.layout < LAYOUT['md']?'max-width: '+$vp.width+'px; padding: 10px;':'padding: '+ProjImgConst.CARD_PAD+'px;'}">
      <!-- min-width: {$sz.pcard_width}px;"> -->
      <!-- max-width: {$vp.pcard_width}px"> -->
